@@ -13,4 +13,6 @@
 \subsubsection{Your subsubsection title here}
 \paragraph{Your paragraph title here}
 
+\input{politics.latex}
+
 \end{document}

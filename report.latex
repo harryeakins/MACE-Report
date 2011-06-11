@@ -1,6 +1,7 @@
 \documentclass{report}
 
 \usepackage{fullpage}
+\usepackage{graphicx}
 
 \renewcommand{\baselinestretch}{1.3}
 

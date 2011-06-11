@@ -1,6 +1,6 @@
-\documentclass{report}
+\documentclass[a4paper,12pt]{report}
 
-\usepackage{fullpage}
+\usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
 
 \renewcommand{\baselinestretch}{1.3}

@@ -11,11 +11,6 @@
 \maketitle
 \tableofcontents
 
-\chapter{Latex Style Examples}
-\section{Your Section title Here}
-\subsection{Your Subsection title here}
-\subsubsection{Your subsubsection title here}
-\paragraph{Your paragraph title here}
 
 \input{introduction.latex}
 \input{research.latex}

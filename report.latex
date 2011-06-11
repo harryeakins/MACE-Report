@@ -15,5 +15,9 @@
 
   \input{introduction.latex}
   \input{research.latex}
+  \input{design.latex}
+  \input{simulations.latex}
+  \input{results.latex}
+  \input{conclusion.latex}
 
 \end{document}

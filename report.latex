@@ -7,12 +7,13 @@
 \maketitle
 \tableofcontents
 
-\chapter{Introduction}
+\chapter{Latex Style Examples}
 \section{Your Section title Here}
 \subsection{Your Subsection title here}
 \subsubsection{Your subsubsection title here}
 \paragraph{Your paragraph title here}
 
-\input{politics.latex}
+\input{introduction.latex}
+\input{research.latex}
 
 \end{document}

@@ -8,11 +8,11 @@
 \author{ISE 2011}
 
 \begin{document}
-\maketitle
-\tableofcontents
 
+  \maketitle
+  \tableofcontents
 
-\input{introduction.latex}
-\input{research.latex}
+  \input{introduction.latex}
+  \input{research.latex}
 
 \end{document}

@@ -1,16 +1,12 @@
 \chapter{Design}
 \section{Our Framework}
-\paragraph{}
 Here we describe all of our incredible code and how it will change the world.
 
 \section{Emergent Behaviour}
-\paragraph{}
 How is our framework designed to give meaningful results from emergant behaviour (lots of references back to the research section). What do we expect to see?
 
 \section{Data Analysis}
-\paragraph{}
 Using our research, how will we evaluate the data? What does trust, happiness, loyalty, social belief, etc truly represent from a systemwide review.
 
 \section{Data Representation}
-\paragraph{}
 This is where the GUI and website team strutt their stuff.

@@ -20,4 +20,7 @@
   \input{results.latex}
   \input{conclusion.latex}
 
+  \bibliographystyle{IEEEtran}
+  \bibliography{references.bib}
+
 \end{document}

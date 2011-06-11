@@ -1,6 +1,6 @@
 \documentclass{report}
 \usepackage{fullpage}
-\renewcommand{\baselinestretch}{2}
+\renewcommand{\baselinestretch}{1.3}
 \author{ISE 2011}
 \title{MACE: Multi Agent Community Evolution}
 \begin{document}

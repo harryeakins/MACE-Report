@@ -9,7 +9,7 @@ How is our framework designed to give meaningful results from emergant behaviour
 What types of agents did we use? What information is available to them in the simulation? What type of heuristics do they use to make decisions? Are there different implementations of agents?
 
 \section{Simulation Design}
-What type of simulation do we intend to run. What parameters are they gonna use and what agents types (look above). Each group of simulation will be under a different research question (hypothesis). Eg. What hunting strategies are best under different rabbit/stag food values? What agent type fares best under ____ (certain set of parameters) conditions? Do we get emergent dictatorships if one agent is a lot better at making decisions (predicting food) than all the other? Do we get democracies if everyone is good at making decisions?
+What type of simulation do we intend to run. What parameters are they gonna use and what agents types (look above). Each group of simulation will be under a different research question (hypothesis). Eg. What hunting strategies are best under different rabbit/stag food values? What agent type fares best under xxxx (certain set of parameters) conditions? Do we get emergent dictatorships if one agent is a lot better at making decisions (predicting food) than all the other? Do we get democracies if everyone is good at making decisions?
 
 \section{Data Analysis}
 Using our research, how will we evaluate the data? What does trust, happiness, loyalty, social belief, etc truly represent from a systemwide review.

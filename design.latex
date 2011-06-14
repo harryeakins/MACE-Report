@@ -1,25 +1,48 @@
 \chapter{Design}
 
 \section{Our Framework}
-Here we describe all of our incredible code and how it will change the world.
+[Here we describe all of our incredible code and how it will change the world.
 Basic flow of the system
-Agents, environment, groups
-Feedback Loops
+Agents, environment, groups, Feedback Loops
 
-ASSIGN TO: Ben, Olly
+ASSIGN TO: Olly]
+
+The system itself is divided into two parts: the environment and agents.
+The Evironment models the world and holds all relevent data, such as what animals exist and the status of agents; agents model the hunters themselves and how they interact with each other and the environment. 
+Groups are a specific subset of agents, with additional relevant information.
+Agents and the environment interact with each other via actions and inputs. 
+Actions are performed by agents and cause some change in the environment - examples include hunting or dying.
+Inputs are provided to the agents by the environment, often as the result of an action - such as how much food they gained by hunting. 
+
+Agents and groups are descended from abstract classes, which contain default or abstract functions. 
+This allows the creation of custom agents and groups, which can have wildly varying statistics - amost everything is customizable, to allow maximum exploration of each factor's effect upon the simulation.
+
 
 \section{Implemented Behaviour}
-How is the system designed to behave?
+[How is the system designed to behave?
 Loyalty, Happiness, Trust, etc?
 Agent Design/Playing Games
 
-ASSIGN TO: Olly
+ASSIGN TO: Olly]
+
+Each agent has a number of characteristics (scaled between 0 and 1) to indicate their current state of mind: Happiness - how happy the agent is (commonly measured by how much food they have), loyalty - how used they are to being in their current group, trust - how much they value the advice of each other agent and an economic belief - which dictates their preferred method of food distribution.
+
+Happiness and Loyalty can together be considered a "satisfaction level", which is used to decide whether an agent remains in a group or not.
+These values are frequently updated and can br affected by many things, which are specified when creating the agent.
+
+[more detail about trust and playing the stag hunt game and moving groups' economic belief - asking advice costs food]
+[Group movement about economic axis]
 
 \section{Emergent Behaviour}
 What behaviour do we expect to emerge?
 How can we see it emerging?
 
-ASSIGN TO: Olly
+Over time, those agents better at predicting what to hunt should gain the trust of their fellow hunters. 
+As a result, other agents should tend to refer mostly to a competent for advice - these competent hunters would act as "leaders" for the group.
+In this way, we expect to see leaders form with a group - although, the number of leaders within a group would be determined by relative hunting skills.
+Similarly, when group movement on the economic axis is proposed, the more trusted group members will be more likely to succeed in their proposals, and will have more influence on the group's position.
+Indeed, the number of leaders within the group allows us to see a model of political systems - if there is only one leader who's opinion is very important to all group memebers, this is analagous to a dictatorship as this one agent essentially dicates what the others hunt and where the group is on the axis. Similarly, if all group members are equally trusted, all members must agree on movement about the axis and what to hunt to gain concensus - modelling social libertarianism. 
+This can be combined with the economic axis itself to give us a rough position on the political compass discussed earlier.
 
 \section{Data Representation}
 This is where the GUI and website team strutt their stuff.

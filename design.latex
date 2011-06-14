@@ -25,7 +25,7 @@ This allows the creation of custom agents and groups, which can have wildly vary
 
 Each agent has a number of characteristics (scaled between 0 and 1) to indicate their current state of mind: Happiness - how happy the agent is (commonly measured by how much food they have), loyalty - how used they are to being in their current group, trust - how much they value the advice of each other agent and an economic belief - which dictates their preferred method of food distribution.
 
-Happiness and Loyalty can together be considered a "satisfaction level", which is used to decide whether an agent remains in a group or not.
+Happiness and Loyalty can together be considered a ``satisfaction level", which is used to decide whether an agent remains in a group or not.
 These values are frequently updated and can br affected by many things, which are specified when creating the agent.
 
 %more detail about trust and playing the stag hunt game and moving groups' economic belief - asking advice costs food

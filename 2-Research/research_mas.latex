@@ -103,7 +103,7 @@
 	They base their decision making entirely on the present, with no reference at all to the past.
 	\begin{equation}
 		Action : E \rightarrow Ac
-		\label{eq:action}
+		\label{eq:action_def}
 	\end{equation}
 
 	For example: a thermostat is a purely reactive agent. 

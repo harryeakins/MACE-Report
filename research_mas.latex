@@ -57,37 +57,88 @@
 \label{agents}
 
 \subsubsection{Abstract Architectures for Agents}
-All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
+	All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
 
-\begin{equation}
-	E = \{ e_0, e_1, e_2, \cdots\}
-\end{equation}
+	\begin{equation}
+		E = \{ e_0, e_1, e_2, \cdots\}
+		\label{e}
+	\end{equation}
 
-Agents are assumed to have a set of actions Ac that can move currently environment state into some other states.
-In this way, agent is interacting with the environment.
-A run $r$ of an agent in an environment is a sequence of interleaved environment states and agent actions. 
-This sequence may be end with environment state or agent action, represented by $R^E$ and $R^{Ac}$ respectively.
-A state transformer function $\tau$ represents the behaviour of the environment:
+	Agents are assumed to have a set of actions Ac that can move currently environment state into some other states.
+	In this way, agent is interacting with the environment.
+	A run $r$ of an agent in an environment is a sequence of interleaved environment states and agent actions. 
+	This sequence may be end with environment state or agent action, represented by $R^E$ and $R^{Ac}$ respectively.
+	A state transformer function $\tau$ represents the behaviour of the environment:
 
-\begin{equation}
-	\tau : R^{Ac} \rightarrow s(E)
-\end{equation}
+	\begin{equation}
+		\tau : R^{Ac} \rightarrow s(E)
+		\label{tau}
+	\end{equation}
 
-If $\tau$($r$) = NULL, it clearly indicates that there is no possible successor states to r, so it is the terminal of the run (game over). 
-Thus the environment is defined in a 3-tuple state: 
+	If $\tau$($r$) = NULL, it clearly indicates that there is no possible successor states to r, so it is the terminal of the run (game over). 
+	Thus the environment is defined in a 3-tuple state: 
 
-\begin{equation}
-	Env = < E, e_0, \tau>
-\end{equation}
+	\begin{equation}
+		Env = < E, e_0, \tau>
+		\label{env}
+	\end{equation}
 
-Where $E$ is the set of states of environment, $e_0$ is the initial state of environment and $\tau$ is the transformer function. 
-Now let's consider the state of agents.
-For an agent, it just performs an particular action according to the run sequence. 
-Agent is a function which maps runs to actions:
+	Where $E$ is the set of states of environment, $e_0$ is the initial state of environment and $\tau$ is the transformer function. 
+	Now let's consider the state of agents.
+	For an agent, it just performs an particular action according to the run sequence. 
+	Agent is a function which maps runs to actions:
 
-\begin{equation}
-	Ag : R^E \rightarrow Ac
-\end{equation}
+	\begin{equation}
+		Ag : R^E \rightarrow Ac
+		\label{ag}
+	\end{equation}
+
+	Agent makes a decision about what action to perform based on the history of how the environment changes over time that it has witnessed to date.
+	These data can be stored as a property of the agent's attribute.
+
+\subsubsection{Purely Reactive Agent}
+\label{subs:pra}
+
+	This kind of agents take actions only depends on the currently state of the environment, nothing to do with their history.
+	They base their decision making entirely on the present, with no reference at all to the past.
+	\begin{equation}
+		Action : E \rightarrow Ac
+		\label{eq:action}
+	\end{equation}
+
+	For example: a thermostat is a purely reactive agent. 
+	It's job is to keep the temperature constant inside the room. 
+	There are two states of the environment such that one is the room is under a threshold value, we assign this as state $e_1$.
+	On the other hand, if the temperature is under normal condition, we assign it to state $e_2$.
+	So for this particular agent, if it is in environment $e_1$, it just simply takes on the action that turns the heater on.
+	Otherwise, in condition of $e_2$, it will turn off the heater.
+	In this system, the agent is purely reactive, which is only making decisions based on the currently environment state and nothing to do with the past. 
+
+\subsubsection{Perceptive Agent}
+\label{subs:percept_agent}
+
+	Perceptive agent is slightly more complex than the purely reactive agent.
+	It now takes two steps to make decisions. 
+	The agent now has the ability to observe the environment with a see function, whereas the action function represents the agent's decision making process.
+	% Graph needed here
+	The see function maps the environment state E to a percept of the agent's view of the world. 
+	\begin{equation}
+		See : E \rightarrow Per
+		\label{see}
+	\end{equation}
+	And action now maps sequence of percept to actions instead of mapping environment to actions directly.
+	\begin{equation}
+		Action : Per^* \rightarrow Ac
+		\label{action}
+	\end{equation}
+	$Per^*$ is a sequence of percept because the agent can record all it have seen in the past which indicates that the agent can learn from the history and then make decisions. 
+	Improve this a bit more we get the agent with states.
+
+\subsubsection{Agents with State}
+\label{agent with state}
+
+	% Graph needed here
+	
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
@@ -112,7 +163,7 @@ Agent is a function which maps runs to actions:
 	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}. \\
 	\begin{figure}[ht]
 		\centering
-			\includegraphics[width=0.4\textwidth]{figures/euler.pdf}
+			\includegraphics[width=0.4\linewidth]{figures/euler.pdf}
 		\caption{The imprecise nature of Euler's method}
 		\small{The smooth line represents the continuous time integration of $f(t)$.
 			The line joining dots is the discrete time variation using Euler's method.}

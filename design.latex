@@ -24,24 +24,34 @@ This allows the creation of custom agents and groups, which can have wildly vary
 %ASSIGN TO: Olly
 
 Each agent has a number of characteristics (scaled between 0 and 1) to indicate their current state of mind: Happiness - how happy the agent is (commonly measured by how much food they have), loyalty - how used they are to being in their current group, trust - how much they value the advice of each other agent and an economic belief - which dictates their preferred method of food distribution.
-
 Happiness and Loyalty can together be considered a ``satisfaction level", which is used to decide whether an agent remains in a group or not.
-These values are frequently updated and can br affected by many things, which are specified when creating the agent.
 
-%more detail about trust and playing the stag hunt game and moving groups' economic belief - asking advice costs food
+Trust heavily effects the playing of the stag hunt game. Before deciding exactly what to hunt, each agent has the opportunity to ask other agents what they should hunt.
+This asking of advice costs some amount of food, so they have to limit who they ask to who they feel gives the best advice.
 
-%Group movement about economic axis
+Trust also plays a large role in the movement of groups on the economic scale. 
+Towards the end of the turn, each agent proposes a movement of the group and votes upon each proposal, with each proposal needing a raw 50% of the vote to succeed.
+To prevent large movements, the movement value of all successful proposals is rescaled to accurately reflect the total desired movement.
+The group's position on the axis represents how much of their own food an agent keeps after the hunt - the far left is at 0%, which represents 100% tax and a communist equal distribution system.
+The other end of the scale is 100%, where everyone keeps exactly what they hunt and get nothing from others - a case of extreme capitalism.
+
+All of these attributes are frequently updated and can be affected by any number things which are specified when creating the agent. 
+This allows each agent to respond differently to stimuli, making the simulation very open and free-flowing, with huge numbers of potential combinations.
 
 \section{Emergent Behaviour}
-%What behaviour do we expect to emerge?
-%How can we see it emerging?
 
 Over time, those agents better at predicting what to hunt should gain the trust of their fellow hunters. 
-As a result, other agents should tend to refer mostly to a competent for advice - these competent hunters would act as ``leaders" for the group.
-In this way, we expect to see leaders form with a group - although, the number of leaders within a group would be determined by relative hunting skills.
+As a result, other agents should tend to refer mostly to the more competent for advice - these competent hunters would act as ``leaders" for the group.
+In this way, we expect to see leaders emerge within a group, as most of the group comes to trust their advice on hunting decisions.
 Similarly, when group movement on the economic axis is proposed, the more trusted group members will be more likely to succeed in their proposals, and will have more influence on the group's position.
-Indeed, the number of leaders within the group allows us to see a model of political systems - if there is only one leader who's opinion is very important to all group memebers, this is analagous to a dictatorship as this one agent essentially dicates what the others hunt and where the group is on the axis. Similarly, if all group members are equally trusted, all members must agree on movement about the axis and what to hunt to gain concensus - modelling social libertarianism. 
-This can be combined with the economic axis itself to give us a rough position on the political compass discussed earlier.
+A group could even have more than one leader, if a number of individuals were to simultaneously give out good advice.
+
+Indeed, the number of leaders within the group allows us to see a model of political systems - if there is only one leader who's opinion is very important to all group memebers, then this is analagous to a dictatorship as this one agent essentially dicates what the others hunt and where the group is on the axis. Similarly, if all group members are equally trusted, all members must agree on movement about the axis and what to hunt to gain concensus - modelling social libertarianism. 
+This can give an approximate position on the vertical axis of the political compass discussed earlier, allowing us to place the group onto the compass and visualize the political situation of groups and agents.
+
+Other behaviour could certainly emerge - do groups tend to polarize or end up in the middle of the compass? 
+What happens if a group has as small number of strong leaders - will it fracture or function oligopolistically?
+These and other questions are what we hope to explore via the simulations, and hopefully even find totally unexpected behaviour emerging.
 
 \section{Data Representation}
 This is where the GUI and website team strutt their stuff.

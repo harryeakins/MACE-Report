@@ -97,7 +97,7 @@
 	These data can be stored as a property of the agent's attribute.
 
 \subsubsection{Purely Reactive Agent}
-\label{subs:pra}
+\label{subs:purely_reactive_agent}
 
 	This kind of agents take actions only depends on the currently state of the environment, nothing to do with their history.
 	They base their decision making entirely on the present, with no reference at all to the past.
@@ -135,10 +135,39 @@
 	Improve this a bit more we get the agent with states.
 
 \subsubsection{Agents with State}
-\label{agent with state}
+\label{sub:agent_with_state}
 
 	% Graph needed here
+	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
+	So we introduce I to be the set of all internal states.
+	For this type of agent, the function see doesn't change at all, still maps the environment state E to the percept Per.
 
+	\begin{equation}
+		See : E \rightarrow Per
+		\label{eq:see}
+	\end{equation}
+
+	But for the action part, it is now defined in a different way as the interference of those internal states of agents.
+	The action of a agent is actually decided by the set of internal states $I$:
+
+	\begin{equation}
+		Action : I \rightarrow Ac
+		\label{eq:action}
+	\end{equation}
+
+	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like a feed back in the digital electronic field.
+	This function maps an internal state and a percept to a new internal state.
+	It seems like the agent is learning something slowly form the changing environment states and each time varies its internal states as well.
+
+	\begin{equation}
+		Next : I*Per \rightarrow I 
+		\label{next}
+	\end{equation}
+
+	So in conclusion, the agent first observes the environment, then it modifies the internal states according to the concept and the current internal states.
+	Depends on this new achieving internal state, the agent can carry on with different actions.
+	This action will somehow affect the environment and update the environment states. 
+	This goes on as a loop forever until the agent dies.
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}

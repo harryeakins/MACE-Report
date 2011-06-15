@@ -53,6 +53,42 @@
 % subsection Formal Definition of the Multi-Agent System (end)
 
 
+\subsection{Agents}% {fold}
+\label{agents}
+
+\subsubsection{Abstract Architectures for Agents}
+All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
+
+\begin{equation}
+	E = \{ e_0, e_1, e_2, \cdots\}
+\end{equation}
+
+Agents are assumed to have a set of actions Ac that can move currently environment state into some other states.
+In this way, agent is interacting with the environment.
+A run $r$ of an agent in an environment is a sequence of interleaved environment states and agent actions. 
+This sequence may be end with environment state or agent action, represented by $R^E$ and $R^{Ac}$ respectively.
+A state transformer function $\tau$ represents the behaviour of the environment:
+
+\begin{equation}
+	\tau : R^{Ac} \rightarrow s(E)
+\end{equation}
+
+If $\tau$($r$) = NULL, it clearly indicates that there is no possible successor states to r, so it is the terminal of the run (game over). 
+Thus the environment is defined in a 3-tuple state: 
+
+\begin{equation}
+	Env = < E, e_0, \tau>
+\end{equation}
+
+Where $E$ is the set of states of environment, $e_0$ is the initial state of environment and $\tau$ is the transformer function. 
+Now let's consider the state of agents.
+For an agent, it just performs an particular action according to the run sequence. 
+Agent is a function which maps runs to actions:
+
+\begin{equation}
+	Ag : R^E \rightarrow Ac
+\end{equation}
+
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
 

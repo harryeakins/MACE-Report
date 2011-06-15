@@ -56,7 +56,9 @@
 \subsection{Agents} % (fold)
 \label{sub:agents}
 
-\subsubsection{Abstract Architectures for Agents}
+
+\subsubsection{Abstract Architectures for Agents} % (fold)
+
 	All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
 
 	\begin{equation}
@@ -96,7 +98,10 @@
 	Agent makes a decision about what action to perform based on the history of how the environment changes over time that it has witnessed to date.
 	These data can be stored as a property of the agent's attribute.
 
-\subsubsection{Purely Reactive Agent}
+% subsubsection Abstract Architectures for Agents (end)
+
+
+\subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
 
 	This kind of agents take actions only depends on the currently state of the environment, nothing to do with their history.
@@ -114,7 +119,10 @@
 	Otherwise, in condition of $e_2$, it will turn off the heater.
 	In this system, the agent is purely reactive, which is only making decisions based on the currently environment state and nothing to do with the past. 
 
-\subsubsection{Perceptive Agent}
+% subsubsection Purely Reactive Agent (end)
+
+
+\subsubsection{Perceptive Agent} % (fold)
 \label{subs:percept_agent}
 
 	Perceptive agent is slightly more complex than the purely reactive agent.
@@ -134,8 +142,11 @@
 	$Per^*$ is a sequence of percept because the agent can record all it have seen in the past which indicates that the agent can learn from the history and then make decisions. 
 	Improve this a bit more we get the agent with states.
 
-\subsubsection{Agents with State}
-\label{sub:agent_with_state}
+% subsubsection Perceptive Agent (end)
+
+
+\subsubsection{Agents with State} % (fold)
+\label{subs:agent_with_state}
 
 	% Graph needed here
 	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
@@ -165,6 +176,12 @@
 	Depends on this new achieving internal state, the agent can carry on with different actions.
 	This action will somehow affect the environment and update the environment states. 
 	This goes on as a loop forever until the agent dies.
+
+% subsubsection Agents with State (end)
+
+
+% subsection Agents
+
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}

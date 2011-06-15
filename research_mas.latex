@@ -53,8 +53,8 @@
 % subsection Formal Definition of the Multi-Agent System (end)
 
 
-\subsection{Agents}% {fold}
-\label{agents}
+\subsection{Agents} % (fold)
+\label{sub:agents}
 
 \subsubsection{Abstract Architectures for Agents}
 	All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
@@ -138,7 +138,7 @@
 \label{agent with state}
 
 	% Graph needed here
-	
+
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
@@ -170,7 +170,9 @@
 		\label{fig:euler}
 	\end{figure}
 
-	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases, because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. % TODO need justification
+	% TODO need justification, will be looked at after simulation results.
+	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases.
+	Because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. 
 
 % subsubsection Necessity of Validation (end)
 

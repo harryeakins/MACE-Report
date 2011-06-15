@@ -141,7 +141,6 @@
 	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
 	So we introduce I to be the set of all internal states.
 	For this type of agent, the function see doesn't change at all, still maps the environment state E to the percept Per.
-
 	\begin{equation}
 		See : E \rightarrow Per
 		\label{eq:see}
@@ -149,7 +148,6 @@
 
 	But for the action part, it is now defined in a different way as the interference of those internal states of agents.
 	The action of a agent is actually decided by the set of internal states $I$:
-
 	\begin{equation}
 		Action : I \rightarrow Ac
 		\label{eq:action}
@@ -158,9 +156,8 @@
 	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like a feed back in the digital electronic field.
 	This function maps an internal state and a percept to a new internal state.
 	It seems like the agent is learning something slowly form the changing environment states and each time varies its internal states as well.
-
 	\begin{equation}
-		Next : I*Per \rightarrow I 
+		Next : I \times Per \rightarrow I
 		\label{next}
 	\end{equation}
 

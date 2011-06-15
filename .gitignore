@@ -29,6 +29,9 @@
 *.pdf
 *.pyg
 
+# Except pdf file in figures dir
+!figures/*.pdf
+
 # Mac specific
 .DS_Store
 

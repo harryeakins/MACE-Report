@@ -14,12 +14,12 @@
   \maketitle
   \tableofcontents
 
-  \input{introduction.latex}
-  \input{research.latex}
-  \input{design.latex}
-  \input{simulations.latex}
-  \input{results.latex}
-  \input{conclusion.latex}
+  \input{1-Introduction/introduction.latex}
+  \input{2-Research/research.latex}
+  \input{3-Design/design.latex}
+  \input{4-Simulations/simulations.latex}
+  \input{5-Results/results.latex}
+  \input{6-Conclusion/conclusion.latex}
 
   \bibliographystyle{IEEEtran}
   \bibliography{references.bib}

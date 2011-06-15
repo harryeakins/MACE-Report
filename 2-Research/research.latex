@@ -1,7 +1,7 @@
 \chapter{Research}
 
 % section: Multi-Agent Systems
-\input{research_mas.latex}
+\input{2-Research/research_mas.latex}
 
 \section{Politics and Community}
 How do we evaulate people's political beliefs? (the political compass)

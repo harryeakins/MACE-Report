@@ -118,7 +118,9 @@ Agent is a function which maps runs to actions:
 		\label{fig:euler}
 	\end{figure}
 
-	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases, because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. % TODO need justification
+	% TODO need justification, will be looked at after simulation results.
+	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases.
+	Because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. 
 
 % subsubsection Necessity of Validation (end)
 

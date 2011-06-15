@@ -7,7 +7,7 @@
 % ASSIGNED TO: Adam, Ricky, Bo
 
 \subsection{Formal Definition of the Multi-Agent System} % (fold)
-\label{sec:mas_fd}
+\label{sub:mas_fd}
 
 	A multi-agent system is defined as a 3-tuple\cite{mas_book,fagin_95}
 	\begin{equation}
@@ -53,15 +53,11 @@
 % subsection Formal Definition of the Multi-Agent System (end)
 
 
-% section Multi-Agent Systems (end)
+\subsection{Validation of the Agent-Based Simulation} % (fold)
+\label{sub:validation}
 
-
-\section{Validation of the Agent-Based Simulation} % (fold)
-\label{sec:validation}
-
-
-\subsection{Necessity of Validation} % (fold)
-\label{sub:validation_necessity}
+\subsubsection{Necessity of Validation} % (fold)
+\label{subs:validation_necessity}
 
 	% detailed reasons besides structural problems, especially time \& space quantisation
 	Recall the definition of a run of a multi-agent system above in \eqref{eq:run}, it is immediately clear that the system evolves in discrete time.
@@ -89,11 +85,11 @@
 
 	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases, because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. % TODO need justification
 
-% subsection Necessity of Validation (end)
+% subsubsection Necessity of Validation (end)
 
 
-\subsection{Sensitivity Analysis} % (fold)
-\label{sub:validation_sensitivity_analysis}
+\subsubsection{Validation With Sensitivity Analysis} % (fold)
+\label{subs:validation_sensitivity_analysis}
 
 	One of the methods of validation that can be employed is sensitivity analysis.
 	Sensitivity analysis can often give indications of design problems that did not anticipate at the design process.
@@ -168,11 +164,11 @@
 	\end{equation}
 	since it does not change significant enough for all variances of inputs, it does not provide much insight to the system by changing input parameters.
 
-% subsection Sensitivity Analysis (end)
+% subsubsection Sensitivity Analysis (end)
 
 
-\subsection{Comparing Results With Expected Outcomes By Regression Analysis} % (fold)
-\label{sub:validation_comparision}
+\subsubsection{Comparing Results With Expected Outcomes By Regression Analysis} % (fold)
+\label{subs:validation_comparision}
 
 	Besides validation with sensitivity analysis, it is also possible to test the simulation outcomes against some of the well established theories.
 	By way of illustration, in a simulated ecosystem one could use the generalised version of the Lotka-Volterra equations\cite{mas_lotka1,mas_lotka2} to perform regression analysis of the populations of all species within the system.
@@ -208,7 +204,10 @@
 
 	With equations \eqref{eq:general_lv} and \eqref{eq:dxdt_approx}, one can easily perform linear regression in the $(\mathbf{x},\frac{d\mathbf{x}}{dt})$ space to find the values of the intrinsic growth rate vector $\mathbf{r}$ and the interaction matrix $A$.
 
-% subsection Comparing Results With Expected Outcomes (end)
+% subsubsection Comparing Results With Expected Outcomes (end)
 
 
-% section Validation of the Agent-Based Simulation (end)
+% subsection Validation of the Agent-Based Simu (end)
+
+
+% section Multi-Agent Systems (end)

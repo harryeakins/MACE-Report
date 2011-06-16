@@ -206,7 +206,7 @@
 	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}. \\
 	\begin{figure}[ht]
 		\centering
-			\includegraphics[width=0.4\linewidth]{figures/euler.pdf}
+			\includegraphics[width=0.4\linewidth]{figures/euler}
 		\caption{The imprecise nature of Euler's method}
 		\small{The smooth line represents the continuous time integration of $f(t)$.
 			The line joining dots is the discrete time variation using Euler's method.}

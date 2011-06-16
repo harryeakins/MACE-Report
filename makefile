@@ -1,6 +1,5 @@
 TARGET_FILES = report.pdf
-SOURCE_FILES = $(wildcard *.latex)
-SOURCE_SVGS  = $(wildcard *.svg)
+SOURCE_FILES = $(wildcard **/*.latex)
 
 .DEFAULT: all-no-logs
 .SUFFIXES:

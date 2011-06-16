@@ -62,3 +62,8 @@ methods; these will include calling the apporiate abstract methods (that will
 have been implemented by the derived code).
 The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
 
+TODO: Discuss the meanings of different tunrs
+TODO: Mentions the free agent group
+TODO: Describe why soem things are syncronous
+TODO: Possibly discuss how the encapsulation works
+TODO: Make reference to the repeatability parameters

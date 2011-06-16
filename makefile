@@ -14,6 +14,7 @@ all-no-logs : all log-clean
 	dvipdf $< > $@
 
 %.dvi : %.latex %.toc %.bbl
+	echo "================ MAIN BUILD ==================="
 	latex $<
 
 %.toc : %.latex %.aux %.bbl

@@ -22,6 +22,6 @@
   \input{6-Conclusion/conclusion.latex}
 
   \bibliographystyle{IEEEtran}
-  \bibliography{references.bib}
+  \bibliography{references}
 
 \end{document}

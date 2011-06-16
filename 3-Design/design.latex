@@ -1,4 +1,7 @@
 \chapter{Design}
+\emph{Section needs to be refactored to include new aim}
+
+\input{3-Design/aim.latex}
 
 \input{3-Design/framework.latex}
 

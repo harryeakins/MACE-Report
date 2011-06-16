@@ -1,0 +1,4 @@
+\section{Our Aim}
+In implementing this system, we hope to give it some real world application, adding relevance to the framework beyond that of just a simulator. There are numerous situations which involve cooperation vs defection and an idea of rewards and punishements based on a given agents beliefs. Moreover, we also have the idea of a group encorporated in our system, and through this group interaction, we can hope to develop a fair number of interesting results.
+
+Using trust, happiness and food as the three key resources, we could apply our model to the real world situation involving countries loaning large amounts of money to bail out other countries in debt. Is this a good long term strategy, and if so under what conditions? In this report we hope to answer this question using various simulations sourced from our framework, and the appropriate analysis.

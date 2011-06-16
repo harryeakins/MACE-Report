@@ -5,7 +5,7 @@ SOURCE_FILES = $(wildcard **/*.latex)
 .SUFFIXES:
 .PHONY: all all-no-logs clean util-clean log-clean template.pdf
 .INTERMEDIATE: %.aux %.dvi %.nav %.out %.snm %.vrb
-.PRECIOUS: %.toc %.log
+.PRECIOUS: %.toc %.log %.aux
 
 all : $(TARGET_FILES) util-clean
 all-no-logs : all log-clean
@@ -13,19 +13,23 @@ all-no-logs : all log-clean
 %.pdf : %.dvi
 	dvipdf $< > $@
 
-%.dvi : %.latex %.toc
+%.dvi : %.latex %.toc %.bbl
 	latex $<
 
-%.toc : %.latex $(SOURCE_FILES)
+%.toc : %.latex %.aux %.bbl
 	latex $<
+
+%.aux : %.latex $(SOURCE_FILES)
 	latex $<
+
+%.bbl : %.aux
+	bibtex $<
 
 clean : util-clean log-clean
 	rm -f $(TARGET_FILES)
 
 util-clean :
 	rm -f $(subst .pdf,.dvi,$(TARGET_FILES))
-	rm -f $(subst .pdf,.aux,$(TARGET_FILES))
 	rm -f $(subst .pdf,.out,$(TARGET_FILES))
 	rm -f $(subst .pdf,.snm,$(TARGET_FILES))
 	rm -f $(subst .pdf,.vrb,$(TARGET_FILES))

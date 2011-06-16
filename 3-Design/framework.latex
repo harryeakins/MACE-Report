@@ -1,0 +1,17 @@
+\section{Our Framework}
+%Here we describe all of our incredible code and how it will change the world.
+%Basic flow of the system
+%Agents, environment, groups, Feedback Loops.
+%ASSIGN TO: Olly
+
+The system itself is divided into two parts: the environment and agents.
+The Evironment models the world and holds all relevent data, such as what animals exist and the status of agents;
+agents model the hunters themselves and how they interact with each other and the environment.
+Groups are a specific subset of agents, with additional relevant information.
+Agents and the environment interact with each other via actions and inputs.
+Actions are performed by agents and cause some change in the environment - examples include hunting or dying.
+Inputs are provided to the agents by the environment, often as the result of an action - such as how much food they gained by hunting.
+
+Agents and groups are descended from abstract classes, which contain default or abstract functions.
+This allows the creation of custom agents and groups, which can have wildly varying statistics -
+almost everything is customizable, to allow maximum exploration of each factor's effect upon the simulation.

@@ -5,7 +5,7 @@ SOURCE_FILES = $(wildcard **/*.latex)
 .SUFFIXES:
 .PHONY: all all-no-logs clean util-clean log-clean template.pdf
 .INTERMEDIATE: %.aux %.dvi %.nav %.out %.snm %.vrb
-.PRECIOUS: %.toc %.log %.aux
+.PRECIOUS: %.toc %.log
 
 all : $(TARGET_FILES) util-clean
 all-no-logs : all log-clean
@@ -23,7 +23,7 @@ all-no-logs : all log-clean
 %.aux : %.latex $(SOURCE_FILES)
 	latex $<
 
-%.bbl : %.aux
+%.bbl : %.aux $(wildcard *.bib)
 	bibtex $<
 
 clean : util-clean log-clean

@@ -1,6 +1,5 @@
 TARGET_FILES = report.pdf
-SOURCE_FILES = $(wildcard *.latex)
-SOURCE_SVGS  = $(wildcard *.svg)
+SOURCE_FILES = $(wildcard **/*.latex)
 
 .DEFAULT: all-no-logs
 .SUFFIXES:
@@ -14,19 +13,24 @@ all-no-logs : all log-clean
 %.pdf : %.dvi
 	dvipdf $< > $@
 
-%.dvi : %.latex %.toc
+%.dvi : %.latex %.toc %.bbl
+	echo "================ MAIN BUILD ==================="
 	latex $<
 
-%.toc : %.latex $(SOURCE_FILES)
+%.toc : %.latex %.aux %.bbl
 	latex $<
+
+%.aux : %.latex $(SOURCE_FILES)
 	latex $<
+
+%.bbl : %.aux $(wildcard *.bib)
+	bibtex $<
 
 clean : util-clean log-clean
 	rm -f $(TARGET_FILES)
 
 util-clean :
 	rm -f $(subst .pdf,.dvi,$(TARGET_FILES))
-	rm -f $(subst .pdf,.aux,$(TARGET_FILES))
 	rm -f $(subst .pdf,.out,$(TARGET_FILES))
 	rm -f $(subst .pdf,.snm,$(TARGET_FILES))
 	rm -f $(subst .pdf,.vrb,$(TARGET_FILES))

@@ -3,6 +3,7 @@
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath} % mathematics
+\usepackage{url}
 
 \renewcommand{\baselinestretch}{1.3}
 
@@ -22,6 +23,6 @@
   \input{6-Conclusion/conclusion.latex}
 
   \bibliographystyle{IEEEtran}
-  \bibliography{references.bib}
+  \bibliography{references}
 
 \end{document}

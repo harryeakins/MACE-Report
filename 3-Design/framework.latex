@@ -1,0 +1,76 @@
+\section{Framework}
+%Here we describe all of our incredible code and how it will change the world.
+%Basic flow of the system
+%Agents, environment, groups, Feedback Loops.
+%ASSIGN TO: Olly
+
+The framework, on which the simulations were built and forms the core of MACE,
+was itself built on the multi-agent simulation system Presage
+\footnote{\url{https://sites.google.com/site/presageproject}, \url{http://sammacbeth.github.com/Presage/}}.
+Presage is a `time' driven system: the simulations is divided into discrete
+cycles, in which each participant processes any queued inputs, and respond with
+any appropriate actions. The environment, which represents the world in which
+the participants are acting, processed these actions and, if applicable, send
+inputs to participants informing them of changes that might have taken place.
+The messaging framework is deisgned to be primarily asynchronous, with the
+information not being processed until the following cycle, but allows for
+synchronous messaging via clever use of code.
+
+The purpose of the framework was to allow a number of agents to play the
+grouping and stag games. To this end, it was implemented as an abstraction and
+a security layer, simultaneously defining a simple interface between agent code
+and the enironment and simulation layers, whilst also not allowing the agents to
+cheat. Three major classes were implemented:
+\begin{itemize}
+\item{
+The Evironment, which models the world and holds all relevent data,
+such as what animals exist and the status of agents;
+}
+\item{
+The AbstractAgent, which models the hunters themselves and wraps around both the hunter's
+data model and the set of actions that they may perform (and when they may perform them)
+}
+\item{
+The AbstractGroup, which models a group (or tribe) of agents, wrapping around the backing
+model and the actions the groups can perform
+}
+\end{itemize}
+
+\begin{figure}[p]
+  \caption{TODO: Write some words about this}
+	\label{framework-flow}
+  \includegraphics[width=1.0\textwidth]{figures/framework}
+\end{figure}
+
+The actual simuation uses Agents and Groups that are derived from the
+AbstractAgent and AbstractGroup, which are treated as hostile code - in the
+future, these classes may be written by parties that wish to break the rues of
+the system, so the interactions have to a mediated and controlled by the
+Abstract implementations. This was achieved by implementing many members as
+private (including all data memebers), and any non-private members were declared
+as `final', thus stopping dervived classes from altering their functionality.
+The remainder of the code was formed as a number of protected abstract methods,
+which need to be implmented by the drevived agent or group, which are used for
+all interactions.
+
+Due to the overall complexity of the three games when combined, and the defualt
+asynchronous nature of the underlying framework, we opted to have each round
+of the games being execute over a number of cycles, each with a well defined
+purpose, defined in the TurnType enumerator. Every cycle, the three primary
+framework classes check what turn it currently is, and evecute the relevant
+methods; these will include calling the apporiate abstract methods (that will
+have been implemented by the derived code).
+The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
+
+\subsection{Alterations to Underlying Code}
+
+Due to the current builds of Presge being in beta, a number of chages were
+made to the  
+
+
+TODO: Discuss the meanings of different turns \\
+TODO: Mentions the free agent group \\
+TODO: Describe why some things are syncronous \\
+TODO: Possibly discuss how the encapsulation works \\
+TODO: Make reference to the repeatability parameters
+

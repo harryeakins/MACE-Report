@@ -48,7 +48,7 @@ future, these classes may be written by parties that wish to break the rues of
 the system, so the interactions have to a mediated and controlled by the
 Abstract implementations. This was achieved by implementing many members as
 private (including all data memebers), and any non-private members were declared
-as `final', thus stopping derviived classes from altering their functionality.
+as `final', thus stopping dervived classes from altering their functionality.
 The remainder of the code was formed as a number of protected abstract methods,
 which need to be implmented by the drevived agent or group, which are used for
 all interactions.
@@ -62,8 +62,15 @@ methods; these will include calling the apporiate abstract methods (that will
 have been implemented by the derived code).
 The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
 
-TODO: Discuss the meanings of different tunrs
-TODO: Mentions the free agent group
-TODO: Describe why soem things are syncronous
-TODO: Possibly discuss how the encapsulation works
+\subsection{Alterations to Underlying Code}
+
+Due to the current builds of Presge being in beta, a number of chages were
+made to the  
+
+
+TODO: Discuss the meanings of different turns \\
+TODO: Mentions the free agent group \\
+TODO: Describe why some things are syncronous \\
+TODO: Possibly discuss how the encapsulation works \\
 TODO: Make reference to the repeatability parameters
+

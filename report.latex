@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{report}
 
+\usepackage[british]{babel}
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath} % mathematics

@@ -26,7 +26,7 @@
 	\end{equation}
 	where $e_i$ and $\alpha_i$ respectively denote the environment states and the actions performed by the agents.
 
-	Let $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is most likely in many cases impossible for agents to have a complete understanding.}--- \\
+	Let $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is most likely in many cases impossible for agents to have a complete understanding.}---
 	\begin{equation}
 		\tau : R \rightarrow \wp (E).
 		\label{eq:state_transformer}

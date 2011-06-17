@@ -1,10 +1,10 @@
 \chapter{Design}
 \emph{Section needs to be refactored to include new aim}
 
-\input{3-Design/aim.latex}
+\input{3-Design/1-aim.latex}
 
-\input{3-Design/framework.latex}
+\input{3-Design/2-framework.latex}
 
-\input{3-Design/behaviour.latex}
+\input{3-Design/3-behaviour.latex}
 
-\input{3-Design/representation.latex}
+\input{3-Design/4-representation.latex}

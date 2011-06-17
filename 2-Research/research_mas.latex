@@ -1,4 +1,4 @@
-\section{Muti-Agent Systems} % (fold)
+\section{Multi-Agent Systems} % (fold)
 \label{sec:mas}
 % What is a multi agent system?
 % Simulation uncertainty
@@ -203,7 +203,7 @@
 		y_{n} = \sum_t f(t)\Delta t \approx \int_t f(t)dt.
 	\end{equation}
 	Hence this is an example of using Euler's method to integrate $f(t)$ over time.
-	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}. \\
+	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}.
 	\begin{figure}[ht]
 		\centering
 			\includegraphics[width=0.4\linewidth]{figures/euler}

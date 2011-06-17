@@ -18,6 +18,7 @@ no-logs : all log-clean
 %.dvi : %.latex %.toc %.bbl
 	echo "========== $@ ==========="
 	latex $<
+	latex $<
 
 %.toc : %.latex %.ptmp
 	echo "========== $@ ==========="
@@ -28,7 +29,7 @@ no-logs : all log-clean
 	latex $<
 	touch $@
 
-%.bbl : %.ptmp $(wildcard *.bib)
+%.blg %.bbl : %.ptmp $(wildcard *.bib)
 	echo "========== $@ ==========="
 	bibtex $(subst .ptmp,.aux,$<)
 

@@ -1,42 +1,44 @@
 TARGET_FILES = report.pdf
 SOURCE_FILES = $(wildcard **/*.latex)
 
-.DEFAULT: all-no-logs
+.DEFAULT: all
 .SUFFIXES:
-.PHONY: all all-no-logs clean util-clean log-clean template.pdf
-.INTERMEDIATE: %.aux %.dvi %.nav %.out %.snm %.vrb
-.PRECIOUS: %.toc %.log
+.PHONY: all no-logs clean log-clean
+.INTERMEDIATE: %.aux %.bbl %.dvi %.ptmp %.toc
+.PRECIOUS: %.log %.blg
 
-all : $(TARGET_FILES) util-clean
-all-no-logs : all log-clean
+all : $(TARGET_FILES)
+no-logs : all log-clean
 
 %.pdf : %.dvi
+	echo "========== $@ ==========="
 	dvipdf $< > $@
+	rm -f $(subst .dvi,.aux,$<)
 
 %.dvi : %.latex %.toc %.bbl
-	echo "================ MAIN BUILD ==================="
+	echo "========== $@ ==========="
 	latex $<
 
-%.toc : %.latex %.aux %.bbl
+%.toc : %.latex %.ptmp
+	echo "========== $@ ==========="
 	latex $<
 
-%.aux : %.latex $(SOURCE_FILES)
+%.ptmp : %.latex $(SOURCE_FILES)
+	echo "========== $@ ==========="
 	latex $<
+	touch $@
 
-%.bbl : %.aux $(wildcard *.bib)
-	bibtex $<
+%.bbl : %.ptmp $(wildcard *.bib)
+	echo "========== $@ ==========="
+	bibtex $(subst .ptmp,.aux,$<)
 
-clean : util-clean log-clean
+clean : log-clean
+	echo "========== $@ ==========="
 	rm -f $(TARGET_FILES)
 
-util-clean :
-	rm -f $(subst .pdf,.dvi,$(TARGET_FILES))
-	rm -f $(subst .pdf,.out,$(TARGET_FILES))
-	rm -f $(subst .pdf,.snm,$(TARGET_FILES))
-	rm -f $(subst .pdf,.vrb,$(TARGET_FILES))
-	rm -f $(subst .pdf,.nav,$(TARGET_FILES))
-
 log-clean :
+	echo "========== $@ ==========="
+	rm -f $(subst .pdf,.blg,$(TARGET_FILES))
 	rm -f $(subst .pdf,.log,$(TARGET_FILES))
-	rm -f $(subst .pdf,.toc,$(TARGET_FILES))
+	rm -f $(subst .dvi,.aux,$(TARGET_FILES))
 

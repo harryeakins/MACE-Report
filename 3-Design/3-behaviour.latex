@@ -15,11 +15,11 @@ Trust heavily effects the playing of the stag hunt game. Before deciding exactly
 This asking of advice costs some amount of food, so they have to limit who they ask to who they feel gives the best advice.
 
 Trust also plays a large role in the movement of groups on the economic scale.
-Towards the end of the turn, each agent proposes a movement of the group and votes upon each proposal, with each proposal needing a raw 50% of the vote to succeed.
+Towards the end of the turn, each agent proposes a movement of the group and votes upon each proposal, with each proposal needing a raw 50\% of the vote to succeed.
 To prevent large movements, the movement value of all successful proposals is rescaled to accurately reflect the total desired movement.
 The group's position on the axis represents how much of their own food an agent keeps after the hunt -
-the far left is at 0%, which represents 100% tax and a communist equal distribution system.
-The other end of the scale is 100%, where everyone keeps exactly what they hunt and get nothing from others - a case of extreme capitalism.
+the far left is at 0\%, which represents 100\% tax and a communist equal distribution system.
+The other end of the scale is 100\%, where everyone keeps exactly what they hunt and get nothing from others - a case of extreme capitalism.
 
 All of these attributes are frequently updated and can be affected by any number things which are specified when creating the agent.
 This allows each agent to respond differently to stimuli, making the simulation very open and free-flowing, with huge numbers of potential combinations.

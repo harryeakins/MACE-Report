@@ -67,6 +67,13 @@ The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow})
 Due to the current builds of Presge being in beta, a number of chages were
 made to the  
 
+\subsection{Environment}
+
+\subsection{Agents}
+
+\subsection{Groups}
+
+\subsubsection{Free Agent Groups}
 
 TODO: Discuss the meanings of different turns \\
 TODO: Mentions the free agent group \\

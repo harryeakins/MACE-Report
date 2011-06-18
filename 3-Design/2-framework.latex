@@ -65,7 +65,26 @@ The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow})
 \subsection{Alterations to Underlying Code}
 
 Due to the current builds of Presge being in beta, a number of chages were
-made to the  
+made to the supplied code. Nearly all of these were purely cosmetic improvements
+and alterations to update the code to the standards of the current production
+version of the Java standard library, such as the use of generic types for
+lists and iterators. Another of these changes, which was key for later validation
+of the code was the replacement of the `temporary' debugging code with a
+thread safe logging system, based off the standard libraries Logger class.
+
+Presage's exeution loop was also altered in order to make it safe for dynamic
+introduction of participants, such as emergent groups, by iterating over the
+set of Participants manually, and marking each that had been executed (See
+snippet \ref{ParticipantLoop}, page \pageref{ParticipantLoop}). This uses the
+same strict ordering as the orginal code, using the findemental String Comparator,
+and, therefore, guaruntees the same deterministic order of execution when no
+participants are added during exeuction.
+
+The result when a new participant is added is a deterministic function of the
+new particpant's identifier: it will be executed in the correct point in the
+sequence if it's `greater than' than the participant that caused it to be created,
+or it will be dealt with last if it was `less than'. Regardless, it is still
+guarunteed to be executed in the current cycle.
 
 \subsection{Environment}
 

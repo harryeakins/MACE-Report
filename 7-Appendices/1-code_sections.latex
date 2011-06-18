@@ -8,3 +8,14 @@
     tabsize=2
 }
 \renewcommand{\baselinestretch}{0.9}
+
+\begin{program}
+	\label{ParticipantLoop}
+	\caption{Revised version of the Participant execution loop, which has well
+	defined and safe behaviour if the list of Participants is altered during the
+	execution of this loop. Previously, the fail-fast iteration over the loop
+	terminated prematurely when a Participant was added or removed, causing some
+	particpants to not be executed.
+	}
+	\lstinputlisting{7-Appendices/code/ParticipantLoop.java}
+\end{program}

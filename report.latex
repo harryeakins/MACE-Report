@@ -1,12 +1,16 @@
 \documentclass[a4paper,12pt]{report}
 
+\usepackage{amsmath} % mathematics
 \usepackage[british]{babel}
+\usepackage{color}
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
-\usepackage{color}
+\usepackage{float}
 \usepackage{listings}
-\usepackage{amsmath} % mathematics
 \usepackage{url}
+
+\newfloat{program}{tbhp}{lop}
+\floatname{program}{Code Extract}
 
 \renewcommand{\baselinestretch}{1.3}
 

@@ -3,6 +3,8 @@
 \usepackage[british]{babel}
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
 \usepackage{amsmath} % mathematics
 \usepackage{url}
 
@@ -22,6 +24,7 @@
   \input{4-Simulations/simulations.latex}
   \input{5-Results/results.latex}
   \input{6-Conclusion/conclusion.latex}
+  \input{7-Appendices/appendix.latex}
 
   \bibliographystyle{IEEEtran}
   \bibliography{references}

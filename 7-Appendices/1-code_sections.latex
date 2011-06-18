@@ -1,0 +1,12 @@
+\lstset{columns=fullflexible}
+\lstset{
+	language={Java}
+    basicstyle=\small,
+    keywordstyle=\color{BlueViolet},
+	identifierstyle=\color{black},
+	commentstyle=\color{OliveGreen},
+	stringstyle=\ttfamily,
+	showstringspaces=false,
+	tabsize=4
+}
+\renewcommand{\baselinestretch}{0.9}

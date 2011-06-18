@@ -1,9 +1,6 @@
 \chapter{Introduction}
 \section{Project Specification}
-A detailed report on how we decoded the initial lecture given by Dr Pitt.
-
-ASSIGNED TO: Chris
-
+At the start of this project we were given a simple idea for a Multi-Agent System, in which agents group together and then team up to make a Prisoner's Dilemma style decision. Through cooperation, both agents recieve the nutricious reward of a stag; through defaction, both agents recieve a slightly less than adequate rabbit. In repeating this, each agents decisions determine whether they live or die in life span of the system. Around this framework we wish to develop an application which will provide some useful discovery or conclusion. In this report, we will detail our steps towards: the conception of our system and our intention for its usage; how we developed the application and ensured it was producing valid results; and finally, the simulation and analysis that led to our conclusion.
 
 \section{Project Plan}
 Our project hinged around creating a framework that would allow us to explore the game environment laid out in the specification. This environment would have to manage and regulate a number of players and control how they are able to interact with each other as well as the parameters of the game (in this case, food and groups). Meanwhile, all aspects of the simulation would need to be monitored, visualised and analysed while the players are interacting to track the progress of the game.

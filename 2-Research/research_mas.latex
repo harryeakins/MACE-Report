@@ -1,4 +1,4 @@
-\section{Muti-Agent Systems} % (fold)
+\section{Multi-Agent Systems} % (fold)
 \label{sec:mas}
 % What is a multi agent system?
 % Simulation uncertainty
@@ -57,50 +57,6 @@
 \label{sub:agents}
 
 
-\subsubsection{Abstract Architectures for Agents} % (fold)
-
-	All agents are put into a big dynamic environment which should be non-deterministic if we want to simulate the real world and therefore it may have a finite set of discrete states $E$.
-
-	\begin{equation}
-		E = \{ e_0, e_1, e_2, \cdots\}
-		\label{e}
-	\end{equation}
-
-	Agents are assumed to have a set of actions Ac that can move currently environment state into some other states.
-	In this way, agent is interacting with the environment.
-	A run $r$ of an agent in an environment is a sequence of interleaved environment states and agent actions. 
-	This sequence may be end with environment state or agent action, represented by $R^E$ and $R^{Ac}$ respectively.
-	A state transformer function $\tau$ represents the behaviour of the environment:
-
-	\begin{equation}
-		\tau : R^{Ac} \rightarrow s(E)
-		\label{tau}
-	\end{equation}
-
-	If $\tau$($r$) = NULL, it clearly indicates that there is no possible successor states to r, so it is the terminal of the run (game over). 
-	Thus the environment is defined in a 3-tuple state: 
-
-	\begin{equation}
-		Env = < E, e_0, \tau>
-		\label{env}
-	\end{equation}
-
-	Where $E$ is the set of states of environment, $e_0$ is the initial state of environment and $\tau$ is the transformer function. 
-	Now let's consider the state of agents.
-	For an agent, it just performs an particular action according to the run sequence. 
-	Agent is a function which maps runs to actions:
-
-	\begin{equation}
-		Ag : R^E \rightarrow Ac
-		\label{ag}
-	\end{equation}
-
-	Agent makes a decision about what action to perform based on the history of how the environment changes over time that it has witnessed to date.
-	These data can be stored as a property of the agent's attribute.
-
-% subsubsection Abstract Architectures for Agents (end)
-
-
 \subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
 
@@ -145,8 +101,8 @@
 % subsubsection Perceptive Agent (end)
 
 
-\subsubsection{Agents with State} % (fold)
-\label{subs:agent_with_state}
+\subsubsection{Agent with States} % (fold)
+\label{subs:agent_with_states}
 
 	% Graph needed here
 	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
@@ -177,10 +133,10 @@
 	This action will somehow affect the environment and update the environment states. 
 	This goes on as a loop forever until the agent dies.
 
-% subsubsection Agents with State (end)
+% subsubsection Agent with States (end)
 
 
-% subsection Agents
+% subsection Agents (end)
 
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
@@ -203,7 +159,7 @@
 		y_{n} = \sum_t f(t)\Delta t \approx \int_t f(t)dt.
 	\end{equation}
 	Hence this is an example of using Euler's method to integrate $f(t)$ over time.
-	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}. \\
+	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}.
 	\begin{figure}[ht]
 		\centering
 			\includegraphics[width=0.4\linewidth]{figures/euler}
@@ -343,3 +299,6 @@
 
 
 % section Multi-Agent Systems (end)
+
+
+% vim: set fdm=marker fmr=(fold),(end):

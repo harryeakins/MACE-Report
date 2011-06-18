@@ -1,5 +1,14 @@
 \chapter{Simulations}
 
+\section{System Validation}
+\subsection{Simple Simulations}
+Peliminary simulations to ensure there are no bugs in the code affecting the results.
+
+\subsection{Sample Data from History}
+Data to compare our final results to, to ensure we haven't cocked anything up.
+
+ASSIGNED TO: Harry, Rob
+
 \section{Simulation Design}
 What type of simulation do we intend to run. What parameters are they gonna use and what agents types (look above). Each group of simulation will be under a different research question (hypothesis). Eg. What hunting strategies are best under different rabbit/stag food values? What agent type fares best under xxxx (certain set of parameters) conditions? Do we get emergent dictatorships if one agent is a lot better at making decisions (predicting food) than all the other? Do we get democracies if everyone is good at making decisions?
 

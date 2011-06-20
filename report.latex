@@ -7,8 +7,17 @@
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{hyperref}
 \usepackage{listings}
 \usepackage{url}
+
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
 
 \newfloat{program}{tbhp}{lop}
 \floatname{program}{Code Extract}

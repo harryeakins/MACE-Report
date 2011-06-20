@@ -13,6 +13,7 @@ In this class, algorithms which determine how the player selects from a
 set of food types as well as how it interacts with other agents are housed.
 These algorithms are what determines the type of social and economic human the player represents.
 
+% FIXME: But, leadership is emergent...
 Groups themselves will need to have their own behaviour specified in the framework.
 Groups will need to be lead by a player and will make decisions about food
 distribution and hunting strategy that will be determined by this leader or by a averaged decision.

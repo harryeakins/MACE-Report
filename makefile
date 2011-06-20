@@ -1,5 +1,6 @@
 TARGET_FILES = report.pdf
 SOURCE_FILES = $(wildcard **/*.latex)
+FIGURES = $(wildcard figures/*)
 
 .DEFAULT: all
 .SUFFIXES:
@@ -24,7 +25,7 @@ no-logs : all log-clean
 	echo "========== $@ ==========="
 	latex $<
 
-%.ptmp : %.latex $(SOURCE_FILES)
+%.ptmp : %.latex $(SOURCE_FILES) $(FIGURES)
 	echo "========== $@ ==========="
 	latex $<
 	touch $@

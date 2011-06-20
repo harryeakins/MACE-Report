@@ -2,8 +2,8 @@
 In implementing this system, we hope to give it some real world application,
 adding relevance to the framework beyond that of just a simulator.
 There are numerous situations which involve cooperation vs defection and an
-idea of rewards and punishements based on a given agents beliefs.
-Moreover, we also have the idea of a group encorporated in our system,
+idea of rewards and punishments based on a given agents beliefs.
+Moreover, we also have the idea of a group incorporated in our system,
 and through this group interaction, we can hope to develop a fair number of interesting results.
 
 Using trust, happiness and food as the three key resources, we could apply

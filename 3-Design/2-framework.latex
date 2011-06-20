@@ -12,18 +12,18 @@ cycles, in which each participant processes any queued inputs, and respond with
 any appropriate actions. The environment, which represents the world in which
 the participants are acting, processed these actions and, if applicable, send
 inputs to participants informing them of changes that might have taken place.
-The messaging framework is deisgned to be primarily asynchronous, with the
+The messaging framework is designed to be primarily asynchronous, with the
 information not being processed until the following cycle, but allows for
 synchronous messaging via clever use of code.
 
 The purpose of the framework was to allow a number of agents to play the
 grouping and stag games. To this end, it was implemented as an abstraction and
 a security layer, simultaneously defining a simple interface between agent code
-and the enironment and simulation layers, whilst also not allowing the agents to
+and the environment and simulation layers, whilst also not allowing the agents to
 cheat. Three major classes were implemented:
 \begin{itemize}
 \item{
-The Evironment, which models the world and holds all relevent data,
+The Evironment, which models the world and holds all relevant data,
 such as what animals exist and the status of agents;
 }
 \item{
@@ -38,33 +38,33 @@ model and the actions the groups can perform
 
 \begin{figure}[p]
   \caption{TODO: Write some words about this}
-	\label{framework-flow}
+        \label{framework-flow}
   \includegraphics[width=1.0\textwidth]{figures/framework}
 \end{figure}
 
-The actual simuation uses Agents and Groups that are derived from the
+The actual simulation uses Agents and Groups that are derived from the
 AbstractAgent and AbstractGroup, which are treated as hostile code - in the
 future, these classes may be written by parties that wish to break the rues of
 the system, so the interactions have to a mediated and controlled by the
 Abstract implementations. This was achieved by implementing many members as
-private (including all data memebers), and any non-private members were declared
-as `final', thus stopping dervived classes from altering their functionality.
+private (including all data members), and any non-private members were declared
+as `final', thus stopping derived classes from altering their functionality.
 The remainder of the code was formed as a number of protected abstract methods,
-which need to be implmented by the drevived agent or group, which are used for
+which need to be implemented by the revived agent or group, which are used for
 all interactions.
 
-Due to the overall complexity of the three games when combined, and the defualt
+Due to the overall complexity of the three games when combined, and the default
 asynchronous nature of the underlying framework, we opted to have each round
 of the games being execute over a number of cycles, each with a well defined
 purpose, defined in the TurnType enumerator. Every cycle, the three primary
-framework classes check what turn it currently is, and evecute the relevant
-methods; these will include calling the apporiate abstract methods (that will
+framework classes check what turn it currently is, and execute the relevant
+methods; these will include calling the appropriate abstract methods (that will
 have been implemented by the derived code).
 The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
 
 \subsection{Alterations to Underlying Code}
 
-Due to the current builds of Presge being in beta, a number of chages were
+Due to the current builds of Presage being in beta, a number of changes were
 made to the supplied code. Nearly all of these were purely cosmetic improvements
 and alterations to update the code to the standards of the current production
 version of the Java standard library, such as the use of generic types for
@@ -72,19 +72,19 @@ lists and iterators. Another of these changes, which was key for later validatio
 of the code was the replacement of the `temporary' debugging code with a
 thread safe logging system, based off the standard libraries Logger class.
 
-Presage's exeution loop was also altered in order to make it safe for dynamic
+Presage's execution loop was also altered in order to make it safe for dynamic
 introduction of participants, such as emergent groups, by iterating over the
 set of Participants manually, and marking each that had been executed (See
 snippet \ref{ParticipantLoop}, page \pageref{ParticipantLoop}). This uses the
-same strict ordering as the orginal code, using the findemental String Comparator,
-and, therefore, guaruntees the same deterministic order of execution when no
-participants are added during exeuction.
+same strict ordering as the original code, using the fundamental String Comparator,
+and, therefore, guarantees the same deterministic order of execution when no
+participants are added during execution.
 
 The result when a new participant is added is a deterministic function of the
 new particpant's identifier: it will be executed in the correct point in the
 sequence if it's `greater than' than the participant that caused it to be created,
 or it will be dealt with last if it was `less than'. Regardless, it is still
-guarunteed to be executed in the current cycle.
+guaranteed to be executed in the current cycle.
 
 \subsection{Environment}
 
@@ -96,7 +96,7 @@ guarunteed to be executed in the current cycle.
 
 TODO: Discuss the meanings of different turns \\
 TODO: Mentions the free agent group \\
-TODO: Describe why some things are syncronous \\
+TODO: Describe why some things are synchronous \\
 TODO: Possibly discuss how the encapsulation works \\
 TODO: Make reference to the repeatability parameters
 

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>684</x>
+      <y>0</y>
+      <w>282</w>
+      <h>522</h>
+    </coordinates>
+    <panel_attributes>AgentDataModel
+--
+- name : String
+- foodInPossesion : double
+- foodConsumption : double
+- foodConsumedPerTurnHistory : History&lt;Double&gt;
+- groupId : String
+- trust : HashMap&lt;String,History&lt;Double&gt;&gt;
+- advice : HashMap&lt;String,History&lt;Food&gt;&gt;
+- happinessHistory : History&lt;Double&gt;
+- loyaltyHistory : History&lt;Double&gt;
+- economicBelief : double
+- socialBelief : double
+- agentType : AgentType
+- lastHunted : History&lt;Food&gt;
+- huntingTeam : History&lt;HuntingTeam&gt;
+--
++ getFoodInPossesion() : double
++ getFoodConsumption() : double
+~ getFoodConsumedPerTurnHistory() : UnmodifiableHistory&lt;Double&gt;
++ getFoodConsumedThisTurn() : double
++ increaseFoodConsumedThisTurn(food : double) : void
++ foodConsumed(consumed : double) : void
++ foodAquired(acquired : double) : void
++ getPublicVersion() : PublicAgentDataModel
++ getGroupId() : String
++ setGroup(String gid) : void
++ onInitialise() : void
++ getLastHunted() : Food
++ setLastHunted(lastFood : Food) : void
++ getHuntingHistory() : History&lt;Food&gt;
++ getHuntingTeam() : HuntingTeam
++ setHuntingTeam(team : HuntingTeam) : void
++ getTeamHistory() : History&lt;HuntingTeam&gt;
++ getCurrentHappiness() : Double
++ setCurrentHappiness(newHappiness : Double) : Double
++ getHappinessHistory() : History&lt;Double&gt;
++ getCurrentLoyalty() : Double
++ setCurrentLoyalty(newLoyalty : double) : Double
++ getLoyaltyHistory() : History&lt;Double&gt;
++ getTrustHistory(player : String) : History&lt;Double&gt;
+~ getTrust(player : String) : Double
+~ setTrust(player : String, t : double) : void
+~ getAdviceHistory(player : String) : History&lt;Food&gt;
+~ gaveAdvice(player : String, t : Food) : void
++ getEconomicBelief() : double
++ setEconomicBelief(economicBelief : double) : void
++ newHistoryEntry() : void
++ getName() : String
+~ getSocialBelief() : double
+~ getAgentType() : AgentType
+~ setSocialBelief(socialBelief : double) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>234</x>
+      <y>0</y>
+      <w>432</w>
+      <h>498</h>
+    </coordinates>
+    <panel_attributes>/AbstractAgent/
+--
+- dm : AgentDataModel
+- authCode : UUID
+- conn : PublicEnvironmentConnection
+- ec : EnvConnector
+- tmp_ec : EnvironmentConnector
+- msgQ : InputQueue
+- handlers : ArrayList&lt;InputHandler&gt;
+--
++ getId() : String
++ getRoles() : ArrayList&lt;String&gt;
++ initialise(environmentConnector : EnvironmentConnector) : void
++ onActivation() : void
++ onDeActivation() : void
++ execute() : void
+- handleInput(i : Input) : void
+- clearRoundData() : void
+- doGroupSelect() : void
+- doMakeProposal() : void
++ setTime(cycle : long) : void
+# seekAvice(agent : String) : Food
++ advise(agent : String, agentsTeam : HuntingTeam) : Food
++ getInternalDataModel() : PlayerDataModel
++ getDataModel() : PublicAgentDataModel
++ enqueueInput(input : Input) : void
++ enqueueInput(input : ArrayList&lt;Input&gt;) : void
++ onSimulationComplete() : void
+# uniformRand() : double
+# uniformRandLong() : long
+# uniformRandBoolean() : boolean
+--
+/# void onActivate)/
+/# beforeNewRound() : void/
+/# chooseGroup() : String/
+/# groupApplicationResponse(accepted : boolean) : void/
+/# chooseFood() : Food/
+/# makeProposal() : ProposalType/
+/# castVote(p : Proposition) : Vote.VoteType/
+/# giveAdvice(agent : String, agentsTeam : HuntingTeam) : Food/
+/# updateHappinessAfterHunt(foodHunted : double, foodReceived : double) : double/
+/# updateLoyaltyAfterHunt(foodHunted : double, foodReceived : double) : double/
+/# updateTrustAfterHunt(foodHunted : double, foodReceived : double) : Map&lt;String, Double&gt;/
+/# updateTrustAfterLeadersHunt() : Map&lt;String, Double&gt;/
+/# updateLoyaltyAfterVotes(proposition : Proposition, votes : int, overallMovement : double) : double/
+/# updateHappinessAfterVotes(proposition : Proposition, votes : int, overallMovement : double) : double/
+/# updateSocialBeliefAfterVotes(proposition : Proposition, votes : int, overallMovement : double) : double/
+/# updateEconomicBeliefAfterVotes(proposition : Proposition, votes : int, overallMovement : double) : double/
+/# updateTrustAfterVotes(proposition : Proposition, votes : int, overallMovement : double) : Map&lt;String, Double&gt;/
+/# onInvite(group : String) : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>684</x>
+      <y>594</y>
+      <w>282</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>PublicAgentDataModel
+--
+- source : AgentDataModel
+--
+~ PublicAgentDataModel(AgentDataModel source)
+--
++ getId() : String
++ getFoodAmount() : double
++ getTime() : long
++ setTime(long time) : void
++ getRoles() : ArrayList&lt;String&gt;
++ setRoles(ArrayList&lt;String&gt; roles) : void
++ getPlayerClass() : String
++ getLastHunted() : Food
++ huntingHistory() : History&lt;Food&gt;
++ getHuntingTeam() : HuntingTeam
++ getTeamHistory() : History&lt;HuntingTeam&gt;
++ getGroupId() : String
++ getCurrentHappiness() : Double
++ getHappinessHistory() : History&lt;Double&gt;
++ getCurrentLoyalty() : Double
++ getLoyaltyHistory() : History&lt;Double&gt;
++ getEconomicBelief() : double
++ getName() : String
++ getHuntingHistory() : History&lt;Food&gt;
++ getTrust(String agent) : Double
++ getSocialBelief() : double
++ getAgentType() : AgentType
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>570</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>HuntResultHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>666</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>ConsumeFoodHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>618</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>HuntOrderHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>522</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>InvitationHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>714</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>ApplicationResponseHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>618</x>
+      <y>726</y>
+      <w>60</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>InputHandler</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>762</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>PropositionHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>810</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>VoteResultHandler : InputHandler
+--
+~ canHandle(i : Input) : boolean
+~ handle(i : Input) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>528</y>
+      <w>114</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;210;48;210;48;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>576</y>
+      <w>114</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;162;48;162;48;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>630</y>
+      <w>114</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;108;48;108;48;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>672</y>
+      <w>114</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;66;48;66;48;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>720</y>
+      <w>114</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;18;48;18;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>720</y>
+      <w>114</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;18;48;18;48;114;18;114</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>516</x>
+      <y>720</y>
+      <w>114</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>102;18;48;18;48;66;18;66</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;66;18;66;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;162;18;162;18;66;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;114;18;114;18;66;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;210;18;210;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>276</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;264;18;264;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>318</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;306;18;306;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>282</x>
+      <y>480</y>
+      <w>90</w>
+      <h>366</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>78;354;18;354;18;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>648</x>
+      <y>60</y>
+      <w>48</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>18;18;36;18</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>786</x>
+      <y>504</y>
+      <w>74</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;wraps&gt;&gt;</panel_attributes>
+    <additional_attributes>42;18;42;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>588</x>
+      <y>576</y>
+      <w>90</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>/PlayerDataModel/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>588</x>
+      <y>528</y>
+      <w>90</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>/APlayerDataModel/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>612</x>
+      <y>534</y>
+      <w>30</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>18;18;18;42</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>612</x>
+      <y>582</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>18;18;18;36;72;36</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>660</x>
+      <y>504</y>
+      <w>108</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>18;36;96;36;96;18</additional_attributes>
+  </element>
+</diagram>

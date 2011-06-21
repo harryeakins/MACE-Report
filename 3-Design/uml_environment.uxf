@@ -5,9 +5,9 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>130</y>
-      <w>640</w>
-      <h>480</h>
+      <y>100</y>
+      <w>660</w>
+      <h>490</h>
     </coordinates>
     <panel_attributes>Environment : AbstractEnvrionment
 --
@@ -15,35 +15,35 @@
 - dmodel : EnvironmentDataModel
 - storedHuntResults : Map&lt;HuntingTeam, List&lt;TeamHuntEvent&gt;&gt;
 --
-- onInitialise(Simulation sim) : void
-- updatePerceptions() : void
-- updatePhysicalWorld() : void
-- processTeamHunts() : void
-- updateNetwork() : void
-
 --
-+ deregister(ENVDeRegisterRequest deregistrationObject) : boolean
-+ onRegister(ENVRegisterRequest registrationObject) : ENVRegistrationResponse
+# onInitialise(sim : Simulation) : void
+# updatePerceptions() : void
+# updatePhysicalWorld() : void
+# updateNetwork() : void
+- processTeamHunts() : void
+--
++ deregister(deregistrationObject : ENVDeRegisterRequest) : boolean
++ onRegister(registrationObject : ENVRegisterRequest) : ENVRegistrationResponse
 + getDataModel() : EnvDataModel
-+ setTime(long cycle) : void
++ setTime(cycle : long) : void
 + getId() : String
 
 + getCurrentTurnType() : TurnType
 + getRoundsPassed() : int
-
-- createGroup(Class&lt;AbstractGroupAgent&gt; groupType, GroupDataInitialiser init) : String
-+ createGroup(Class&lt;AbstractGroupAgent&gt; type, GroupDataInitialiser init, String... invitees) : String
-- List&lt;Class&lt;AbstractGroupAgent&gt;&gt; getAllowedGroupTypes()
-
-- getAgents() : Set&lt;String&gt;
-- getUngroupedAgents() : List&lt;String&gt;
-- getAvailableGroups() : Set&lt;String&gt;
-- isAgentId(String id) : boolean
-- isGroupId(String gid) : boolean
-- nameOf(String id) : String
-
-- seekAdvice(String agent, UUID authToken, String fromAgent, HuntingTeam agentsTeam) : Food
-- getFoodConsumedPerAdvice() : double
+--
+~ createGroup(groupType : Class&lt;?&gt;, init : GroupDataInitialiser) : String
+~ createGroup(groupType : Class&lt;?&gt;, init : GroupDataInitialiser, invitees : String...) : String
+~ List&lt;Class&lt;?&gt; &gt; getAllowedGroupTypes()
+--
+~ getAgents() : Set&lt;String&gt;
+~ getUngroupedAgents() : List&lt;String&gt;
+~ getAvailableGroups() : Set&lt;String&gt;
+~ isAgentId(String id) : boolean
+~ isGroupId(String gid) : boolean
+~ nameOf(String id) : String
+--
+~ seekAdvice(agent : String, authToken : UUID, fromAgent : String, AgentsTeam : HuntingTeam) : Food
+~ getFoodConsumedPerAdvice() : double
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -51,67 +51,78 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>1060</y>
-      <w>640</w>
-      <h>330</h>
+      <y>1050</y>
+      <w>660</w>
+      <h>370</h>
     </coordinates>
-    <panel_attributes>PublicEnvironmentConnection
+    <panel_attributes>&lt;&lt;singleton&gt;&gt; PublicEnvironmentConnection
 --
+_- inst : PublicEnvironmentConnection_
 - ec : EnvConnector;
 --
-+ EnvironmentConnection(EnvConnector ec)
 --
-+ getGroupById(String id) : PublicGroupDataModel
-+ getAgentById(String id) : PublicAgentDataModel
-+ availableFoods() : Set&lt;Food&gt;
-+ getAllowedGroupTypes() : List&lt;Class&lt;AbstractGroupAgent&gt;&gt;
-+ availableGroups() : Set&lt;String&gt;
-+ createGroup(Class&lt;AbstractGroupAgent&gt; type, GroupDataInitialiser init) : String
-+ createGroup(Class&lt;AbstractGroupAgent&gt; type, GroupDataInitialiser init, String... invitees) : String
-+ isAgentId(String id) : boolean
-+ isGroupId(String gid) : boolean
-+ getId() : String
-+ getLogger() : Logger
-+ getAgents() : Set&lt;String&gt;
-+ getCurrentTurnType() : TurnType
+~ PublicEnvironmentConnection(EnvConnector ec)
+_+ getInstance() : PublicEnvironmentConnection_
+--
 + getRoundsPassed() : int
-+ getUngroupedAgents() : List&lt;String&gt;</panel_attributes>
++ getCurrentTurnType() : TurnType
++ getLogger() : Logger
++ getId() : String
+--
++ isAgentId(id : String) : boolean
++ isGroupId(id : String) : boolean
++ getAgentById(id : String) : PublicAgentDataModel
++ getGroupById(id : String) : PublicGroupDataModel
+--
++ getAgents() : Set&lt;String&gt;
++ getUngroupedAgents() : List&lt;String&gt;
++ getAvailableGroups() : Set&lt;String&gt;
++ availableFoods() : Set&lt;Food&gt;
+--
++ getAllowedGroupTypes() : List&lt;Class&lt;? extends AbstractGroupAgent&gt;&gt;
++ createGroup(type : Class&lt;?&gt;, GroupDataInitialiser init) : String
++ createGroup(type : Class&lt;?&gt;, GroupDataInitialiser init, String... invitees) : String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>630</y>
-      <w>640</w>
-      <h>410</h>
+      <y>600</y>
+      <w>660</w>
+      <h>430</h>
     </coordinates>
     <panel_attributes>EnvConnector : EnvironmentConnector
 --
 - dm : EnvironmentDataModel
 - e : Environment
 --
-EnvConnector(Environment e)
 --
-+ getGroupById(String id) : PublicGroupDataModel
-+ getFoodById(UUID id) : Food
-+ getAgentById(String id) : PublicAgentDataModel
-+ availableFoods() : Set&lt;Food&gt;
-+ getLogger() : Logger
-+ getCurrentTurnType() : TurnType
-+ getAllowedGroupTypes() : List&lt;Class&lt;? extends AbstractGroupAgent&gt;&gt;
-+ getAvailableGroups() : Set&lt;String&gt;
-+ createGroup(Class&lt;AbstractGroupAgent&gt; type, GroupDataInitialiser init) : String
-+ createGroup(Class&lt;AbstractGroupAgent&gt; type, GroupDataInitialiser init, String... invitees) : String
-+ isAgentId(String id) : boolean
-+ isGroupId(String gid) : boolean
-+ getId() : String
-+ seekAdvice(String agent, UUID authToken, String fromAgent, HuntingTeam agentsTeam) : Food
-+ getFoodConsumedPerAdvice() : double
-+ nameof(String id) : String
-+ getAgents() : Set&lt;String&gt;
+~ EnvConnector(Environment e)
+--
 + getRoundsPassed() : int
++ getCurrentTurnType() : TurnType
++ getLogger() : Logger
++ getId() : String
+--
++ isAgentId(id : String) : boolean
++ isGroupId(id : String) : boolean
++ getFoodById(id : UUID) : Food
++ getAgentById(id : String) : PublicAgentDataModel
++ getGroupById(id : String) : PublicGroupDataModel
++ nameof(id : String) : String
+--
++ getAgents() : Set&lt;String&gt;
 + getUngroupedAgents() : List&lt;String&gt;
++ getAvailableGroups() : Set&lt;String&gt;
++ availableFoods() : Set&lt;Food&gt;
+--
++ getAllowedGroupTypes() : List&lt;Class&lt;? extends AbstractGroupAgent&gt;&gt;
++ createGroup(type : Class&lt;?&gt;, GroupDataInitialiser init) : String
++ createGroup(type : Class&lt;?&gt;, GroupDataInitialiser init, String... invitees) : String
+--
++ seekAdvice(agent : String, authToken : UUID, fromAgent : String, AgentsTeam : HuntingTeam) : Food
++ getFoodConsumedPerAdvice() : double
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -119,7 +130,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>130</y>
+      <y>100</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -134,7 +145,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>200</y>
+      <y>170</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -149,7 +160,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>270</y>
+      <y>240</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -164,7 +175,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>340</y>
+      <y>310</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -179,7 +190,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>410</y>
+      <y>380</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -194,7 +205,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>480</y>
+      <y>450</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -209,7 +220,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>550</y>
+      <y>520</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -224,7 +235,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>750</x>
-      <y>620</y>
+      <y>590</y>
       <w>320</w>
       <h>60</h>
     </coordinates>
@@ -253,104 +264,104 @@ EnvConnector(Environment e)
       <x>290</x>
       <y>0</y>
       <w>50</w>
-      <h>150</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;130</additional_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>140</y>
-      <w>160</w>
+      <x>630</x>
+      <y>110</y>
+      <w>140</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;110;90;110;90;30;140;30</additional_attributes>
+    <additional_attributes>30;110;70;110;70;30;120;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;140;30</additional_attributes>
+    <additional_attributes>30;30;120;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;90;140;90</additional_attributes>
+    <additional_attributes>30;30;70;30;70;90;120;90</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;160;140;160</additional_attributes>
+    <additional_attributes>30;30;70;30;70;160;120;160</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>250</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;230;140;230</additional_attributes>
+    <additional_attributes>30;30;70;30;70;230;120;230</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>380</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;360;140;360</additional_attributes>
+    <additional_attributes>30;30;70;30;70;360;120;360</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>310</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;290;140;290</additional_attributes>
+    <additional_attributes>30;30;70;30;70;290;120;290</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>610</x>
-      <y>220</y>
-      <w>160</w>
+      <x>630</x>
+      <y>190</y>
+      <w>140</w>
       <h>450</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;30;90;30;90;430;140;430</additional_attributes>
+    <additional_attributes>30;30;70;30;70;430;120;430</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>700</x>
-      <y>700</y>
+      <y>670</y>
       <w>650</w>
       <h>460</h>
     </coordinates>
@@ -389,7 +400,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1200</x>
-      <y>570</y>
+      <y>540</y>
       <w>50</w>
       <h>150</h>
     </coordinates>
@@ -400,7 +411,7 @@ EnvConnector(Environment e)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1140</x>
-      <y>570</y>
+      <y>540</y>
       <w>180</w>
       <h>30</h>
     </coordinates>

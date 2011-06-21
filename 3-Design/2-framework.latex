@@ -93,6 +93,12 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Environment}
 
+\begin{figure}[p]
+  \label{uml_env}
+  \caption{TODO: Write about this}
+  \pgraphic{uml_environment}
+\end{figure}
+
 \subsection{Agents}
 
 \begin{figure}[p]

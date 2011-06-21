@@ -92,14 +92,11 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{landscape}
-  \begin{figure}[p]
-    \centering
-    \label{uml_security}
-    \caption{TODO: Write about this diagram}
-    \includegraphics[height=\textheight,width=\textwidth,keepaspectratio=true]{figures/uml_security}
-  \end{figure}
-\end{landscape}
+\begin{sidewaysfigure}[p]
+  \label{uml_security}
+  \caption{TODO: Write about this diagram}
+  \includegraphics[height=\textheight,width=\textwidth,keepaspectratio=true]{figures/uml_security}
+\end{sidewaysfigure}
 
 These are words about the security model
 

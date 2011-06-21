@@ -23,6 +23,7 @@
 \floatname{program}{Code Extract}
 
 \renewcommand{\baselinestretch}{1.3}
+\newcommand{\pgraphic}[1]{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true]{figures/#1}}
 
 \title{MACE: Multi-Agent Community Evolution}
 \author{ISE 2011}

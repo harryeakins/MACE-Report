@@ -95,6 +95,12 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Agents}
 
+\begin{figure}[p]
+  \label{uml_agent}
+  \caption{TODO: Write about this}
+  \pgraphic{uml_agent}
+\end{figure}
+
 \subsection{Groups}
 
 \subsubsection{Free Agent Groups}

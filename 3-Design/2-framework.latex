@@ -40,7 +40,7 @@ model and the actions the groups can perform
 
 \begin{figure}[p]
   \caption{TODO: Write some words about this}
-        \label{framework-flow}
+  \label{framework-flow}
   \includegraphics[width=1.0\textwidth]{figures/framework}
 \end{figure}
 

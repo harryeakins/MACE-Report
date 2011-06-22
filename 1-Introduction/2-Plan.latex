@@ -1,8 +1,11 @@
 \section{Project Plan}
 Our project hinged around creating a framework that would allow us to explore
-the game environment laid out in the specification.
-This environment would have to manage and regulate a number of players and
-control how they are able to interact with each other as well as the parameters
+the game environment laid out in the specification. We could then expand this
+design to give us some meaningful and applicable results, from which we could draw
+some useful information.
+
+The environment would have to manage and regulate a number of players and
+control how they are able to interact with each other, as well as the parameters
 of the game (in this case, food and groups).
 Meanwhile, all aspects of the simulation would need to be monitored, visualised
 and analysed while the players are interacting to track the progress of the game.
@@ -13,17 +16,16 @@ In this class, algorithms which determine how the player selects from a
 set of food types as well as how it interacts with other agents are housed.
 These algorithms are what determines the type of social and economic human the player represents.
 
-% FIXME: But, leadership is emergent...
 Groups themselves will need to have their own behaviour specified in the framework.
-Groups will need to be lead by a player and will make decisions about food
-distribution and hunting strategy that will be determined by this leader or by a averaged decision.
-The political factors that go into decision making and the will need to
-be researched before they can be properly implemented and varied in our system.
+They act much like agents, but make decisions based on a combination of strategies 
+held by its members. How the group decides between different agents when selecting
+behaviour and the way in which agents interact with each other within groups could 
+lead to some very interesting results.
 
-Through research we hope to optimise the variables needed to attempt to mimic
-human behaviour in our system, using the Multi-Agent System paradigm to
+Through research, we hope to optimise the variables needed to attempt to mimic
+human behaviour in our simulations, using the Multi-Agent System paradigm to
 implement our framework.
-In our report we hope to investigate the behaviour
-that emerges from variations in agent strategies and see what conditions
-are best suited for a stable population to exist within a group or series of groups.
+In this project we hope to investigate the behaviour that emerges from variations in
+agent strategies and see what conditions are best suited for a stable population to exist 
+within a group or series of groups.
 

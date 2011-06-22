@@ -1,11 +1,12 @@
 \section{Project Specification}
 At the start of this project we were given a simple idea for a Multi-Agent System,
-in which agents group together and then team up to make a Prisoner's Dilemma style decision.
+in which agents group together and then pair off to make a decision similar to 
+that posed in the Prisoner's Dilemma.
 Through cooperation, both agents receive the nutritious reward of a stag;
 through defection, both agents receive a slightly less than adequate rabbit.
-In repeating this, each agents decisions determine whether they live or die in
-life span of the system.
-Around this framework we wish to develop an application which will provide
+In repeating this, each agent's decisions determine whether they live or die 
+by the end of the simulation.
+Around this framework we wish to develop an application which will provide 
 some useful discovery or conclusion.
 In this report, we will detail our steps towards: the conception of our system 
 and our intention for its usage; how we developed the application and ensured

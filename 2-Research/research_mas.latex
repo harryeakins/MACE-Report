@@ -27,9 +27,10 @@ can be drawn to gain a fuller grasp of the inital problem.
 		W = <E,e_0,\tau>
 		\label{eq:mas}
 	\end{equation}
-	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment into a next state. 
+	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment into the next state. 
 
-	Note that the state transformer function $\tau$ does not necessarily give a next state based on the current state.
+%TODO: Correct over-use of the word "state"
+	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state.
 	It is convenient to introduce a series of states that represents the history of state transitions from the initial state $e_0$ to the current state, that is a run of the system. 
 
 	A run $r$ is represented as follows---
@@ -73,20 +74,19 @@ can be drawn to gain a fuller grasp of the inital problem.
 \subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
 
-	This kind of agents take actions only depends on the currently state of the environment, nothing to do with their history.
-	They base their decision making entirely on the present, with no reference at all to the past.
+	Purely reactive agents take actions that depend only on the current conditions of the environment, disregarding the past completely.
+
 	\begin{equation}
 		Action : E \rightarrow Ac
 		\label{eq:action_def}
 	\end{equation}
 
 	For example: a thermostat is a purely reactive agent. 
-	It's job is to keep the temperature constant inside the room. 
-	There are two states of the environment such that one is the room is under a threshold value, we assign this as state $e_1$.
-	On the other hand, if the temperature is under normal condition, we assign it to state $e_2$.
-	So for this particular agent, if it is in environment $e_1$, it just simply takes on the action that turns the heater on.
-	Otherwise, in condition of $e_2$, it will turn off the heater.
-	In this system, the agent is purely reactive, which is only making decisions based on the currently environment state and nothing to do with the past. 
+	It's job is to keep the temperature constant inside a given area.
+	There are two states to this system: one where the room is under a threshold value, which we designate state $e_1$; and a second if the temperature is adequate, which we regard as state $e_2$.
+	For this particular agent, if it is in environment $e_1$, it just simply takes performs the action that turns the heater on.
+	Otherwise, in state $e_2$, it will the heater off.
+	In this system, the agent is purely reactive, only making decisions based on its current environment state and nothing else.
 
 % subsubsection Purely Reactive Agent (end)
 
@@ -94,22 +94,22 @@ can be drawn to gain a fuller grasp of the inital problem.
 \subsubsection{Perceptive Agent} % (fold)
 \label{subs:percept_agent}
 
-	Perceptive agent is slightly more complex than the purely reactive agent.
+	A perceptive agent is slightly more complex than the purely reactive agent.
 	It now takes two steps to make decisions. 
-	The agent now has the ability to observe the environment with a see function, whereas the action function represents the agent's decision making process.
+	The agent has the ability to observe the environment with a `see function' prior to making 
+a decision on what action it will take.
 	% Graph needed here
-	The see function maps the environment state E to a percept of the agent's view of the world. 
+	This `see function' maps the environment state E to a percept of the agent's view of the world. 
 	\begin{equation}
 		See : E \rightarrow Per
 		\label{see}
 	\end{equation}
-	And action now maps sequence of percept to actions instead of mapping environment to actions directly.
+	The action stage now maps a sequence of perceptions to actions instead of mapping environment to actions directly.
 	\begin{equation}
 		Action : Per^* \rightarrow Ac
 		\label{action}
 	\end{equation}
-	$Per^*$ is a sequence of percept because the agent can record all it have seen in the past which indicates that the agent can learn from the history and then make decisions. 
-	Improve this a bit more we get the agent with states.
+	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
 % subsubsection Perceptive Agent (end)
 

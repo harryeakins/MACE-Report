@@ -1,15 +1,28 @@
 \section{Multi-Agent Systems} % (fold)
 \label{sec:mas}
-% What is a multi agent system?
 % Simulation uncertainty
 % TODO Why are we using it?
 % TODO Show some alternative simulation models to multi agent systems
 % ASSIGNED TO: Adam, Ricky, Bo
 
+\subsection{What is a Mutli-Agent System?}
+A multi-agent system (MAS) is program which comprises of a series of interacting 
+intelligent agents.
+These systems are used to solve problems that would be problematic, or often impossible,
+for a monolithic approach to resolve.
+The three key principles of such a framework are autonomy, locality and decentralisation. 
+Each agent must be independantly autonomous within the specified environment.
+No agent should be able to have a full view or unstanding of the system they 
+inhabit.
+No agent should be assigned a controlling role, in which they are instantiated to dicate 
+the behaviour of other agents. 
+By monitoring how the agents interact with their environment and each other, results 
+can be drawn to gain a fuller grasp of the inital problem.
+
 \subsection{Formal Definition of the Multi-Agent System} % (fold)
 \label{sub:mas_fd}
 
-	A multi-agent system is defined as a 3-tuple\cite{mas_book,fagin_95}
+	A MAS can be defined as a 3-tuple\cite{mas_book,fagin_95}
 	\begin{equation}
 		W = <E,e_0,\tau>
 		\label{eq:mas}

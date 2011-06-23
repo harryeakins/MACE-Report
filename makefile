@@ -1,5 +1,5 @@
 TARGET_FILES = report.pdf
-SOURCE_FILES = $(wildcard **/*.latex)
+SOURCE_FILES = $(wildcard **/*.latex) 7-Appendices/code/*.java
 FIGURES = $(wildcard figures/*)
 
 .DEFAULT: all

@@ -41,7 +41,7 @@ model and the actions the groups can perform
 \begin{figure}[p]
   \caption{TODO: Write some words about this}
   \label{framework-flow}
-  \includegraphics[width=1.0\textwidth]{figures/framework}
+  \pgraphic{framework}
 \end{figure}
 
 The actual simulation uses Agents and Groups that are derived from the
@@ -95,7 +95,7 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 \begin{sidewaysfigure}[p]
   \label{uml_security}
   \caption{TODO: Write about this diagram}
-  \pgraphic{figures/uml_security}
+  \pgraphic{uml_security}
 \end{sidewaysfigure}
 
 Due to a combination of Java's security management, and Presage's liberal

@@ -92,11 +92,11 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{sidewaysfigure}[p]
+\begin{figure}[b]
   \label{uml_security}
   \caption{TODO: Write about this diagram}
   \pgraphic{uml_security}
-\end{sidewaysfigure}
+\end{figure}
 
 Due to a combination of Java's security management, and Presage's liberal
 permissions model, security was implemented in a number of different ways

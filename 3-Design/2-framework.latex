@@ -95,10 +95,21 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 \begin{sidewaysfigure}[p]
   \label{uml_security}
   \caption{TODO: Write about this diagram}
-  \includegraphics[height=\textheight,width=\textwidth,keepaspectratio=true]{figures/uml_security}
+  \pgraphic{figures/uml_security}
 \end{sidewaysfigure}
 
-These are words about the security model
+Due to a combination of Java's security management, and Presage's liberal
+permissions model, security was implemented in a number of different ways
+in different parts of the framework, which is outlined in figure
+\ref{uml_security}.
+The Enivronment was protected by the Environment Connections, a concept
+that already existed in Presage, meaning that only the Simulation, Plugins
+and the Environment intself could get a reference to the Environment of the
+current simulation.
+Although plugins are not considered trusted code, and can also interact with
+agent's implementation code, this protection was considered sufficient;
+this decision relates to the fact that the Plugin interface requires a
+reference to the Simulation object at initialisation time.
 
 \subsection{Environment}
 

@@ -1,0 +1,8 @@
+\section{Similar Concepts}
+The idea of a political simulator similar to that of our project has been played with before
+in the gaming industry. Three games, Civilization IV, Rulers of Nations, and Sim City are within the
+simulation category of games and, although the designers make many decisions based upon enjoyment, 
+some interesting characteristics can be gleaned. Their models are somewhat more complex than the ones
+we propose, however they lack the scientific rigourous testing validation that a research system
+requires. Our model looks for emergent behaviour as opposed to imposing particular attributes on the 
+agents, the environment and the simulation as a whole.

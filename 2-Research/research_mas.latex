@@ -98,25 +98,37 @@ can be drawn to gain a fuller grasp of the inital problem.
 	It now takes two steps to make decisions. 
 	The agent has the ability to observe the environment with a `see function' prior to making 
 a decision on what action it will take.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/perceptive_agent}
+		\caption{Perceptive agent}
+		\label{fig:perceptive_agent}
+	\end{figure}
+
 	% Graph needed here
 	This `see function' maps the environment state E to a percept of the agent's view of the world. 
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{see}
+		\label{eq:see}
 	\end{equation}
 	The action stage now maps a sequence of perceptions to actions instead of mapping environment to actions directly.
 	\begin{equation}
 		Action : Per^* \rightarrow Ac
-		\label{action}
+		\label{eq:action}
 	\end{equation}
 	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
 % subsubsection Perceptive Agent (end)
 
-
 \subsubsection{Agent with States} % (fold)
 \label{subs:agent_with_states}
 
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/agent_with_state}
+		\caption{agent with state}
+		\label{fig:agent_with_state}
+	\end{figure}
 	% Graph needed here
 	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
 	So we introduce I to be the set of all internal states.
@@ -172,7 +184,7 @@ a decision on what action it will take.
 
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
-\label{sub:validation}
+\label{sub:}ali}ation}
 
 \subsubsection{Necessity of Validation} % (fold)
 \label{subs:validation_necessity}

@@ -5,19 +5,19 @@
 % TODO Show some alternative simulation models to multi agent systems
 % ASSIGNED TO: Adam, Ricky, Bo
 
-\subsection{What is a Mutli-Agent System?}
+\subsection{What is a Mutli-Agent System?} % (fold)
 A multi-agent system (MAS) is program which comprises of a series of interacting 
 intelligent agents.
 These systems are used to solve problems that would be problematic, or often impossible,
 for a monolithic approach to resolve.
 The three key principles of such a framework are autonomy, locality and decentralisation. 
-Each agent must be independantly autonomous within the specified environment.
-No agent should be able to have a full view or unstanding of the system they 
+Each agent must be independently autonomous within the specified environment.
+No agent should be able to have a full view or understanding of the system they 
 inhabit.
-No agent should be assigned a controlling role, in which they are instantiated to dicate 
+No agent should be assigned a controlling role, in which they are instantiated to dictate 
 the behaviour of other agents. 
 By monitoring how the agents interact with their environment and each other, results 
-can be drawn to gain a fuller grasp of the inital problem.
+can be drawn to gain a fuller grasp of the initial problem.
 
 \subsection{Formal Definition of the Multi-Agent System} % (fold)
 \label{sub:mas_fd}

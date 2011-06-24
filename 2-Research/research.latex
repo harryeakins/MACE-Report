@@ -5,7 +5,4 @@
 
 \input{2-Research/politics.latex}
 
-\section{Cooperation and Game Theory}
-The four strategies, analysis of
-
-ASSIGNED TO: Aadil, Theo, George
+\input{2-Research/gameTheory.latex}

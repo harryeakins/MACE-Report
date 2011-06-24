@@ -41,7 +41,7 @@ model and the actions the groups can perform
 \begin{figure}[p]
   \caption{TODO: Write some words about this}
   \label{framework-flow}
-  \includegraphics[width=1.0\textwidth]{figures/framework}
+  \pgraphic{framework}
 \end{figure}
 
 The actual simulation uses Agents and Groups that are derived from the
@@ -92,13 +92,39 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{sidewaysfigure}[p]
+\begin{figure}[bh]
   \label{uml_security}
   \caption{TODO: Write about this diagram}
-  \includegraphics[height=\textheight,width=\textwidth,keepaspectratio=true]{figures/uml_security}
-\end{sidewaysfigure}
+  \pgraphic{uml_security}
+\end{figure}
 
-These are words about the security model
+Due to a combination of Java's security management, and Presage's liberal
+permissions model, security was implemented in a number of different ways
+in different parts of the framework, which is outlined in figure
+\ref{uml_security}.
+
+The Enivronment was protected by the Environment Connections, a concept
+that already existed in Presage, meaning that only the Simulation, Plugins
+and the Environment intself could get a reference to the Environment of the
+current simulation.
+Although plugins are not considered trusted code, and can also interact with
+agent's implementation code, this protection was considered sufficient;
+this decision relates to the fact that the Plugin interface requires a
+reference to the Simulation object at initialisation time.
+The EnvironmentConnection class itself, however, is not public-safe - it 
+does offer a couple of functions that should not be directly exposed to the
+agent implementation - such as the function 'seekAdvise' which, if called
+directly, would allow agents to side step the requirement to consume resources
+in exchange for seeking advice.
+This problem is addressed with the PublicEnvironmentConnection.
+
+A Similar theory was applied the Participants. The Interface requirement that
+a reference to the Participant's PlayerDataModel was publically accessible
+presented a major problem, as this would mean that participants have the same level
+of access to other's data model as their own.
+However, this was eventually used to our advantage by making returning only a wrapped
+version of the DataModel, which was the only reference avialable to both external
+entities (including Plugins, the Enivornment, and other Participants) 
 
 \subsection{Environment}
 

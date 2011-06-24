@@ -1,12 +1,15 @@
 \lstset{
-    basicstyle=\scriptsize,
-    keywordstyle=\color{BlueViolet},
+    language=Java,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{BlueViolet}\bfseries,
     identifierstyle=\color{black},
     commentstyle=\color{OliveGreen},
-    stringstyle=\ttfamily,
+    morecomment=[s][\color{OliveGreen}]{/**}{*/},
+    stringstyle=\color{red}\ttfamily,
     showstringspaces=false,
     tabsize=2
 }
+
 \renewcommand{\baselinestretch}{0.9}
 
 \begin{program}

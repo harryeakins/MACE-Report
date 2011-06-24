@@ -92,7 +92,7 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{figure}[b]
+\begin{figure}[bh]
   \label{uml_security}
   \caption{TODO: Write about this diagram}
   \pgraphic{uml_security}

@@ -152,14 +152,14 @@ political compass:
 %\includegraphics[width=0.4\linewidth]{figures/socialGraph2}
 %\end{figure}
 
-Economic \in \( 0 \% - 100 \% \)
+Economic $ \in $ \( 0 \% - 100 \% \)
 
 If believing in the very ‘Right’, 100\%, the agent believes in keeping the resources they earn 
 for themselves. 
 If believing in the very ‘Left’, 0\%, the agent believes in distributing resources evenly, sharing,
  throughout a potential group.
 
-Social \in \( 0 \% - 100 \% \)
+Social $ \in $ \( 0 \% - 100 \% \)
 
 If believing in the very ‘Authoritarian’, 0\%, the agent believes heavily in giving orders and 
 enforcing punishment for neglecting those orders. 
@@ -264,11 +264,11 @@ emerged and bring things to perspective, via extending the political world descr
 Two points we moved on to analyse are:
 
 \begin{itemize}
-\list Whether or not charities and loans should be given between groups (of which we are treating 
+\item Whether or not charities and loans should be given between groups (of which we are treating 
 as countries). 
 We want to know whether giving money (food will be thought as money) to another can exist.
 
-\list Confirm history by forcing a scenario in which the Soviet Union and America really should 
+\item Confirm history by forcing a scenario in which the Soviet Union and America really should 
 have cooperated in prevention of nuclear war or who would’ve won during the Space Wars. 
 Maybe find out that Nazi Germany could have won the Second World War.
 \end{itemize}
@@ -364,7 +364,7 @@ and the interactions happening throughout the simulation.
 These plugins are described below:
 
 \begin{itemize}
-\list Political Compass:
+\item Political Compass:
 This is most important tool of the simulation as it shows what is happening at each iteration. 
 The agents are represented as dots with their strategies attached and are located according to 
 their economic and social beliefs on the compass.
@@ -375,18 +375,18 @@ Using the compass you can comprehend what is happening in the group; which of th
 or leave the group, and also see how the group as a whole moves along the axes when proposals 
 are happening.
 
-\list Hunter Logs:
+\item Hunter Logs:
 The plugin displays all the created agents along with their attributes held by the simulation. 
 These are: name, strategy, group, if it is a leader or not, if it is alive or not, its food amount, 
 economic and social belief, loyalty, happiness and the last hunted food.
 
-\list Group Logs:
+\item Group Logs:
 The plugin displays the attributes of the groups which exist at each instant in the system. 
 Attributes displayed are: the name, its size, the economic and social belief (taken from its agents), 
 the average loyalty, happiness and food of the agents in the group and also displays the leaders of 
 the group which consist of the agents in the “panel”.
 
-\list Group Graphs:
+\item Group Graphs:
 The plugin displays 5 graphs of all the groups which ever existed in the current simulation.
 These graphs show the economic, social, average food, loyalty and happiness of the agents in the 
 group in respect to the time of the simulation. 

@@ -45,11 +45,11 @@ Axelrod's tournament in 1980.
 There are four basic strategies:
 
 \begin{itemize}
-\list \textbf{Always defect}: An agent always chooses to defect (hunt hare) no matter what its 
+\item \textbf{Always defect}: An agent always chooses to defect (hunt hare) no matter what its 
 opponent does.
-\list \textbf{Always cooperate}: An agent always chooses to cooperate (hunts stags) no matter 
+\item \textbf{Always cooperate}: An agent always chooses to cooperate (hunts stags) no matter 
 what its opponent does.
-\list \textbf{Tit-for-tat}:  A tit-for-tat agent chooses to cooperate in the first iteration of the game. 
+\item \textbf{Tit-for-tat}:  A tit-for-tat agent chooses to cooperate in the first iteration of the game. 
 If the opponent defects then the agent loses but in the next iteration the agent choose to 
 follow the strategy of its opponent in the previous round. 
 So a simple algorithm for this strategy is:
@@ -60,7 +60,7 @@ So a simple algorithm for this strategy is:
 	where t is the number of rounds passed .
 }
 
-\list \textbf{Random}: This strategy ignores what the opponent has done in previous rounds 
+\item \textbf{Random}: This strategy ignores what the opponent has done in previous rounds 
 and selects either defect or cooperate at random.
 
 \end{itemize}

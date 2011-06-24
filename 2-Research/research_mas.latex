@@ -155,7 +155,7 @@ a decision on what action it will take.
 
 	So in conclusion, the agent first observes the environment, then it modifies the internal states according to the concept and the current internal states.
 	Depends on this new achieving internal state, the agent can carry on with different actions.
-	This action}will somehow affect the envi}onment and update the environment states. 
+	This action will somehow affect the environment and update the environment states. 
 	This goes on as a loop forever until the agent dies.
 
 % subsubsection Agent with States (end)
@@ -191,7 +191,7 @@ a decision on what action it will take.
 
 
 \subsection{Validation of the Agent-Based Simulation} % (fold)
-\label{sub:}ali}ation}
+\label{sub:validation}
 
 \subsubsection{Necessity of Validation} % (fold)
 \label{subs:validation_necessity}

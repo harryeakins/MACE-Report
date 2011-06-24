@@ -1,11 +1,11 @@
-\section{Multi-Agent Systems} % (fold)
+\section{Multi-Agent Systems}
 \label{sec:mas}
 % Simulation uncertainty
 % TODO Why are we using it?
 % TODO Show some alternative simulation models to multi agent systems
 % ASSIGNED TO: Adam, Ricky, Bo
 
-\subsection{What is a Mutli-Agent System?} % (fold)
+\subsection{What is a Multi-Agent System?} % (fold)
 A multi-agent system (MAS) is program which comprises of a series of interacting 
 intelligent agents.
 These systems are used to solve problems that would be problematic, or often impossible,
@@ -18,7 +18,7 @@ No agent should be assigned a controlling role, in which they are instantiated t
 the behaviour of other agents. 
 By monitoring how the agents interact with their environment and each other, results 
 can be drawn to gain a fuller grasp of the initial problem.
-
+% What is a Multi-Agent System (end)
 \subsection{Formal Definition of the Multi-Agent System} % (fold)
 \label{sub:mas_fd}
 
@@ -65,11 +65,8 @@ can be drawn to gain a fuller grasp of the initial problem.
 	For one thing doing this may not give us any insightful information of the system, and for another, the number of all environment states could be non finite.
 
 % subsection Formal Definition of the Multi-Agent System (end)
-
-
 \subsection{Agents} % (fold)
 \label{sub:agents}
-
 
 \subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
@@ -89,8 +86,6 @@ can be drawn to gain a fuller grasp of the initial problem.
 	In this system, the agent is purely reactive, only making decisions based on its current environment state and nothing else.
 
 % subsubsection Purely Reactive Agent (end)
-
-
 \subsubsection{Perceptive Agent} % (fold)
 \label{subs:percept_agent}
 
@@ -119,7 +114,6 @@ a decision on what action it will take.
 	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
 % subsubsection Perceptive Agent (end)
-
 \subsubsection{Agent with States} % (fold)
 \label{subs:agent_with_states}
 
@@ -159,7 +153,6 @@ a decision on what action it will take.
 	This goes on as a loop forever until the agent dies.
 
 % subsubsection Agent with States (end)
-
 \subsubsection{BDI Agents} % (fold)
 \label{BDI_agents}
 
@@ -188,7 +181,6 @@ a decision on what action it will take.
 % subsubsection BDI Agents (end)
 
 % subsection Agents (end)
-
 \subsection{Genetic Algorithm in MAS} % (fold)
 \label{sub:genetic_algorithms}
 
@@ -205,6 +197,7 @@ a decision on what action it will take.
 	And by applying those four functions to the binary representation of agent, we can keep evolving our solution and finally meet some optimal answers. 
 	Next, let's look in further details of those functions corresponding to the genetic algorithm.
 
+% subsubsection Representation of Agents (end)
 \subsubsection{Mutation} % (fold)
 \label{subs:mutation}
 
@@ -221,6 +214,7 @@ a decision on what action it will take.
 	And moreover, there is no leadership at the first place whereas the groups are forming randomly.
 	But after some period, the mutation should be slow in order to avoid breaking the process of evolution by dramatically modifying the agent’s characteristic.
 
+% subsubsection Mutation (end)
 \subsubsection{Crossover} % (fold)
 \label{subs:crossover}
 
@@ -236,7 +230,8 @@ a decision on what action it will take.
 	We can randomly pick a break point in the chain, as same in here, we can cut the pie any way we prefer.
 	After that, combine those two different parts from separate agent so that a new agent with unique character is formed. 
 	Though the use of a simple crossing does not always give us good results, consequently a multiple crossing may allow us to end up in a more important mix. 
-	
+
+% subsubsection Crossover (end)
 \subsubsection{Fitness Function} % (fold)
 \label{subs:fitness_function}
 
@@ -248,6 +243,7 @@ a decision on what action it will take.
 	Obviously, those leaders with good reputation will survive.
 	In conclusion, the fitness function acts as a tool to decide which part of agents is fit to the evolution process.
 
+% subsubsection Fitness Function (end)
 \subsubsection{Selection} % (fold)
 \label{subs:selection}
 
@@ -262,6 +258,9 @@ a decision on what action it will take.
 
 	This is basically how genetic algorithm works, it allows the agent to mutate and evolve by itself in order to get a new agent with better performance.  
 
+% subsubsection Selection (end)
+
+% subsection Genetic Algorithm in MAS (end)
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
 
@@ -297,8 +296,6 @@ a decision on what action it will take.
 	Because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. 
 
 % subsubsection Necessity of Validation (end)
-
-
 \subsubsection{Validation With Sensitivity Analysis} % (fold)
 \label{subs:validation_sensitivity_analysis}
 
@@ -376,8 +373,6 @@ a decision on what action it will take.
 	since it does not change significant enough for all variances of inputs, it does not provide much insight to the system by changing input parameters.
 
 % subsubsection Sensitivity Analysis (end)
-
-
 \subsubsection{Comparing Results With Expected Outcomes By Regression Analysis} % (fold)
 \label{subs:validation_comparision}
 
@@ -417,11 +412,8 @@ a decision on what action it will take.
 
 % subsubsection Comparing Results With Expected Outcomes (end)
 
-
 % subsection Validation of the Agent-Based Simulation (end)
 
-
-% section Multi-Agent Systems (end)
-
+% section Multi-Agent Systems
 
 % vim: set fdm=marker fmr=(fold),(end) nolist:

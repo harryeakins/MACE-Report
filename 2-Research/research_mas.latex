@@ -135,6 +135,25 @@
 
 % subsubsection Agent with States (end)
 
+\subsubsection{BDI Agents} % (fold)
+\label{BDI_agents}
+
+	BDI agent is a much more complicated agent with an internal architecture which contains 5 basic attributes:
+	\begin{itemize}
+			\item Beliefs : decide the properties of agents and can be updated due to perceptions.
+			\item Desires : define what agent wants to do.
+			\item Events : any action that an agent can take on.
+			\item Intentions : which are much stronger than desire.
+			\item Plan : it is an event or a goal which can be replaced by an appropriate plan at the time they need to be achieved.
+	\end{itemize}
+	The way BDI agent acts is not much different from other types of agents.
+	% Graph needed here.
+	The agent first perceives the environment, updates its beliefs and check which event that it can perform.
+	It also requires to check with its desires and intentions in the store to decide which event to choose or even any goals may be achieved.
+	Of course plans are also contributing to make decisions about how to matching the goal or subgoal.
+	Then it selects an event and make a move, indeed this event needs to be deleted from the event store afterwards and agent attributes update again.
+
+% subsubsection BDI Agents (end)
 
 % subsection Agents (end)
 

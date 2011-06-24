@@ -204,7 +204,7 @@ a decision on what action it will take.
 	Suppose now we have a set of agents whereas each agent has a sequence of binary chain representation its own behaviour. 
 	Mutation is simply converting one bit of the binary chain in order to gain a new characteristic of the agent that is more adaptive to the environment.
 	\begin{equation}
-		Converting bit : 1\rightarrow 0 and 0\rightarrow 1
+		Converting~bit: 1\rightarrow 0,~0\rightarrow 1
 	\end{equation}
 	In the case of hunting game, we can make our agent be more intelligent by changing some relevant parameters.
 	For instance, the agent may probably hunt at a higher efficient or even be able to form stronger groups so that can hunt we high probability of success. 
@@ -226,7 +226,7 @@ a decision on what action it will take.
 		\caption{crossover}
 		\label{fig:crossover}
 	\end{figure}
-	Now, let’s consider an agent as a pie chat instead of binary chain just for better explanation.
+	Now, let's consider an agent as a pie chat instead of binary chain just for better explanation.
 	We can randomly pick a break point in the chain, as same in here, we can cut the pie any way we prefer.
 	After that, combine those two different parts from separate agent so that a new agent with unique character is formed. 
 	Though the use of a simple crossing does not always give us good results, consequently a multiple crossing may allow us to end up in a more important mix. 

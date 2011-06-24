@@ -258,6 +258,68 @@ This threshold is calculated based on the social belief of the group.
 Authoritarian groups have lower threshold and libertarian ones higher. 
 Therefore, an authoritarian panel has to worry less when making a decision than a libertarian panel.
 
+\subsection{Where to go from here}
+Once we have a stable group or during the formation of the groups, we want to use what has 
+emerged and bring things to perspective, via extending the political world described above. 
+Two points we moved on to analyse are:
+
+\begin{itemize}
+\list Whether or not charities and loans should be given between groups (of which we are treating 
+as countries). 
+We want to know whether giving money (food will be thought as money) to another can exist.
+
+\list Confirm history by forcing a scenario in which the Soviet Union and America really should 
+have cooperated in prevention of nuclear war or who would’ve won during the Space Wars. 
+Maybe find out that Nazi Germany could have won the Second World War.
+\end{itemize}
+
+\subsection{Should we give a Loan?}
+To answer the question above, we abstracted away any concrete sense of politics and concentrated 
+on the interaction of groups and to let them decide if they need help from prosperous groups or if 
+they should provide help to the needy groups. 
+What is kept from the political world are the way agents in a group decide on a strategy to hunt food 
+and to get food, updating the agents trust and happiness after a hunt and choosing a group is 
+now random because this assessment concentrates on group interaction (note that it can be easily 
+done to force agents to group heuristically). 
+
+From the group perspective, there is many additions along with removal of ideas used in the very 
+political world. 
+To follow on that agents group randomly, a group will always accept the agent into its group, again, 
+to concentrate more on the interaction between groups. Groups still maintain and update a panel 
+of leaders, or a leader, with the trust assessment deriving from hunting. What comes with the panel 
+is the ability for groups to choose the most favourable strategy to use in the external game (the 
+hunting game between groups). That leaves the additions for which groups interact and give/take 
+loans.
+
+\subsubsection{Making Payments}
+To help out the idea of the loaning/charity system, we introduced the idea groups making payments 
+to primarily lose ‘money’. 
+There are a few constant to be known first. 
+There is the group’s reserve, it is the amount of food that the group has ownership of and is 
+accumulated from taxing the citizens of the group, we treat the food the group has (the reserve) and 
+the food that the agents have as their possession of money. 
+There is the price to play constant that simply informs the group how much is needed to play the
+ hunting game with each other. 
+There is also the achievement constant, its sole purpose provides the motivation for a group to 
+move forward in its life, it is the amount of food/money a group wants to attain for any arbitrary 
+purpose a country would have (going to space, getting a piece of research, world domination, etc.). 
+And, lastly, the greediness constant (assigned randomly to each group) basically informs us how 
+greedy a group is for money.
+
+When making payments, a group firstly checks if it has a decent amount of money to play the 
+hunting game with other groups; if everything is ok then the required amount of deduction is made 
+from the group’s reserve, otherwise the group does not play and sits this turn out. 
+The next payment is to public service. 
+The groups who are greedy the most will have high probability to spend money from the reserve into 
+an arbitrary definition of public service (schools, roads, statues, etc.). 
+They would pay just enough as to not strive too much away from attaining achievement and to 
+satisfy the happiness of the citizens; groups with a low greediness factor can still pay for public 
+service but are less likely to do so. 
+The last and most important payment to be made is to repay any loans a group has with the 
+interest decided by the loaner. This is where a group clears its debts.
+
+
+
 
 
 

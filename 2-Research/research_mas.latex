@@ -339,10 +339,10 @@ a decision on what action it will take.
 % subsubsection Comparing Results With Expected Outcomes (end)
 
 
-% subsection Validation of the Agent-Based Simu (end)
+% subsection Validation of the Agent-Based Simulation (end)
 
 
 % section Multi-Agent Systems (end)
 
 
-% vim: set fdm=marker fmr=(fold),(end):
+% vim: set fdm=marker fmr=(fold),(end) nolist:

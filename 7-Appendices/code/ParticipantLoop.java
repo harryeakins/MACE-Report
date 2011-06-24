@@ -18,7 +18,8 @@ private synchronized void doParticipants(long cycle)
 			}
 			catch (Exception e)
 			{
-				logger.log(Level.SEVERE, "Exception caused by " + currentId + " in method execute() ", e);
+				logger.log(Level.SEVERE, "Exception caused by " + 
+                                currentId + " in method execute()", e);
 			}
 
 			currentId = activeParticipantIdSet.higher(currentId);

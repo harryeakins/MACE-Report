@@ -27,6 +27,7 @@
 *.out
 *.synctex.gz
 *.pdf
+*.ps
 *.pyg
 
 # Mac specific

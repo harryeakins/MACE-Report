@@ -318,6 +318,82 @@ service but are less likely to do so.
 The last and most important payment to be made is to repay any loans a group has with the 
 interest decided by the loaner. This is where a group clears its debts.
 
+\subsubsection{Taxing for the Reserve}
+After the internal game is played (where agents in a group hunt with each other to get food), the 
+shared food that is needed to be distributed throughout the group members is intercepted and 
+taxed for the benefit of the group. 
+But, before taxing, the group firstly retrieves any money (food) that a person in need has paid back 
+with interest. 
+After this is accounted for in the reserve, the shared pool is taxed to add on top of whatever is left 
+of the reserve; the rest of the shared pool is then fed back for distribution amongst the members 
+of the group.
+
+The way the shared pool is taxed is by checking if the group is in desperate need of money then 
+they tax high, this is done by looking at how far away the group is from attaining achievement.
+ Otherwise, if things are going well for the group, the taxing is done in the same way but includes 
+how happy the members are. 
+If unhappy then don’t tax too much, if happy then tax but don’t take advantage of your members.
+
+\subsubsection{Interacting for the Loan}
+At the start of each turn a group checks its financial status and requests for help if needed; 
+this decision is done by checking the reserve at its current state and looking for a decreasing trend 
+in its history.
+If the group is in need, it first checks to see if it still requires a loan (a group may be in trouble for 
+many turns as nobody replies to its pleas, however the group in trouble might be able to bounce 
+back on its own) and if it does, checks to see if any group has given it a loan for the amount of 
+money that it needs (which, in this world, maximises to the price needed to play at least two 
+hunting games with other groups). 
+If no one has, the group goes on with its day trying to survive, but, if someone has then the reserve 
+is updated with the amount it needed and the group stores a record in its history notifying that it 
+has to pay this certain group back eventually.
+The group may not be in need and for this case the group looks for other desperate groups that 
+are looking for money. 
+Assessing each group in order from the neediest, if that needy group has not already accepted a 
+loan and this group has the money to help the needy then the loan is given with the amount that 
+the needy requires along with knowledge of the interest rate. 
+The interest rate is computed by the sum of how greedy the group that is loaning (this is given a 
+low weighting because even if this is charity the loaner still retains its greedy nature) and how far 
+away the needy group is from attaining achievement, which is never above the price to play the 
+game and because of that, the interest rate stays within possible values below 20\% 
+
+%TODO: May be entered in the framework discussion
+\subsection{Helper Plugins}
+In order to simulate our agents we basically used Presage. 
+This tool allowed us to create our own plugins in order to evaluate the agents, the groups created 
+and the interactions happening throughout the simulation. 
+These plugins are described below:
+
+\begin{itemize}
+\list Political Compass:
+This is most important tool of the simulation as it shows what is happening at each iteration. 
+The agents are represented as dots with their strategies attached and are located according to 
+their economic and social beliefs on the compass.
+The lines represent the connections (Groups) between the agents and each group is coloured 
+differently. 
+When a panel of leaders is created then these agents are distinguished by painting them in black. 
+Using the compass you can comprehend what is happening in the group; which of the agents join 
+or leave the group, and also see how the group as a whole moves along the axes when proposals 
+are happening.
+
+\list Hunter Logs:
+The plugin displays all the created agents along with their attributes held by the simulation. 
+These are: name, strategy, group, if it is a leader or not, if it is alive or not, its food amount, 
+economic and social belief, loyalty, happiness and the last hunted food.
+
+\list Group Logs:
+The plugin displays the attributes of the groups which exist at each instant in the system. 
+Attributes displayed are: the name, its size, the economic and social belief (taken from its agents), 
+the average loyalty, happiness and food of the agents in the group and also displays the leaders of 
+the group which consist of the agents in the “panel”.
+
+\list Group Graphs:
+The plugin displays 5 graphs of all the groups which ever existed in the current simulation.
+These graphs show the economic, social, average food, loyalty and happiness of the agents in the 
+group in respect to the time of the simulation. 
+From these graphs you can see which attributes played important role for a group to dominate 
+and increase its population or disappear.
+
+
 
 
 

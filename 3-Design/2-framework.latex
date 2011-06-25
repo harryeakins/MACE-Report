@@ -8,10 +8,10 @@ The framework, on which the simulations were built and forms the core of MACE,
 was itself built on the multi-agent simulation system Presage
 \footnote{\url{https://sites.google.com/site/presageproject}, \url{http://sammacbeth.github.com/Presage/}}.
 Presage is a `time' driven system:
-the simulations is divided into discrete cycles, in which each participant
-processes any queued inputs, and respond with any appropriate actions.
-The environment, which represents the world in which
-the participants are acting, processed these actions and, if applicable, send
+the simulations are divided into discrete cycles, in which each participant
+processes any queued inputs, and responds with any appropriate actions.
+The environment, which represents the world that
+the participants are acting in, processes these actions and, if applicable, sends
 inputs to participants informing them of changes that might have taken place.
 The messaging framework is designed to be primarily asynchronous, with the
 information not being processed until the following cycle, but allows for
@@ -26,15 +26,15 @@ cheat. Three major classes were implemented:
 \begin{itemize}
 \item{
 The Evironment, which models the world and holds all relevant data,
-such as what animals exist and the status of agents;
+such as the animals which exist and the status of agents.
 }
 \item{
 The AbstractAgent, which models the hunters themselves and wraps around both the hunter's
-data model and the set of actions that they may perform (and when they may perform them)
+data model and the set of actions that they may perform (and when they may perform them).
 }
 \item{
 The AbstractGroup, which models a group (or tribe) of agents, wrapping around the backing
-model and the actions the groups can perform
+model and the actions the groups can perform.
 }
 \end{itemize}
 
@@ -53,7 +53,7 @@ This was achieved by implementing many members as
 private (including all data members), and any non-private members were declared
 as `final', thus stopping derived classes from altering their functionality.
 The remainder of the code was formed as a number of protected abstract methods,
-which need to be implemented by the revived agent or group, which are used for
+which need to be implemented by the revived agent or group that are used for
 all interactions.
 
 Due to the overall complexity of the three games when combined, and the default
@@ -70,11 +70,11 @@ The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow})
 
 Due to the current builds of Presage being in beta, a number of changes were
 made to the supplied code. Nearly all of these were purely cosmetic improvements
-and alterations to update the code to the standards of the current production
+and alterations; updating the code to fit the guidelines of the current production
 version of the Java standard library, such as the use of generic types for
 lists and iterators.
 Another of these changes, which was key for later validation
-of the code was the replacement of the `temporary' debugging code with a
+of the code, was the replacement of the `temporary' debugging code with a
 thread safe logging system, based off the standard libraries Logger class.
 
 Presage's execution loop was also altered in order to make it safe for dynamic
@@ -86,7 +86,7 @@ fundamental String Comparator, and, therefore, guarantees the same
 deterministic order of execution when no participants are added during execution.
 
 The result when a new participant is added is a deterministic function of the
-new particpant's identifier: it will be executed in the correct point in the
+it's identifier: it will be executed in the correct point in the
 sequence if it's `greater than' than the participant that caused it to be created,
 or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
@@ -105,7 +105,7 @@ in different parts of the framework, which is outlined in figure
 
 The Enivronment was protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
-and the Environment intself could get a reference to the Environment of the
+and the Environment itself could get a reference to the Environment of the
 current simulation.
 Although plugins are not considered trusted code, and can also interact with
 agent's implementation code, this protection was considered sufficient;

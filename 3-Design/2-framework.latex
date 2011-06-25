@@ -6,7 +6,8 @@
 
 The framework, on which the simulations were built and forms the core of MACE,
 was itself built on the multi-agent simulation system Presage
-\footnote{\url{https://sites.google.com/site/presageproject}, \url{http://sammacbeth.github.com/Presage/}}.
+\footnote{\url{https://sites.google.com/site/presageproject},
+\url{http://sammacbeth.github.com/Presage/}}.
 Presage is a `time' driven system:
 the simulations are divided into discrete cycles, in which each participant
 processes any queued inputs, and responds with any appropriate actions.
@@ -138,7 +139,7 @@ this decision relates to the fact that the Plugin interface requires a
 reference to the Simulation object at initialisation time.
 The EnvironmentConnection class itself, however, is not public-safe - it 
 does offer a couple of functions that should not be directly exposed to the
-agent implementation - such as the function 'seekAdvise' which, if called
+agent implementation - such as the function `seekAdvice' which, if called
 directly, would allow agents to side step the requirement to consume resources
 in exchange for seeking advice.
 This problem is addressed with the PublicEnvironmentConnection.
@@ -147,7 +148,7 @@ A Similar theory was applied the Participants. The Interface requirement that
 a reference to the Participant's PlayerDataModel was publically accessible
 presented a major problem, as this would mean that participants have the same level
 of access to other's data model as their own.
-However, this was eventually used to our advantage by making returning only a wrapped
+However, this was eventually used to our advantage by returning only a wrapped
 version of the DataModel, which was the only reference avialable to both external
 entities (including Plugins, the Enivornment, and other Participants) 
 

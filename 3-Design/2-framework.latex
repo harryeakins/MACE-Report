@@ -170,6 +170,32 @@ either AbstractAgents or AbstractGroupAgents.
   \pgraphic{uml_environment}
 \end{figure}
 
+The environment implementation is primarily a nexus for agent communications and
+some housekeeping in corner cases.
+The main functionality of the data model, for exmaple, it to keep track of all the
+active objects - be it Agents, Groups, Foods - a task that is already done by the
+Simulation class.
+The repelciation here, however, is for time effiency:
+as the Simulation does not know to differentiate between agents and groups, each
+look up would take longer\footnote{
+  Especially for returning the lists, where reutrning a strong unmodifiable reference
+  to the internal list is a single operation, but deriviing it is $\mathcal{O}(n)$
+  in the number of Participants in the system.
+}.
+
+The data model also inherites the knowledge of the current cycle numbe and
+this is augmented with the current TurnType, which indiciated the position in
+the current round.
+This is updated in the overidden setTime method, along with additional code to
+ensure that on the first cycle, that the first TurnType is selected.
+
+This is determined, as are the turn orders, by use of the strcit natural
+ordering of enumberated types in java:
+the order of a set of values is strictly always the order in which they are
+declared.
+Thus, the order of turns is always the order in which the instance variables
+are declared in the TurnTypes enumerated class.
+
 \subsection{Agents}
 
 \begin{figure}[p]

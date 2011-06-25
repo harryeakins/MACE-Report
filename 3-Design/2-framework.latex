@@ -1,12 +1,9 @@
 \section{Framework}
-%Here we describe all of our incredible code and how it will change the world.
-%Basic flow of the system
-%Agents, environment, groups, Feedback Loops.
-%ASSIGN TO: Olly
 
 The framework, on which the simulations were built and forms the core of MACE,
 was itself built on the multi-agent simulation system Presage
-\footnote{\url{https://sites.google.com/site/presageproject}, \url{http://sammacbeth.github.com/Presage/}}.
+\footnote{\url{https://sites.google.com/site/presageproject},
+\url{http://sammacbeth.github.com/Presage/}}.
 Presage is a `time' driven system:
 the simulations are divided into discrete cycles, in which each participant
 processes any queued inputs, and responds with any appropriate actions.
@@ -92,16 +89,41 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{figure}[bh]
-  \label{uml_security}
-  \caption{TODO: Write about this diagram}
-  \pgraphic{uml_security}
-\end{figure}
 
 Due to a combination of Java's security management, and Presage's liberal
 permissions model, security was implemented in a number of different ways
 in different parts of the framework, which is outlined in figure
 \ref{uml_security}.
+
+There were three levels of security, which were roughly levelled as shown in
+the diagram.
+The Simulation security level corrospondes primarily to the data which is
+required by, and distributed by, Presage itself.
+This level, therefore, includes all of Presage's core simulation classes
+except those direcly related to Participants, which Presage already treats
+as partial-trust code.
+
+The next level is the framework, which actually only contains about half
+of the classes of the framework.
+Most of the classes in the framework security are not accessible directly
+by the simulation framwork, but are rather mapped through the public layer.
+Equally, the simualtion classes are not directly available here;
+the primary point of contact `upstream' is the EnivronmentConnection,
+which is passed downwards at initialisation time.
+
+The third, public, layer both forms the glue that allows for full interaction
+and contains all of the untrusted code implementation code.
+
+\begin{figure}[h]
+  \label{uml_security}
+  \pgraphic{uml_security}
+  \caption{
+    The framework was split into three security levels, determining which
+	classes shoudl be able to get references to which other classes.
+	This diagram shows which classes belong to which level, and some of the
+	important interactions between them.
+  }
+\end{figure}
 
 The Enivronment was protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
@@ -113,7 +135,7 @@ this decision relates to the fact that the Plugin interface requires a
 reference to the Simulation object at initialisation time.
 The EnvironmentConnection class itself, however, is not public-safe - it 
 does offer a couple of functions that should not be directly exposed to the
-agent implementation - such as the function 'seekAdvise' which, if called
+agent implementation - such as the function `seekAdvice' which, if called
 directly, would allow agents to side step the requirement to consume resources
 in exchange for seeking advice.
 This problem is addressed with the PublicEnvironmentConnection.
@@ -122,17 +144,56 @@ A Similar theory was applied the Participants. The Interface requirement that
 a reference to the Participant's PlayerDataModel was publically accessible
 presented a major problem, as this would mean that participants have the same level
 of access to other's data model as their own.
-However, this was eventually used to our advantage by making returning only a wrapped
+However, this was eventually used to our advantage by returning only a wrapped
 version of the DataModel, which was the only reference avialable to both external
-entities (including Plugins, the Enivornment, and other Participants) 
+entities (including Plugins, the Enivornment, and other Participants) which, although
+breaking the formal contract of the system, permitted us to correctly implement the
+security system.
+
+Permissions here were slightly looser than would have been liked, as both the
+Enivronment and plugins can access the Participant object and - using only the
+lightest parts of the reflection libraries - transform these into references to
+either AbstractAgents or AbstractGroupAgents.
 
 \subsection{Environment}
 
 \begin{figure}[p]
   \label{uml_env}
-  \caption{TODO: Write about this}
+  \caption{
+    The four primary classes, and the action handlers, that make up the Environment
+	package.
+	Member methods have been roughly by the class of object they are used to interact
+	with.
+	The class interactions can be seen in figure \ref{uml_security}.
+  }
   \pgraphic{uml_environment}
 \end{figure}
+
+The environment implementation is primarily a nexus for agent communications and
+some housekeeping in corner cases.
+The main functionality of the data model, for exmaple, it to keep track of all the
+active objects - be it Agents, Groups, Foods - a task that is already done by the
+Simulation class.
+The repelciation here, however, is for time effiency:
+as the Simulation does not know to differentiate between agents and groups, each
+look up would take longer\footnote{
+  Especially for returning the lists, where reutrning a strong unmodifiable reference
+  to the internal list is a single operation, but deriviing it is $\mathcal{O}(n)$
+  in the number of Participants in the system.
+}.
+
+The data model also inherites the knowledge of the current cycle numbe and
+this is augmented with the current TurnType, which indiciated the position in
+the current round.
+This is updated in the overidden setTime method, along with additional code to
+ensure that on the first cycle, that the first TurnType is selected.
+
+This is determined, as are the turn orders, by use of the strcit natural
+ordering of enumberated types in java:
+the order of a set of values is strictly always the order in which they are
+declared.
+Thus, the order of turns is always the order in which the instance variables
+are declared in the TurnTypes enumerated class.
 
 \subsection{Agents}
 

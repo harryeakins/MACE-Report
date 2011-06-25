@@ -228,9 +228,30 @@ both nutrition, and the number of a type of food that are available to hunt.
 
 \subsection{Agents}
 
+The agent implementation is noticably more complex than the environment in
+a variety of respects.
+A lot of care had to be taken to rmemeber that the untrusted code should not
+be apssed refences to sections of the data model, so the data model itself was
+made primarily responsible fro creating defensive copies of objects.
+The was complicated, however, by the use of the History class, which acted as
+a random access limited length queue that was used for storing past value of
+a data member.
+Although an immutable version of the History object is always returned from the
+data model, the references it contains are live references to the original
+object.
+Due to the lack of clear implementations of immutability and clonability in Java
+these security problems were not possible to patch in the generic case, short
+of limiting the types of object that can be used with History, or wrapping
+each individual object in a container that controlls access to it.
+
 \begin{figure}[p]
   \label{uml_agent}
-  \caption{TODO: Write about this}
+  \caption{
+    Diagram to show the AbstractAgent implementation and contract, along with
+	the private and public data models.
+	Also shown as the input handlers.
+	Class interaction diagram can be seen in figure \ref{uml_security}
+  }
   \pgraphic{uml_agent}
 \end{figure}
 

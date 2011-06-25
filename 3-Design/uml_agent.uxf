@@ -487,7 +487,7 @@
       <w>30</w>
       <h>54</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>18;18;18;42</additional_attributes>
   </element>
   <element>

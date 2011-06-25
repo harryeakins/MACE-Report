@@ -1,31 +1,30 @@
 \section{Project Plan}
+%TODO: Usage of Player as opposed to Agent?
 Our project hinged around creating a framework that would allow us to explore
 the game environment laid out in the specification. We could then expand this
-design to give us some meaningful and applicable results, from which we could draw
-some useful information.
+design to increase the degree and depth of social interaction, 
+providing a more complex system from which to draw more interesting data and concluions.	
 
-The environment would have to manage and regulate a number of players and
-control how they are able to interact with each other, as well as the parameters
+The environment would have to manage and regulate the players and
+define how they are able to interact with each other, as well as the parameters
 of the game (in this case, food and groups).
 Meanwhile, all aspects of the simulation would need to be monitored, visualised
-and analysed while the players are interacting to track the progress of the game.
+and analysed while the players are interacting in order to track the progress of the game and
+to provide meaningful output.
 
 Players in this game could all be defined by an abstract class which housed
-all the functions it uses to interact with the environment.
-In this class, algorithms which determine how the player selects from a 
-set of food types as well as how it interacts with other agents are housed.
-These algorithms are what determines the type of social and economic human the player represents.
+all the functions necessary to interact with the environment and other agents, 
+including all decision making algorithms.
 
-Groups themselves will need to have their own behaviour specified in the framework.
-They act much like agents, but make decisions based on a combination of strategies 
-held by its members. How the group decides between different agents when selecting
-behaviour and the way in which agents interact with each other within groups could 
-lead to some very interesting results.
+Groups themselves need to have their own behaviour specified in the framework - 
+mostly to deal with formation of, disbandment of and movement between groups.
+They act much like agents, but make decisions based on a combination of the strategies 
+used by its members. 
 
 Through research, we hope to optimise the variables needed to attempt to mimic
 human behaviour in our simulations, using the Multi-Agent System paradigm to
 implement our framework.
-In this project we hope to investigate the behaviour that emerges from variations in
-agent strategies and see what conditions are best suited for a stable population to exist 
-within a group or series of groups.
+Throughout the project we intend to investigate the behaviour that emerges from variations in
+agent strategies and interactions, and discover what exactly causes this behaviour to emerge and 
+if it is consistant and stable.
 

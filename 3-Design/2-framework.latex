@@ -195,6 +195,37 @@ declared.
 Thus, the order of turns is always the order in which the instance variables
 are declared in the TurnTypes enumerated class.
 
+The primary component of the Enivronment as a physical world is the information
+about food:
+the set of all food stuffs in existence, and their properties as contained within
+the Food objects, is immutable and set on creation of the simulation.
+This is also true of the less physcial set of all classes of Groups that are
+permitted.
+
+Individual groups are not created with the simulation but, instead, by agents who
+wish to start a community.
+As the framework interface for all classes of group are the same, being defined
+in AbstractGroupAgent, the limitation that the simulation environment places on
+group formation is the classes of group that are permitted in the environment.
+This functionality also allows that an agent does not need to understand the full
+nature of the group that it creates: the class objects that it can query mean
+that no strong references to a particular implementation are required.
+There were plans for agents to be able to get metadata about particular class
+types, but this was not implemented due to a lack of demand; very few classes
+of group were implemented in this course of the project.
+
+Food, on the other hand, works in almost the opposite way. Food objects are
+created as an a priori part of the Environment, and initialised with their
+parameters.
+These are currently limited to the food's name (for debugging and display
+purposes), the amound of nutrition the food has in total, and the number
+of hunters required to hunt it.
+Each of thsoe hunters will receive their portion - the total nutrition divided
+by the number of hunters - if and only if at least the required number of
+hunters in the team chose to hunt that type of food.
+Entensions to food were planning to look at food distributions in terms of
+both nutrition, and the number of a type of food that are available to hunt.
+
 \subsection{Agents}
 
 \begin{figure}[p]

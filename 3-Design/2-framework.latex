@@ -92,11 +92,6 @@ or it will be dealt with last if it was `less than'.
 Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
-\begin{figure}[bh]
-  \label{uml_security}
-  \caption{TODO: Write about this diagram}
-  \pgraphic{uml_security}
-\end{figure}
 
 Due to a combination of Java's security management, and Presage's liberal
 permissions model, security was implemented in a number of different ways
@@ -121,6 +116,17 @@ which is passed downwards at initialisation time.
 
 The third, public, layer both forms the glue that allows for full interaction
 and contains all of the untrusted code implementation code.
+
+\begin{figure}[h]
+  \label{uml_security}
+  \pgraphic{uml_security}
+  \caption{
+    The framework was split into three security levels, determining which
+	classes shoudl be able to get references to which other classes.
+	This diagram shows which classes belong to which level, and some of the
+	important interactions between them.
+  }
+\end{figure}
 
 The Enivronment was protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins

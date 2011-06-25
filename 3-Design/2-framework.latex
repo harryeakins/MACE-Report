@@ -1,8 +1,4 @@
 \section{Framework}
-%Here we describe all of our incredible code and how it will change the world.
-%Basic flow of the system
-%Agents, environment, groups, Feedback Loops.
-%ASSIGN TO: Olly
 
 The framework, on which the simulations were built and forms the core of MACE,
 was itself built on the multi-agent simulation system Presage

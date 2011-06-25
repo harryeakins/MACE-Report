@@ -27,7 +27,7 @@ can be drawn to gain a fuller grasp of the initial problem.
 		W = <E,e_0,\tau>
 		\label{eq:mas}
 	\end{equation}
-	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment into the next state. 
+	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment as input and outputs the next state. 
 
 %TODO: Correct over-use of the word "state"
 	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state.
@@ -40,7 +40,7 @@ can be drawn to gain a fuller grasp of the initial problem.
 	\end{equation}
 	where $e_i$ and $\alpha_i$ respectively denote the environment states and the actions performed by the agents.
 
-	Let $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is most likely in many cases impossible for agents to have a complete understanding.}---
+	Let $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is highly unlikely, and in many cases impossible, for agents to have a complete understanding.}---
 	\begin{equation}
 		\tau : R \rightarrow \wp (E).
 		\label{eq:state_transformer}
@@ -78,9 +78,9 @@ can be drawn to gain a fuller grasp of the initial problem.
 		\label{eq:action_def}
 	\end{equation}
 
-	For example: a thermostat is a purely reactive agent. 
+	For example: a simple thermostat is a purely reactive agent. 
 	It's job is to keep the temperature constant inside a given area.
-	There are two states to this system: one where the room is under a threshold value, which we designate state $e_1$; and a second if the temperature is adequate, which we regard as state $e_2$.
+	There are two states to this system: one where the room temperature is below a threshold value, which we designate state $e_1$; and a second where the temperature above the threshold, which we regard as state $e_2$.
 	For this particular agent, if it is in environment $e_1$, it just simply takes performs the action that turns the heater on.
 	Otherwise, in state $e_2$, it will the heater off.
 	In this system, the agent is purely reactive, only making decisions based on its current environment state and nothing else.
@@ -126,7 +126,7 @@ a decision on what action it will take.
 	% Graph needed here
 	These agents can now maintain states that are internal data structures of agents and can be used to record information about the environment state and the history. 
 	So we introduce I to be the set of all internal states.
-	For this type of agent, the function see doesn't change at all, still maps the environment state E to the percept Per.
+	For this type of agent, the see function doesn't change at all, still maps the environment state E to the percept Per.
 	\begin{equation}
 		See : E \rightarrow Per
 		\label{eq:see}
@@ -139,7 +139,7 @@ a decision on what action it will take.
 		\label{eq:action}
 	\end{equation}
 
-	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like a feed back in the digital electronic field.
+	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like feedback.
 	This function maps an internal state and a percept to a new internal state.
 	It seems like the agent is learning something slowly form the changing environment states and each time varies its internal states as well.
 	\begin{equation}
@@ -184,9 +184,9 @@ a decision on what action it will take.
 \subsection{Genetic Algorithm in MAS} % (fold)
 \label{sub:genetic_algorithms}
 
-	Finding an optimal solution of a problem sometimes is impossible but we can somehow improve an existing solution and lead it to a better solution.
-	This notion introduces us to the genetic algorithm which pretty much approaches this goal in some similar manner. 
-	In an multi-agent system, by using selection, crossover and mutation of agents, according to their fitness function, we improve an existing solution. 
+	Finding an optimal solution of a problem sometimes is impossible but we can somehow improve an existing solution.
+	This notion introduces us to genetic algorithms which pretty much approach this goal in a similar manner. 
+	In an multi-agent system, using selection, crossover and mutation of agents, and evaluating their success according to their fitness function, we can improve an existing solution. 
 	Consequently we plan to focus on the relation between genetic algorithm and MAS in order to define some new properties of agents which can be applied to those mentioned functions.
 
 \subsubsection{Representation of Agents} % (fold)
@@ -201,7 +201,7 @@ a decision on what action it will take.
 \subsubsection{Mutation} % (fold)
 \label{subs:mutation}
 
-	Suppose now we have a set of agents whereas each agent has a sequence of binary chain representation its own behaviour. 
+	Suppose now we have a set of agents and each agent has a binary sequence representation of its behaviour. 
 	Mutation is simply converting one bit of the binary chain in order to gain a new characteristic of the agent that is more adaptive to the environment.
 	\begin{equation}
 		Converting~bit: 1\rightarrow 0,~0\rightarrow 1
@@ -211,34 +211,34 @@ a decision on what action it will take.
 	But mutate too much may introduce a certain aggressiveness at the agent level, and consequently the agent will perhaps do something bad and loose its social cohesion.
 	Therefore in order to avoid this situation, the mutation interventions by genetic algorithms will need to be weak.
 	Nevertheless, we can tolerant that the mutation can be rapid at the beginning as we need the agents to grow fast. 
-	And moreover, there is no leadership at the first place whereas the groups are forming randomly.
-	But after some period, the mutation should be slow in order to avoid breaking the process of evolution by dramatically modifying the agent’s characteristic.
+	And moreover, there is no leadership at the first place since the groups are forming randomly.
+	After some period, the mutation should be slow in order to avoid breaking the process of evolution by dramatically modifying the agent’s characteristic.
 
 % subsubsection Mutation (end)
 \subsubsection{Crossover} % (fold)
 \label{subs:crossover}
 
-	Dislike the mutation process such that the offspring is inherited from one single ancestor, the crossover function is applied to two or more agents and combine their binary chains to achieve better performance. 
-	Of course this crossover process is random, it may produce something useless, but we can maintain those benefits part and get rid of those rubbish by using a selection function which we will talk about later.
+	Unlike the mutation process, the crossover process uses the "genome" of two parent agents to produce a third genome. 
+	Of course this crossover process is random, so it may produce something useless, but we can maintain the beneficial parts and get rid of the disadvantageous traits by using a selection function which we will talk about later.
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=0.4\linewidth]{figures/crossover}
 		\caption{crossover}
 		\label{fig:crossover}
 	\end{figure}
-	Now, let's consider an agent as a pie chat instead of binary chain just for better explanation.
-	We can randomly pick a break point in the chain, as same in here, we can cut the pie any way we prefer.
-	After that, combine those two different parts from separate agent so that a new agent with unique character is formed. 
-	Though the use of a simple crossing does not always give us good results, consequently a multiple crossing may allow us to end up in a more important mix. 
+	Now, let's consider an agent as a pie chart instead of binary chain just for better explanation.
+	We can randomly pick a break point in the chain, as shown in the diagram, we can cut the pie any way we prefer.
+	After that, one combines those two different parts from separate agents so that a new agent with unique character is formed. 
+	Though the use of a simple crossing does not always give us good results, a multiple crossing may allow us to end up in a more. 
 
 % subsubsection Crossover (end)
 \subsubsection{Fitness Function} % (fold)
 \label{subs:fitness_function}
 
 	The fitness function is to evaluate the degree of utility of each agent, as well as the fitness of the agent to the environment.
-	This function is actually quite flexible depends how we suppose our agents to perform actions and make decisions.
-	For example, we can test the efficiency of hunting for each agent where the efficiency is hunting results over time used to hunt. 
-	Those agents with higher efficiency will evolve and the rest will die out time after time. 
+	This function is actually quite flexible and depends on how successful we judge the agents are in performing actions and making decisions.
+	For example, we can test the efficiency of hunting for each agent where the efficiency is hunting results divided by the time used to hunt. 
+	Those agents with higher efficiency will be chosen as the parents of the next generation and the rest will die out time after time. 
 	Furthermore, we can also evaluate the reputation of each group leader under the hunting performance of the group. 
 	Obviously, those leaders with good reputation will survive.
 	In conclusion, the fitness function acts as a tool to decide which part of agents is fit to the evolution process.

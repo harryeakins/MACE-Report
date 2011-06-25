@@ -155,7 +155,6 @@ Enivronment and plugins can access the Participant object and - using only the
 lightest parts of the reflection libraries - transform these into references to
 either AbstractAgents or AbstractGroupAgents.
 
-
 \subsection{Environment}
 
 \begin{figure}[p]

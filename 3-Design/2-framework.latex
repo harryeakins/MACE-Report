@@ -150,7 +150,15 @@ presented a major problem, as this would mean that participants have the same le
 of access to other's data model as their own.
 However, this was eventually used to our advantage by returning only a wrapped
 version of the DataModel, which was the only reference avialable to both external
-entities (including Plugins, the Enivornment, and other Participants) 
+entities (including Plugins, the Enivornment, and other Participants) which, although
+breaking the formal contract of the system, permitted us to correctly implement the
+security system.
+
+Permissions here were slightly looser than would have been liked, as both the
+Enivronment and plugins can access the Participant object and - using only the
+lightest parts of the reflection libraries - transform these into references to
+either AbstractAgents or AbstractGroupAgents.
+
 
 \subsection{Environment}
 

@@ -160,7 +160,13 @@ either AbstractAgents or AbstractGroupAgents.
 
 \begin{figure}[p]
   \label{uml_env}
-  \caption{TODO: Write about this}
+  \caption{
+    The four primary classes, and the action handlers, that make up the Environment
+	package.
+	Member methods have been roughly by the class of object they are used to interact
+	with.
+	The class interactions can be seen in figure \ref{uml_security}.
+  }
   \pgraphic{uml_environment}
 \end{figure}
 

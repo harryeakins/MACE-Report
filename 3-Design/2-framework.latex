@@ -182,7 +182,7 @@ look up would take longer\footnote{
   in the number of Participants in the system.
 }.
 
-The data model also inherites the knowledge of the current cycle numbe and
+The data model also inherites the knowledge of the current cycle number and
 this is augmented with the current TurnType, which indiciated the position in
 the current round.
 This is updated in the overidden setTime method, along with additional code to

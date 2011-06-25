@@ -44,7 +44,7 @@ A free agent that can't find a pair remains inactive, i.e. doesn't go hunting an
 \item An agent can engage into two actions
 
 \begin{itemize}
-\item Either stays as a free agent and plays the game with another free agent (or if there is no pair then stays inactive and lose food). 
+\item Either stays as a free agent and plays the game with another free agent (or if there is no pair then stays inactive and loses food). 
 \item Or form a coalition with another agent (or group) if there is some sort of benefit for both parties. Details of this formation discussed later.
 \end{itemize}
 
@@ -138,15 +138,13 @@ can better their situation as a group.
 \subsubsection{Socio-Economical}
 We made use of the political compass shown below:
 
-%TODO: Fix quotes
-From ‘Right’ to ‘Left’ we discuss the economic affairs that are believed by an agent; should food 
+From `Right' to `Left' we discuss the economic affairs that are believed by an agent; should food 
 be distributed evenly across the group or should an agent keep the food it gets.
 From ‘Authoritarian’ to ‘Libertarian’ we discuss the social affairs that are believed by an agent; 
 should an agent be free and act under no command or should it give/follow strict orders.
 So, there are two attributes to be assigned to each agent which describe their position in the 
 political compass:
 
-%TODO: No idea why this doesn't work
 %\begin{figure}[ht]
 %\centering
 %\includegraphics[width=0.4\linewidth]{figures/socialGraph2}

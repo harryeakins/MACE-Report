@@ -103,6 +103,25 @@ permissions model, security was implemented in a number of different ways
 in different parts of the framework, which is outlined in figure
 \ref{uml_security}.
 
+There were three levels of security, which were roughly levelled as shown in
+the diagram.
+The Simulation security level corrospondes primarily to the data which is
+required by, and distributed by, Presage itself.
+This level, therefore, includes all of Presage's core simulation classes
+except those direcly related to Participants, which Presage already treats
+as partial-trust code.
+
+The next level is the framework, which actually only contains about half
+of the classes of the framework.
+Most of the classes in the framework security are not accessible directly
+by the simulation framwork, but are rather mapped through the public layer.
+Equally, the simualtion classes are not directly available here;
+the primary point of contact `upstream' is the EnivronmentConnection,
+which is passed downwards at initialisation time.
+
+The third, public, layer both forms the glue that allows for full interaction
+and contains all of the untrusted code implementation code.
+
 The Enivronment was protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
 and the Environment itself could get a reference to the Environment of the

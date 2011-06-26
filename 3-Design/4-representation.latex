@@ -1,6 +1,7 @@
 
 \section{Data Representation}
 
+\subsection{Database}
 The simulation environment generates huge quantities of information, which needs to be processed, stored and represented in a meaningful way.
 To do that, most simulation variables are stored in histories, which can be accessed by agents or groups or plug-ins working on the data representation and storage. The relevant variables are read in by visualization plug-ins to process and display that information, while a database plugin can also be run to store the data into a local or a remote database. 
 
@@ -17,6 +18,7 @@ Variable data is stored in g\_data, a\_data, a\_trust\ and lg\_data. The data is
 
 For example, for each agent the database tracks last hunted food, current food available, their beliefs and their name. Similarly, groups have their position (belief) tracked and current population. All or some part of this data can be used to look for interesting patterns in agent or group behaviour using SQL statements to get numerical data or further processing the data and plotting graphs and charts, which enable quick simulation comparison and evaluation. 
 
+\subsection{Data Visulisation graphs}
 Each simulation exectued will inherently produce a large amount of data. In order for this data to become useful it needs to be interpreted and have the relevant important information extracted.
 This can be a long and tedious task. The aim of this section of the project is to make this process as painless as possible. By visualising data, important comparisons can be made on multiple variables simultaneously.
 
@@ -25,7 +27,7 @@ In order to create useful visualisations we first needed to determine the areas 
 All graphs were implemented using javascript and a library known as  \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
 This library uses javascript and SVG elements to create charts with smooth transitions and interaction which are both important for a well designed user interface.
 
-\subsection{The Politics Graph}
+\subsubsection{The Politics Graph}
 This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 
 The ready avaliable idea for the political compass provided a useful way to show the internal structure of each group.
 Each group was plotted as a circle on the compass using the x-axis for the economic belief of the group and the y-axis for the social belief. Group population can be an important metric to show the sucess of a group for this reason it is used to determine the radius of each plotted circle. A group that diminishes in size across the simulation indicates that either agents are abandoning the group or dying out. Each group is given an individual colour with the maximum possible colour difference to make them easy to differentiate.  
@@ -59,7 +61,7 @@ These features can be seen in the figure ~\ref{fig:politicsHighlighted}.
 		\label{fig:politicsHighlighted}
 	\end{figure}
 
-\subsection{Comparing Two simulations}
+\subsubsection{Comparing Two simulations}
 
 It is critically important that two simulations be compared at the same time so that various changes in the simulation parameters can be contrasted. The following graph was developed with this purpose in mind. 
 Another motivation for this graph was to provide a was for users to easily see the development of groups across an entire simulation. 
@@ -84,7 +86,7 @@ This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
 		\label{fig:simuCompSensitivity}
 \end{figure}
 
-\subsection{Visualising inter-group lending and group lending habits}
+\subsubsection{Visualising inter-group lending and group lending habits}
 
 Interesting data is required to be mined on how groups loan resources to one another and how individual groups manage the amount of loans they give. For this graph group data needs to be encoded on their economic and social beliefs, total resources, the amount of resources lent in total, and the amount of resources lent to each other group. 
 

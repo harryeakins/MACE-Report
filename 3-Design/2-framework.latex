@@ -287,6 +287,21 @@ trusted code\footnote{
   The earlier discussion of plugin security is, however, still relevant here
 }.
 
+The Agent implementation, that will supply the implementation of the abstract
+`callback' functions, is not trusted code.
+This meant that all of the parameter to those function calls have to bt checked
+to be immutable or unbacked references, and the return values have to be
+validated by trusted code.
+
+Many of these tasks were achieved by dropping non-sensical data when java
+detected to to be non-sensical.
+An agent could supplt a new instance of the Food class as the result of
+chooseFood, which would have a well-formed UUID.
+This UUID would then be passed on into the enivorment, and then looked up
+in the Enivronment's list of available foods.
+This lookup will return null, and the process will continue as if the agent
+had not picked a food.
+
 
 \begin{figure}[p]
   \label{uml_agent}

@@ -365,6 +365,18 @@ within the Framework security layer.
   }
 \end{figure}
 
+Groups also act as Participents, and a similar core logic is uses as with Agents.
+All Inputs are handled syncronously within the Group, although many of the
+handlers write to temporary storage for later processing, such as storing the
+hunt results for processing in the distribution phase.
+
+A large amount of the group code is static, such as the logic for the distribution
+of hunted food (which is based entirely on the economic policy of the group).
+The decisions they can make mainly related to membership.
+
+TODO: Write this once I can see the OOOO EMM ELLLS
+%TODO: Write this once I can see the OOOO EMM ELLLS
+
 \subsubsection{Free Agent Groups}
 
 Free agent groups are implemented somewhat tangentially to the rest of the code:
@@ -372,6 +384,8 @@ they are not an extension of any Presage class or interface, but an entirely
 internal construct to the framework.
 It is used to emulate some basic group features for those agents that are
 not currently in a group, such as forming teams and giving each other cuddles.
+Like kittens, there is no initial trust, but much desire for play between them;
+this later manifests into groups.
 They do not get to make or receive loans, have an economic policy, or have any
 form of voting round.
 This allows cooperation between the agents before theyy form groups, allowing
@@ -397,5 +411,4 @@ that the order of generated names is constant.
 This functionality also allows for static analysis of the number of unique names
 that will be genenrated, and optimisation to ensure this number is as large as
 possible to avoid possible conflicts and confusion.
-
 

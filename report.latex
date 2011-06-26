@@ -2,6 +2,7 @@
 \documentclass[a4paper,12pt]{report}
 
 \usepackage{amsmath} % mathematics
+\usepackage{amssymb}
 \usepackage[british]{babel}
 \usepackage[usenames]{color}
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}

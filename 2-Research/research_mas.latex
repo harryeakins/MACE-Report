@@ -278,9 +278,9 @@ a decision on what action it will take.
 		\label{eq:neuron}
 	\end{equation}
 	where $x_i$ is the $i$th input value, $w_i$ is the weight constant for the $i$th input, and $b$ is the bias constant.
-	It is noteworthy that while the activation function could be any function, it is generally a sigmoid function which takes the weighted sum and a bias constant to give a result bounded in range $[-1,1]$.
+	It is noteworthy that while the activation function $f$ could be any function, it is generally a sigmoid function which takes the weighted sum and a bias constant to give a result bounded in range $[-1,1]$.
 	\begin{equation}
-		f: \mathbf{R \times R} \rightarrow \mathbf{R}
+		f: \mathbf{R \times R} \rightarrow \mathbf{R}.
 		\label{eq:activation}
 	\end{equation}
 

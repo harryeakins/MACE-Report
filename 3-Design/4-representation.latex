@@ -66,8 +66,7 @@ These features can be seen in the figure~\ref{fig:politicsHighlighted}.
 
 \subsubsection{Comparing Two simulations}
 
-It is critically important that two simulations be compared at the same time so that various changes in the simulation parameters can be contrasted. The following graph was developed with this purpose in mind. 
-Another motivation for this graph was to provide a was for users to easily see the development of groups across an entire simulation. 
+It is critically important that two simulations be compared simultaneously so that various changes in simulation parameters can be contrasted. With that fact in mind the following graph was developed.
 The implementation for this graph can be seen in figure ~\ref{fig:simu_comp_fig}.
 
 \begin{figure}[p]
@@ -77,9 +76,9 @@ The implementation for this graph can be seen in figure ~\ref{fig:simu_comp_fig}
                 \label{fig:simu_comp_fig}
 \end{figure}
 
-This graph plots the group circles in a similar manner to the previous graph. Each group is placed on the axis based around the groups political beliefs, and the radius of the circle is used to indicate the population of the group. The group is replotted with it's new position every ten percent of the total simulation. This creates two graphs that shows the movement of the groups across the whole of each simulation. The border for each circle drawn is also made increasingly darker as the simulation progresses to indicate to the user where the start and end of the simulation was and hopefully give the feeling of distance when looking at the group progression. 
+This graph plots the group circles in a similar manner to the politics graph. Each group is positioned on the x and y axis based on its political beliefs. The radius of the circle is used to indicate the population of the group. At every percentage that a multiple of ten for the simulation each group circle is drawn. This creates two graphs that show the movement of the groups across the entirety of each simulation. In order to indicate which group circle is drawn at the start of the simulation and which is drawn at the end the border for each circle is made increasingly darker as the simulation progresses, this also gives the feeling of distance when looking at the groups progression. 
 
-A slider bar with two sliders is used to select the range of the simulation percentage to display for both simulations. Any group plot that falls outside this range is made less opaque in order to allow the user to focus their attention of a particular point in the execution while still showing sensitivity data about the ranges. 
+A slider bar with two sliders is used to select the range of simulation percentage to display for both simulations. Any group circles that fall outside the range are made more transparent this enables  the user to focus their attention on a particular point in the execution while still showing sensitivity data about the ranges. 
 This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
 
 \begin{figure}[p]

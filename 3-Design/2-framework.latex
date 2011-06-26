@@ -244,6 +244,11 @@ these security problems were not possible to patch in the generic case, short
 of limiting the types of object that can be used with History, or wrapping
 each individual object in a container that controlls access to it.
 
+The data that these histries are storing form a record of the agents
+participation in the various game - the team in which they hunted, their
+opinion of the group (as defined by their happiness, loyalty, and trust of
+other agents) 
+
 \begin{figure}[p]
   \label{uml_agent}
   \caption{

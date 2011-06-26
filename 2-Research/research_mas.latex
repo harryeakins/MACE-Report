@@ -81,11 +81,11 @@ can be drawn to gain a more comprehensive grasp of the initial problem.
 		\label{eq:action_def}
 	\end{equation}
 
-	For example: a simple thermostat is a purely reactive agent. 
-	It's job is to keep the temperature constant inside a given area.
+	For example: a simple thermostat is a purely reactive agent - 
+	it's job is to keep the temperature constant inside a given area.
 	There are two states to this system: one where the room temperature is below a threshold value, which we designate state $e_1$; and a second where the temperature above the threshold, which we regard as state $e_2$.
 	For this particular agent, if it is in environment $e_1$, it just simply takes performs the action that turns the heater on.
-	Otherwise, in state $e_2$, it will the heater off.
+	Otherwise, in state $e_2$, it will turn the heater off.
 	In this system, the agent is purely reactive, only making decisions based on its current environment state and nothing else.
 
 % subsubsection Purely Reactive Agent (end)

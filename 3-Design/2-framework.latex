@@ -383,10 +383,8 @@ Free agent groups are implemented somewhat tangentially to the rest of the code:
 they are not an extension of any Presage class or interface, but an entirely
 internal construct to the framework.
 It is used to emulate some basic group features for those agents that are
-not currently in a group, such as forming teams and giving each other cuddles.
-Like kittens, there is no initial trust, but much desire for play between them;
-this later manifests into groups.
-They do not get to make or receive loans, have an economic policy, or have any
+not currently in a group, such as forming teams and hunting.
+They do not get to give or receive loans, have an economic policy, or have any
 form of voting round.
 This allows cooperation between the agents before they form groups, allowing
 them to build trust and make informed decisions in the group selection process.

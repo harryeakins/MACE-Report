@@ -27,8 +27,6 @@ These values are maintained within the range by a scaling function with the basi
   \forall x \in \mathbb{R}, n \in \mathbb{N} \left( s(r, n) + s(-r, n) = 1 \right)
 \end{align*}
 
-Happiness and Loyalty can together be considered a ``satisfaction level'', which is used to decide whether an agent remains in a group or not.
-
 Trust heavily effects the playing of the stag hunt game. Before deciding exactly what to hunt, each agent has the opportunity to ask other agents what they should hunt.
 This asking of advice costs some amount of food, so they have to limit who they ask to who they feel gives the best advice.
 

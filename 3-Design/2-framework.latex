@@ -237,6 +237,17 @@ both nutrition, and the number of a type of food that are available to hunt.
 
 \subsection{Agents}
 
+\begin{figure}[p]
+  \label{uml_agent}
+  \caption{
+    Diagram to show the AbstractAgent implementation and contract, along with
+    the private and public data models.
+	Also shown as the input handlers.
+    Class interaction diagram can be seen in figure \ref{uml_security}
+  }
+  \pgraphic{uml_agent}
+\end{figure}
+
 The agent implementation is noticably more complex than the environment in
 a variety of respects.
 A lot of care had to be taken to rmemeber that the untrusted code should not
@@ -321,24 +332,43 @@ in the documentation for the TurnType enum.
 
 Both the input handlers and callbacks WORDS WORD WORDS WORDS
 
-\begin{figure}[p]
-  \label{uml_agent}
-  \caption{
-    Diagram to show the AbstractAgent implementation and contract, along with
-	the private and public data models.
-	Also shown as the input handlers.
-	Class interaction diagram can be seen in figure \ref{uml_security}
-  }
-  \pgraphic{uml_agent}
-\end{figure}
+TODO: Talk about the types of Inputs and Actions relelvant to a Agent's interests.
+
+The returned information is then converted by the AbstractAgent to actions,
+which are sent to the Environment, allowing the agent to play the games.
+Actions are processed syncronously by the Environment, and generally result
+in Inputs being sent to other Participents.
+Inputs that AbstractAgent receives are generally handles asyncronously by
+adding them to the Input queue.
+The exception to this rule is the Proposition, which is handled syncornously
+by the AbstractAgent, to save including an extra turn of voting.
+Advice is handled on a different mechanism, as the call must by made entirely
+syncronously as advice is generally being required during making decision
+about another action.
+For this reason, it is implemented as a direct-call function in the
+EnivronmentConnection, which preceeds to call the appropriate function directly
+on the remote AbstractAgent.
+Although this seemingly breaks the security encapsulation, the code all exists
+within the Framework security layer.
 
 \subsection{Groups}
 
 \subsubsection{Free Agent Groups}
 
-TODO: Discuss the meanings of different turns \\
-TODO: Mentions the free agent group \\
-TODO: Describe why some things are synchronous \\
-TODO: Possibly discuss how the encapsulation works \\
-TODO: Make reference to the repeatability parameters
+\subsection{Validation}
+
+Validation of the framework was performed both via static code path analysis in
+the devleopment environment and external validation via control simulations.
+
+The code path analysis became the basis for figure \ref{framework-flow}, and
+was used to confirm that all Actions and Inputs can be handled.
+Also, static analysis was performed to check that all random number generation
+was correctly and controllably seeded such that all results can be reproduced
+as required.
+For exmaple, name generation uses its own random number genenrator to ensure
+that the order of generated names is constant.
+This functionality also allows for static analysis of the number of unique names
+that will be genenrated, and optimisation to ensure this number is as large as
+possible to avoid possible conflicts and confusion.
+
 

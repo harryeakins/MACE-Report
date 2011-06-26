@@ -1,5 +1,7 @@
-%&latex
+
 \section{Data Representation}
+
+\subsection{Database}
 The simulation environment generates huge quantities of information, which needs to be processed, stored and represented in a meaningful way.
 To do that, most simulation variables are stored in histories, which can be accessed by agents or groups or plug-ins working on the data representation and storage. The relevant variables are read in by visualization plug-ins to process and display that information, while a database plugin can also be run to store the data into a local or a remote database. 
 
@@ -16,10 +18,90 @@ Variable data is stored in g\_data, a\_data, a\_trust\ and lg\_data. The data is
 
 For example, for each agent the database tracks last hunted food, current food available, their beliefs and their name. Similarly, groups have their position (belief) tracked and current population. All or some part of this data can be used to look for interesting patterns in agent or group behaviour using SQL statements to get numerical data or further processing the data and plotting graphs and charts, which enable quick simulation comparison and evaluation. 
 
-\_
+\subsection{Data Visulisation graphs}
+Each simulation exectued will inherently produce a large amount of data. In order for this data to become useful it needs to be interpreted and have the relevant important information extracted.
+This can be a long and tedious task. The aim of this section of the project is to make this process as painless as possible. By visualising data, important comparisons can be made on multiple variables simultaneously.
 
-\    \  
+In order to create useful visualisations we first needed to determine the areas of interest within the data relevant to our study. (--Add a link to the hypothesis--) Individual agents playing the stag hunt game were generally not of particular interest, what was more important was how different groups emerged along with the structure of each group such as the distribution of resources and leadership. Another area of interest was the relationships between each groups due to lending and the lending habits of each individual group. 
 
+All graphs were implemented using javascript and a library known as  \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
+This library uses javascript and SVG elements to create charts with smooth transitions and interaction which are both important for a well designed user interface.
 
+\subsubsection{The Politics Graph}
+This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 
+The ready avaliable idea for the political compass provided a useful way to show the internal structure of each group.
+Each group was plotted as a circle on the compass using the x-axis for the economic belief of the group and the y-axis for the social belief. Group population can be an important metric to show the sucess of a group for this reason it is used to determine the radius of each plotted circle. A group that diminishes in size across the simulation indicates that either agents are abandoning the group or dying out. Each group is given an individual colour with the maximum possible colour difference to make them easy to differentiate.  
 
-    
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/blankPolitics}
+		\caption{The politics graph}
+		\label{fig:blankPolitics}
+	\end{figure}
+
+From figure ~\ref{fig:blankPolitics} it can be seen that minature versions of the politics graph are displayed on the right. Each of these will be used to depict all the groups at a discrete times throughout the simulation. 
+Instead of displaying every round of the simulation the execution time is split up into percentages that are multiples of ten. Some simulations have a large variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
+The larger graph on the left of ~\ref{fig:blankPolitics} is used to display particular minature graphs selected by the user. Once a percentage is selected the groups from that instance are displayed on the larger graph and highlighted according to their percentage. This allows the user to easily compare the movement of groups between two points in the simulation. Arrows are also used pointing from the percentage to the left graph to reinforce which points on the simulation are curently being displayed. 
+The implementation of this can be seen in ~\ref{fig:politicsWithData}.
+
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/politicsWithData}
+		\caption{The politics graph with data.}
+		\label{fig:politicsWithData}
+	\end{figure}
+
+Various indicators are used to inform to the user the graphs behaviour and interactivity. If a user hovers over a particular intant of the simulation, the box becomes shaded with the same colour used to highlight the groups. An arrow is also dynamically displayed in a different colour pointing from the currently highlighted graph to the main graph. Less opaque groups are also drawn on the larger graph. 
+These features can be seen in the figure ~\ref{fig:politicsHighlighted}.
+
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/politicsHighlighted}
+		\caption{Demonstrating politics interactivity indicators.}
+		\label{fig:politicsHighlighted}
+	\end{figure}
+
+\subsubsection{Comparing Two simulations}
+
+It is critically important that two simulations be compared at the same time so that various changes in the simulation parameters can be contrasted. The following graph was developed with this purpose in mind. 
+Another motivation for this graph was to provide a was for users to easily see the development of groups across an entire simulation. 
+The implementation for this graph can be seen in figure ~\ref{fig:simu_comp_fig}.
+
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/simu_comp_fig}
+		\caption{Graph for comparing simulations}
+		\label{fig:simu_comp_fig}
+\end{figure}
+
+This graph plots the group circles in a similar manner to the previous graph. Each group is placed on the axis based around the groups political beliefs, and the radius of the circle is used to indicate the population of the group. The group is replotted with it's new position every ten percent of the total simulation. This creates two graphs that shows the movement of the groups across the whole of each simulation. The border for each circle drawn is also made increasingly darker as the simulation progresses to indicate to the user where the start and end of the simulation was and hopefully give the feeling of distance when looking at the group progression. 
+
+A slider bar wth two sliders is used to select the range of the simulation percentage to display for both simulations. Any group plot that falls outside this range is made less opaque in order to allow the user to focus their attention of a particular point in the execution while still showing sensitivity data about the ranges. 
+This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
+
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/simuCompSensitivity}
+		\caption{Demonstration of range finder showing sensitivity to range information}
+		\label{fig:simuCompSensitivity}
+\end{figure}
+
+\subsubsection{Visualising inter-group lending and group lending habits}
+
+Interesting data is required to be mined on how groups loan resources to one another and how individual groups manage the amount of loans they give. For this graph group data needs to be encoded on their economic and social beliefs, total resources, the amount of resources lent in total, and the amount of resources lent to each other group. 
+
+The proposed graph for loans was split into three subgraphs. The total graph can be seen at figure ~\ref{fig:lendingGraph}. The first subgraph display the groups as circles on the political compass using the groups average position throughout the enitre simulation. The size of the group circle is determined by the maximum amount of resources that the group held. Between the groups lines are drawn to indicate that a group has given a loan to another group. The line colour is the same as the group giving the loan and the thickness of the line is used to determine the total amount of money that was lent. The next two graphs are triggered once a user hovers over a particular group. The first is used to compare the amount of resources that the group lent as a percentage of the maximum resources the group held. The second is used to display the net profit or loss that a group has made through lending to other groups. See the following for two examples of displaying group lending habits, figure ~\ref{fig:profitLossGraphs}. 
+
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/lendingGraph}
+		\caption{Graph to visualise lending between groups and group lending habits.}
+		\label{fig:lendingGraph}
+\end{figure}
+ 
+\begin{figure}[p]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/profitLossGraphs}
+		\caption{Two graphs showing one group making a net profit and the other a net loss.}
+		\label{fig:profitLossGraphs}
+\end{figure}

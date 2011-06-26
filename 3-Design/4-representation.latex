@@ -12,7 +12,11 @@ The schema of the database is simple: there are tables for simulations, groups, 
 
 Groups and agents tables contain agents of that type that are in simulation, their start date (when they were created) and their end date (the end round they ceased to exists, or end of simulation). Also, variables that are constant for that type of agent throughout the simulation.
 
-Variable data is stored in g\_data, a\_data, a\_trust\ and lg\_data. The data is updated each round and tracks agent actions and changes in their parameters. Lg\_data table is used for simulations implementing loans (the table is used instead of g\_data and simulations that do this have column "loans" set to 1) and contains extra columns to store the increased number of variables used in loan simulations.\_
+Variable data is stored in g\_data, a\_data, a\_trust\ and lg\_data. The data is updated each round and tracks agent actions and changes in their parameters. Lg\_data table is used for simulations implementing loans (the table is used instead of g\_data and simulations that do this have column "loans" set to 1) and contains extra columns to store the increased number of variables used in loan simulations.
+
+For example, for each agent the database tracks last hunted food, current food available, their beliefs and their name. Similarly, groups have their position (belief) tracked and current population. All or some part of this data can be used to look for interesting patterns in agent or group behaviour using SQL statements to get numerical data or further processing the data and plotting graphs and charts, which enable quick simulation comparison and evaluation. 
+
+\_
 
 \    \  
 

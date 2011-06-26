@@ -6,7 +6,7 @@
 % ASSIGNED TO: Adam, Ricky, Bo
 
 \subsection{What is a Multi-Agent System?} % (fold)
-A multi-agent system (MAS) is program which comprises of a series of interacting 
+A multi-agent system (MAS) is as program which comprises of a series of interacting 
 intelligent agents.
 These systems are used to solve problems that would be problematic, or often impossible,
 for a monolithic approach to resolve.
@@ -17,21 +17,21 @@ inhabit.
 No agent should be assigned a controlling role, in which they are instantiated to dictate 
 the behaviour of other agents. 
 By monitoring how the agents interact with their environment and each other, results 
-can be drawn to gain a fuller grasp of the initial problem.
+can be drawn to gain a more comprehensive grasp of the initial problem.
 % What is a Multi-Agent System (end)
 \subsection{Formal Definition of the Multi-Agent System} % (fold)
 \label{sub:mas_fd}
 
-	A MAS can be defined as a 3-tuple\cite{mas_book,fagin_95}
+	A MAS can be defined as a 3-tuple:\cite{mas_book,fagin_95}
 	\begin{equation}
 		W = <E,e_0,\tau>
 		\label{eq:mas}
 	\end{equation}
-	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment as input and outputs the next state. 
+	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state of the environment and $\tau$ is the state transformer function, which takes the current state of the environment as input and outputs the next state. 
 
 %TODO: Correct over-use of the word "state"
-	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state alone, due to the fact that $\tau$ is likely to be also dependent on previous transitions.
-	It is convenient to introduce a series of states that represents the history of transitions from the initial state $e_0$ to the current state, that is a run of the system.
+	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state alone, due to the fact that $\tau$ is likely to also be dependent on previous transitions.
+	It is convenient to introduce a series of states that represent the history of transitions from the initial state $e_0$ to the current state. This is a run of the system.
 	A run $r$ is represented as follows---
 	\begin{equation}
 		r: e_0 \xrightarrow{\alpha_0} e_1 \xrightarrow{\alpha_1} \ldots \xrightarrow{\alpha_n} e_{n+1} \xrightarrow{\alpha_{n+1}} \ldots
@@ -39,7 +39,7 @@ can be drawn to gain a fuller grasp of the initial problem.
 	\end{equation}
 	where $e_i$ and $\alpha_i$ respectively denote the environment states and the actions performed by the agents.
 
-	Let $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is highly unlikely, and in many cases impossible, for agents to have a complete understanding.}---
+	Letting $R$ be the set of all possible runs, the state transformer function $\tau$ can be seen as\footnote{This formulation does not imply agents have a complete picture of the environment. It is highly unlikely, and in many cases impossible, for agents to have a complete understanding.}---
 	\begin{equation}
 		\tau : R \rightarrow \wp (E).
 		\label{eq:state_transformer}

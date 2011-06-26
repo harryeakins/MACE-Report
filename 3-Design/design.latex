@@ -1,7 +1,5 @@
 \chapter{Design}
 
-\input{3-Design/1-aim.latex}
-
 \input{3-Design/2-framework.latex}
 
 \input{3-Design/3-behaviour.latex}

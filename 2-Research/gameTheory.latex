@@ -56,12 +56,11 @@ what its opponent does.
 \item \textbf{Tit-for-tat}:  A tit-for-tat agent chooses to cooperate in the first iteration of the game. 
 If the opponent defects then the agent loses but in the next iteration the agent choose to 
 follow the strategy of its opponent in the previous round. 
-So a simple algorithm for this strategy is:
-
+So a simple algorithm for this strategy is: \\
 \textbf{
-	If t=1 then cooperate
-	If t>1 then do what your opponent did in t-1
-	where t is the number of rounds passed .
+	If $t=1$ then cooperate \\
+	If $t>1$ then do what your opponent did in $t-1$ \\
+	where $t$ is the number of rounds passed .
 }
 
 \item \textbf{Random}: This strategy ignores what the opponent has done in previous rounds 

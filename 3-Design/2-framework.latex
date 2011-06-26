@@ -106,18 +106,18 @@ in different parts of the framework, which is outlined in figure
 
 There are three levels of security, approximately levelled as in
 the diagram.
-The Simulation security level corrospondes primarily to the data which is
+The Simulation security level corresponds primarily to the data which is
 required, and distributed, by Presage itself.
 This level, therefore, includes all of Presage's core simulation classes
-except those direcly related to Participants, which Presage already treats
+except those directly related to Participants, which Presage already treats
 as partial-trust code.
 
 The next level is the framework, which actually only contains about half
 of the classes of the actual framework.
 Most of the classes in the framework security are not accessible directly
 by the simulation framework, but are mapped through the public layer.
-Similarly, the simualtion classes are not directly available here;
-the primary point of contact `upstream' is the EnivronmentConnection,
+Similarly, the simulation classes are not directly available here;
+the primary point of contact `upstream' is the EnvironmentConnection,
 which is passed downwards at initialisation time.
 
 The third, public, layer both forms the glue that allows for full interaction
@@ -134,7 +134,7 @@ and contains all of the untrusted code implementation code.
   }
 \end{figure}
 
-The Enivronment is protected by the Environment Connections, a concept
+The Environment is protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
 and the Environment itself could get a reference to the Environment of the
 current simulation.
@@ -145,22 +145,22 @@ reference to the Simulation object at initialisation time.
 The EnvironmentConnection class itself, however, is not public-safe: it 
 offers a number of functions that should not be directly exposed to the
 agent implementation - such as the function `seekAdvice' which, if called
-directly, would allow agents to cirucumvent the requirement to consume resources
+directly, would allow agents to circumvent the requirement to consume resources
 in exchange for seeking advice.
 This problem is addressed with the PublicEnvironmentConnection.
 
 A similar theory was applied the Participants. The Interface requirement that
-a reference to the Participant's PlayerDataModel was publically accessible
+a reference to the Participant's PlayerDataModel was publicly accessible
 presented a major problem, as this would mean that participants have the same level
 of access to others' data model as to their own.
 However, this was eventually used to our advantage by returning only a wrapped
-version of the DataModel, which was the only reference avialable to both external
-entities (including Plugins, the Enivornment, and other Participants) and the Simulation layer. 
+version of the DataModel, which was the only reference available to both external
+entities (including Plugins, the Environment, and other Participants) and the Simulation layer. 
 Although this breaks the formal contract of the system, it permitted us to correctly implement the
 security system.
 
 Permissions here were slightly looser than would have been liked, as both the
-Enivronment and plugins can access the Participant object and - using only the
+Environment and plugins can access the Participant object and - using only the
 lightest parts of the reflection libraries - transform these into references to
 either AbstractAgents or AbstractGroupAgents.
 
@@ -180,10 +180,10 @@ either AbstractAgents or AbstractGroupAgents.
 
 The environment implementation is primarily a nexus for agent communications and
 some housekeeping in corner cases.
-The main functionality of the data model, for exmaple, it to keep track of all the
+The main functionality of the data model, for example, it to keep track of all the
 active objects - be it Agents, Groups, Foods - a task that is already done by the
 Simulation class.
-The repelciation here, however, is for time effiency:
+The repelciation????????? here, however, is for time efficiency:
 as the Simulation does not know to differentiate between agents and groups, each
 look up would take longer\footnote{
   Especially for returning the lists, where returning a strong unmodifiable reference
@@ -191,8 +191,8 @@ look up would take longer\footnote{
   in the number of Participants in the system.
 }.
 
-The data model also inherites the knowledge of the current cycle number and
-this is augmented with the current TurnType, which indiciated the position in
+The data model also inherits the knowledge of the current cycle number and
+this is augmented with the current TurnType, which indicated the position in
 the current round.
 This is updated in the overridden setTime method, along with additional code to
 ensure that on the first cycle, that the first TurnType is selected.
@@ -208,7 +208,7 @@ The primary component of the Environment as a physical world is the information
 about food:
 the set of all food stuffs in existence, and their properties as contained within
 the Food objects, is immutable and set on creation of the simulation.
-This is also true of the less physcial set of all classes of Groups that are
+This is also true of the less physical set of all classes of Groups that are
 permitted.
 
 Individual groups are not created with the simulation but, instead, by agents who
@@ -270,7 +270,7 @@ opinion of the group (as defined by their happiness, loyalty, and trust of
 other agents), what advice they gave in the past (which might be useful in
 determining whether they listen to you, and what advice to give in the
 current round).
-It also stores the core attiributes of the agents, which are less time variant,
+It also stores the core attributes of the agents, which are less time variant,
 such as the agent's ID and generated name\footnote{
   Names are generated by a walking across two arrays, one of the 600 top
   American forenames and one of the the 600 top American surnames.
@@ -280,11 +280,11 @@ such as the agent's ID and generated name\footnote{
   The apparent `families' that appear in the names are not accounted for in
   any part of the code
 } and their social and economic beliefs.
-For agents with a fixed stratergy type, the appropriate AgentType value for that
-stratergy is stored in the DataModel, or AgentType.NO\_STRATEGY if they use a
+For agents with a fixed strategy type, the appropriate AgentType value for that
+strategy is stored in the DataModel, or AgentType.NO\_STRATEGY if they use a
 dynamic, learning, of fixed strategy.
 
-The main data model is only avaialable to the AbstractAgent, and all changed to
+The main data model is only available to the AbstractAgent, and all changed to
 it go through the AbstractAgent.
 The public data model does not wrap any of the setters got this reason, allowing
 references to be passed freely.
@@ -306,14 +306,14 @@ validated by trusted code.
 
 Many of these tasks were achieved by dropping non-sensical data when java
 detected to to be non-sensical.
-An agent could supplt a new instance of the Food class as the result of
+An agent could supply a new instance of the Food class as the result of
 chooseFood, which would have a well-formed UUID.
-This UUID would then be passed on into the enivorment, and then looked up
-in the Enivronment's list of available foods.
+This UUID would then be passed on into the environment, and then looked up
+in the Environment's list of available foods.
 This lookup will return null, and the process will continue as if the agent
 had not picked a food.
 
-Each of these operations are started from the execute method that is inheritied
+Each of these operations are started from the execute method that is inherited
 from Participant, which is represented in the flow diagram (figure
 \ref{framework-flow}) as the arrow from the turn division line to the turn's
 processing method.
@@ -332,21 +332,21 @@ in the documentation for the TurnType enum.
 
 Both the input handlers and callbacks WORDS WORD WORDS WORDS
 
-TODO: Talk about the types of Inputs and Actions relelvant to a Agent's interests.
+TODO: Talk about the types of Inputs and Actions relevant to a Agent's interests.
 
 The returned information is then converted by the AbstractAgent to actions,
 which are sent to the Environment, allowing the agent to play the games.
-Actions are processed syncronously by the Environment, and generally result
+Actions are processed synchronously by the Environment, and generally result
 in Inputs being sent to other Participents.
-Inputs that AbstractAgent receives are generally handles asyncronously by
+Inputs that AbstractAgent receives are generally handles asynchronously by
 adding them to the Input queue.
-The exception to this rule is the Proposition, which is handled syncornously
+The exception to this rule is the Proposition, which is handled synchronously
 by the AbstractAgent, to save including an extra turn of voting.
 Advice is handled on a different mechanism, as the call must by made entirely
-syncronously as advice is generally being required during making decision
+synchronously as advice is generally being required during making decision
 about another action.
 For this reason, it is implemented as a direct-call function in the
-EnivronmentConnection, which preceeds to call the appropriate function directly
+EnvironmentConnection, which proceeds to call the appropriate function directly
 on the remote AbstractAgent.
 Although this seemingly breaks the security encapsulation, the code all exists
 within the Framework security layer.
@@ -365,8 +365,8 @@ within the Framework security layer.
   }
 \end{figure}
 
-Groups also act as Participents, and a similar core logic is uses as with Agents.
-All Inputs are handled syncronously within the Group, although many of the
+Groups also act as Participants, and a similar core logic is uses as with Agents.
+All Inputs are handled synchronously within the Group, although many of the
 handlers write to temporary storage for later processing, such as storing the
 hunt results for processing in the distribution phase.
 
@@ -392,8 +392,8 @@ This allows cooperation between the agents before they form groups, allowing
 them to build trust and make informed decisions in the group selection process.
 Each Simulation is allowed to select one class that extends the
 AbstractFreeAgentGroup class.
-This must be instansible with a public no-argument constrcutor, but it not
-required to be serlialisable - only the class name is stored in the simulation
+This must be instancible with a public no-argument constructor, but it not
+required to be serialisable - only the class name is stored in the simulation
 configuration files.
 
 \subsection{Validation}
@@ -412,26 +412,26 @@ This functionality also allows for static analysis of the number of unique names
 that will be genenrated, and optimisation to ensure this number is as large as
 possible to avoid possible conflicts and confusion.
 
-Simlaution validation was performed be derviving test cases that had symbolically
-proveable steady states.
+Simulation validation was performed to be deriving test cases that had symbolically
+provable steady states.
 These are packaged with the source code in the simulations.validation package,
 which includes a variety of these type of simulations.
-The most basic of these was simulationg a world iwth a single agent such that it
+The most basic of these was simulating a world with a single agent such that it
 was impossible for them to acquire enough food to survive.
-Unfortunately, even a simualtion this basic is still validating large amounts of
-code, include the ability to hunt and recieve food, the mechanisims for food
+Unfortunately, even a simulation this basic is still validating large amounts of
+code, include the ability to hunt and receive food, the mechanisms for food
 consumption, and death of an agent.
 However, the number of rounds that should pass before the agent dies is
-deterministic an calculable, so the eent of a working test can be easily detected.
+deterministic an calculable, so the event of a working test can be easily detected.
 
 Other validation simulations are included, looking at more complex tests, such
 as the ability of agents to create groups, steady state analysis of a low odd
-number of agents in a world where only pairs can find enuogh food to
+number of agents in a world where only pairs can find enough food to
 survive\footnote{
   The exact initial conditions and rules for agent group play a large part in
   the outcome of this simulation - a rotating paring system can lead to all but
   the last two agents dying due to food reserves running out at the same time.
-  Reagardless, for a steady state to arise, the agents have to be cooperative
+  Regardless, for a steady state to arise, the agents have to be cooperative
 }, and some basic tests of the in built agent strategies.
 arise, the agents have to be cooperative, and some basic tests of the in built
 agent strategies.

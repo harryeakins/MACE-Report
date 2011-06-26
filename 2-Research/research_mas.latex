@@ -290,9 +290,9 @@ a decision on what action it will take.
 	To enable learning behaviour of the multi-agent system and agents within it, feed forward neural networks are employed.
 	It is used to give actions of an agent based on the agent's internal states.
 
-	Training a neural network with conventional training algorithms such as back-propagation algorithm is very likely to be an impossible task.
+	In a multi-agent simulation, training a neural network with conventional training algorithms such as back-propagation algorithm would likely be an impossible task.
 	These methods would often require a training set, that is a set of truths consists of pairs of inputs and outputs to eventually allow correct evaluation of these results with the neural network through training.
-	However in a multi-agent simulation, it is often clearly implausible to obtain such a training set.
+	However it is often clearly implausible to obtain such a training set in a multi-agent simulation.
 	Using genetic algorithm to train neural networks solves this problem, by having a fitness function to indirectly guide the evolution of neural networks towards giving strategies that have better outcomes.
 
 % subsection Neural Networks (end)

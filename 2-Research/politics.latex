@@ -142,13 +142,6 @@ From `Right' to `Left' we discuss the economic affairs that are believed by an a
 be distributed evenly across the group or should an agent keep the food it gets.
 From ‘Authoritarian’ to ‘Libertarian’ we discuss the social affairs that are believed by an agent; 
 should an agent be free and act under no command or should it give/follow strict orders.
-So, there are two attributes to be assigned to each agent which describe their position in the 
-political compass:
-
-%\begin{figure}[ht]
-%\centering
-%\includegraphics[width=0.4\linewidth]{figures/socialGraph2}
-%\end{figure}
 
 \subsection{Economic $ \in $ \( 0 \% - 100 \% \)}
 
@@ -159,15 +152,15 @@ If believing in the very ‘Left’, 0\%, the agent believes in distributing res
 
 \subsection{Social $ \in $ \( 0 \% - 100 \% \)}
 
-If believing in the very ‘Authoritarian’, 0\%, the agent believes heavily in giving orders and 
+If believing in the very Authoritarian, 0\%, the agent believes heavily in giving orders and 
 enforcing punishment for neglecting those orders. 
-If believing in the very ‘Libertarian’, 100\%, the agent believes in being free from any orders 
+If believing in the very Libertarian, 100\%, the agent believes in being free from any orders 
 or enforcement.
 
-%\begin{figure}[ht]
-%\centering
-%\includegraphics[width=0.4\linewidth]{figures/detailedSocialGraph}
-%\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
+\end{figure}
 
 The above diagram shows an estimate of how the political groups of today are spread out on 
 the political compass. 

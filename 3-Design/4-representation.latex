@@ -1,7 +1,21 @@
+%&latex
 \section{Data Representation}
 The simulation environment generates huge quantities of information, which needs to be processed, stored and represented in a meaningful way.
-To do that, most simulation variables are stored in histories, which can be accessed by agents or groups or plug-ins working on the data representation and storage.
+To do that, most simulation variables are stored in histories, which can be accessed by agents or groups or plug-ins working on the data representation and storage. The relevant variables are read in by visualization plug-ins to process and display that information, while a database plugin can also be run to store the data into a local or a remote database. 
 
-ASSIGN TO: Harry, Valdas, Shane, Rob
+The local database used is SQLite, which is a one file database and easy to set up and use. There are numerous free tools available to access the data. If no database exists, one is created after first simulation with the plugin is run. A simple database enables to compare several simulations and debug during simulation design process. The limitations of the local database is lack of support for running multiple simulation concurrently. For this purpose, a remote database is more suitable.
+
+The remote database stores a selected subset of simulation data and is useful for validation (running numerous simulations at the same time) and result visualization through the website (it charts the data stored in remote database).
+Remote DB format is MySQL, though any other type of database format can be easily accommodated.
+
+The schema of the database is simple: there are tables for simulations, groups, agents, g\_data (group data for each round), a\_data (agent data for each round), a\_trust (trust between agents) and lg\_gata (loan group data for each round) and users (users table in remote databases).
+
+Groups and agents tables contain agents of that type that are in simulation, their start date (when they were created) and their end date (the end round they ceased to exists, or end of simulation). Also, variables that are constant for that type of agent throughout the simulation.
+
+Variable data is stored in g\_data, a\_data, a\_trust\ and lg\_data. The data is updated each round and tracks agent actions and changes in their parameters. Lg\_data table is used for simulations implementing loans (the table is used instead of g\_data and simulations that do this have column "loans" set to 1) and contains extra columns to store the increased number of variables used in loan simulations.\_
+
+\    \  
+
+
 
     

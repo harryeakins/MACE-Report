@@ -355,6 +355,21 @@ within the Framework security layer.
 
 \subsubsection{Free Agent Groups}
 
+Free agent groups are implemented somewhat tangentially to the rest of the code:
+they are not an extension of any Presage class or interface, but an entirely
+internal construct to the framework.
+It is used to emulate some basic group features for those agents that are
+not currently in a group, such as forming teams and giving each other cuddles.
+They do not get to make or receive loans, have an economic policy, or have any
+form of voting round.
+This allows cooperation between the agents before theyy form groups, allowing
+them to build trust and make informed decisions in the group selection process.
+Each Simulation is allowed to select one class that extends the
+AbstractFreeAgentGroup class.
+This must be instansible with a public no-argument constrcutor, but it not
+required to be serlialisable - only the class name is stored in the simulation
+configuration files.
+
 \subsection{Validation}
 
 Validation of the framework was performed both via static code path analysis in

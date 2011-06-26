@@ -7,12 +7,12 @@ providing a more complex system from which to draw more interesting data and con
 
 The environment would have to manage and regulate the players and
 define how they are able to interact with each other, as well as the parameters
-of the game (in this case, food and groups).
+of the game (in this case: food, other agents and groups).
 Meanwhile, all aspects of the simulation would need to be monitored, visualised
-and analysed while the players are interacting in order to track the progress of the game and
+and analysed while the players are interacting, in order to track the progress of the game and
 to provide meaningful output.
 
-Players in this game could all be defined by an abstract class which housed
+Players in this game could all be defined by an abstract class which houses
 all the functions necessary to interact with the environment and other agents, 
 including all decision making algorithms.
 
@@ -21,8 +21,8 @@ mostly to deal with formation of, disbandment of and movement between groups.
 They act much like agents, but make decisions based on a combination of the strategies 
 used by its members. 
 
-Through research, we hope to optimise the variables needed to attempt to mimic
-human behaviour in our simulations, using the Multi-Agent System paradigm to
+Through research, we hope to optimise the variables needed in attempt to mimic
+human behaviour in our simulations; using the Multi-Agent System paradigm to
 implement our framework.
 Throughout the project we intend to investigate the behaviour that emerges from variations in
 agent strategies and interactions, and discover what exactly causes this behaviour to emerge and 

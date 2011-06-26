@@ -2,7 +2,9 @@
 \subsection{Stag Hunt Game and the Evolution of Cooperation}
 
 The stag hunt game is a story that became a game. 
-The story has first appeared in its original form in Rousseau's A Discourse on Inequality. 
+The story has first appeared in its original form in Rousseau's 
+\emph{`A Discourse on Inequality'}. 
+
 It describes the situation where several hunters are after a stag. 
 In order to successfully hunt a stag the whole group should cooperate and stay faithful to its post. 
 However, if a hare happens to pass by then it is possible for one of the hunters to betray the 
@@ -23,7 +25,9 @@ All the efforts to date, that used the stag hunt game as the model of cooperatio
 to show that a non-cooperative society can evolve into a cooperative one. 
 Although, the players have higher benefit from cooperating, they tend to choose the risk 
 dominant strategy which is to defect. 
-Skyrms in his book “The stag hunt and the evolution of social structure” provides a possible 
+Skyrms in his book 
+\emph{`The stag hunt and the evolution of social structure'}
+ provides a possible 
 explanation for this phenomenon. 
 The hare hunters can only become stag hunters if they change their beliefs about what their opponent will do. 
 Classic game theory fails to capture this concept because each participant makes rational 
@@ -52,12 +56,11 @@ what its opponent does.
 \item \textbf{Tit-for-tat}:  A tit-for-tat agent chooses to cooperate in the first iteration of the game. 
 If the opponent defects then the agent loses but in the next iteration the agent choose to 
 follow the strategy of its opponent in the previous round. 
-So a simple algorithm for this strategy is:
-
+So a simple algorithm for this strategy is: \\
 \textbf{
-	If t=1 then cooperate
-	If t>1 then do what your opponent did in t-1
-	where t is the number of rounds passed .
+	If $t=1$ then cooperate \\
+	If $t>1$ then do what your opponent did in $t-1$ \\
+	where $t$ is the number of rounds passed .
 }
 
 \item \textbf{Random}: This strategy ignores what the opponent has done in previous rounds 
@@ -78,7 +81,7 @@ information it has about its opponent.
 An agent receives information either through its own experience or by asking other agents 
 for advice. 
 This fact enables agents to change their beliefs about what their opponents will choose to do. 
- This flexibility in beliefs is the main reason why cooperation can emerge in our simulations.
+ This flexibility in beliefs is the main reason why cooperation can emerge in our simulations.\cite{stag_hunt_evo, stag_hunt_struct}
 
 
 

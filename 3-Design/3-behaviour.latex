@@ -5,11 +5,27 @@
 %ASSIGN TO: Olly
 
 Each agent has a number of characteristics (scaled between 0 and 1) to indicate their current state of mind:
-Happiness - how happy the agent is (commonly measured by how much food they have),
-loyalty - how used they are to being in their current group,
-trust - how much they value the advice of each other agent, and an
-economic belief - which dictates their preferred method of food distribution.
-Happiness and Loyalty can together be considered a ``satisfaction level", which is used to decide whether an agent remains in a group or not.
+
+\begin{itemize}
+  \item{Happiness - how happy the agent is (commonly measured by how much food they have),}
+  \item{Loyalty - how used they are to being in their current group,}
+  \item{Trust - how much they value the advice of each other agent,}
+  \item{Economic Belief - which dictates their preferred method of food distribution.}
+\end{itemize}
+
+These values are maintained within the range by a scaling function with the basic charcteristics
+
+\begin{figure}[h]
+  \label{fig_scaling}
+  \includegraphics[width=0.5\columnwidth]{figures/value_scaling}
+\end{figure}
+
+\begin{align*}
+  \mbox{Let } \mathbb{U} = \left\{ r \in \mathbb{R} | 0 \le r \le 1 \right\} \\
+  s : \mathbb{R} \times \mathbb{N} \to \mathbb{U} \\
+  \forall n \in \mathbb{N} \left( s(0, n) = 0.5 \right) \\
+  \forall x \in \mathbb{R}, n \in \mathbb{N} \left( s(r, n) + s(-r, n) = 1 \right)
+\end{align*}
 
 Trust heavily effects the playing of the stag hunt game. Before deciding exactly what to hunt, each agent has the opportunity to ask other agents what they should hunt.
 This asking of advice costs some amount of food, so they have to limit who they ask to who they feel gives the best advice.

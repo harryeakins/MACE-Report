@@ -89,7 +89,7 @@ This is a 2D plane. The x-axis (Left/Right) determines how the group handle thei
 affairs. 
 The y-axis (Authoritarian/Libertarian) determines how rules and laws are enforced.
 
-A group that is towards the left side of the x-axis is more likely to distribute resources 
+A group that is towards the left side of the x-axis will tend towards distributing resources 
 evenly throughout the group. 
 A group that is towards the right side of the x-axis is less likely to evenly distribute resources 
 and individual agents will likely keep most of the resources they earn.
@@ -125,7 +125,7 @@ discussed here are used as percentages) for each and every other agent.
 Now, in the beginning, since no one has met anyone else or interacted with them, trust values 
 are initialised to null. We use this to show that Agent X has never met Agent Y.
 
-To kick things off, random pairs of agents occur to play a hopefully beneficial game of hunting. 
+To kick things off, random pairs of agents occur to play a beneficial game of hunting. 
 It has to be beneficial because the food that is returned to them must meet their demands. 
 Their demands come from the percentage of their economic belief; this belief tells us how much 
 food an agent expects to receive. If it got what it wanted then trust for the other agent starts to grow.
@@ -142,32 +142,25 @@ From `Right' to `Left' we discuss the economic affairs that are believed by an a
 be distributed evenly across the group or should an agent keep the food it gets.
 From ‘Authoritarian’ to ‘Libertarian’ we discuss the social affairs that are believed by an agent; 
 should an agent be free and act under no command or should it give/follow strict orders.
-So, there are two attributes to be assigned to each agent which describe their position in the 
-political compass:
 
-%\begin{figure}[ht]
-%\centering
-%\includegraphics[width=0.4\linewidth]{figures/socialGraph2}
-%\end{figure}
-
-Economic $ \in $ \( 0 \% - 100 \% \)
+\subsection{Economic $ \in ( 0 \% - 100 \% )$}
 
 If believing in the very ‘Right’, 100\%, the agent believes in keeping the resources they earn 
 for themselves. 
 If believing in the very ‘Left’, 0\%, the agent believes in distributing resources evenly, sharing,
  throughout a potential group.
 
-Social $ \in $ \( 0 \% - 100 \% \)
+\subsection{Social $ \in  ( 0 \% - 100 \% ) $}
 
-If believing in the very ‘Authoritarian’, 0\%, the agent believes heavily in giving orders and 
+If believing in the very Authoritarian, 0\%, the agent believes heavily in giving orders and 
 enforcing punishment for neglecting those orders. 
-If believing in the very ‘Libertarian’, 100\%, the agent believes in being free from any orders 
+If believing in the very Libertarian, 100\%, the agent believes in being free from any orders 
 or enforcement.
 
-%\begin{figure}[ht]
-%\centering
-%\includegraphics[width=0.4\linewidth]{figures/detailedSocialGraph}
-%\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
+\end{figure}
 
 The above diagram shows an estimate of how the political groups of today are spread out on 
 the political compass. 
@@ -258,20 +251,17 @@ Therefore, an authoritarian panel has to worry less when making a decision than 
 
 \subsection{Where to go from here}
 Once we have a stable group or during the formation of the groups, we want to use what has 
-emerged and bring things to perspective, via extending the political world described above. 
-Two points we moved on to analyse are:
+emerged and bring things into perspective, via extending the political world described above. 
+The point we moved on to analyse is:
 
 \begin{itemize}
 \item Whether or not charities and loans should be given between groups (of which we are treating 
 as countries). 
 We want to know whether giving money (food will be thought as money) to another can exist.
-
-\item Confirm history by forcing a scenario in which the Soviet Union and America really should 
-have cooperated in prevention of nuclear war or who would’ve won during the Space Wars. 
-Maybe find out that Nazi Germany could have won the Second World War.
 \end{itemize}
 
-\subsection{Should we give a Loan?}
+\subsection{Economics and Loans}
+\subsubsection{Should we give a Loan?}
 To answer the question above, we abstracted away any concrete sense of politics and concentrated 
 on the interaction of groups and to let them decide if they need help from prosperous groups or if 
 they should provide help to the needy groups. 

@@ -4,11 +4,11 @@ in which agents form groups and then pair up within these groups to play the Sta
 Through cooperation, both agents receive the nutritious reward of a stag;
 through defection, both agents receive a significantly less nutritous rabbit.
 Should one defect while the other cooperates, the cooperator receives nothing,
-while the defector still gets the reward of rabbit.
+while the defector still gets the reward of a rabbit.
 This process of grouping, pairing and hunting is repeated for some arbitrary amount of time, with an amount of food consumed each cycle for survival.
 Thus, each agent's decisions and interactions over a period of time directly determine whether they live or die.
 
-On top of this basic system, we added more complicated social interactions in order to increase complexity of the system and better model social phenomena.
+On top of this basic framework, we added more complicated social interactions in order to increase complexity of the system and better model social phenomena.
 In this report, we will detail our steps towards: the conception of the system 
 and our intentions for its usage; how we developed the application and ensured
 it was producing valid results; and the simulations and analysis that led to our conclusions.

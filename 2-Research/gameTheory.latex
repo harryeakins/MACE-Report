@@ -78,7 +78,7 @@ information it has about its opponent.
 An agent receives information either through its own experience or by asking other agents 
 for advice. 
 This fact enables agents to change their beliefs about what their opponents will choose to do. 
- This flexibility in beliefs is the main reason why cooperation can emerge in our simulations.
+ This flexibility in beliefs is the main reason why cooperation can emerge in our simulations.\cite{stag_hunt_evo, stag_hunt_struct}
 
 
 

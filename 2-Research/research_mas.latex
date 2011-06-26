@@ -30,9 +30,8 @@ can be drawn to gain a fuller grasp of the initial problem.
 	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment as input and outputs the next state. 
 
 %TODO: Correct over-use of the word "state"
-	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state.
-	It is convenient to introduce a series of states that represents the history of state transitions from the initial state $e_0$ to the current state, that is a run of the system. 
-
+	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state alone, due to the fact that $\tau$ is likely to be also dependent on previous transitions.
+	It is convenient to introduce a series of states that represents the history of transitions from the initial state $e_0$ to the current state, that is a run of the system.
 	A run $r$ is represented as follows---
 	\begin{equation}
 		r: e_0 \xrightarrow{\alpha_0} e_1 \xrightarrow{\alpha_1} \ldots \xrightarrow{\alpha_n} e_{n+1} \xrightarrow{\alpha_{n+1}} \ldots
@@ -62,11 +61,15 @@ can be drawn to gain a fuller grasp of the initial problem.
 	\end{align}
 
 	However it is important to recognise that although a run of a system is similar to a path in a graph in many ways, it is in most cases impractical to traverse the multi-agent system with any graph traversal algorithms.
-	For one thing doing this may not give us any insightful information of the system, and for another, the number of all environment states could be non finite.
+	% TODO proofread
+	For one thing doing this may not give us any insightful information of the system.
+	Owing to the fact the environment should not necessarily reach a goal state, or simply the goal state cannot be defined by the semantics within the multi-agent system.
+	For another, the number of all environment states could be non finite, an exhaustive search without a goal state is most likely impractical.
 
 % subsection Formal Definition of the Multi-Agent System (end)
 \subsection{Agents} % (fold)
 \label{sub:agents}
+% TODO need citations
 
 \subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
@@ -104,12 +107,12 @@ a decision on what action it will take.
 	This `see function' maps the environment state E to a percept of the agent's view of the world. 
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:per_see}
 	\end{equation}
 	The action stage now maps a sequence of perceptions to actions instead of mapping environment to actions directly.
 	\begin{equation}
 		Action : Per^* \rightarrow Ac
-		\label{eq:action}
+		\label{eq:per_action}
 	\end{equation}
 	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
@@ -129,14 +132,14 @@ a decision on what action it will take.
 	For this type of agent, the see function doesn't change at all, still maps the environment state E to the percept Per.
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:states_see}
 	\end{equation}
 
 	But for the action part, it is now defined in a different way as the interference of those internal states of agents.
 	The action of a agent is actually decided by the set of internal states $I$:
 	\begin{equation}
 		Action : I \rightarrow Ac
-		\label{eq:action}
+		\label{eq:states_action}
 	\end{equation}
 
 	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like feedback.
@@ -183,6 +186,8 @@ a decision on what action it will take.
 % subsection Agents (end)
 \subsection{Genetic Algorithm in MAS} % (fold)
 \label{sub:genetic_algorithms}
+% TODO need citations
+% TODO proper graphs
 
 	Finding an optimal solution of a problem sometimes is impossible but we can somehow improve an existing solution.
 	This notion introduces us to genetic algorithms which pretty much approach this goal in a similar manner. 
@@ -261,6 +266,36 @@ a decision on what action it will take.
 % subsubsection Selection (end)
 
 % subsection Genetic Algorithm in MAS (end)
+\subsection{Neural Networks} % (fold)
+\label{sub:neural_networks}
+% TODO proofread
+
+	A neuron of a neural network is a node that evaluates a weighted sum of all its inputs to give an output with an activation function $f$.
+	The weights of each input is given as constant values, these values can be tweaked to allow better output values from the neuron.
+	Hence the output $y$ is given as follows---
+	\begin{equation}
+		y = f \left( \sum_i{w_i x_i}, b \right),
+		\label{eq:neuron}
+	\end{equation}
+	where $x_i$ is the $i$th input value, $w_i$ is the weight constant for the $i$th input, and $b$ is the bias constant.
+	It is noteworthy that while the activation function $f$ could be any function, it is generally a sigmoid function which takes the weighted sum and a bias constant to give a result bounded in range $[-1,1]$.
+	\begin{equation}
+		f: \mathbf{R \times R} \rightarrow \mathbf{R}.
+		\label{eq:activation}
+	\end{equation}
+
+	A feed forward neural network (FFNN) is a network of neurons.
+	It consists of layers of neurons, where in each layer neurons do not interact.
+	Only outputs from the previous layer are fed to the consecutive layer, this ensures that the network has no feedback loops.
+	To enable learning behaviour of the multi-agent system and agents within it, feed forward neural networks are employed.
+	It is used to give actions of an agent based on the agent's internal states.
+
+	In a multi-agent simulation, training a neural network with conventional training algorithms such as back-propagation algorithm would likely be an impossible task.
+	These methods would often require a training set, that is a set of truths consists of pairs of inputs and outputs to eventually allow correct evaluation of these results with the neural network through training.
+	However it is often clearly implausible to obtain such a training set in a multi-agent simulation.
+	Using genetic algorithm to train neural networks solves this problem, by having a fitness function to indirectly guide the evolution of neural networks towards giving strategies that have better outcomes.
+
+% subsection Neural Networks (end)
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
 
@@ -340,12 +375,12 @@ a decision on what action it will take.
 	\begin{equation*}
 		\mathbf{X} =
 			\begin{pmatrix}
-				X_0 \\ X_1 \\ \vdots \\ X_M
-			\end{pmatrix}, \quad
+				X_0 & X_1 & \cdots & X_M
+			\end{pmatrix}^\top, \quad
 		\mathbf{Y} =
 			\begin{pmatrix}
-				Y_0 \\ Y_1 \\ \vdots \\ Y_N
-			\end{pmatrix},
+				Y_0 & Y_1 & \cdots & Y_N
+			\end{pmatrix}^\top,
 	\end{equation*}
 	both denote the input and output vectors respectively.
 	To look for anomalies in the system, one can observe abrupt changes in the euclidean norm of $S$, $||S(\mathbf{X})||$ as one varies the value of $\mathbf{X}$, or abrupt changes in each of the elements of the sensitivity matrix.\footnote{Smaller input/output vectors could make the observation much more manageable.}

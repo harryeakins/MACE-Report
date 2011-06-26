@@ -28,6 +28,7 @@
 *.synctex.gz
 *.pdf
 *.ps
+*.ptmp
 *.pyg
 
 # Mac specific

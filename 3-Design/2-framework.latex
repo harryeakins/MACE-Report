@@ -1,32 +1,32 @@
 \section{Framework}
 
-The framework, on which the simulations were built and forms the core of MACE,
-was itself built on the multi-agent simulation system Presage
+The framework that forms the core of MACE and upon which the simulations were built,
+is itself built upon the multi-agent simulation system Presage
 \footnote{\url{https://sites.google.com/site/presageproject},
 \url{http://sammacbeth.github.com/Presage/}}.
 Presage is a `time' driven system:
 the simulations are divided into discrete cycles, in which each participant
 processes any queued inputs, and responds with any appropriate actions.
 The environment, which represents the world that
-the participants are acting in, processes these actions and, if applicable, sends
-inputs to participants informing them of changes that might have taken place.
-The messaging framework is designed to be primarily asynchronous, with the
-information not being processed until the following cycle, but allows for
+the participants are acting in, processes these actions and sends
+inputs to participants informing them of any changes that have taken place.
+The messaging framework is designed to be primarily asynchronous, with
+information not processed until the following cycle, but it also allows for
 synchronous messaging via clever use of code.
 
-The purpose of the framework was to allow a number of agents to play the
-grouping and stag games.
+The basic purpose of the framework is to allow some number of agents to play the
+grouping and stag hunt games.
 To this end, it was implemented as an abstraction and
 a security layer, simultaneously defining a simple interface between agent code
-and the environment and simulation layers, whilst also not allowing the agents to
-cheat. Three major classes were implemented:
+and the environment and simulation layers, whilst also preventing the agents cheating. 
+Three major classes have been implemented:
 \begin{itemize}
 \item{
 The Evironment, which models the world and holds all relevant data,
-such as the animals which exist and the status of agents.
+such as the animals which exist and the status of each agent.
 }
 \item{
-The AbstractAgent, which models the hunters themselves and wraps around both the hunter's
+The AbstractAgent, which models the hunters themselves and wraps around both the hunters'
 data model and the set of actions that they may perform (and when they may perform them).
 }
 \item{
@@ -36,39 +36,48 @@ model and the actions the groups can perform.
 \end{itemize}
 
 \begin{figure}[p]
-  \caption{TODO: Write some words about this}
+  \caption{
+    Anatomy of the interaction between calls in a round.
+	A large number of functions have been removed from this diagram for simplicity
+	(such as the execute() function which brings the AbstractAgents and
+	AbstractGroupAgents into context).
+	The entry point is shown by an arrow coming from a round's boundary line.
+	The other arrows show a flow of information;
+	dotted arrows represent information that is stored over a cycle boundary,
+	generally due to message queues.
+  }
   \label{framework-flow}
   \pgraphic{framework}
 \end{figure}
 
 The actual simulation uses Agents and Groups that are derived from the
-AbstractAgent and AbstractGroup, which are treated as hostile code - in the
-future, these classes may be written by parties that wish to break the rues of
+AbstractAgent and AbstractGroup and are treated as hostile code - in the
+future, these classes may be written by parties that wish to break the rules of
 the system, so the interactions have to a mediated and controlled by the
 Abstract implementations.
 This was achieved by implementing many members as
 private (including all data members), and any non-private members were declared
-as `final', thus stopping derived classes from altering their functionality.
+as `final', thus preventing derived classes from altering their functionality.
 The remainder of the code was formed as a number of protected abstract methods,
 which need to be implemented by the revived agent or group that are used for
 all interactions.
 
-Due to the overall complexity of the three games when combined, and the default
+Due to the combined complexity of the three games and the default
 asynchronous nature of the underlying framework, we opted to have each round
-of the games being execute over a number of cycles, each with a well defined
-purpose, defined in the TurnType enumerator.
-Every cycle, the three primary
-framework classes check what turn it currently is, and evecute the relevant
-methods; these will include calling the appropriate abstract methods (that will
+of the games divided into a number of cycles, each with a specific
+purpose which is defined in the TurnType enumerator.
+Every cycle, the three primary framework classes check what turn it currently is, 
+then execute the relevant methods; 
+including calling the appropriate abstract methods (that will
 have been implemented by the derived code).
 The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
 
 \subsection{Alterations to Underlying Code}
 
 Due to the current builds of Presage being in beta, a number of changes were
-made to the supplied code. Nearly all of these were purely cosmetic improvements
-and alterations; updating the code to fit the guidelines of the current production
-version of the Java standard library, such as the use of generic types for
+made to the supplied code. Nearly all of these were cosmetic improvements
+and alterations, as well as updating the code to fit the guidelines of the current production
+version of the Java standard library, including the use of generic types for
 lists and iterators.
 Another of these changes, which was key for later validation
 of the code, was the replacement of the `temporary' debugging code with a
@@ -79,7 +88,7 @@ introduction of participants, such as emergent groups, by iterating over the
 set of Participants manually, and marking each that had been executed (See
 snippet \ref{ParticipantLoop}, page \pageref{ParticipantLoop}).
 This uses the same strict ordering as the original code, using the 
-fundamental String Comparator, and, therefore, guarantees the same 
+fundamental String Comparator, and therefore guarantees the same 
 deterministic order of execution when no participants are added during execution.
 
 The result when a new participant is added is a deterministic function of the
@@ -90,24 +99,24 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
 
-Due to a combination of Java's security management, and Presage's liberal
+Due to a combination of Java's security management and Presage's liberal
 permissions model, security was implemented in a number of different ways
 in different parts of the framework, which is outlined in figure
 \ref{uml_security}.
 
-There were three levels of security, which were roughly levelled as shown in
+There are three levels of security, approximately levelled as in
 the diagram.
 The Simulation security level corrospondes primarily to the data which is
-required by, and distributed by, Presage itself.
+required, and distributed, by Presage itself.
 This level, therefore, includes all of Presage's core simulation classes
 except those direcly related to Participants, which Presage already treats
 as partial-trust code.
 
 The next level is the framework, which actually only contains about half
-of the classes of the framework.
+of the classes of the actual framework.
 Most of the classes in the framework security are not accessible directly
-by the simulation framwork, but are rather mapped through the public layer.
-Equally, the simualtion classes are not directly available here;
+by the simulation framework, but are mapped through the public layer.
+Similarly, the simualtion classes are not directly available here;
 the primary point of contact `upstream' is the EnivronmentConnection,
 which is passed downwards at initialisation time.
 
@@ -118,36 +127,36 @@ and contains all of the untrusted code implementation code.
   \label{uml_security}
   \pgraphic{uml_security}
   \caption{
-    The framework was split into three security levels, determining which
-	classes shoudl be able to get references to which other classes.
+    The framework is split into three security levels, determining which
+	classes are able to get references to which other classes.
 	This diagram shows which classes belong to which level, and some of the
 	important interactions between them.
   }
 \end{figure}
 
-The Enivronment was protected by the Environment Connections, a concept
+The Enivronment is protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
 and the Environment itself could get a reference to the Environment of the
 current simulation.
 Although plugins are not considered trusted code, and can also interact with
-agent's implementation code, this protection was considered sufficient;
-this decision relates to the fact that the Plugin interface requires a
+agent's implementation code, this protection was considered sufficient.
+This decision relates to the fact that the Plugin interface requires a
 reference to the Simulation object at initialisation time.
-The EnvironmentConnection class itself, however, is not public-safe - it 
-does offer a couple of functions that should not be directly exposed to the
+The EnvironmentConnection class itself, however, is not public-safe: it 
+offers a number of functions that should not be directly exposed to the
 agent implementation - such as the function `seekAdvice' which, if called
-directly, would allow agents to side step the requirement to consume resources
+directly, would allow agents to cirucumvent the requirement to consume resources
 in exchange for seeking advice.
 This problem is addressed with the PublicEnvironmentConnection.
 
-A Similar theory was applied the Participants. The Interface requirement that
+A similar theory was applied the Participants. The Interface requirement that
 a reference to the Participant's PlayerDataModel was publically accessible
 presented a major problem, as this would mean that participants have the same level
-of access to other's data model as their own.
+of access to others' data model as to their own.
 However, this was eventually used to our advantage by returning only a wrapped
 version of the DataModel, which was the only reference avialable to both external
-entities (including Plugins, the Enivornment, and other Participants) which, although
-breaking the formal contract of the system, permitted us to correctly implement the
+entities (including Plugins, the Enivornment, and other Participants) and the Simulation layer. 
+Although this breaks the formal contract of the system, it permitted us to correctly implement the
 security system.
 
 Permissions here were slightly looser than would have been liked, as both the
@@ -230,17 +239,199 @@ both nutrition, and the number of a type of food that are available to hunt.
 
 \begin{figure}[p]
   \label{uml_agent}
-  \caption{TODO: Write about this}
+  \caption{
+    Diagram to show the AbstractAgent implementation and contract, along with
+    the private and public data models.
+	Also shown as the input handlers.
+    Class interaction diagram can be seen in figure \ref{uml_security}
+  }
   \pgraphic{uml_agent}
 \end{figure}
 
+The agent implementation is noticably more complex than the environment in
+a variety of respects.
+A lot of care had to be taken to rmemeber that the untrusted code should not
+be apssed refences to sections of the data model, so the data model itself was
+made primarily responsible fro creating defensive copies of objects.
+The was complicated, however, by the use of the History class, which acted as
+a random access limited length queue that was used for storing past value of
+a data member.
+Although an immutable version of the History object is always returned from the
+data model, the references it contains are live references to the original
+object.
+Due to the lack of clear implementations of immutability and clonability in Java
+these security problems were not possible to patch in the generic case, short
+of limiting the types of object that can be used with History, or wrapping
+each individual object in a container that controlls access to it.
+
+The data that these histries are storing form a record of the agents
+participation in the various game - the team in which they hunted, their
+opinion of the group (as defined by their happiness, loyalty, and trust of
+other agents), what advice they gave in the past (which might be useful in
+determining whether they listen to you, and what advice to give in the
+current round).
+It also stores the core attiributes of the agents, which are less time variant,
+such as the agent's ID and generated name\footnote{
+  Names are generated by a walking across two arrays, one of the 600 top
+  American forenames and one of the the 600 top American surnames.
+  Only one array is walked at a time, giving an absolute lower bound of 600
+  unique names;
+  the probability of this occurring is $4.8 \times 10 ^ {-181}$.
+  The apparent `families' that appear in the names are not accounted for in
+  any part of the code
+} and their social and economic beliefs.
+For agents with a fixed stratergy type, the appropriate AgentType value for that
+stratergy is stored in the DataModel, or AgentType.NO\_STRATEGY if they use a
+dynamic, learning, of fixed strategy.
+
+The main data model is only avaialable to the AbstractAgent, and all changed to
+it go through the AbstractAgent.
+The public data model does not wrap any of the setters got this reason, allowing
+references to be passed freely.
+Furthermore, the setters are not directly exposed by the AbstractAgent, but are
+either wrapped in the Input handlers, or use the abstract functions as wrappers
+around themselves.
+
+The Input system is only accessible from the Simulation security level, as shown
+earlier in figure \ref{uml_security} and can therefore be considered to be
+trusted code\footnote{
+  The earlier discussion of plugin security is, however, still relevant here
+}.
+
+The Agent implementation, that will supply the implementation of the abstract
+`callback' functions, is not trusted code.
+This meant that all of the parameter to those function calls have to bt checked
+to be immutable or unbacked references, and the return values have to be
+validated by trusted code.
+
+Many of these tasks were achieved by dropping non-sensical data when java
+detected to to be non-sensical.
+An agent could supplt a new instance of the Food class as the result of
+chooseFood, which would have a well-formed UUID.
+This UUID would then be passed on into the enivorment, and then looked up
+in the Enivronment's list of available foods.
+This lookup will return null, and the process will continue as if the agent
+had not picked a food.
+
+Each of these operations are started from the execute method that is inheritied
+from Participant, which is represented in the flow diagram (figure
+\ref{framework-flow}) as the arrow from the turn division line to the turn's
+processing method.
+The implemntation first processes any inputs that are currently stored in the 
+input queue by matching them to the correct input handler based on the 
+InputHandler.canHandle method.
+The assumption that the frmaework code will only ever have 1 handler for each
+Input has been made, as the framework should remain deterministic in the
+general case; the use of separate handlers is actually only needed for legability
+of the code.
+
+The execute method then determines the current turn type by querying the
+EnvironmentConnection, and executes the appropriate turn function.
+Exact specifications of what it done in each game in each turn can be found
+in the documentation for the TurnType enum.
+
+Both the input handlers and callbacks WORDS WORD WORDS WORDS
+
+TODO: Talk about the types of Inputs and Actions relelvant to a Agent's interests.
+
+The returned information is then converted by the AbstractAgent to actions,
+which are sent to the Environment, allowing the agent to play the games.
+Actions are processed syncronously by the Environment, and generally result
+in Inputs being sent to other Participents.
+Inputs that AbstractAgent receives are generally handles asyncronously by
+adding them to the Input queue.
+The exception to this rule is the Proposition, which is handled syncornously
+by the AbstractAgent, to save including an extra turn of voting.
+Advice is handled on a different mechanism, as the call must by made entirely
+syncronously as advice is generally being required during making decision
+about another action.
+For this reason, it is implemented as a direct-call function in the
+EnivronmentConnection, which preceeds to call the appropriate function directly
+on the remote AbstractAgent.
+Although this seemingly breaks the security encapsulation, the code all exists
+within the Framework security layer.
+
 \subsection{Groups}
+
+% TODO: Replace this with the right diagram
+\begin{figure}[p]
+  \label{uml_group}
+  \pgraphic{uml_group}
+  \caption{
+    Diagram to show the AbstractGroupAgent implementation and contract, along 
+	with the private and public data models.
+    Also shown as the input handlers.
+    Class interaction diagram can be seen in figure \ref{uml_security}
+  }
+\end{figure}
+
+Groups also act as Participents, and a similar core logic is uses as with Agents.
+All Inputs are handled syncronously within the Group, although many of the
+handlers write to temporary storage for later processing, such as storing the
+hunt results for processing in the distribution phase.
+
+A large amount of the group code is static, such as the logic for the distribution
+of hunted food (which is based entirely on the economic policy of the group).
+The decisions they can make mainly related to membership.
+
+TODO: Write this once I can see the OOOO EMM ELLLS
+%TODO: Write this once I can see the OOOO EMM ELLLS
 
 \subsubsection{Free Agent Groups}
 
-TODO: Discuss the meanings of different turns \\
-TODO: Mentions the free agent group \\
-TODO: Describe why some things are synchronous \\
-TODO: Possibly discuss how the encapsulation works \\
-TODO: Make reference to the repeatability parameters
+Free agent groups are implemented somewhat tangentially to the rest of the code:
+they are not an extension of any Presage class or interface, but an entirely
+internal construct to the framework.
+It is used to emulate some basic group features for those agents that are
+not currently in a group, such as forming teams and giving each other cuddles.
+Like kittens, there is no initial trust, but much desire for play between them;
+this later manifests into groups.
+They do not get to make or receive loans, have an economic policy, or have any
+form of voting round.
+This allows cooperation between the agents before they form groups, allowing
+them to build trust and make informed decisions in the group selection process.
+Each Simulation is allowed to select one class that extends the
+AbstractFreeAgentGroup class.
+This must be instansible with a public no-argument constrcutor, but it not
+required to be serlialisable - only the class name is stored in the simulation
+configuration files.
 
+\subsection{Validation}
+
+Validation of the framework was performed both via static code path analysis in
+the devleopment environment and external validation via control simulations.
+
+The code path analysis became the basis for figure \ref{framework-flow}, and
+was used to confirm that all Actions and Inputs can be handled.
+Also, static analysis was performed to check that all random number generation
+was correctly and controllably seeded such that all results can be reproduced
+as required.
+For exmaple, name generation uses its own random number genenrator to ensure
+that the order of generated names is constant.
+This functionality also allows for static analysis of the number of unique names
+that will be genenrated, and optimisation to ensure this number is as large as
+possible to avoid possible conflicts and confusion.
+
+Simlaution validation was performed be derviving test cases that had symbolically
+proveable steady states.
+These are packaged with the source code in the simulations.validation package,
+which includes a variety of these type of simulations.
+The most basic of these was simulationg a world iwth a single agent such that it
+was impossible for them to acquire enough food to survive.
+Unfortunately, even a simualtion this basic is still validating large amounts of
+code, include the ability to hunt and recieve food, the mechanisims for food
+consumption, and death of an agent.
+However, the number of rounds that should pass before the agent dies is
+deterministic an calculable, so the eent of a working test can be easily detected.
+
+Other validation simulations are included, looking at more complex tests, such
+as the ability of agents to create groups, steady state analysis of a low odd
+number of agents in a world where only pairs can find enuogh food to
+survive\footnote{
+  The exact initial conditions and rules for agent group play a large part in
+  the outcome of this simulation - a rotating paring system can lead to all but
+  the last two agents dying due to food reserves running out at the same time.
+  Reagardless, for a steady state to arise, the agents have to be cooperative
+}, and some basic tests of the in built agent strategies.
+arise, the agents have to be cooperative, and some basic tests of the in built
+agent strategies.

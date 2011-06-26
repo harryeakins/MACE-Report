@@ -266,6 +266,31 @@ a decision on what action it will take.
 % subsubsection Selection (end)
 
 % subsection Genetic Algorithm in MAS (end)
+\subsection{Neural Networks} % (fold)
+\label{sub:neural_networks}
+% TODO proofread
+
+	A neuron of a neural network is a node that evaluates a weighted sum of all its inputs to give an output with an activation function $f$.
+	The weights of each input is given as constant values, these values can be tweaked to allow better output values from the neuron.
+	Hence the output $y$ is given as follows---
+	\begin{equation}
+		y = f \left( \sum_i{w_i x_i}, b \right),
+		\label{eq:neuron}
+	\end{equation}
+	where $x_i$ is the $i$th input value, $w_i$ is the weight constant for the $i$th input, and $b$ is the bias constant.
+	It is noteworthy that while the activation function could be any function, it is generally a sigmoid function which takes the weighted sum and a bias constant to give a result bounded in range $[-1,1]$.
+	\begin{equation}
+		f: \mathbf{R \times R} \rightarrow \mathbf{R}
+		\label{eq:activation}
+	\end{equation}
+
+	A feed forward neural network (FFNN) is a network of neurons.
+	It consists of layers of neurons, where in each layer neurons do not interact.
+	Only outputs from the previous layer are fed to the consecutive layer, this ensures that the network has no feedback loops.
+	To enable learning behaviour of the multi-agent system and agents within it, feed forward neural networks are employed.
+	It is used to give actions of an agent based on the agent's internal states.
+
+% subsection Neural Networks (end)
 \subsection{Validation of the Agent-Based Simulation} % (fold)
 \label{sub:validation}
 

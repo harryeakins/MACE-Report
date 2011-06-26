@@ -5,10 +5,13 @@
 %ASSIGN TO: Olly
 
 Each agent has a number of characteristics (scaled between 0 and 1) to indicate their current state of mind:
-Happiness - how happy the agent is (commonly measured by how much food they have),
-loyalty - how used they are to being in their current group,
-trust - how much they value the advice of each other agent, and an
-economic belief - which dictates their preferred method of food distribution.
+
+\begin{itemize}
+  \item{Happiness - how happy the agent is (commonly measured by how much food they have),}
+  \item{Loyalty - how used they are to being in their current group,}
+  \item{Trust - how much they value the advice of each other agent,}
+  \item{Economic Belief - which dictates their preferred method of food distribution.}
+\end{itemize}
 
 These values are maintained within the range by a scaling function with the basic charcteristics
 

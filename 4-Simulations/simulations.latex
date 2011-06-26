@@ -7,29 +7,31 @@ Peliminary simulations to ensure there are no bugs in the code affecting the res
 \subsection{Sample Data from History}
 Data to compare our final results to, to ensure we haven't cocked anything up.
 
-ASSIGNED TO: Harry, Rob
+%ASSIGNED TO: Harry, Rob
 
 \section{Simulation Design}
-What type of simulation do we intend to run.
-What parameters are they gonna use and what agents types (look above).
-Each group of simulation will be under a different research question (hypothesis).
-Eg. What hunting strategies are best under different rabbit/stag food values?
-What agent type fares best under xxxx (certain set of parameters) conditions?
-Do we get emergent dictatorships if one agent is a lot better at making
-decisions (predicting food) than all the other?
-Do we get democracies if everyone is good at making decisions?
+\begin{itemize}
+\list{Which setups do we wish to run?}
+\list{What emergent behaviour are we planning to explore from this?}
+\end{itemize}
 
-ASSIGN TO: Olly, Valdas, Aadil
+%ASSIGNED TO: Olly, Valdas, Aadil
 
 \section{Simulations}
 What simulations did we run?
 
-ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
+%ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
 
-\section{Data Analysis}
-Using our research, how will we evaluate the data? What does trust, happiness, loyalty, social belief, etc truly represent from a systemwide review.
-Refer back to Data Rep
+\subsection{Simulation A}
+\begin{itemize}
+\list{How was it initialised?}
+\list{What behaviour did we draw?}
+\end{itemize}
 
-ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
+\subsection{Simulation B}
+\begin{itemize}
+\list{How was it initialised?}
+\list{What behaviour did we draw?}
+\end{itemize}
 
-Loop two sections above for each simulation
+%ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS

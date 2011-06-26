@@ -273,6 +273,20 @@ For agents with a fixed stratergy type, the appropriate AgentType value for that
 stratergy is stored in the DataModel, or AgentType.NO\_STRATEGY if they use a
 dynamic, learning, of fixed strategy.
 
+The main data model is only avaialable to the AbstractAgent, and all changed to
+it go through the AbstractAgent.
+The public data model does not wrap any of the setters got this reason, allowing
+references to be passed freely.
+Furthermore, the setters are not directly exposed by the AbstractAgent, but are
+either wrapped in the Input handlers, or use the abstract functions as wrappers
+around themselves.
+
+The Input system is only accessible from the Simulation security level, as shown
+earlier in figure \ref{uml_security} and can therefore be considered to be
+trusted code\footnote{
+  The earlier discussion of plugin security is, however, still relevant here
+}.
+
 
 \begin{figure}[p]
   \label{uml_agent}

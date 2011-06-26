@@ -69,6 +69,7 @@ can be drawn to gain a fuller grasp of the initial problem.
 % subsection Formal Definition of the Multi-Agent System (end)
 \subsection{Agents} % (fold)
 \label{sub:agents}
+% TODO need citations
 
 \subsubsection{Purely Reactive Agent} % (fold)
 \label{subs:purely_reactive_agent}
@@ -185,6 +186,8 @@ a decision on what action it will take.
 % subsection Agents (end)
 \subsection{Genetic Algorithm in MAS} % (fold)
 \label{sub:genetic_algorithms}
+% TODO need citations
+% TODO proper graphs
 
 	Finding an optimal solution of a problem sometimes is impossible but we can somehow improve an existing solution.
 	This notion introduces us to genetic algorithms which pretty much approach this goal in a similar manner. 

@@ -41,7 +41,7 @@ Each group was plotted as a circle on the compass using the x-axis for the group
 
 From figure ~\ref{fig:blankPolitics} it can be seen that minature versions of the politics graph are displayed on the right. Each of these graphs is used to depict all the groups at a specific time throughout the simulation. 
 Instead of displaying every round of the simulation the execution time is split up into multiples of ten percentages. Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
-The larger graph on the left of ~\ref{fig:blankPolitics} is used to display particular minature graphs selected by the user. Once a percentage is selected the groups from that instance are displayed on the larger graph and highlighted according to their percentage. This allows the user to easily compare the movement of groups between two points in the simulation. Arrows are also used pointing from the percentage to the left graph to reinforce which points on the simulation are curently being displayed. 
+The larger graph on the left of ~\ref{fig:blankPolitics} is used to display particular points of the simulation that have been selected by the user. Once a percentage is selected the groups from that instance are displayed on the larger graph and highlighted accordingly. This allows the user to easily compare the movement of groups between two points in the simulation. Arrows are also used to point from the graph at a particular percentage to the left graph. This reinforces which points on the simulation are curently being displayed. 
 The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 
 \begin{figure}[p]

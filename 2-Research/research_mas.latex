@@ -30,9 +30,8 @@ can be drawn to gain a fuller grasp of the initial problem.
 	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment as input and outputs the next state. 
 
 %TODO: Correct over-use of the word "state"
-	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state.
-	It is convenient to introduce a series of states that represents the history of state transitions from the initial state $e_0$ to the current state, that is a run of the system. 
-
+	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state alone, due to the fact that $\tau$ is likely to be also dependent on previous transitions.
+	It is convenient to introduce a series of states that represents the history of transitions from the initial state $e_0$ to the current state, that is a run of the system.
 	A run $r$ is represented as follows---
 	\begin{equation}
 		r: e_0 \xrightarrow{\alpha_0} e_1 \xrightarrow{\alpha_1} \ldots \xrightarrow{\alpha_n} e_{n+1} \xrightarrow{\alpha_{n+1}} \ldots

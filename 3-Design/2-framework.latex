@@ -353,6 +353,18 @@ within the Framework security layer.
 
 \subsection{Groups}
 
+% TODO: Replace this with the right diagram
+\begin{figure}[p]
+  \label{uml_group}
+  \pgraphic{uml_group}
+  \caption{
+    Diagram to show the AbstractGroupAgent implementation and contract, along 
+	with the private and public data models.
+    Also shown as the input handlers.
+    Class interaction diagram can be seen in figure \ref{uml_security}
+  }
+\end{figure}
+
 \subsubsection{Free Agent Groups}
 
 Free agent groups are implemented somewhat tangentially to the rest of the code:

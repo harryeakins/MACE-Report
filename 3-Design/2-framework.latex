@@ -388,7 +388,7 @@ Like kittens, there is no initial trust, but much desire for play between them;
 this later manifests into groups.
 They do not get to make or receive loans, have an economic policy, or have any
 form of voting round.
-This allows cooperation between the agents before theyy form groups, allowing
+This allows cooperation between the agents before they form groups, allowing
 them to build trust and make informed decisions in the group selection process.
 Each Simulation is allowed to select one class that extends the
 AbstractFreeAgentGroup class.
@@ -412,3 +412,26 @@ This functionality also allows for static analysis of the number of unique names
 that will be genenrated, and optimisation to ensure this number is as large as
 possible to avoid possible conflicts and confusion.
 
+Simlaution validation was performed be derviving test cases that had symbolically
+proveable steady states.
+These are packaged with the source code in the simulations.validation package,
+which includes a variety of these type of simulations.
+The most basic of these was simulationg a world iwth a single agent such that it
+was impossible for them to acquire enough food to survive.
+Unfortunately, even a simualtion this basic is still validating large amounts of
+code, include the ability to hunt and recieve food, the mechanisims for food
+consumption, and death of an agent.
+However, the number of rounds that should pass before the agent dies is
+deterministic an calculable, so the eent of a working test can be easily detected.
+
+Other validation simulations are included, looking at more complex tests, such
+as the ability of agents to create groups, steady state analysis of a low odd
+number of agents in a world where only pairs can find enuogh food to
+survive\footnote{
+  The exact initial conditions and rules for agent group play a large part in
+  the outcome of this simulation - a rotating paring system can lead to all but
+  the last two agents dying due to food reserves running out at the same time.
+  Reagardless, for a steady state to arise, the agents have to be cooperative
+}, and some basic tests of the in built agent strategies.
+arise, the agents have to be cooperative, and some basic tests of the in built
+agent strategies.

@@ -139,9 +139,9 @@ can better their situation as a group.
 We made use of the political compass shown below:
 
 From `Right' to `Left' we discuss the economic affairs that are believed by an agent; should food 
-be distributed evenly across the group or should an agent keep the food it gets.
-From ‘Authoritarian’ to ‘Libertarian’ we discuss the social affairs that are believed by an agent; 
-should an agent be free and act under no command or should it give/follow strict orders.
+be distributed evenly across the group or should an agent keep the food it gets?
+From `Authoritarian' to `Libertarian' we discuss the social affairs that are believed by an agent; 
+should an agent be free and act under no command or should it give/follow strict orders?
 So, there are two attributes to be assigned to each agent which describe their position in the 
 political compass:
 
@@ -152,16 +152,16 @@ political compass:
 
 Economic $ \in $ \( 0 \% - 100 \% \)
 
-If believing in the very ‘Right’, 100\%, the agent believes in keeping the resources they earn 
+If believing in the very `Right', 100\%, the agent believes in keeping the resources they earn 
 for themselves. 
-If believing in the very ‘Left’, 0\%, the agent believes in distributing resources evenly, sharing,
+If believing in the very `Left', 0\%, the agent believes in distributing resources evenly, sharing,
  throughout a potential group.
 
 Social $ \in $ \( 0 \% - 100 \% \)
 
-If believing in the very ‘Authoritarian’, 0\%, the agent believes heavily in giving orders and 
+If believing in the very `Authoritarian', 0\%, the agent believes heavily in giving orders and 
 enforcing punishment for neglecting those orders. 
-If believing in the very ‘Libertarian’, 100\%, the agent believes in being free from any orders 
+If believing in the very `Libertarian', 100\%, the agent believes in being free from any orders 
 or enforcement.
 
 %\begin{figure}[ht]
@@ -171,25 +171,25 @@ or enforcement.
 
 The above diagram shows an estimate of how the political groups of today are spread out on 
 the political compass. 
-We can use the above and the agent’s economic and social beliefs to describe their political view.
- Finding the distribution of our agents grouping among themselves can be useful in evaluation; 
-would it always be the case an agent who is initially democratic become communist given a 
-personality (happiness, trust etc.).
+We can use the above and the agent's economic and social beliefs to describe their political view.
+Finding the distribution of our agents grouping among themselves can be useful in evaluation; 
+would it always be the case an agent who is initially democratic become communist given a particular
+personality (happiness, trust etc.)?
 
 \subsubsection{To Group or Not to Group}
 Initially, when trying to form coalitions (groups of agents), it is essential for two agents to have 
 a certain degree of trust. 
 After hunting amongst each other, the agents gain trust for each other regardless of their socio-economic beliefs. 
-The beliefs matter about weigh into the benefit of a possible grouping less significantly than trust. 
-It is only until a group is formed when an agent from the ‘outside’ would require similar beliefs to 
-the group as a whole. 
-For grouping between an agent and a group, trust matters but is not as important as having similar
- beliefs.
+When deciding whether to create a group or not, belief is considered less significant than trust. 
+It is only when a group is formed that an agent from the ‘outside’ would require similar beliefs to 
+the group as a whole in order to join.
+For a group responding to an agent's request to join, trust matters but is not as important as having similar
+political beliefs.
 
 %TODO: IMAGE GOES HERE
 
-The way we compute similar beliefs is through the vector distance on the political compass, 
-the closer they are, the better to group.
+The way we compute similar beliefs is through the vector distance on the political compass. 
+The closer they are, the better to group with.
 
 When trying to form a possible group, both parties must be in agreement; both agents must 
 agree to form groups or both an agent and a group must agree to form a larger group.
@@ -197,8 +197,8 @@ agree to form groups or both an agent and a group must agree to form a larger gr
 \subsection{How to get a Leader}
 \subsubsection{A Leader in General}
 Leadership emerges from a group of agents and depends on the mutual trust between its members.
- Leadership is an emerging norm in a group and the types and number of leaders is defined by the
- current attributes of the group. 
+Leadership is an emerging norm in a group and the types and number of leaders is defined by the
+current attributes of the group. 
 For the analysis of leadership we only consider the y-axis of the political compass.
 
 In order to proceed with the analysis of leadership we first need to define the notion of the panel 
@@ -214,21 +214,21 @@ The members of the panel are the agents that are trusted more by any other agent
 A leader is an agent who is trusted by all the other agents in a group. 
 An agent gains the trust of its fellow agents by cooperating with them in the stag hunt game or by 
 being able to make accurate predictions for them. 
-When an agent is about to go hunting asks another agent for advice on the strategy to be followed. 
-If the advisor is able to make a correct prediction, i.e. helping the asker to increase its profit, gains 
+When an agent which is about to go hunting asks another agent for advice on the strategy to be followed. 
+An advisor able to make a correct prediction, i.e. helping the asker to increase its profit, gains 
 the trust of that agent. 
 Therefore, over time some agents will become more trusted than others and thus eligible to join 
 the panel. 
 
 \subsubsection{Decision Making}
-As it was mentioned above two kinds of games are played in politics. 
+As was mentioned above, two kinds of games are played. 
 The first game is the one between the leaders of different groups and the other one is the game 
 played by the members of the group. 
 The game between the leaders model international conflicts and the game within the group, models 
-the people’s effort for social and individual welfare within the group. 
-The panel is responsible to decide the strategies for these two games. 
+the people's effort for social and individual welfare within the group. 
+The panel is responsible for deciding the strategies for these two games. 
 The decision for the internal game is implicitly made since the members of the panel advise their
- followers to follow the optimal strategy by predicting their opponents' strategy. 
+followers to follow the optimal strategy by predicting their opponents' strategy. 
 Being able to make accurate predictions is what led certain agent to be in the panel in the first place. 
 
 The decision for the external game is more complex and must take into account the followers' 
@@ -262,7 +262,7 @@ emerged and bring things to perspective, via extending the political world descr
 Two points we moved on to analyse are:
 
 \begin{itemize}
-\item Whether or not charities and loans should be given between groups (of which we are treating 
+\item Whether or not charities and loans should be given between groups (which we are treating 
 as countries). 
 We want to know whether giving money (food will be thought as money) to another can exist.
 
@@ -276,7 +276,7 @@ To answer the question above, we abstracted away any concrete sense of politics 
 on the interaction of groups and to let them decide if they need help from prosperous groups or if 
 they should provide help to the needy groups. 
 What is kept from the political world are the way agents in a group decide on a strategy to hunt food 
-and to get food, updating the agents trust and happiness after a hunt and choosing a group is 
+and to distribute food, updating the agents trust and happiness after a hunt and choosing a group is 
 now random because this assessment concentrates on group interaction (note that it can be easily 
 done to force agents to group heuristically). 
 

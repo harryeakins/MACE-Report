@@ -237,6 +237,17 @@ both nutrition, and the number of a type of food that are available to hunt.
 
 \subsection{Agents}
 
+\begin{figure}[p]
+  \label{uml_agent}
+  \caption{
+    Diagram to show the AbstractAgent implementation and contract, along with
+    the private and public data models.
+	Also shown as the input handlers.
+    Class interaction diagram can be seen in figure \ref{uml_security}
+  }
+  \pgraphic{uml_agent}
+\end{figure}
+
 The agent implementation is noticably more complex than the environment in
 a variety of respects.
 A lot of care had to be taken to rmemeber that the untrusted code should not
@@ -320,17 +331,6 @@ Exact specifications of what it done in each game in each turn can be found
 in the documentation for the TurnType enum.
 
 Both the input handlers and callbacks WORDS WORD WORDS WORDS
-
-\begin{figure}[p]
-  \label{uml_agent}
-  \caption{
-    Diagram to show the AbstractAgent implementation and contract, along with
-	the private and public data models.
-	Also shown as the input handlers.
-	Class interaction diagram can be seen in figure \ref{uml_security}
-  }
-  \pgraphic{uml_agent}
-\end{figure}
 
 \subsection{Groups}
 

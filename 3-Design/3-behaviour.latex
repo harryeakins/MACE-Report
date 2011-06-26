@@ -13,13 +13,14 @@ Each agent has a number of characteristics (scaled between 0 and 1) to indicate 
   \item{Economic Belief - which dictates their preferred method of food distribution.}
 \end{itemize}
 
+\begin{wrapfigure}{r}{0.6\columnwidth}
+    \centering
+	\label{fig_scaling}
+    \includegraphics[width=0.45\columnwidth]{figures/value_scaling}
+	\caption{\small{Scaling curves over different scaling factors}}
+\end{wrapfigure}
+
 These values are maintained within the range by a scaling function with the basic charcteristics
-
-\begin{figure}[h]
-  \label{fig_scaling}
-  \includegraphics[width=0.5\columnwidth]{figures/value_scaling}
-\end{figure}
-
 \begin{align*}
   \mbox{Let } \mathbb{U} = \left\{ r \in \mathbb{R} | 0 \le r \le 1 \right\} \\
   s : \mathbb{R} \times \mathbb{N} \to \mathbb{U} \\
@@ -27,36 +28,59 @@ These values are maintained within the range by a scaling function with the basi
   \forall x \in \mathbb{R}, n \in \mathbb{N} \left( s(r, n) + s(-r, n) = 1 \right)
 \end{align*}
 
-Trust heavily effects the playing of the stag hunt game. Before deciding exactly what to hunt, each agent has the opportunity to ask other agents what they should hunt.
-This asking of advice costs some amount of food, so they have to limit who they ask to who they feel gives the best advice.
+Trust heavily effects the playing of the stag hunt game.
+Before deciding exactly what to hunt, each agent has the opportunity to ask
+other agents what they should hunt.
+This asking of advice costs some amount of food, so they have to limit who
+they ask to who they feel gives the best advice.
 
 Trust also plays a large role in the movement of groups on the economic scale.
-Towards the end of the turn, each agent proposes a movement of the group and votes upon each proposal, with each proposal needing a raw 50\% of the vote to succeed.
-To prevent large movements, the movement value of all successful proposals is rescaled to accurately reflect the total desired movement.
-The group's position on the axis represents how much of their own food an agent keeps after the hunt -
-the far left is at 0\%, which represents 100\% tax and a communist equal distribution system.
-The other end of the scale is 100\%, where everyone keeps exactly what they hunt and get nothing from others - a case of extreme capitalism.
+Towards the end of the turn, each agent proposes a movement of the group and
+votes upon each proposal, with each proposal needing a raw 50\% of the vote to
+succeed.
+To prevent large movements, the movement value of all successful proposals is
+rescaled to accurately reflect the total desired movement.
+The group's position on the axis represents how much of their own food an agent
+keeps after the hunt - the far left is at 0\%, which represents 100\% tax and a
+communist equal distribution system.
+The other end of the scale is 100\%, where everyone keeps exactly what they
+hunt and get nothing from others - a case of extreme capitalism.
 
-All of these attributes are frequently updated and can be affected by any number things which are specified when creating the agent.
-This allows each agent to respond differently to stimuli, making the simulation very open and free-flowing, with huge numbers of potential combinations.
+All of these attributes are frequently updated and can be affected by any
+number things which are specified when creating the agent.
+This allows each agent to respond differently to stimuli, making the simulation
+very open and free-flowing, with huge numbers of potential combinations.
 
 \section{Emergent Behaviour}
 
-Over time, those agents better at predicting what to hunt should gain the trust of their fellow hunters.
-As a result, other agents should tend to refer mostly to the more competent for advice - these competent hunters would act as ``leaders" for the group.
-In this way, we expect to see leaders emerge within a group, as most of the group comes to trust their advice on hunting decisions.
-Similarly, when group movement on the economic axis is proposed, the more trusted group members
-will be more likely to succeed in their proposals, and will have more influence on the group's position.
-A group could even have more than one leader, if a number of individuals were to simultaneously give out good advice.
+Over time, those agents better at predicting what to hunt should gain the
+trust of their fellow hunters.
+As a result, other agents should tend to refer mostly to the more competent
+for advice - these competent hunters would act as ``leaders'' for the group.
+In this way, we expect to see leaders emerge within a group, as most of the
+group comes to trust their advice on hunting decisions.
+Similarly, when group movement on the economic axis is proposed, the more
+trusted group members
+will be more likely to succeed in their proposals, and will have more
+influence on the group's position.
+A group could even have more than one leader, if a number of individuals
+were to simultaneously give out good advice.
 
-Indeed, the number of leaders within the group allows us to see a model of political systems -
-if there is only one leader who's opinion is very important to all group members,
-then this is analogous to a dictatorship as this one agent essentially dictates what the others hunt and where the group is on the axis.
-Similarly, if all group members are equally trusted, all members must agree on movement
-about the axis and what to hunt to gain consensus - modelling social libertarianism.
-This can give an approximate position on the vertical axis of the political compass discussed earlier,
-allowing us to place the group onto the compass and visualize the political situation of groups and agents.
+Indeed, the number of leaders within the group allows us to see a model of
+political systems - if there is only one leader who's opinion is very important
+to all group members, then this is analogous to a dictatorship as this one
+agent essentially dictates what the others hunt and where the group is on the axis.
+Similarly, if all group members are equally trusted, all members must agree on
+movement about the axis and what to hunt to gain consensus - modelling social
+libertarianism.
+This can give an approximate position on the vertical axis of the political
+compass discussed earlier, allowing us to place the group onto the compass and
+visualize the political situation of groups and agents.
 
-Other behaviour could certainly emerge - do groups tend to polarize or end up in the middle of the compass?
-What happens if a group has as small number of strong leaders - will it fracture or function oligopolistically?
-These and other questions are what we hope to explore via the simulations, and hopefully even find totally unexpected behaviour emerging.
+Other behaviour could certainly emerge - do groups tend to polarize or end up 
+in the middle of the compass?
+What happens if a group has as small number of strong leaders - will it 
+fracture or function oligopolistically?
+These and other questions are what we hope to explore via the simulations, and
+hopefully even find totally unexpected behaviour emerging.
+

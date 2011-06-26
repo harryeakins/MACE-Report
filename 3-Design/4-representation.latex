@@ -40,7 +40,7 @@ Each group was plotted as a circle on the compass using the x-axis for the group
 	\end{figure}
 
 From figure ~\ref{fig:blankPolitics} it can be seen that minature versions of the politics graph are displayed on the right. Each of these graphs is used to depict all the groups at a specific time throughout the simulation. 
-Instead of displaying every round of the simulation the execution time is split up into multiples of ten percentages. Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
+Instead of displaying every round of the simulation the execution time is split up into multiples of ten percentages each. Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
 The larger graph on the left of ~\ref{fig:blankPolitics} is used to display particular points of the simulation that have been selected by the user. Once a percentage is selected the groups from that instance are displayed on the larger graph and highlighted accordingly. This allows the user to easily compare the movement of groups between two points in the simulation. Arrows are also used to point from the graph at a particular percentage to the left graph. This reinforces which points on the simulation are curently being displayed. 
 The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 
@@ -51,7 +51,7 @@ The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 		\label{fig:politicsWithData}
 	\end{figure}
 
-Various indicators are used to inform to the user the graphs behaviour and interactivity. If a user hovers over a particular intant of the simulation, the box becomes shaded with the same colour used to highlight the groups. An arrow is also dynamically displayed in a different colour pointing from the currently highlighted graph to the main graph. Less opaque groups are also drawn on the larger graph. 
+Various indicators are used to inform to the user of the graphs interactive functionality. If a user hovers over a particular instant of the simulation the box becomes highlighted. An arrow is also dynamically displayed pointing from the currently highlighted graph to the main graph. Less opaque groups are also drawn on the larger graph. 
 These features can be seen in the figure ~\ref{fig:politicsHighlighted}.
 
 \begin{figure}[p]

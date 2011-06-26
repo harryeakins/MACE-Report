@@ -319,6 +319,7 @@ EnvironmentConnection, and executes the appropriate turn function.
 Exact specifications of what it done in each game in each turn can be found
 in the documentation for the TurnType enum.
 
+Both the input handlers and 
 
 \begin{figure}[p]
   \label{uml_agent}

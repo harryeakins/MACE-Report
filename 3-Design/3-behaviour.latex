@@ -13,13 +13,14 @@ Each agent has a number of characteristics (scaled between 0 and 1) to indicate 
   \item{Economic Belief - which dictates their preferred method of food distribution.}
 \end{itemize}
 
+\begin{wrapfigure}{r}{0.6\columnwidth}
+    \centering
+	\label{fig_scaling}
+    \includegraphics[width=0.45\columnwidth]{figures/value_scaling}
+	\caption{\small{Scaling curves over different scaling factors}}
+\end{wrapfigure}
+
 These values are maintained within the range by a scaling function with the basic charcteristics
-
-\begin{figure}[h]
-  \label{fig_scaling}
-  \includegraphics[width=0.5\columnwidth]{figures/value_scaling}
-\end{figure}
-
 \begin{align*}
   \mbox{Let } \mathbb{U} = \left\{ r \in \mathbb{R} | 0 \le r \le 1 \right\} \\
   s : \mathbb{R} \times \mathbb{N} \to \mathbb{U} \\

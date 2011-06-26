@@ -150,14 +150,14 @@ political compass:
 %\includegraphics[width=0.4\linewidth]{figures/socialGraph2}
 %\end{figure}
 
-Economic $ \in $ \( 0 \% - 100 \% \)
+\subsection{Economic $ \in $ \( 0 \% - 100 \% \)}
 
 If believing in the very ‘Right’, 100\%, the agent believes in keeping the resources they earn 
 for themselves. 
 If believing in the very ‘Left’, 0\%, the agent believes in distributing resources evenly, sharing,
  throughout a potential group.
 
-Social $ \in $ \( 0 \% - 100 \% \)
+\subsection{Social $ \in $ \( 0 \% - 100 \% \)}
 
 If believing in the very ‘Authoritarian’, 0\%, the agent believes heavily in giving orders and 
 enforcing punishment for neglecting those orders. 
@@ -258,20 +258,17 @@ Therefore, an authoritarian panel has to worry less when making a decision than 
 
 \subsection{Where to go from here}
 Once we have a stable group or during the formation of the groups, we want to use what has 
-emerged and bring things to perspective, via extending the political world described above. 
-Two points we moved on to analyse are:
+emerged and bring things into perspective, via extending the political world described above. 
+The point we moved on to analyse is:
 
 \begin{itemize}
 \item Whether or not charities and loans should be given between groups (of which we are treating 
 as countries). 
 We want to know whether giving money (food will be thought as money) to another can exist.
-
-\item Confirm history by forcing a scenario in which the Soviet Union and America really should 
-have cooperated in prevention of nuclear war or who would'’ve won during the Space Wars. 
-Maybe find out that Nazi Germany could have won the Second World War.
 \end{itemize}
 
-\subsection{Should we give a Loan?}
+\subsection{Economics and Loans}
+\subsubsection{Should we give a Loan?}
 To answer the question above, we abstracted away any concrete sense of politics and concentrated 
 on the interaction of groups and to let them decide if they need help from prosperous groups or if 
 they should provide help to the needy groups. 

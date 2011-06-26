@@ -103,12 +103,12 @@ a decision on what action it will take.
 	This `see function' maps the environment state E to a percept of the agent's view of the world. 
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:per_see}
 	\end{equation}
 	The action stage now maps a sequence of perceptions to actions instead of mapping environment to actions directly.
 	\begin{equation}
 		Action : Per^* \rightarrow Ac
-		\label{eq:action}
+		\label{eq:per_action}
 	\end{equation}
 	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
@@ -128,14 +128,14 @@ a decision on what action it will take.
 	For this type of agent, the see function doesn't change at all, still maps the environment state E to the percept Per.
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:states_see}
 	\end{equation}
 
 	But for the action part, it is now defined in a different way as the interference of those internal states of agents.
 	The action of a agent is actually decided by the set of internal states $I$:
 	\begin{equation}
 		Action : I \rightarrow Ac
-		\label{eq:action}
+		\label{eq:states_action}
 	\end{equation}
 
 	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like feedback.

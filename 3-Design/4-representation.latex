@@ -53,7 +53,7 @@ The implementation of this can be seen in ~\ref{fig:politicsWithData}.
         \end{figure}
 
 
-Various indicators are used to inform to the user of the graphs interactive functionality. If a user hovers over a particular instant of the simulation the box becomes highlighted. An arrow is also dynamically displayed pointing from the currently highlighted graph to the main graph. Less opaque groups are also drawn on the larger graph. 
+Various indicators are used to inform the user of the graphs interactive functionality. If a user hovers over any minigraph it will becomes highlighted, a blue arrow will point from the highlighted minigraph to the main graph, and finally paler translucent versions of groups from the minigraph are drawn on the larger graph. All of these indicate to the user that the graph is interactive, and that minigraphs are selectable. 
 
 These features can be seen in the figure~\ref{fig:politicsHighlighted}.
 

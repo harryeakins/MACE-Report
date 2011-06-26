@@ -1,6 +1,7 @@
 \section{Data Representation}
-This is where the GUI and website team strutt their stuff.
+The simulation environment generates huge quantities of information, which needs to be processed, stored and represented in a meaningful way.
+To do that, most simulation variables are stored in histories, which can be accessed by agents or groups or plug-ins working on the data representation and storage.
 
 ASSIGN TO: Harry, Valdas, Shane, Rob
 
-This is a git test.
+    

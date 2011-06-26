@@ -1,0 +1,79 @@
+\section{Further Work}
+\subsection{Thorough Testing and Validation}
+In order for a technology to be used in published research, it must be tested and
+validated to ensure that the results are really caused by properties of your
+proposed system, and not by a bug. 
+This is also true for tools used to make big, important decisions.
+If our software was to show that the best plan of action involved increasing 
+taxes for the rich, for example, it would be quickly dismissed (and quite rightly
+so) since you can't trust something without being sure there are no bugs.
+There are several ways in which such quality assurance can be implemented, from 
+low-level unit-testing with JUnit, to high-level testing of simple simulation
+cases.
+
+\subsubsection{JUnit}
+By using JUnit we could ensure that each of our functions and classes function
+as intended. One problem we encountered was that PreSAGE was not designed with
+test-driven development in mind, and is therefore difficult to use with JUnit.
+This is perhaps too much to ask from PreSAGE, which is designed to be used
+as more of a prototyping solution, rather than a the basis of a finished
+product\cite{presage1}. Using something such as JADE or AgentBuilder might 
+be a better idea, or even creating a bespoke implementation of this multi-agent
+system.
+
+\subsection{Varying Environment}
+Our society and its environment is currently quite stationary. Once groups have formed,
+there is little to cause any significant change in the future of the simulation. This 
+predictable and static system means that the idea of international loaning which we have
+tried to model is a little unnecessary. Loans exist because there are times when some 
+prosper when others are poor, and the fact that this situation may change in the future.
+Since our simulation isn't very dynamic, a group that requires loans to survive at one point in time 
+will still require loans later on. 
+
+Introducing the idea of famine, disease, aging or injury would make our simulations 
+more dynamic, matching more closely the nondeterministic nature of the world we aim to model. 
+This could be done by changing how successful hunting is for a certain group. A famine could
+mean that hunting results in less food resulting from hunting. Disease could be modelled by
+having agents disabled for a few cycles. Disease spreads through a group, so some sort of 
+spreading could be implemented.
+
+\subsection{More Comparison with Ethnographic Studies}
+There are many studies in the field of social and cultural anthropology looking at the 
+evidence of between-group altruism. Discussion on this topic is mostly intelligent
+and well thought-out speculation, which is almost as good as you can get in the science
+of behaviour. Recent papers which link their ideas to real-life data seem to be in need
+of more examples from the world. This is a problem, since the simple communities which 
+exist in isolation of the developed community are increasingly rare and protected. 
+
+Simulation is starting to be used more and more in these fields. If our system was 
+verified against the existing data on primitive human societies, then it could be
+used as a great source of information for these researchers. 
+
+\subsubsection{The Ache of Paraguay}
+The University of New Mexico studied the Ache, `A group of South American 
+forager-horticulturists', and noted the altruism shown between families\cite{gurven1}.
+This is extremely similar to what we are trying to achieve with our simulations and
+so a comparison between the two would be great.
+
+\subsubsection{Liangshan Outlaws}
+Another example of data to which our simulations should be compared, is the 
+rebellion of the Liangshan outlaws. This is related to the politics side of our simulations,
+rather than the loaning aspect. In the Song Dynasty, around 1120AD, the population of 
+China was fairly unhappy with the government and their emperor. The emperor then decided
+to raise taxes, which is represented in our simulation as a move towards the top-left of the
+political compass. This caused a group of unhappy citizens to start a rebellion against 
+the government. 
+
+We could simulate this scenario by having the leader of a group move quickly to the top
+left of the political compass, and then see whether a group of agents closer to the centre
+of the group decide to split off and make their own society - a rebellion. 
+
+After the rebellion had formed, the emperor was forced to lower taxes once again and the two groups
+joined back together. This is shown on the political compass below:
+
+
+
+
+
+
+

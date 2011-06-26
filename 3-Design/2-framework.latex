@@ -1,32 +1,32 @@
 \section{Framework}
 
-The framework, on which the simulations were built and forms the core of MACE,
-was itself built on the multi-agent simulation system Presage
+The framework that forms the core of MACE and upon which the simulations were built,
+is itself built upon the multi-agent simulation system Presage
 \footnote{\url{https://sites.google.com/site/presageproject},
 \url{http://sammacbeth.github.com/Presage/}}.
 Presage is a `time' driven system:
 the simulations are divided into discrete cycles, in which each participant
 processes any queued inputs, and responds with any appropriate actions.
 The environment, which represents the world that
-the participants are acting in, processes these actions and, if applicable, sends
-inputs to participants informing them of changes that might have taken place.
-The messaging framework is designed to be primarily asynchronous, with the
-information not being processed until the following cycle, but allows for
+the participants are acting in, processes these actions and sends
+inputs to participants informing them of any changes that have taken place.
+The messaging framework is designed to be primarily asynchronous, with
+information not processed until the following cycle, but it also allows for
 synchronous messaging via clever use of code.
 
-The purpose of the framework was to allow a number of agents to play the
-grouping and stag games.
+The basic purpose of the framework is to allow some number of agents to play the
+grouping and stag hunt games.
 To this end, it was implemented as an abstraction and
 a security layer, simultaneously defining a simple interface between agent code
-and the environment and simulation layers, whilst also not allowing the agents to
-cheat. Three major classes were implemented:
+and the environment and simulation layers, whilst also preventing the agents cheating. 
+Three major classes have been implemented:
 \begin{itemize}
 \item{
 The Evironment, which models the world and holds all relevant data,
-such as the animals which exist and the status of agents.
+such as the animals which exist and the status of each agent.
 }
 \item{
-The AbstractAgent, which models the hunters themselves and wraps around both the hunter's
+The AbstractAgent, which models the hunters themselves and wraps around both the hunters'
 data model and the set of actions that they may perform (and when they may perform them).
 }
 \item{
@@ -41,7 +41,7 @@ model and the actions the groups can perform.
 	A large number of functions have been removed from this diagram for simplicity
 	(such as the execute() function which brings the AbstractAgents and
 	AbstractGroupAgents into context).
-	The entry point is shown by an arrow coming from a round's doundary line.
+	The entry point is shown by an arrow coming from a round's boundary line.
 	The other arrows show a flow of information;
 	dotted arrows represent information that is stored over a cycle boundary,
 	generally due to message queues.
@@ -51,33 +51,33 @@ model and the actions the groups can perform.
 \end{figure}
 
 The actual simulation uses Agents and Groups that are derived from the
-AbstractAgent and AbstractGroup, which are treated as hostile code - in the
-future, these classes may be written by parties that wish to break the rues of
+AbstractAgent and AbstractGroup and are treated as hostile code - in the
+future, these classes may be written by parties that wish to break the rules of
 the system, so the interactions have to a mediated and controlled by the
 Abstract implementations.
 This was achieved by implementing many members as
 private (including all data members), and any non-private members were declared
-as `final', thus stopping derived classes from altering their functionality.
+as `final', thus preventing derived classes from altering their functionality.
 The remainder of the code was formed as a number of protected abstract methods,
 which need to be implemented by the revived agent or group that are used for
 all interactions.
 
-Due to the overall complexity of the three games when combined, and the default
+Due to the combined complexity of the three games and the default
 asynchronous nature of the underlying framework, we opted to have each round
-of the games being execute over a number of cycles, each with a well defined
-purpose, defined in the TurnType enumerator.
-Every cycle, the three primary
-framework classes check what turn it currently is, and evecute the relevant
-methods; these will include calling the appropriate abstract methods (that will
+of the games divided into a number of cycles, each with a specific
+purpose which is defined in the TurnType enumerator.
+Every cycle, the three primary framework classes check what turn it currently is, 
+then execute the relevant methods; 
+including calling the appropriate abstract methods (that will
 have been implemented by the derived code).
 The flow is shown in figure \ref{framework-flow} (page \pageref{framework-flow}).
 
 \subsection{Alterations to Underlying Code}
 
 Due to the current builds of Presage being in beta, a number of changes were
-made to the supplied code. Nearly all of these were purely cosmetic improvements
-and alterations; updating the code to fit the guidelines of the current production
-version of the Java standard library, such as the use of generic types for
+made to the supplied code. Nearly all of these were cosmetic improvements
+and alterations, as well as updating the code to fit the guidelines of the current production
+version of the Java standard library, including the use of generic types for
 lists and iterators.
 Another of these changes, which was key for later validation
 of the code, was the replacement of the `temporary' debugging code with a
@@ -88,7 +88,7 @@ introduction of participants, such as emergent groups, by iterating over the
 set of Participants manually, and marking each that had been executed (See
 snippet \ref{ParticipantLoop}, page \pageref{ParticipantLoop}).
 This uses the same strict ordering as the original code, using the 
-fundamental String Comparator, and, therefore, guarantees the same 
+fundamental String Comparator, and therefore guarantees the same 
 deterministic order of execution when no participants are added during execution.
 
 The result when a new participant is added is a deterministic function of the
@@ -99,24 +99,24 @@ Regardless, it is still guaranteed to be executed in the current cycle.
 
 \subsection{Security Model}
 
-Due to a combination of Java's security management, and Presage's liberal
+Due to a combination of Java's security management and Presage's liberal
 permissions model, security was implemented in a number of different ways
 in different parts of the framework, which is outlined in figure
 \ref{uml_security}.
 
-There were three levels of security, which were roughly levelled as shown in
+There are three levels of security, approximately levelled as in
 the diagram.
 The Simulation security level corrospondes primarily to the data which is
-required by, and distributed by, Presage itself.
+required, and distributed, by Presage itself.
 This level, therefore, includes all of Presage's core simulation classes
 except those direcly related to Participants, which Presage already treats
 as partial-trust code.
 
 The next level is the framework, which actually only contains about half
-of the classes of the framework.
+of the classes of the actual framework.
 Most of the classes in the framework security are not accessible directly
-by the simulation framwork, but are rather mapped through the public layer.
-Equally, the simualtion classes are not directly available here;
+by the simulation framework, but are mapped through the public layer.
+Similarly, the simualtion classes are not directly available here;
 the primary point of contact `upstream' is the EnivronmentConnection,
 which is passed downwards at initialisation time.
 
@@ -127,36 +127,36 @@ and contains all of the untrusted code implementation code.
   \label{uml_security}
   \pgraphic{uml_security}
   \caption{
-    The framework was split into three security levels, determining which
-	classes shoudl be able to get references to which other classes.
+    The framework is split into three security levels, determining which
+	classes are able to get references to which other classes.
 	This diagram shows which classes belong to which level, and some of the
 	important interactions between them.
   }
 \end{figure}
 
-The Enivronment was protected by the Environment Connections, a concept
+The Enivronment is protected by the Environment Connections, a concept
 that already existed in Presage, meaning that only the Simulation, Plugins
 and the Environment itself could get a reference to the Environment of the
 current simulation.
 Although plugins are not considered trusted code, and can also interact with
-agent's implementation code, this protection was considered sufficient;
-this decision relates to the fact that the Plugin interface requires a
+agent's implementation code, this protection was considered sufficient.
+This decision relates to the fact that the Plugin interface requires a
 reference to the Simulation object at initialisation time.
-The EnvironmentConnection class itself, however, is not public-safe - it 
-does offer a couple of functions that should not be directly exposed to the
+The EnvironmentConnection class itself, however, is not public-safe: it 
+offers a number of functions that should not be directly exposed to the
 agent implementation - such as the function `seekAdvice' which, if called
-directly, would allow agents to side step the requirement to consume resources
+directly, would allow agents to cirucumvent the requirement to consume resources
 in exchange for seeking advice.
 This problem is addressed with the PublicEnvironmentConnection.
 
-A Similar theory was applied the Participants. The Interface requirement that
+A similar theory was applied the Participants. The Interface requirement that
 a reference to the Participant's PlayerDataModel was publically accessible
 presented a major problem, as this would mean that participants have the same level
-of access to other's data model as their own.
+of access to others' data model as to their own.
 However, this was eventually used to our advantage by returning only a wrapped
 version of the DataModel, which was the only reference avialable to both external
-entities (including Plugins, the Enivornment, and other Participants) which, although
-breaking the formal contract of the system, permitted us to correctly implement the
+entities (including Plugins, the Enivornment, and other Participants) and the Simulation layer. 
+Although this breaks the formal contract of the system, it permitted us to correctly implement the
 security system.
 
 Permissions here were slightly looser than would have been liked, as both the

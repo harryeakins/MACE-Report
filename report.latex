@@ -1,3 +1,4 @@
+%&latex
 \documentclass[a4paper,12pt]{report}
 
 \usepackage{amsmath} % mathematics

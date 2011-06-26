@@ -38,13 +38,13 @@ model and the actions the groups can perform.
 \begin{figure}[p]
   \caption{
     Anatomy of the interaction between calls in a round.
-	A large number of functions have been removed from this diagram for simplicity
-	(such as the execute() function which brings the AbstractAgents and
-	AbstractGroupAgents into context).
-	The entry point is shown by an arrow coming from a round's boundary line.
-	The other arrows show a flow of information;
-	dotted arrows represent information that is stored over a cycle boundary,
-	generally due to message queues.
+        A large number of functions have been removed from this diagram for simplicity
+        (such as the execute() function which brings the AbstractAgents and
+        AbstractGroupAgents into context).
+        The entry point is shown by an arrow coming from a round's boundary line.
+        The other arrows show a flow of information;
+        dotted arrows represent information that is stored over a cycle boundary,
+        generally due to message queues.
   }
   \label{framework-flow}
   \pgraphic{framework}
@@ -128,9 +128,9 @@ and contains all of the untrusted code implementation code.
   \pgraphic{uml_security}
   \caption{
     The framework is split into three security levels, determining which
-	classes are able to get references to which other classes.
-	This diagram shows which classes belong to which level, and some of the
-	important interactions between them.
+        classes are able to get references to which other classes.
+        This diagram shows which classes belong to which level, and some of the
+        important interactions between them.
   }
 \end{figure}
 
@@ -169,70 +169,71 @@ either AbstractAgents or AbstractGroupAgents.
 \begin{figure}[p]
   \label{uml_env}
   \caption{
-    The action handlers and four primary classes that make up the Environment
-	package.
-	Member methods have been roughly by the class of object they are used to interact
-	with.
-	The class interactions can be seen in figure \ref{uml_security}.
+    The four primary classes, and the action handlers, that make up the Environment
+        package.
+        Member methods have been roughly by the class of object they are used to interact
+        with.
+        The class interactions can be seen in figure \ref{uml_security}.
   }
   \pgraphic{uml_environment}
 \end{figure}
 
-The environment implementation is primarily a nexus for agent communications and housekeeping in corner cases.
+The environment implementation is primarily a nexus for agent communications and
+some housekeeping in corner cases.
 The main functionality of the data model, for exmaple, it to keep track of all the
-active objects - be it Agents, Groups or Foods - a task that is already done by the
+active objects - be it Agents, Groups, Foods - a task that is already done by the
 Simulation class.
-This repilcation is for time effiency, as the Simulation does not know to differentiate between agents and groups
-and so it would take take longer to perform each lookup\footnote{
-  Especially for returning the lists, where reutrning a strong unmodifiable reference
-  to the internal list is a single operation, but deriviing it is $\mathcal{O}(n)$
+The repelciation here, however, is for time effiency:
+as the Simulation does not know to differentiate between agents and groups, each
+look up would take longer\footnote{
+  Especially for returning the lists, where returning a strong unmodifiable reference
+  to the internal list is a single operation, but deriving it is $\mathcal{O}(n)$
   in the number of Participants in the system.
 }.
 
 The data model also inherites the knowledge of the current cycle number and
-this is augmented with the current TurnType, which indicates the position in
+this is augmented with the current TurnType, which indiciated the position in
 the current round.
-This is updated in the overidden setTime method, along with additional code to
-ensure that on the first cycle the first TurnType is selected.
+This is updated in the overridden setTime method, along with additional code to
+ensure that on the first cycle, that the first TurnType is selected.
 
 This is determined, as are the turn orders, by use of the strict natural
-ordering of enumberated types in java:
+ordering of enumerated types in java:
 the order of a set of values is strictly always the order in which they are
 declared.
 Thus, the order of turns is always the order in which the instance variables
 are declared in the TurnTypes enumerated class.
 
-The primary component of the Enivronment as a physical world is the information
-about food.
-The set of all food stuffs in existence, as well as their properties as contained within
-the Food objects, are set on creation of the simulation and are immutable.
-This is also true of the (less physcial) set of all classes of Groups that are
+The primary component of the Environment as a physical world is the information
+about food:
+the set of all food stuffs in existence, and their properties as contained within
+the Food objects, is immutable and set on creation of the simulation.
+This is also true of the less physcial set of all classes of Groups that are
 permitted.
 
 Individual groups are not created with the simulation but, instead, by agents who
-wish to start their own.
+wish to start a community.
 As the framework interface for all classes of group are the same, being defined
 in AbstractGroupAgent, the limitation that the simulation environment places on
-group formation is the set of group types that are permitted in the environment.
-This functionality also means that an agent does not need to understand the full
+group formation is the classes of group that are permitted in the environment.
+This functionality also allows that an agent does not need to understand the full
 nature of the group that it creates: the class objects that it can query mean
 that no strong references to a particular implementation are required.
 There were plans for agents to be able to get metadata about particular class
 types, but this was not implemented due to a lack of demand; very few classes
-of group were implemented during the course of the project.
+of group were implemented in this course of the project.
 
 Food, on the other hand, works in almost the opposite way. Food objects are
-created as an a priori part of the Environment, and are initialised with their
+created as an a priori part of the Environment, and initialised with their
 parameters.
-These parameters are currently limited to the food's name (for debugging and display
-purposes), the amount of nutrition it provides, and the number
+These are currently limited to the food's name (for debugging and display
+purposes), the amount of nutrition the food has in total, and the number
 of hunters required to hunt it.
 Each of those hunters will receive their portion - the total nutrition divided
 by the number of hunters - if and only if at least the required number of
 hunters in the team chose to hunt that type of food.
-Extensions to food were planned was more accurately modelling fluctuating 
-and limited populations of animals, as well as varying nutrition values.
-However, these were not actually implemented within the time frame.
+Extensions to food were planning to look at food distributions in terms of
+both nutrition, and the number of a type of food that are available to hunt.
 
 \subsection{Agents}
 
@@ -241,17 +242,17 @@ However, these were not actually implemented within the time frame.
   \caption{
     Diagram to show the AbstractAgent implementation and contract, along with
     the private and public data models.
-	Also shown as the input handlers.
+        Also shown as the input handlers.
     Class interaction diagram can be seen in figure \ref{uml_security}
   }
   \pgraphic{uml_agent}
 \end{figure}
 
-The agent implementation is noticably more complex than the environment in
+The agent implementation is noticeably more complex than the environment in
 a variety of respects.
-A lot of care had to be taken to rememeber that the untrusted code should not
-be apssed refences to sections of the data model, so the data model itself was
-made primarily responsible fro creating defensive copies of objects.
+A lot of care had to be taken to remember that the untrusted code should not
+be passed references to sections of the data model, so the data model itself was
+made primarily responsible for creating defensive copies of objects.
 The was complicated, however, by the use of the History class, which acted as
 a random access limited length queue that was used for storing past value of
 a data member.
@@ -261,9 +262,9 @@ object.
 Due to the lack of clear implementations of immutability and clonability in Java
 these security problems were not possible to patch in the generic case, short
 of limiting the types of object that can be used with History, or wrapping
-each individual object in a container that controlls access to it.
+each individual object in a container that controls access to it.
 
-The data that these histries are storing form a record of the agents
+The data that these histories are storing form a record of the agents
 participation in the various game - the team in which they hunted, their
 opinion of the group (as defined by their happiness, loyalty, and trust of
 other agents), what advice they gave in the past (which might be useful in
@@ -358,7 +359,7 @@ within the Framework security layer.
   \pgraphic{uml_group}
   \caption{
     Diagram to show the AbstractGroupAgent implementation and contract, along 
-	with the private and public data models.
+        with the private and public data models.
     Also shown as the input handlers.
     Class interaction diagram can be seen in figure \ref{uml_security}
   }

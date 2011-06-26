@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{rotating}
 \usepackage{url}
+\usepackage{wrapfig}
 
 \hypersetup{
   colorlinks,

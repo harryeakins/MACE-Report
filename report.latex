@@ -13,6 +13,7 @@
 \usepackage{rotating}
 \usepackage{url}
 \usepackage{wrapfig}
+\usepackage{subfig}
 
 \hypersetup{
   colorlinks,

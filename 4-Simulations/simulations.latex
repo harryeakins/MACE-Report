@@ -1,17 +1,48 @@
 \chapter{Simulations}
 
 \section{System Validation}
-\subsection{Simple Simulations}
+In an effort to ensure that our simulations have no bugs, we thought of some extremely simple
+test cases which can be used for system sanity checking. These tests are so simple and obvious, 
+that they are without a doubt true in any valid system.
 \begin{itemize}
-\item{Peliminary simulations to ensure there are no bugs in the code affecting the results.}
-\end{itemize}
+\item{The Hungry Agent:}
+Proposition - A solitary agent which requires x units of food per turn, with the rabbit's value less than x,
+will die in a finite amount of time. 
+\item{Satisfied Cooperating Agents:}
+Proposition - two always co-operating agents will not die if the value of a stag is $ \ge $ the twice their 
+daily food requirements.
+\begin{figure}[H]
+\centering
+\subfloat[Hungry Single Agent]{\includegraphics[width=0.4\linewidth]{figures/singleAgent}}
+\subfloat[Satisfied Cooperating Double]{\includegraphics[width=0.4\linewidth]{figures/doubleSatisfied}}
+\end{figure}
 
-\subsection{Sample Data from History}
-\begin{itemize}
-\item{Data to compare our final results to, to ensure we haven't cocked anything up.}
-\end{itemize}
+\item{Hungry Cooperating Double:}
+Proposition - Two co-operating agents will die in a finite amount of time if the stag's value is $ < $ twice
+their daily food requirements 
+\item{Big Rabbit:}
+Proposition - Two always co-operating agents will not co-operate if it is beneficial for them to 
+hunt rabbits (because rabbit's value is $ > $ twice the stag's value)
+\begin{figure}[H]
+\centering
+\subfloat[Hungry Cooperating Double]{\includegraphics[width=0.4\linewidth]{figures/doubleHungry}}
+\subfloat[Big Rabbit]{\includegraphics[width=0.4\linewidth]{figures/doubleSatisfied}}
+\end{figure}
 
-%ASSIGNED TO: Harry, Rob
+\item{Stupid Sharing:}
+Proposition - If one agent needs more food than the other, agents still distribute the food equally. This
+can lead to the scenario where two agents hunt together, with one living happily, but the other gradually
+starving. When the other dies, the remaining agent can only hunt rabbits, and so it dies too.
+\item{Hungry Defecting Double:}
+Proposition - Two always defecting agents will die despite the face that teamwork could get them stags and let
+them live.
+\begin{figure}[H]
+\centering
+\subfloat[Stupid Sharing]{\includegraphics[width=0.4\linewidth]{figures/stupidSharing}}
+\subfloat[Hungry Defecting Double]{\includegraphics[width=0.4\linewidth]{figures/defectingDouble}}
+\end{figure}
+
+\end{itemize}
 
 \section{Simulation Design}
 

@@ -302,6 +302,23 @@ in the Enivronment's list of available foods.
 This lookup will return null, and the process will continue as if the agent
 had not picked a food.
 
+Each of these operations are started from the execute method that is inheritied
+from Participant, which is represented in the flow diagram (figure
+\ref{framework-flow}) as the arrow from the turn division line to the turn's
+processing method.
+The implemntation first processes any inputs that are currently stored in the 
+input queue by matching them to the correct input handler based on the 
+InputHandler.canHandle method.
+The assumption that the frmaework code will only ever have 1 handler for each
+Input has been made, as the framework should remain deterministic in the
+general case; the use of separate handlers is actually only needed for legability
+of the code.
+
+The execute method then determines the current turn type by querying the
+EnvironmentConnection, and executes the appropriate turn function.
+Exact specifications of what it done in each game in each turn can be found
+in the documentation for the TurnType enum.
+
 
 \begin{figure}[p]
   \label{uml_agent}

@@ -30,9 +30,8 @@ can be drawn to gain a fuller grasp of the initial problem.
 	where $E$ is the set of all possible environment states the system can be in, $e_0$ is the initial state the environment is in and $\tau$ is the state transformer function which takes the current state of the environment as input and outputs the next state. 
 
 %TODO: Correct over-use of the word "state"
-	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state.
-	It is convenient to introduce a series of states that represents the history of state transitions from the initial state $e_0$ to the current state, that is a run of the system. 
-
+	Note that the state transformer function $\tau$ does not necessarily give the next state based on the current state alone, due to the fact that $\tau$ is likely to be also dependent on previous transitions.
+	It is convenient to introduce a series of states that represents the history of transitions from the initial state $e_0$ to the current state, that is a run of the system.
 	A run $r$ is represented as follows---
 	\begin{equation}
 		r: e_0 \xrightarrow{\alpha_0} e_1 \xrightarrow{\alpha_1} \ldots \xrightarrow{\alpha_n} e_{n+1} \xrightarrow{\alpha_{n+1}} \ldots
@@ -62,7 +61,10 @@ can be drawn to gain a fuller grasp of the initial problem.
 	\end{align}
 
 	However it is important to recognise that although a run of a system is similar to a path in a graph in many ways, it is in most cases impractical to traverse the multi-agent system with any graph traversal algorithms.
-	For one thing doing this may not give us any insightful information of the system, and for another, the number of all environment states could be non finite.
+	% TODO proofread
+	For one thing doing this may not give us any insightful information of the system.
+	Owing to the fact the environment should not necessarily reach a goal state, or simply the goal state cannot be defined by the semantics within the multi-agent system.
+	For another, the number of all environment states could be non finite, an exhaustive search without a goal state is most likely impractical.
 
 % subsection Formal Definition of the Multi-Agent System (end)
 \subsection{Agents} % (fold)
@@ -104,12 +106,12 @@ a decision on what action it will take.
 	This `see function' maps the environment state E to a percept of the agent's view of the world. 
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:per_see}
 	\end{equation}
 	The action stage now maps a sequence of perceptions to actions instead of mapping environment to actions directly.
 	\begin{equation}
 		Action : Per^* \rightarrow Ac
-		\label{eq:action}
+		\label{eq:per_action}
 	\end{equation}
 	$Per^*$ is a sequence of perceptions because the agent can record all it has seen in the past, indicating that it can learn from history and then make decisions. This paradigm can be further improved with the concept of agents with states.
 
@@ -129,14 +131,14 @@ a decision on what action it will take.
 	For this type of agent, the see function doesn't change at all, still maps the environment state E to the percept Per.
 	\begin{equation}
 		See : E \rightarrow Per
-		\label{eq:see}
+		\label{eq:states_see}
 	\end{equation}
 
 	But for the action part, it is now defined in a different way as the interference of those internal states of agents.
 	The action of a agent is actually decided by the set of internal states $I$:
 	\begin{equation}
 		Action : I \rightarrow Ac
-		\label{eq:action}
+		\label{eq:states_action}
 	\end{equation}
 
 	And how we can use the percept to make some progress on the internal states? Here we introduce a function $next$ which works like feedback.

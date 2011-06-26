@@ -61,7 +61,10 @@ can be drawn to gain a fuller grasp of the initial problem.
 	\end{align}
 
 	However it is important to recognise that although a run of a system is similar to a path in a graph in many ways, it is in most cases impractical to traverse the multi-agent system with any graph traversal algorithms.
-	For one thing doing this may not give us any insightful information of the system, and for another, the number of all environment states could be non finite.
+	% TODO proofread
+	For one thing doing this may not give us any insightful information of the system.
+	Owing to the fact the environment should not necessarily reach a goal state, or simply the goal state cannot be defined by the semantics within the multi-agent system.
+	For another, the number of all environment states could be non finite, an exhaustive search without a goal state is most likely impractical.
 
 % subsection Formal Definition of the Multi-Agent System (end)
 \subsection{Agents} % (fold)

@@ -2,10 +2,14 @@
 
 \section{System Validation}
 \subsection{Simple Simulations}
-Peliminary simulations to ensure there are no bugs in the code affecting the results.
+\begin{itemize}
+\item{Peliminary simulations to ensure there are no bugs in the code affecting the results.}
+\end{itemize}
 
 \subsection{Sample Data from History}
-Data to compare our final results to, to ensure we haven't cocked anything up.
+\begin{itemize}
+\item{Data to compare our final results to, to ensure we haven't cocked anything up.}
+\end{itemize}
 
 %ASSIGNED TO: Harry, Rob
 
@@ -19,7 +23,10 @@ Data to compare our final results to, to ensure we haven't cocked anything up.
 %ASSIGNED TO: Olly, Valdas, Aadil
 
 \section{Simulations}
-What simulations did we run?
+
+\begin{itemize}
+\item{What simulations did we run?}
+\end{itemize}
 
 %ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
 

@@ -54,7 +54,6 @@ The larger graph on the left of ~\ref{fig:blankPolitics} is used to display part
 From figure ~\ref{fig:blankPolitics} it can be seen that miniature versions of the politics graph are displayed on the right. Each of these will be used to depict all the groups at a discrete times throughout the simulation. 
 Instead of displaying every round of the simulation the execution time is split up into percentages that are multiples of ten. Some simulations have a large variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
 The larger graph on the left of ~\ref{fig:blankPolitics} is used to display particular miniature graphs selected by the user. Once a percentage is selected the groups from that instance are displayed on the larger graph and highlighted according to their percentage. This allows the user to easily compare the movement of groups between two points in the simulation. Arrows are also used pointing from the percentage to the left graph to reinforce which points on the simulation are currently being displayed. 
->>>>>>> 5db318af106b826e7a06f5f843aa17674560bcbb
 The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 
 \begin{figure}[p]

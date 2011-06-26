@@ -36,7 +36,16 @@ model and the actions the groups can perform.
 \end{itemize}
 
 \begin{figure}[p]
-  \caption{TODO: Write some words about this}
+  \caption{
+    Anatomy of the interaction between calls in a round.
+	A large number of functions have been removed from this diagram for simplicity
+	(such as the execute() function which brings the AbstractAgents and
+	AbstractGroupAgents into context).
+	The entry point is shown by an arrow coming from a round's doundary line.
+	The other arrows show a flow of information;
+	dotted arrows represent information that is stored over a cycle boundary,
+	generally due to message queues.
+  }
   \label{framework-flow}
   \pgraphic{framework}
 \end{figure}

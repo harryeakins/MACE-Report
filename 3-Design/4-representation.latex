@@ -30,7 +30,7 @@ This library uses javascript and SVG elements to create charts with smooth trans
 
 \subsubsection{The Politics Graph}
 This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 
-The ready avaliable idea for the political compass provided a useful way to show the internal structure of each group.
+The ready available idea for the political compass provided a useful way to show the internal structure of each group.
 Each group was plotted as a circle on the compass using the x-axis for the economic belief of the group and the y-axis for the social belief. Group population can be an important metric to show the success of a group for this reason it is used to determine the radius of each plotted circle. A group that diminishes in size across the simulation indicates that either agents are abandoning the group or dying out. Each group is given an individual colour with the maximum possible colour difference to make them easy to differentiate.  
 
 \begin{figure}[p]
@@ -42,7 +42,7 @@ Each group was plotted as a circle on the compass using the x-axis for the econo
 
 From figure ~\ref{fig:blankPolitics} it can be seen that miniature versions of the politics graph are displayed on the right, for the sake of this document they will be called minigraphs. Each minigraph is used to depict all the groups present at a particular discrete time throughout the simulation. 
 Instead of using a minigraph for every round of the simulation the execution is split up into percentages that are multiples of ten. Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
-The larger graph on the left of figure ~\ref{fig:blankPolitics} is used to display particular minigraphs that the user has selected. For each selected minigraph the groups from that instance are displayed on the larger graph and highlighted with the colour matching the highlighting of the minigraph. The ability to select and display multiple minigraphs allows the user to easily compare the movement and sucess of groups between two points in the simulation. Arrows are also used pointing from the selected minigraphs to the left graph. Reinforcing which of the minigraphs on the simulation are currently being displayed. 
+The larger graph on the left of figure ~\ref{fig:blankPolitics} is used to display particular minigraphs that the user has selected. For each selected minigraph the groups from that instance are displayed on the larger graph and highlighted with the colour matching the highlighting of the minigraph. The ability to select and display multiple minigraphs allows the user to easily compare the movement and success of groups between two points in the simulation. Arrows are also used pointing from the selected minigraphs to the left graph. Reinforcing which of the minigraphs on the simulation are currently being displayed. 
 The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 
 \begin{figure}[p]
@@ -92,7 +92,7 @@ This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
 
 How groups lend resources to one another and how each individual groups manage the amount of loans they give are two important areas of interest to our study. For this graph group data needs to be encoded on the groups economic and social beliefs, the groups total resources, the amount of resources that the group lent in total to other groups, and the amount of resources that the groups lent to each specific group. 
 
-The proposed graph for loans was split into three subgraphs. The overall graph is shown on figure ~\ref{fig:lendingGraph}. The first subgraph displays the groups as circles on the political compass using the groups average position throughout the entire simulation. The size of the groups circle is determined by the maximum amount of resources that the group held. Connecting each of the groups are lines. These are drawn to indicate that a group has given a loan to another group. The line colour is the same as the group giving the loan and the thickness of the line is determined by the total amount of money that was lent. The next two sub graphs are triggered once a user hovers over a particular group circle on the previous sub graph. The first is used to compare the amount of resources that the group lent as a percentage of the maximum resources the group held. The second is used to display the net profit or loss that a group has made through lending to other groups. See figure ~\ref{fig:profitLossGraphs} for two examples of how these graphs are used to display a groups lending habits. 
+The proposed graph for loans was split into three subgraphs. The overall graph is shown on figure ~\ref{fig:lendingGraph}. The first subgraph displays the groups as circles on the political compass using the groups average position throughout the entire simulation. The size of the groups circle is determined by the maximum amount of resources that the group held. Connecting each of the groups are lines. These are drawn to indicate that a group has given a loan to another group. The line colour is the same as the group giving the loan and the thickness of the line is determined by the total amount of money that was lent. The next two sub graphs are triggered once a user hovers over a particular group circle on the previous sub graph. The first is used to compare the amount of resources that the group lent as a percentage of the maximum resources the group held. The second is used to display the net profit or loss that a group has made through lending to other groups. See figure ~\ref{fig:profitLossGraphs} for two examples of how these graphs are used tolatex display a groups lending habits. 
 
 \begin{figure}[p]
                 \centering
@@ -107,3 +107,4 @@ The proposed graph for loans was split into three subgraphs. The overall graph i
                 \caption{Two graphs showing one group making a net profit and the other a net loss.}
                 \label{fig:profitLossGraphs}
 \end{figure}
+

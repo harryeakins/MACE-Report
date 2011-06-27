@@ -23,17 +23,14 @@ The remote database format we chose to use was MySQL.
 
 The schema of the database is simple: there are tables for simulations, groups, agents, 
 group data for each round (g\_data), agent data for each round (a\_data), agent trust data (a\_trust) 
-and group loan data for each round (lg\_gata) and users. A more readable description is displayed in figure %~\ref{fig:ERdiagram}
+and group loan data for each round (lg\_gata) and users. A more readable description is displayed in figure ~\ref{fig:ERdiagram}.
 
-%\begin{figure}[p]
-%               \centering
-%CHANGE THIS TO THE ACTUAL DIAGRAM SHANE DID
-%                \includegraphics[width=0.8\linewidth]{figures/lendingGraph}
-%                \caption{An ER Diagram of the database schema.}
-%                \label{fig:ERdiagram}
-%\end{figure}
-
-%A more readable description is displayed in the ER\ diagram.
+\begin{figure}[p]
+               \centering
+                \includegraphics[width=0.8\linewidth]{figures/ERDiagram}
+                \caption{An ER Diagram of the database schema.}
+                \label{fig:ERdiagram}
+\end{figure}
 
 The groups and agent tables contain data concerning all acgents that are currently being simulated: their 
 creation and completetion times, as well as all variables constant throughout the simulation, such as 

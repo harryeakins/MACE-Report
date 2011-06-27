@@ -23,9 +23,9 @@ For example, for each agent the database tracks last hunted food, current food a
 Each simulation executed will inherently produce a large amount of data. In order for this data to become useful it needs to be interpreted and have the relevant important information extracted.
 This can be a long and tedious task. The aim of this section of the project is to make this process as painless as possible. By visualising data, important comparisons can be made on multiple variables simultaneously.
 
-In order to create useful visualisations we first needed to determine the areas of interest within the data relevant to our study. (--Add a link to the hypothesis--) Individual agents playing the stag hunt game were generally not of particular interest, what was more important was how different groups emerged along with the structure of each group such as the distribution of resources and leadership. Another area of interest was the relationships between each groups due to lending and the lending habits of each individual group. 
+In order to create useful visualisations we first needed to determine the areas of interest within the data that are relevant to our study. (--Add a link to the hypothesis--) Individual agents playing the stag hunt game were generally not of particular interest, what was more important was how different groups emerged along with the structure of each group such as the distribution of resources and leadership. Another area of interest was the relationships between each groups due to lending and the lending habits of each individual group. 
 
-All graphs were implemented using javascript and a library known as  \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
+All graphs were implemented using javascript and a library known as \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
 This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface.
 
 \subsubsection{The Politics Graph}

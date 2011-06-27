@@ -101,20 +101,29 @@ which can change over time.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth]{figures/socialGraph}
-\caption{The Social Graph}
+\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
+\caption{The Political Compass}
 \end{figure}
 
-The x-axis (Economic axis) determines how the group handle their economic 
-affairs:
-a group that is towards the left side of the x-axis will tend towards distributing resources 
-evenly throughout the group,
-whereas a group towards the right side is less likely to evenly distribute resources 
-and individual agents will tend keep most of what they earn.
+%Old political compass:
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.4\linewidth]{figures/socialGraph}
+%\caption{The Social Compass, with the location of well known political ideals}
+%\end{figure}
 
-The y-axis (Social Axis) determines the nature of leadership:
-a group towards the authoritarian half of the y-axis will tend to have fewer leaders, who hold sway over the group,
-whereas a group towards the libertarian half of the graph will take more opinions into account, and require greater consensus to act. 
+The x-axis (Economic axis) determines how the group handle their economic affairs, in terms of tax rates. 
+The far left has a tax rate of 100\% - all food is taken by the group and redistributed evenly. 
+The far right has a tax rate of 0\% - no food is taxed, and each agent gets only what it can hunt\footnote {
+	Another (and arguably more sensible) way to look at it,
+	is on a 0\% to 100\% scale of how much food you keep after hunting. 
+}.
+Other points upon the axis have some proportional combination of tax and personal gain.
+
+The y-axis (Social Axis) determines the nature of leadership.
+A totally authoritarian group has one leader who holds total power over all group members.
+At the extreme Libertarian end, all group members have equal influence and thus any decisions made must be unanimous.
+As before, groups in between will have some proportional number of leaders.
 
 \subsection{Forming a Coalition}
 In real life individual agents can interact with other agents and decide if they can form a coalition. 
@@ -124,74 +133,25 @@ of forming or joining a coalition.
 The first one is the mutual trust between the two parties and the second one is the similarity of their socio-economic beliefs.
 
 \subsubsection{Trust}
-Each present agent will hold a trust value (in the form of a percentage, in fact all attributes 
-discussed here are used as percentages) for each and every other agent. 
-Now, in the beginning, since no one has met anyone else or interacted with them, trust values 
-are initialised to null. We use this to show that Agent X has never met Agent Y.
+Each agent holds a trust value for each and every other agent. 
+These values are initialized to null, meaning that the two agents have never interacted.
 
-To kick things off, random pairs of agents occur to play a beneficial game of hunting. 
+To kick things off, agents are paired randomly in order to play a beneficial game of hunting. 
 It has to be beneficial because the food that is returned to them must meet their demands. 
 Their demands come from the percentage of their economic belief; this belief tells us how much 
-food an agent expects to receive. If it got what it wanted then trust for the other agent starts to grow.
-
-We not only update trust after a hunt, but, also after voting for any proposal; but, that only occurs 
-within groups because we need a proposer to propose a proposal and a proposer is a group idea in
- which other agents trust one another so that they can communicate with one another so that they 
-can better their situation as a group.
-
-\subsubsection{Socio-Economical}
-We made use of the political compass shown below:
-
-From `Right' to `Left' we discuss the economic affairs that are believed by an agent; should food 
-be distributed evenly across the group or should an agent keep the food it gets?
-From `Authoritarian' to `Libertarian' we discuss the social affairs that are believed by an agent; 
-should an agent be free and act under no command or should it give/follow strict orders?
-So, there are two attributes to be assigned to each agent which describe their position in the 
-political compass:
-
-\subsection{Economic $ \in ( 0 \% - 100 \% )$}
-
-If believing in the very `Right', 100\%, the agent believes in keeping the resources they earn 
-for themselves. 
-If believing in the very `Left', 0\%, the agent believes in distributing resources evenly, sharing,
- throughout a potential group.
-
-\subsection{Social $ \in  ( 0 \% - 100 \% ) $}
-
-If believing in the very `Authoritarian', 0\%, the agent believes heavily in giving orders and 
-enforcing punishment for neglecting those orders. 
-If believing in the very `Libertarian', 100\%, the agent believes in being free from any orders 
-or enforcement.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
-\end{figure}
-
-The above diagram shows an estimate of how the political groups of today are spread out on 
-the political compass. 
-We can use the above and the agent's economic and social beliefs to describe their political view.
-Finding the distribution of our agents grouping among themselves can be useful in evaluation; 
-would it always be the case an agent who is initially democratic become communist given a particular
-personality (happiness, trust etc.)?
+food an agent expects to receive. 
+If it got what it wanted then trust for the other agent starts will increase.
 
 \subsubsection{To Group or Not to Group}
-Initially, when trying to form coalitions (groups of agents), it is essential for two agents to have 
+Initially, when trying to form coalitions, it is essential for the founding agents to have 
 a certain degree of trust. 
 After hunting amongst each other, the agents gain trust for each other regardless of their socio-economic beliefs. 
 When deciding whether to create a group or not, belief is considered less significant than trust. 
-It is only when a group is formed that an agent from the ‘outside’ would require similar beliefs to 
+It is only once a group is formed that an agent from the ‘outside’ would require similar beliefs to 
 the group as a whole in order to join.
 For a group responding to an agent's request to join, trust matters but is not as important as having similar
 political beliefs.
-
-%TODO: IMAGE GOES HERE
-
-The way we compute similar beliefs is through the vector distance on the political compass. 
-The closer they are, the better to group with.
-
-When trying to form a possible group, both parties must be in agreement; both agents must 
-agree to form groups or both an agent and a group must agree to form a larger group.
+Similarity of beliefs is calculated by the vector distance serperation on the political compass
 
 \subsection{How to get a Leader}
 \subsubsection{A Leader in General}

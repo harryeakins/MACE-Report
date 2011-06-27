@@ -72,6 +72,11 @@ both of which are important for a well designed user interface.
 For transitions involving non-SVG elements and to implement drag and drop feature, the \emph{jQuery UI} 
 \footnote{\url{http://jqueryui.com/}} library was also used.
 
+\subsubsection{Population vs. Round graphs}
+To get an overall feel of simulations, a simple total population vs. round graph was created. The graph scales with transition on changing data and also served as a visual representation for selecting the simulation you want to show. Instead of just selecting the simid and date, the data is selected from a group of small tiles of population vs round with the sim id on top with a slight opacity. These tiles can then be dragged to the graph to plot them.
+
+As well as a simple population vs. round chart, there was a population stack chart, which is a fantastic tool for showing varying group size over the whole simulation. For instance, it is easy to see that for most simulations the beginning groups remain the largest, and sometimes completely dominate the entire population of agents. To find the most interesting simulations this graph is the most informative, if an initially small group takes over the entire population, that is easiest to see on the stack chart.
+
 \subsubsection{The Politics Graph}
 The Politics Graph was the first to be implemented. 
 It's aim was to show groups forming and important information regarding the change in group structure 

@@ -54,20 +54,31 @@ By visualising data, important comparisons can be made on multiple variables sim
 
 In order to create useful visualisations we first needed to determine the areas of interest within 
 the data that are relevant to our study. 
-%(--Add a link to the hypothesis--) 
 Individual agents playing the stag hunt game were generally not of particular interest, what was 
 more important was how different groups emerged along with the structure of each group such as 
 the distribution of resources and leadership. 
-Another area of interest was the relationships between each groups due to lending and the lending 
+Another area of interest was the relationship between each group due to lending and the lending 
 habits of each individual group. 
 
-All graphs were implemented using javascript and a library known as \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
-This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface. For transitions for non-SVG elements and to implement drag and drop, the \emph{jQuery UI} \footnote{\url{http://jqueryui.com/} library was also used.
+All graphs were implemented using javascript and a library known as \emph{d3.js} 
+\footnote{\url{http://mbostock.github.com/d3/} }.
+This library uses javascript and SVG elements to create charts with smooth transitions and interactions, 
+both of which are important for a well designed user interface. 
+For transitions involving non-SVG elements and to implement drag and drop feature, the \emph{jQuery UI} 
+\footnote{\url{http://jqueryui.com/} library was also used.
 
 \subsubsection{The Politics Graph}
-This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 
-The ready available idea for the political compass provided a useful way to show the internal structure of each group.
-Each group was plotted as a circle on the compass using the x-axis for the economic belief of the group and the y-axis for the social belief. Group population can be an important metric to show the success of a group for this reason it is used to determine the radius of each plotted circle. A group that diminishes in size across the simulation indicates that either agents are abandoning the group or dying out. Each group is given an individual colour with the maximum possible colour difference to make them easy to differentiate.  
+The Politics Graph was the first to be implemented. 
+It's aim was to show groups forming and important information regarding the change in group structure 
+throughout the simulation. 
+The political compass we discovered during our research provided a useful way to show the internal structure 
+of each group.
+Each group was plotted as a circle on the compass using the x-axis for the economic belief of the group and 
+the y-axis for the social belief. Population can be an important metric to show the success of a group; for this 
+reason it is used to determine the radius of each plotted circle. 
+A group that diminishes in size across the simulation indicates that either agents are abandoning the group or 
+dying out. 
+Each group is given an individual colour with the maximum possible colour difference to make them easy to differentiate.  
 
 \begin{figure}[p]
 		\centering
@@ -76,9 +87,20 @@ Each group was plotted as a circle on the compass using the x-axis for the econo
 		\label{fig:blankPolitics}
 	\end{figure}
 
-From figure ~\ref{fig:blankPolitics} it can be seen that miniature versions of the politics graph are displayed on the right, for the sake of this document they will be called minigraphs. Each minigraph is used to depict all the groups present at a particular discrete time throughout the simulation. 
-Instead of using a minigraph for every round of the simulation the execution is split up into percentages that are multiples of ten. Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is a more sensible option.
-The larger graph on the left of figure ~\ref{fig:blankPolitics} is used to display particular minigraphs that the user has selected. For each selected minigraph the groups from that instance are displayed on the larger graph and highlighted with the colour matching the highlighting of the minigraph. The ability to select and display multiple minigraphs allows the user to easily compare the movement and success of groups between two points in the simulation. Arrows are also used pointing from the selected minigraphs to the left graph. Reinforcing which of the minigraphs on the simulation are currently being displayed. 
+From figure ~\ref{fig:blankPolitics} it can be seen that miniature versions of the politics graph are displayed 
+on the right, for the sake of this document they will be called minigraphs. 
+Each minigraph is used to depict all the groups present at a particular discrete time throughout the simulation. 
+Instead of using a minigraph for every round of the simulation the execution is split up into percentages that 
+are multiples of ten. 
+Simulations have a variable number of rounds, so for this reason displaying them in terms of a percentage is 
+a more sensible option.
+The larger graph on the left of figure ~\ref{fig:blankPolitics} is used to display particular minigraphs that the 
+user has selected. For each selected minigraph, the groups from that instance are displayed on the larger graph, 
+highlighted with the colour matching the highlighting of the minigraph. 
+The ability to select and display multiple minigraphs allows the user to easily compare the movement and success 
+of groups between two points in the simulation. 
+Arrows are also used pointing from the selected minigraphs to the left graph. Reinforcing which of the minigraphs 
+on the simulation are currently being displayed. 
 The implementation of this can be seen in ~\ref{fig:politicsWithData}.
 
 \begin{figure}[p]
@@ -89,7 +111,10 @@ The implementation of this can be seen in ~\ref{fig:politicsWithData}.
         \end{figure}
 
 
-Various indicators are used to inform the user of the graphs interactive functionality. If a user hovers over any minigraph it will becomes highlighted, a blue arrow will point from the highlighted minigraph to the main graph, and finally paler translucent versions of groups from the minigraph are drawn on the larger graph. All of these indicate to the user that the graph is interactive, and that minigraphs are selectable. 
+Various indicators are used to inform the user of the graphs interactive functionality. 
+If a user hovers over any minigraph it will becomes highlighted, a blue arrow will point from the highlighted minigraph 
+to the main graph, and paler translucent versions of groups from the minigraph are drawn on the larger graph. 
+All of these indicate to the user that the graph is interactive, and that minigraphs are selectable. 
 
 These features can be seen in the figure~\ref{fig:politicsHighlighted}.
 
@@ -102,7 +127,8 @@ These features can be seen in the figure~\ref{fig:politicsHighlighted}.
 
 \subsubsection{Comparing Two simulations}
 
-It is critically important that two simulations be compared simultaneously so that various changes in simulation parameters can be contrasted. With that fact in mind the following graph was developed.
+It is critically important that two simulations be compared simultaneously so that various changes in simulation 
+parameters can be contrasted. With that fact in mind the following graph was developed.
 The implementation for this graph can be seen in figure ~\ref{fig:simu_comp_fig}.
 
 \begin{figure}[p]
@@ -112,9 +138,18 @@ The implementation for this graph can be seen in figure ~\ref{fig:simu_comp_fig}
                 \label{fig:simu_comp_fig}
 \end{figure}
 
-This graph plots the group circles in a similar manner to the politics graph. Each group is positioned on the x and y axis based on its political beliefs. The radius of the circle is used to indicate the population of the group. At every percentage that is a multiple of ten for the simulation each group circle is drawn. This creates two graphs that show the movement of the groups across the entirety of each simulation. In order to indicate which group circle is drawn at the start of the simulation and which is drawn at the end the border for each circle is made increasingly darker as the simulation progresses, this also gives the feeling of distance when looking at the groups progression. 
+This graph plots the group circles in a similar manner to the politics graph. 
+Again, each group is positioned on the x and y axis based on its political beliefs and the radius of the circle is used 
+to indicate the population of the group. 
+At every percentage that is a multiple of ten for the simulation each group circle is drawn. 
+This creates two graphs that show the movement of the groups across the entirety of each simulation. 
+In order to indicate which group circle is drawn at the start of the simulation and which is drawn at the end the border 
+for each circle is made increasingly darker as the simulation progresses, this also gives the feeling of distance when 
+looking at the groups progression. 
 
-A slider bar with two sliders is used to select the range of a simulation percentage to display for both simulations. Any group circles that fall outside the range are made more transparent this enables  the user to focus their attention on a particular point in the execution while still showing sensitivity data about the ranges. 
+A slider bar with two sliders is used to select the range of a simulation percentage to display for both simulations. 
+Any group circles that fall outside the range are made more transparent this enables the user to focus their attention 
+on a particular point in the execution while still showing sensitivity data about the ranges. 
 This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
 
 \begin{figure}[p]
@@ -126,9 +161,23 @@ This is demonstrated in figure ~\ref{fig:simuCompSensitivity}.
 
 \subsubsection{Visualising inter-group lending and group lending habits}
 
-How groups lend resources to one another and how each individual groups manage the amount of loans they give are two important areas of interest to our study. For this graph group data needs to be encoded on the groups economic and social beliefs, the groups total resources, the amount of resources that the group lent in total to other groups, and the amount of resources that the groups lent to each specific group. 
+How groups lend resources to one another and how each individual groups manage the amount of loans they give are 
+two important areas of interest to our study. 
+For this graph group data needs to be encoded on the groups economic and social beliefs, the groups total resources, 
+the amount of resources that the group lent in total to other groups, and the amount of resources that the groups lent 
+to each specific group. 
 
-The proposed graph for loans was split into three subgraphs. The overall graph is shown on figure ~\ref{fig:lendingGraph}. The first subgraph displays the groups as circles on the political compass using the groups average position throughout the entire simulation. The size of the groups circle is determined by the maximum amount of resources that the group held. Connecting each of the groups are lines. These are drawn to indicate that a group has given a loan to another group. The line colour is the same as the group giving the loan and the thickness of the line is determined by the total amount of money that was lent. The next two sub graphs are triggered once a user hovers over a particular group circle on the previous sub graph. The first is used to compare the amount of resources that the group lent as a percentage of the maximum resources the group held. The second is used to display the net profit or loss that a group has made through lending to other groups. See figure ~\ref{fig:profitLossGraphs} for two examples of how these graphs are used tolatex display a groups lending habits. 
+The proposed graph for loans was split into three subgraphs. 
+The overall graph is shown on figure ~\ref{fig:lendingGraph}. 
+The first subgraph displays the groups as circles on the political compass using the groups average position throughout 
+the entire simulation. The size of the groups circle is determined by the maximum amount of resources that the group held. 
+Connecting each of the groups are lines. These are drawn to indicate that a group has given a loan to another group. 
+The line colour is the same as the group giving the loan and the thickness of the line is determined by the total amount of 
+money that was lent. 
+The next two sub graphs are triggered once a user hovers over a particular group circle on the previous sub graph. 
+The first is used to compare the amount of resources that the group lent as a percentage of the maximum resources the group held. 
+The second is used to display the net profit or loss that a group has made through lending to other groups. 
+See figure ~\ref{fig:profitLossGraphs} for two examples of how these graphs are used tolatex display a groups lending habits. 
 
 \begin{figure}[p]
                 \centering

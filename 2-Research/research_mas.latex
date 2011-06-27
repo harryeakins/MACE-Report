@@ -283,10 +283,17 @@ a decision on what action it will take.
 		f: \mathbf{R \times R} \rightarrow \mathbf{R}.
 		\label{eq:activation}
 	\end{equation}
+	\begin{figure}[ht]
+		\centering
+			\includegraphics[width=0.4\linewidth]{figures/neuralnet}
+		\caption{An example feed forward neural network}
+		\small{The circles represent neurons, the arrows indicate how outputs and inputs are connected.}
+		\label{fig:neuralnet}
+	\end{figure}
 
-	A feed forward neural network (FFNN) is a network of neurons.
-	It consists of layers of neurons, where in each layer neurons do not interact.
-	Only outputs from the previous layer are fed to the consecutive layer, this ensures that the network has no feedback loops.
+	A feed forward neural network (FFNN) is a network of neurons. (Figure~\ref{fig:neuralnet})
+	It consists of layers of neurons, where in each layer neurons do not interact;
+	only outputs from the previous layer are fed to the consecutive layer, this ensures that the network has no feedback loops.
 	To enable learning behaviour of the multi-agent system and agents within it, feed forward neural networks are employed.
 	It is used to give actions of an agent based on the agent's internal states.
 

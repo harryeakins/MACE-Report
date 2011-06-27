@@ -124,7 +124,6 @@ The third, public, layer both forms the glue that allows for full interaction
 and contains all of the untrusted code implementation code.
 
 \begin{figure}[h]
-  \label{uml_security}
   \pgraphic{uml_security}
   \caption{
     The framework is split into three security levels, determining which
@@ -132,6 +131,7 @@ and contains all of the untrusted code implementation code.
         This diagram shows which classes belong to which level, and some of the
         important interactions between them.
   }
+  \label{uml_security}
 \end{figure}
 
 The Environment is protected by the Environment Connections, a concept

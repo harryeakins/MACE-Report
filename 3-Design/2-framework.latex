@@ -433,3 +433,5 @@ survive\footnote{
 }, and some basic tests of the in built agent strategies.
 arise, the agents have to be cooperative, and some basic tests of the in built
 agent strategies.
+
+These simulations are discussed in more detail in section \ref{validation}

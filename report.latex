@@ -22,6 +22,17 @@
   urlcolor=black
 }
 
+\lstset{
+    basicstyle=\mdseries\footnotesize,
+    keywordstyle=\color{BlueViolet}\bfseries,
+    identifierstyle=\color{black},
+    commentstyle=\color{OliveGreen},
+    morecomment=[s][\color{OliveGreen}]{/**}{*/},
+    stringstyle=\color{RedOrange},
+    showstringspaces=false,
+    tabsize=2
+}
+
 \newfloat{program}{tbhp}{lop}
 \floatname{program}{Code Extract}
 

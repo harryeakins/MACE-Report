@@ -376,7 +376,21 @@ hunt results for processing in the distribution phase.
 
 A large amount of the group code is static, such as the logic for the distribution
 of hunted food (which is based entirely on the economic policy of the group).
-The decisions they can make mainly related to membership.
+The decisions they can make mainly related to membership and the games between
+groups.
+
+Like the Agents, the data model has information stored both as histories and
+single point values.
+It was detemrined to be too spatially complex to store a history of group
+membership without dynamic analysis to for it as a history of differences, so
+the memberList is only a point variable, along with the group's panel, name
+and strategy.
+The Data Model is also resopnsible for performing the estimated calculation of
+the gorups social location.
+
+Group permissions are made slightly more liberal, due to various design choices
+such as the initialisation of the economic position being based off the initial
+members.
 
 TODO: Write this once I can see the OOOO EMM ELLLS
 %TODO: Write this once I can see the OOOO EMM ELLLS

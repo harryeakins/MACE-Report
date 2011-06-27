@@ -37,10 +37,10 @@ no-logs : all log-clean
 clean : log-clean
 	echo "========== $@ ==========="
 	rm -f $(TARGET_FILES)
-	rm -f $(subst .pdf,.aux,$(TARGET_FILES))
-	rm -f $(subst .pdf,.dvi,$(TARGET_FILES))
-	rm -f $(subst .pdf,.toc,$(TARGET_FILES))
-	rm -f $(subst .pdf,.bbl,$(TARGET_FILES))
+	rm -f $(subst .pdf,.aux, $(TARGET_FILES))
+	rm -f $(subst .pdf,.dvi, $(TARGET_FILES))
+	rm -f $(subst .pdf,.toc, $(TARGET_FILES))
+	rm -f $(subst .pdf,.bbl, $(TARGET_FILES))
 	rm -f $(subst .pdf,.ptmp,$(TARGET_FILES))
 
 log-clean :

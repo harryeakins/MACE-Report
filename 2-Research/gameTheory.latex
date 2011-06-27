@@ -42,6 +42,7 @@ In the next section we describe some basic agent strategies and how these strate
 combination with the concept of trust can lead to socially rational agents.
 
 \subsection{Agent Strategies and Socially Rational Agents}
+\label{strategies}
 Initially an agent is assigned a type. 
 The type defines the strategy this agent will follow when goes hunting. 
 The strategies used in our simulations are adopted from the strategies implemented for 

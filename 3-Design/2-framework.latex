@@ -392,9 +392,6 @@ Group permissions are made slightly more liberal, due to various design choices
 such as the initialisation of the economic position being based off the initial
 members.
 
-TODO: Write this once I can see the OOOO EMM ELLLS
-%TODO: Write this once I can see the OOOO EMM ELLLS
-
 \subsubsection{Free Agent Groups}
 
 Free agent groups are implemented somewhat tangentially to the rest of the code:

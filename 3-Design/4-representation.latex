@@ -1,4 +1,3 @@
-
 \section{Data Representation}
 
 \subsection{Database}
@@ -63,7 +62,7 @@ Another area of interest was the relationships between each groups due to lendin
 habits of each individual group. 
 
 All graphs were implemented using javascript and a library known as \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
-This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface.
+This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface. For transitions for non-SVG elements and to implement drag and drop, the \emph{jQuery UI} \footnote{\url{http://jqueryui.com/} library was also used.
 
 \subsubsection{The Politics Graph}
 This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 

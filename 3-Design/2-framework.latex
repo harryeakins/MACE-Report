@@ -359,14 +359,14 @@ within the Framework security layer.
 \subsection{Groups}
 
 \begin{figure}[p]
-  \label{uml_group}
-  \pgraphic{uml_group}
   \caption{
     Diagram to show the AbstractGroupAgent implementation and contract, along 
         with the private and public data models.
     Also shown as the input handlers.
     Class interaction diagram can be seen in figure \ref{uml_security}
   }
+  \pgraphic{uml_group}
+  \label{uml_group}
 \end{figure}
 
 Groups also act as Participants, and a similar core logic is uses as with Agents.

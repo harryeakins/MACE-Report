@@ -436,15 +436,8 @@ Fortunately, the number of rounds that should pass before the agent dies is
 deterministic and calculable, so the event of a working test can be easily detected.
 
 Other validation simulations are included, looking at more complex tests, such
-as the ability of agents to create groups, steady state analysis of a low odd
-number of agents in a world where only pairs can find enough food to
-survive\footnote{
-  The exact initial conditions and rules for agent group play a large part in
-  the outcome of this simulation - a rotating paring system can lead to all but
-  the last two agents dying due to food reserves running out at the same time.
-  Regardless, for a steady state to arise, the agents have to be cooperative
-}, and some basic tests of the in built agent strategies.
-arise, the agents have to be cooperative, and some basic tests of the in-built
-agent strategies.
+as the ability of agents to create groups, steady state analysis of two agents
+with varying hunting and consumption parameters in Environments with different
+parameters.
 
 These simulations are discussed in more detail in section \ref{validation}

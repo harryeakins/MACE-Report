@@ -4,10 +4,10 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>570</x>
+      <x>540</x>
       <y>0</y>
       <w>410</w>
-      <h>560</h>
+      <h>580</h>
     </coordinates>
     <panel_attributes>GroupDataModel extends APlayerDataModel
 --
@@ -19,31 +19,37 @@
 - panel : List&lt;String&gt; 
 - reservedFoodHistory : History&lt;Double&gt; 
 --
+--
 ~ GroupDataModel()
 _+ createNew(init : GroupDataInitialiser) : GroupDataModel _
 --
 + getId() : String 
++ onInitialise() : void 
++ getName() : String 
++ getPublicVersion() : PublicGroupDataModel 
+--
+~ addMember(a : String) : void 
+~ removeMember(a : String) : void 
 ~ getMemberList() : List&lt;String&gt; 
+~ size() : int 
+--
 ~ getCurrentEconomicPoisition() : double 
 ~ setEconomicPosition(pos : double) : void 
 ~ getEconomicPoisition() : UnmodifiableHistory&lt;Double&gt; 
 ~ clearRoundData() : void 
-~ addMember(a : String) : void 
-~ removeMember(a : String) : void 
-+ onInitialise() : void 
-+ getPublicVersion() : PublicGroupDataModel 
-+ getName() : String 
+--
 + getTurnsProposals() : Map&lt;Proposition, Integer&gt; 
 ~ setProposals(p : HashMap&lt;Proposition, Integer&gt;) : void 
+--
 ~ getEstimatedSocialLocation() : double 
 ~ getPanel() : List&lt;String&gt; 
 ~ setPanel(nPanel : List&lt;String&gt;) : void 
 ~ getGroupStrategy() : AgentType 
 ~ setGroupStrategy(strategy : AgentType) : void 
+--
 ~ setReservedFoodHistory(pooledFood : double) : void 
 ~ getCurrentReservedFood() : double 
 ~ getReservedFoodHistory() : History&lt;Double&gt; 
-~ size() : int 
 
 </panel_attributes>
     <additional_attributes/>
@@ -51,8 +57,8 @@ _+ createNew(init : GroupDataInitialiser) : GroupDataModel _
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>90</x>
-      <y>800</y>
+      <x>60</x>
+      <y>820</y>
       <w>460</w>
       <h>50</h>
     </coordinates>
@@ -66,22 +72,27 @@ _+ createNew(init : GroupDataInitialiser) : GroupDataModel _
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>570</x>
-      <y>680</y>
+      <x>540</x>
+      <y>700</y>
       <w>410</w>
-      <h>350</h>
+      <h>370</h>
     </coordinates>
     <panel_attributes>PublicGroupDataModel implements PlayerDataModel
 --
 - GroupDataModel source
+--
+--
 ~ PublicGroupDataModel(source : GroupDataModel)
+--
 + getId() : String 
 + getTime() : long 
 + setTime(time : long) : void 
 + getRoles() : ArrayList&lt;String&gt; 
 + setRoles(roles : ArrayList&lt;String&gt;) : void 
 + getPlayerClass() : String 
+--
 + getMemberList() : List&lt;String&gt; 
++ size() : int 
 + getCurrentEconomicPoisition() : double 
 + getEconomicPoisition() : UnmodifiableHistory&lt;Double&gt; 
 + getName() : String 
@@ -91,17 +102,16 @@ _+ createNew(init : GroupDataInitialiser) : GroupDataModel _
 + getReservedFoodHistory() : History&lt;Double&gt; 
 + getTurnsProposals() : Map&lt;Proposition, Integer&gt; 
 + getEstimatedSocialLocation() : double 
-+ size() : int 
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>90</x>
+      <x>60</x>
       <y>0</y>
       <w>460</w>
-      <h>790</h>
+      <h>800</h>
     </coordinates>
     <panel_attributes>/AbstractGroupAgent implements Participant/
 --
@@ -112,32 +122,40 @@ _+ createNew(init : GroupDataInitialiser) : GroupDataModel _
 - tmp_ec : EnvironmentConnector 
 - huntResult : Map&lt;String, Double&gt; 
 - voteResult : Map&lt;Proposition, Integer&gt; 
-_- previousAmountHunted : Map&lt;String, Double&gt;_
+- previousAmountHunted : Map&lt;String, Double&gt;
+--
 --
 + AbstractGroupAgent()
-+ AbstractGroupAgent(GroupDataInitialiser : init :)
++ AbstractGroupAgent(GroupDataInitialiser : init)
+--
 + getId() : String 
 + getRoles() : ArrayList&lt;String&gt; 
 + initialise(environmentConnector : EnvironmentConnector) : void 
 + onActivation() : final void 
 + onDeActivation() : final void 
-+ execute() : void 
++ execute() : void
++ setTime(cycle : long) : final void 
++ getInternalDataModel() : final PlayerDataModel 
++ getDataModel() : final PublicGroupDataModel
++ enqueueInput(input : Input) : final void 
++ enqueueInput(input : ArrayList&lt;Input&gt;) : final void 
++ onSimulationComplete() : void 
+--
 - clearRoundData() : void 
 - doTeamSelect() : void 
 - doHandleHuntResults() : void 
 - countVotes() : void 
 - doLeadersHunt() : void 
 - doInteractWithOtherGroups() : void 
-+ setTime(cycle : long) : final void 
-+ getInternalDataModel() : final PlayerDataModel 
-+ getDataModel() : final PublicGroupDataModel 
+--
 # setEconomicPosition(newPosition : double) : final void 
 # setGroupStrategy(strategy : AgentType) : final void 
 # setPanel(newPanel : List&lt;String&gt;) : final void 
 # setReservedFood(newAmount : double) : final void 
-+ enqueueInput(input : Input) : final void 
-+ enqueueInput(input : ArrayList&lt;Input&gt;) : final void 
-+ onSimulationComplete() : void 
+# getConn() : PublicEnvironmentConnection 
+# uniformRand() : final double 
+# uniformRandLong() : final long
+--
 /# onActivate() : void /
 /# respondToJoinRequest(playerID : String) : boolean /
 /# selectTeams() : List&lt;HuntingTeam&gt; /
@@ -147,17 +165,14 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
 /# updateTaxedPool(sharedFood : double) : Tuple&lt;Double, Double&gt; /
 /# interactWithOtherGroups() : Tuple&lt;InteractionResult, Double&gt; /
 /# beforeNewRound() : void /
-# getConn() : PublicEnvironmentConnection 
-# uniformRand() : final double 
-# uniformRandLong() : final long 
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>700</x>
-      <y>610</y>
+      <x>670</x>
+      <y>630</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -167,8 +182,8 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>660</x>
-      <y>600</y>
+      <x>630</x>
+      <y>620</y>
       <w>140</w>
       <h>40</h>
     </coordinates>
@@ -178,8 +193,8 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>880</x>
-      <y>530</y>
+      <x>850</x>
+      <y>550</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -189,8 +204,8 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>770</x>
-      <y>590</y>
+      <x>740</x>
+      <y>610</y>
       <w>90</w>
       <h>50</h>
     </coordinates>
@@ -200,8 +215,8 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>840</x>
-      <y>600</y>
+      <x>810</x>
+      <y>620</y>
       <w>140</w>
       <h>40</h>
     </coordinates>
@@ -211,8 +226,8 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>550</x>
-      <y>530</y>
+      <x>520</x>
+      <y>550</y>
       <w>128</w>
       <h>170</h>
     </coordinates>

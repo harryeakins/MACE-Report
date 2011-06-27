@@ -94,8 +94,10 @@ external strategy and play the game with groups of entirely different beliefs.
 
 
 \subsection{Politically Oriented Agents and Groups of Agents}
-This section proposes a method for dynamically deciding how a group of agents handle their 
-economies and social aspects. The political compass is shown below:
+The political compass shows economic and social beliefs graphically, 
+and is used to better describe an agents ideals.
+Each agent and group possesses two values plottable on the compass,
+which can change over time.
 
 \begin{figure}[ht]
 \centering
@@ -103,32 +105,16 @@ economies and social aspects. The political compass is shown below:
 \caption{The Social Graph}
 \end{figure}
 
-This is a 2D plane. The x-axis (Left/Right) determines how the group handle their economic 
-affairs. 
-The y-axis (Authoritarian/Libertarian) determines how rules and laws are enforced.
+The x-axis (Economic axis) determines how the group handle their economic 
+affairs:
+a group that is towards the left side of the x-axis will tend towards distributing resources 
+evenly throughout the group,
+whereas a group towards the right side is less likely to evenly distribute resources 
+and individual agents will tend keep most of what they earn.
 
-A group that is towards the left side of the x-axis will tend towards distributing resources 
-evenly throughout the group. 
-A group that is towards the right side of the x-axis is less likely to evenly distribute resources 
-and individual agents will likely keep most of the resources they earn.
-
-A group towards the authoritarian half of the y-axis will have rules set by leader(s) that are 
-heavily enforced. Orders set by the leader(s) of a group towards the libertarian half of the 
-y-axis can be seen more as guidelines opposed to commandments.
-
-What we employ is that each agent has two attributes assigned with random values. 
-These attributes are used to determine the position of the agent’s beliefs on the political 
-compass.
- 
-
-\centerline{\textbf{Agent Attributes: economic\_belief (x-axis), social\_belief (y-axis)}}
- 
-
-Each group will also have these two attributes and this comes from how agents decide to form groups among themselves.
- 
-
-\centerline{\textbf{Group Attributes: group\_economic\_belief (x-axis), group\_social\_belief (y-axis)}}
- 
+The y-axis (Social Axis) determines the nature of leadership:
+a group towards the authoritarian half of the y-axis will tend to have fewer leaders, who hold sway over the group,
+whereas a group towards the libertarian half of the graph will take more opinions into account, and require greater consensus to act. 
 
 \subsection{Forming a Coalition}
 In real life individual agents can interact with other agents and decide if they can form a coalition. 

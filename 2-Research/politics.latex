@@ -160,60 +160,50 @@ Leadership is an emerging norm in a group and the types and number of leaders is
 current attributes of the group. 
 For the analysis of leadership we only consider the y-axis of the political compass.
 
-In order to proceed with the analysis of leadership we first need to define the notion of the panel 
-of leaders.  
-The panel is the set of agents that are entitled to make decisions for the group. 
-The panel size is determined by the social belief of the group. 
-Groups that tend towards the authoritarian side of the axis will have smaller panels. 
-A group on the top of the axis is essentially a dictatorship and the panel consists of a single agent, 
-the dictator. Groups that are at the bottom of the axis will have larger panels. 
-The members of the panel are the agents that are trusted more by any other agent in the group.
+In order to proceed with the analysis of leadership we first need to define the notion of a `panel 
+of leaders'. 
+This panel is the set of agents that are entitled to make decisions for the group as they are the most trusted, 
+and its size is determined by the social belief of the group, with more authoritarian groups having relatively small panels.
 
 \subsubsection{How Do Leaders Emerge}
-A leader is an agent who is trusted by all the other agents in a group. 
+A leader is an agent who is trusted by most of the other agents in a group. 
 An agent gains the trust of its fellow agents by cooperating with them in the stag hunt game or by 
-being able to make accurate predictions for them. 
-When an agent which is about to go hunting asks another agent for advice on the strategy to be followed. 
-An advisor able to make a correct prediction, i.e. helping the asker to increase its profit, gains 
-the trust of that agent. 
-Therefore, over time some agents will become more trusted than others and thus eligible to join 
-the panel. 
+giving out good advice.
+Just before hunting, agents can ask others for advice (i exchange for a small food cost).
+If this advice is followed and the hunt successful, the hunter's trust of the advice giver increases.
+Therefore, over time some agents will become more trusted than others by being more skilled at hunting and 
+will thus become eligible to join the panel. 
 
 \subsubsection{Decision Making}
-As was mentioned above, two kinds of games are played. 
-The first game is the one between the leaders of different groups and the other one is the game 
+As was mentioned above, two kinds of games are played:
+The first is the one between the leaders of different groups and the second is the game 
 played by the members of the group. 
-The game between the leaders model international conflicts and the game within the group, models 
-the people's effort for social and individual welfare within the group. 
-The panel is responsible for deciding the strategies for these two games. 
+The game between the leaders model international conflicts and the game within the group models 
+the people striving towards social and individual welfare. 
+The panel of leaders is responsible for deciding the strategies for these two games. 
 The decision for the internal game is implicitly made since the members of the panel advise their
 followers to follow the optimal strategy by predicting their opponents' strategy. 
-Being able to make accurate predictions is what led certain agent to be in the panel in the first place. 
 
 The decision for the external game is more complex and must take into account the followers' 
 opinions (preferred strategies based on their types). 
 The weighting of the followers' opinions varies depending on the position of the group on the 
 political compass. 
-Groups at the authoritarian side of the compass give a small if no weighting to their followers' 
-opinion. 
-On the other side, libertarian groups seek for high support from their followers before deciding 
-the group's strategy. 
-In order to enable the panel to make decisions we introduced the notion of the quotum. 
-The quotum is the minimum number of supporters a proposal requires to be accepted. 
-The higher the quotum, the harder is to get a proposal accepted. 
-Therefore, authoritarian groups have smaller quotum while libertarian groups are essentially unable 
-to make any decision since the quotum is too high.
+Groups at the authoritarian side of the compass give less weighting to their followers' 
+opinion than those on the libertarian side. 
+In order to enable the panel to make decisions we introduced the notion of the quorum: the minimum number of supporters a proposal requires to be accepted. 
+The higher the quorum is, the more difficult it is to get a proposal accepted. 
+As a result, authoritarian groups have smaller quorum while libertarian groups are often essentially unable 
+to make any decision since the quorum is too high.
 
 \subsubsection{Maintaining the Power}
 When an agent becomes eligible to join the panel its trust value is checked against a threshold. 
-If the agent's trust is above the threshold it can become a member of the panel. 
-In each round we reassess each member's trust to see if it can still be a member of the panel. 
+If the agent's trust exceeds the threshold it becomes a member of the panel. 
+In each round we reassess each member's trust to see if that may remain a member of the panel. 
 Therefore, the threshold acts as an incentive for the leaders to make good decisions. 
-A bad decision is punished by the followers by decreasing the trust value for all the members of 
+A bad decision is punished by the followers decreasing the trust value for all the members of 
 the panel. 
-This threshold is calculated based on the social belief of the group. 
-Authoritarian groups have lower threshold and libertarian ones higher. 
-Therefore, an authoritarian panel has to worry less when making a decision than a libertarian panel.
+This threshold is calculated based on the social belief of the group: authoritarian groups have lower threshold and libertarian ones higher. 
+As a result, an authoritarian panel has to worry less when making a decision than a libertarian panel.
 
 \subsection{Where to go from here}
 Once we have a stable group or during the formation of the groups, we want to use what has 

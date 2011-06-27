@@ -25,7 +25,7 @@ This can be a long and tedious task. The aim of this section of the project is t
 In order to create useful visualisations we first needed to determine the areas of interest within the data that are relevant to our study. (--Add a link to the hypothesis--) Individual agents playing the stag hunt game were generally not of particular interest, what was more important was how different groups emerged along with the structure of each group such as the distribution of resources and leadership. Another area of interest was the relationships between each groups due to lending and the lending habits of each individual group. 
 
 All graphs were implemented using javascript and a library known as \emph{d3.js} \footnote{\url{http://mbostock.github.com/d3/} }.
-This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface. For transitions for non-SVG elements and to implement drag and drop, the \emph{jQuery UI} library was also used.
+This library uses javascript and SVG elements to create charts with smooth transitions and interaction both of which are important for a well designed user interface. For transitions for non-SVG elements and to implement drag and drop, the \emph{jQuery UI} \footnote{\url{http://jqueryui.com/} library was also used.
 
 \subsubsection{The Politics Graph}
 This was the first graph implemented. It's aim was to show groups forming and important information regarding the change in group structure throughout the simulation. 

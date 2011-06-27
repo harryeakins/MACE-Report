@@ -27,6 +27,7 @@ These values are maintained within the range by a scaling function with the basi
   \forall n \in \mathbb{N} \left( s(0, n) = 0.5 \right) \\
   \forall x \in \mathbb{R}, n \in \mathbb{N} \left( s(r, n) + s(-r, n) = 1 \right)
 \end{align*}
+The implementation is shown in code extract \ref{ScaledDouble}
 
 Trust heavily effects the playing of the stag hunt game.
 Before deciding exactly what to hunt, each agent has the opportunity to ask

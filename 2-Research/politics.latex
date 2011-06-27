@@ -50,11 +50,19 @@ A free agent that can't find a pair remains inactive, i.e. doesn't go hunting an
 
 \item In each group a panel of leaders emerge in dependence of social belief of the group 
 (only one leader in a dictatorship, to, everyone in the group deciding for what is best). 
+
 \item As the game goes on two kinds of games are played. 
 
 \begin{enumerate}
-\item The game played by the follower agents inside the group (in random pairs)
-\item The game played between leaders. 
+\item The game played by the follower agents inside the group: 
+The hunters inside the group form pairs and play the game. 
+The food hunted is intercepted by the group and distributed back to the followers according to the economic 
+belief of the group. 
+
+\item The game played between leaders: 
+Once a panel of leaders has been formed the group is able to play the stag hunt game with other groups. 
+As in real situations, group actions and result are much more significant that individual ones therefore, 
+the result from the hunting game between the groups is much larger and is proportional to the size of the group.
 \end{enumerate}
 \begin{itemize}
 \item Here we tried to model two aspects of real life, the followers struggle for survival in the 

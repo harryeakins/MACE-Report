@@ -75,19 +75,17 @@ updated again.
 \end{itemize}
 
 \subsection{Structure of the Group Game}
-As we mentioned earlier, agents play the stag hunt game and also form groups. 
-In addition, groups play the stag - hunt game just like the agents but they are not 
-able to form collisions with other groups. 
-In order for the groups to play with each other, agents should form a panel in the groups of 
-trustworthy individuals and then choose an external strategy to play with the other groups. 
+As mentioned earlier, groups can play the Stag Hunt game just like agents. 
+In order for groups to play with each other, agents must form a panel within the groups of 
+trustworthy individuals and then choose an external strategy to use against the other groups. 
 Because of the similarity of code and for reason of simplicity, every time a group is formed, a 
-``special'' agent is formed which acts like an agent among other special agents and therefore 
-plays the game as before. 
+``special'' agent is created which acts like an agent among other special agents and can therefore 
+play the game as normal. 
 In order to avoid special agents (groups) playing game with the free agents, these ``special'' agents 
-are placed on creation in a “special” group where only special-type of agents can enter.
+are placed on creation in a “special” group where only special-type of agents exist.
 
-In order to distinguish which Group is represented by which “special” agent we used the Groups $\rightarrow$ 
-id to be equal to the Agent $\rightarrow$ name.
+In order to distinguish which Group is represented by which “special” agent, the Groups $\rightarrow$ 
+id is equal to the Agent $\rightarrow$ name.
 
 The result of the hunting between these special-agents is sent back to the tax-reserve of the group 
 and then distributed back to the agents according to the economic position of the group. 

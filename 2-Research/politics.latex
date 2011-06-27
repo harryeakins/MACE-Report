@@ -332,17 +332,17 @@ game and because of that, the interest rate stays within possible values below 2
 
 %TODO: May be entered in the framework discussion
 \subsection{Helper Plugins}
-In order to simulate our agents we basically used Presage. 
+In order to simulate our agents we used Presage. 
 This tool allowed us to create our own plugins in order to evaluate the agents, the groups created 
 and the interactions happening throughout the simulation. 
-These plugins are described below:
+These are described below:
 
 \begin{itemize}
 \item Political Compass:
 This is most important tool of the simulation as it shows what is happening at each iteration. 
-The agents are represented as dots with their strategies attached and are located according to 
+The agents are represented as dots, labelled with their strategies and are located according to 
 their economic and social beliefs on the compass.
-The lines represent the connections (Groups) between the agents and each group is coloured 
+The lines represent the connections (groups) between the agents and each group is coloured 
 differently. 
 When a panel of leaders is created then these agents are distinguished by painting them in black. 
 Using the compass you can comprehend what is happening in the group; which of the agents join 
@@ -350,32 +350,30 @@ or leave the group, and also see how the group as a whole moves along the axes w
 are happening.
 
 \item Hunter Logs:
-The plugin displays all the created agents along with their attributes held by the simulation. 
-These are: name, strategy, group, if it is a leader or not, if it is alive or not, its food amount, 
-economic and social belief, loyalty, happiness and the last hunted food.
+This plugin displays all the created agents, along with their attributes, held by the simulation. 
+These are: name, strategy, group, whether it is a leader or not, whether it is alive or not, 
+how much food it posseses, conomic and social belief, loyalty, happiness and its last hunted food.
 
 \item Group Logs:
-The plugin displays the attributes of the groups which exist at each instant in the system. 
-Attributes displayed are: the name, its size, the economic and social belief (taken from its agents), 
-the average loyalty, happiness and food of the agents in the group and also displays the leaders of 
-the group which consist of the agents in the “panel”.
+This plugin displays the attributes of the groups which exist at each instant in the system. 
+Attributes displayed are: its name; its size; its economic and social belief (taken from its agents); 
+its average loyalty, happiness and food of the agents; and also displays the leaders of 
+the group which consist of the agents in the panel.
 
 \item Group Graphs:
-The plugin displays 5 graphs of all the groups which ever existed in the current simulation.
+This plugin displays 5 graphs of all the groups which ever existed in the current simulation.
 These graphs show the economic, social, average food, loyalty and happiness of the agents in the 
 group in respect to the time of the simulation. 
 From these graphs you can see which attributes played important role for a group to dominate 
 and increase its population or disappear.
 
-\item:Group Agent info:
-The plugin displays all the ``special' agents which represent the groups along with their attributes 
+\item Group Agent info:
+The plugin displays all the `special' agents which represent the groups along with their attributes 
 held by the simulation and also attributes derived from the agents in the particular group. 
-These are: name, strategy, group, if it is alive or not, its food amount, economic and social belief, 
-loyalty, happiness and the last hunted food. 
+These are: name, strategy, group, if it is alive or not, how much food it posesses, economic and social belief, loyalty, happiness and the last hunted food. 
 
-\item:Loans info: 
-This plugin provides real time information about the current status of each group in terms of loans 
-taken or given. In the end of the simulation the plugin summarizes the results in tabular form. 
+\item Loans info: 
+This plugin provides real time information about the current status of each group in terms of loans taken or given. In the end of the simulation the plugin summarizes the results in tabular form. 
 \end{itemize}
 
 

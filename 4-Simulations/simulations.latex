@@ -8,7 +8,8 @@ that they are undoubtedly true in any valid system.
 \begin{itemize}
 \item{The Hungry Agent:}
 Proposition - A solitary agent which requires x units of food per turn, with the rabbit's value less than x,
-will die in a finite amount of time. 
+will die in a finite amount of time.
+The code for this simulation is listed in extract \ref{DeathSim}, page \pageref{DeathSim}.
 \item{Satisfied Cooperating Agents:}
 Proposition - two always co-operating agents will not die if the value of a stag is $ \ge $ the twice their 
 daily food requirements.

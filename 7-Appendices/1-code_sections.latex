@@ -1,11 +1,11 @@
 \lstset{
     language=Java,
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\mdseries\footnotesize,
     keywordstyle=\color{BlueViolet}\bfseries,
     identifierstyle=\color{black},
     commentstyle=\color{OliveGreen},
     morecomment=[s][\color{OliveGreen}]{/**}{*/},
-    stringstyle=\color{red}\ttfamily,
+    stringstyle=\color{RedOrange},
     showstringspaces=false,
     tabsize=2
 }
@@ -22,3 +22,18 @@
 	\label{ParticipantLoop}
 	\lstinputlisting{7-Appendices/code/ParticipantLoop.java}
 \end{program}
+
+\begin{program}
+  \caption{
+    Outline of the implementation of the ScaledDouble class.
+    As a concrete implementation of a standard number class, it fufills
+	the contracts as both this unscaled integer value and as its scaled
+	double value.
+	The class is thread-safe, type-safe, and designed to make the minimum
+	number of complex ALU calls as possible.
+	Some functions have been removed for display
+  }
+  \label{ScaledDouble}
+  \lstinputlisting{7-Appendices/code/ScaledDouble.java}
+\end{program}
+

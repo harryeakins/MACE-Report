@@ -72,6 +72,8 @@ both of which are important for a well designed user interface.
 For transitions involving non-SVG elements and to implement drag and drop feature, the \emph{jQuery UI} 
 \footnote{\url{http://jqueryui.com/}} library was also used.
 
+Data is fetched using an AJAX request to a PHP script on the server. The PHP then queries the database and returns the appropriate data arrays or an error. For the Politics graph the data is sampled every 10% of the total number of rounds, requiring quite an advanced SQL query.
+
 \subsubsection{Population vs. Round graphs}
 To get an overall feel of simulations, a simple total population vs. round graph was created. The graph scales with transition on changing data and also served as a visual representation for selecting the simulation you want to show. Instead of just selecting the simid and date, the data is selected from a group of small tiles of population vs round with the sim id on top with a slight opacity. These tiles can then be dragged to the graph to plot them.
 

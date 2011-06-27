@@ -76,7 +76,7 @@ Data is fetched using an AJAX request to a PHP script on the server. The PHP the
 
 \begin{verbatim}
 SELECT DISTINCT g_data.round, g_data.groupid, 
-\> g_data.pop, g_data.socialPosition, g_data.economicPosition,
+$\>$ g_data.pop, g_data.socialPosition, g_data.economicPosition,
 
 (SELECT round FROM g_data 
 WHERE simid = $simid 

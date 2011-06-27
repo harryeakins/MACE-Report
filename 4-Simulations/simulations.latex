@@ -3,8 +3,8 @@
 \section{System Validation}
 \label{validation}
 In an effort to ensure that our simulations have no bugs, we thought of some extremely simple
-test cases which can be used for system sanity checking. These tests are so simple and obvious, 
-that they are without a doubt true in any valid system.
+test cases, which can be used for system sanity checking. These tests are designed to be so simple and obvious 
+that they are undoubtedly true in any valid system.
 \begin{itemize}
 \item{The Hungry Agent:}
 Proposition - A solitary agent which requires x units of food per turn, with the rabbit's value less than x,

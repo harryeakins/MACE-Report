@@ -37,3 +37,10 @@
   \lstinputlisting{7-Appendices/code/ScaledDouble.java}
 \end{program}
 
+\begin{program}
+  \caption{
+    Simulation code for the simplest (single agent) validation simulation
+  }
+  \label{DeathSim}
+  \lstinputlisting{7-Appendices/code/DeathSim.java}
+\end{program}

@@ -159,13 +159,13 @@ a decision on what action it will take.
 \subsubsection{BDI Agents} % (fold)
 \label{BDI_agents}
 
-	BDI agent is a much more complicated agent with an internal architecture which contains 5 basic attributes:
+	BDI agents are a much more complicated, with an internal architecture containing 5 basic attributes:
 	\begin{itemize}
-			\item Beliefs : decide the properties of agents and can be updated due to perceptions.
-			\item Desires : define what agent wants to do.
-			\item Events : any action that an agent can take on.
-			\item Intentions : which are much stronger than desire.
-			\item Plan : it is an event or a goal which can be replaced by an appropriate plan at the time they need to be achieved.
+			\item Beliefs: decide the properties of agents and can be updated based on perceptions.
+			\item Desire: define what agent want to do.
+			\item Events: any action that an agent can take on.
+			\item Intentions: which are much stronger than desire.
+			\item Plan: which is an event or a goal which can be replaced by an appropriate plan at the time they need to be achieved.
 	\end{itemize}
 	\begin{figure}[ht]
 		\centering
@@ -175,11 +175,11 @@ a decision on what action it will take.
 	\end{figure}
 	% Graph needed here.
 
-	The way BDI agent acts is not much different from other types of agents.
-	The agent first perceives the environment, updates its beliefs and check which event that it can perform.
-	It also requires to check with its desires and intentions in the store to decide which event to choose or even any goals may be achieved.
-	Of course plans are also contributing to make decisions about how to matching the goal or subgoal.
-	Then it selects an event and make a move, indeed this event needs to be deleted from the event store afterwards and agent attributes update again.
+	The way a BDI agent acts is not much different from other types of agents.
+	The agent first perceives the environment, updates its beliefs and checks which event it can perform.
+	It is also required to check its stored desires and intentions to decide which event to choose, or if any goals may be achieved.
+	Of course, plans also contribute to decisions about how to best match the goals and subgoals.
+	It then selects an event and makes a move, indeed this event needs to be removed from the event store afterwards and agent attributes are updated.
 
 % subsubsection BDI Agents (end)
 
@@ -189,79 +189,78 @@ a decision on what action it will take.
 % TODO need citations
 % TODO proper graphs
 
-	Finding an optimal solution of a problem sometimes is impossible but we can somehow improve an existing solution.
-	This notion introduces us to genetic algorithms which pretty much approach this goal in a similar manner. 
-	In an multi-agent system, using selection, crossover and mutation of agents, and evaluating their success according to their fitness function, we can improve an existing solution. 
+	Finding the optimal solution of a problem is sometimes impossible, but we can often improve an existing solution.
+	This notion introduces us to genetic algorithms which approach this goal in a very similar manner. 
+	In an multi-agent system by using selection, crossover and mutation of agents, and evaluating their success according to their fitness function, we can improve an existing solution. 
 	Consequently we plan to focus on the relation between genetic algorithm and MAS in order to define some new properties of agents which can be applied to those mentioned functions.
 
 \subsubsection{Representation of Agents} % (fold)
 \label{subs:representation_of_agents}
 
-	Similar to evolutionary algorithms simulating a Darwinian process, MAS can simulate the evolution of agents. 	But before that, we need to define each agent with some characterized chain of bits whose length will be related to the data structure of different agents.
+	Similar to evolutionary algorithms simulating a Darwinian process, MAS can simulate the evolution of agents. 
+But before that, we need to define each agent with some characterized chain of bits, whose length will be related to the data structure of different agents.
 	Various sequences of the chain stand for corresponding properties of agents.
 	And by applying those four functions to the binary representation of agent, we can keep evolving our solution and finally meet some optimal answers. 
-	Next, let's look in further details of those functions corresponding to the genetic algorithm.
 
 % subsubsection Representation of Agents (end)
 \subsubsection{Mutation} % (fold)
 \label{subs:mutation}
 
 	Suppose now we have a set of agents and each agent has a binary sequence representation of its behaviour. 
-	Mutation is simply converting one bit of the binary chain in order to gain a new characteristic of the agent that is more adaptive to the environment.
+	Mutation is simply converting one bit of this binary chain, in order to gain a new characteristic of the agent that is more adaptive to the environment.
 	\begin{equation}
 		Converting~bit: 1\rightarrow 0,~0\rightarrow 1
 	\end{equation}
 	In the case of hunting game, we can make our agent be more intelligent by changing some relevant parameters.
-	For instance, the agent may probably hunt at a higher efficient or even be able to form stronger groups so that can hunt we high probability of success. 
-	But mutate too much may introduce a certain aggressiveness at the agent level, and consequently the agent will perhaps do something bad and loose its social cohesion.
-	Therefore in order to avoid this situation, the mutation interventions by genetic algorithms will need to be weak.
-	Nevertheless, we can tolerant that the mutation can be rapid at the beginning as we need the agents to grow fast. 
-	And moreover, there is no leadership at the first place since the groups are forming randomly.
-	After some period, the mutation should be slow in order to avoid breaking the process of evolution by dramatically modifying the agent’s characteristic.
+	For instance, the agent may hunt at a higher efficiency or even be able to form stronger groups so that can it hunt with a higher probability of success. 
+	However, by mutating too much we may introduce a certain aggressiveness at the agent level, and consequently the agent may do something bad and loose its social cohesion.
+	Therefore, in order to avoid this situation the mutation interventions by genetic algorithms will need to be weak.
+	Nevertheless we can tolerate rapid mutation intially as, at this stage, we need the agents to grow fast. 
+	Moreover, there is no leadership at the beginning since the groups are forming randomly.
+	After some period, the mutation should be slow in order to avoid breaking the process of evolution, by dramatically modifying the agent’s characteristics.
 
 % subsubsection Mutation (end)
 \subsubsection{Crossover} % (fold)
 \label{subs:crossover}
 
-	Unlike the mutation process, the crossover process uses the "genome" of two parent agents to produce a third genome. 
-	Of course this crossover process is random, so it may produce something useless, but we can maintain the beneficial parts and get rid of the disadvantageous traits by using a selection function which we will talk about later.
+	Unlike the mutation process, crossover uses the `genome' of two parent agents to produce a third genome. 
+	Of course this crossover process is random, so it may produce something useless, but we can maintain the beneficial parts and get rid of the disadvantageous traits by using a selection function, discussed later.
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=0.4\linewidth]{figures/crossover}
 		\caption{crossover}
 		\label{fig:crossover}
 	\end{figure}
-	Now, let's consider an agent as a pie chart instead of binary chain just for better explanation.
-	We can randomly pick a break point in the chain, as shown in the diagram, we can cut the pie any way we prefer.
-	After that, one combines those two different parts from separate agents so that a new agent with unique character is formed. 
-	Though the use of a simple crossing does not always give us good results, a multiple crossing may allow us to end up in a more. 
+	Now, let's consider an agent as a pie chart instead of binary chain just for better clarity.
+	We can randomly pick a break point in the chain, as shown in the diagram, and can cut the pie any way we prefer.
+	After that, we combine those two different parts from separate agents so that a new agent with a unique character is formed. 
+	Though the use of simple crossing does not always give us good results, a multiple crossing may allow us to end up in a more beneficial position. 
 
 % subsubsection Crossover (end)
 \subsubsection{Fitness Function} % (fold)
 \label{subs:fitness_function}
 
-	The fitness function is to evaluate the degree of utility of each agent, as well as the fitness of the agent to the environment.
-	This function is actually quite flexible and depends on how successful we judge the agents are in performing actions and making decisions.
-	For example, we can test the efficiency of hunting for each agent where the efficiency is hunting results divided by the time used to hunt. 
-	Those agents with higher efficiency will be chosen as the parents of the next generation and the rest will die out time after time. 
+	The fitness function is used to evaluate the degree of utility of each agent, as well as the fitness of the agent in the environment.
+	This function is actually quite flexible and depends on how successfully we judge the agents are in performing actions and making decisions.
+	For example, we can test the efficiency of hunting for each agent, where the efficiency is measured as hunting results divided by the time used to hunt. 
+	Those agents with higher fitness values will be chosen as the parents of the next generation and the rest will die out. 
 	Furthermore, we can also evaluate the reputation of each group leader under the hunting performance of the group. 
 	Obviously, those leaders with good reputation will survive.
-	In conclusion, the fitness function acts as a tool to decide which part of agents is fit to the evolution process.
+	In conclusion, the fitness function acts as a tool to decide which agents are useful to aid the evolutionary process.
 
 % subsubsection Fitness Function (end)
 \subsubsection{Selection} % (fold)
 \label{subs:selection}
 
-	Bear in mind that the processes of mutation and crossover are both randomly performed which means offspring are inherited from ancestors in every possible way. 
-	This leads to the diversity of new born agents.
-	Some of them may perform better and some of them may be worse.
+	Bear in mind that the processes of mutation and crossover are both randomly performed, which means offspring are inherited from their ancestors in every possible way. 
+	This leads to the diversity of new born agents, some of whom may perform better and some of them may be worse.
 	Nevertheless, our purpose of applying genetic algorithm is to find a better solution, so here we introduce selection function to achieve this target. 
 	This selection function is used after the fitness function because we need to first evaluate which part of agents is better.
 	Consequently, a utility parameter of integer type from 0 to 10 can be assigned to each agent with increasingly performance.
-	The parameter may be computed depends on the hunting ability of the agent as well as the communication ability which can be evaluated by the reputation value. 
-	After we have this utility value for each agent, a threshold can be set and we just select those agents with higher utility value and the rest is abandoned.
+	The parameter may be computed depending on the hunting ability of the agent as well as it's communication ability which can be evaluated by it's reputation. 
+	After we have this utility value for each agent, a threshold can be set and we just select those agents with higher utility and the rest are abandoned.
 
-	This is basically how genetic algorithm works, it allows the agent to mutate and evolve by itself in order to get a new agent with better performance.  
+	This is basically how genetic algorithms work, it allows the agent to mutate and evolve by itself in order to produce a new agent with better performance.  
 
 % subsubsection Selection (end)
 

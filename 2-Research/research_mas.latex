@@ -269,8 +269,8 @@ But before that, we need to define each agent with some characterized chain of b
 \label{sub:neural_networks}
 % TODO proofread
 
-	A neuron of a neural network is a node that evaluates a weighted sum of all its inputs to give an output with an activation function $f$.
-	The weights of each input is given as constant values, these values can be tweaked to allow better output values from the neuron.
+	A neuron of a neural network is a node that evaluates a weighted sum of all its inputs, in order to give an output with an activation function $f$.
+	The weights of each input are given as constant values, which can be tweaked to allow better outputs from the neuron.
 	Hence the output $y$ is given as follows---
 	\begin{equation}
 		y = f \left( \sum_i{w_i x_i}, b \right),
@@ -290,16 +290,15 @@ But before that, we need to define each agent with some characterized chain of b
 		\label{fig:neuralnet}
 	\end{figure}
 
-	A feed forward neural network (FFNN) is a network of neurons. (Figure~\ref{fig:neuralnet})
-	It consists of layers of neurons, where in each layer neurons do not interact;
-	only outputs from the previous layer are fed to the consecutive layer, this ensures that the network has no feedback loops.
-	To enable learning behaviour of the multi-agent system and agents within it, feed forward neural networks are employed.
-	It is used to give actions of an agent based on the agent's internal states.
+	A feed forward neural network (FFNN) (Figure~\ref{fig:neuralnet}) consists of layers of neurons, where in each layer does not interact;
+	and only outputs from the previous layer are fed to the succeeding layer, this ensures that the network has no feedback loops.
+	To enable learning behaviour of the multi-agent system and the agents within it, feed forward neural networks are employed.
+	It is used to give the actions of an agent based on the agent's internal states.
 
-	In a multi-agent simulation, training a neural network with conventional training algorithms such as back-propagation algorithm would likely be an impossible task.
-	These methods would often require a training set, that is a set of truths consists of pairs of inputs and outputs to eventually allow correct evaluation of these results with the neural network through training.
-	However it is often clearly implausible to obtain such a training set in a multi-agent simulation.
-	Using genetic algorithm to train neural networks solves this problem, by having a fitness function to indirectly guide the evolution of neural networks towards giving strategies that have better outcomes.
+	In a multi-agent simulation, training a neural network with conventional training algorithms, such as back-propagation, would likely be an impossible task.
+	These methods would often require a training set, such as a set of truths consisting of pairs of inputs and outputs to eventually allow correct evaluation of these results with the neural network through training.
+	However it is often implausible to obtain such a training set in a multi-agent simulation.
+	Using genetic algorithms to train neural networks solves this problem, by having a fitness function to indirectly guide the evolution of neural networks towards giving strategies that have better outcomes.
 
 % subsection Neural Networks (end)
 \subsection{Validation of the Agent-Based Simulation} % (fold)
@@ -310,7 +309,7 @@ But before that, we need to define each agent with some characterized chain of b
 
 	% detailed reasons besides structural problems, especially time \& space quantisation
 	Recall the definition of a run of a multi-agent system above in \eqref{eq:run}, it is immediately clear that the system evolves in discrete time.
-	While this may not appear as an immediate problem with simulation, as finer the time interval between iterations generally implies smaller errors.
+This may not appear as an immediate problem with simulation, as finer the time interval between iterations generally implies smaller errors.
 	However as agents start making decisions based on a history of the environment states, the quantisation errors at previous iterations begin to accumulate.
 	Consider the following scenario: the environment provides a function $f(t)$, which is dependent on time, and an agent in the environment calculates the following value at iteration $n$---
 	\begin{equation}
@@ -321,8 +320,8 @@ But before that, we need to define each agent with some characterized chain of b
 	\begin{equation}
 		y_{n} = \sum_t f(t)\Delta t \approx \int_t f(t)dt.
 	\end{equation}
-	Hence this is an example of using Euler's method to integrate $f(t)$ over time.
-	However it is clear that Euler's method gives imprecise results, which is best illustrated with Figure~\ref{fig:euler}.
+	Hence, this is an example of using Euler's method to integrate $f(t)$ over time.
+	However it is clear that Euler's method gives imprecise results, which are best illustrated with Figure~\ref{fig:euler}.
 	\begin{figure}[ht]
 		\centering
 			\includegraphics[width=0.4\linewidth]{figures/euler}
@@ -333,8 +332,7 @@ But before that, we need to define each agent with some characterized chain of b
 	\end{figure}
 
 	% TODO need justification, will be looked at after simulation results.
-	In general, the problem with quantisation of time worsens if one must work with agents could give abrupt changes in decisions under certain cases.
-	Because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. 
+	In general, the problem with quantisation of time worsens with agents that could give abrupt changes in decisions, under certain cases, because this would possibly make outputs in steady state converge to imprecise values, as well as causing phase shifts in oscillatory measurements. 
 
 % subsubsection Necessity of Validation (end)
 \subsubsection{Validation With Sensitivity Analysis} % (fold)
@@ -343,7 +341,7 @@ But before that, we need to define each agent with some characterized chain of b
 	One of the methods of validation that can be employed is sensitivity analysis.
 	Sensitivity analysis can often give indications of design problems that did not anticipate at the design process.
 	It is performed by varying combinations of input parameters of the multi-agent system, and comparing the output results after a number of iterations.
-	The sensitivity matrix for the system given input vector $\mathbf{X}_0$ with output vector $\mathbf{Y}$ which is dependent on the input vector, is defined below.
+	The sensitivity matrix for the system given input vector $\mathbf{X}_0$ with output vector $\mathbf{Y}$, which is dependent on the input vector, is defined below.
 	This matrix can be understood as the change of every output measurements with respect to the changes of every input parameters.
 	\begin{align}
 		S(\mathbf{X}_0)
@@ -389,7 +387,7 @@ But before that, we need to define each agent with some characterized chain of b
 			\end{pmatrix}^\top,
 	\end{equation*}
 	both denote the input and output vectors respectively.
-	To look for anomalies in the system, one can observe abrupt changes in the euclidean norm of $S$, $||S(\mathbf{X})||$ as one varies the value of $\mathbf{X}$, or abrupt changes in each of the elements of the sensitivity matrix.\footnote{Smaller input/output vectors could make the observation much more manageable.}
+	To look for anomalies in the system, one can observe the abrupt changes in the euclidean norm of $S$, $||S(\mathbf{X})||$ as one varies the value of $\mathbf{X}$, or in each of the elements of the sensitivity matrix.\footnote{Smaller input/output vectors could make the observation much more manageable.}
 	% should this part below belong here?
 	Besides validation of the system, the sensitivity matrix can be used as a way to prune insignificant input parameters and output measurements.\cite{mas_validation}
 	An input parameter $X_i$ may be pruned if it satisfies the following condition
@@ -401,7 +399,7 @@ But before that, we need to define each agent with some characterized chain of b
 			< \epsilon
 		\right) ,
 	\end{equation}
-	where $\epsilon$ is some small threshold value, for the reason that all output measurements are changed with insignificant magnitudes in their values, it is thus safe to conclude that the particular input parameter does not impact the system.
+	where $\epsilon$ is some small threshold value, for the reason that all output measurements are changed with insignificant magnitudes in their values. It is thus safe to conclude that the particular input parameter does not impact the system.
 	Similarly an output measurement $Y_j$ is of little consequence if it satisfies
 	\begin{equation}
 		\forall \mathbf{X}
@@ -411,7 +409,7 @@ But before that, we need to define each agent with some characterized chain of b
 			< \epsilon
 		\right) ,
 	\end{equation}
-	since it does not change significant enough for all variances of inputs, it does not provide much insight to the system by changing input parameters.
+	since it does not change significantly enough for all variances of inputs, it does not provide much insight to the system by changing input parameters.
 
 % subsubsection Sensitivity Analysis (end)
 \subsubsection{Comparing Results With Expected Outcomes By Regression Analysis} % (fold)
@@ -431,8 +429,8 @@ But before that, we need to define each agent with some characterized chain of b
 	where $i \in [0,1,\ldots,N-1]$, with $x_i$ of vector $\mathbf{x}$ representing the population of the $i$th specie.
 	The value of $r_i$ of the vector $\mathbf{r}$ is the intrinsic growth rate of the $i$th specie.
 	It denotes how fast the population of a species grow or decline without interacting with any other species in the system.
-	Generally a species with $r \leq 0$ means it must depend on predating other species to survive, while a species with $r \geq 0$ means its population grow could grow indefinitely and must be the target for predation or competition, or its population is unbounded.
-	Therefore there exists some $j$th species that either predates it, equivalently, $a_{ij} > 0$ and $a_{ji} < 0$ to control the growth of the $i$th species and the $j$th species must benefit from predation, or competes with it for resources, equivalently, $a_{ij} > 0$ and $a_{ji} > 0$, which means none of them benefits from the growth of each other.\footnote{The could be further discussed when we deal with the ecosystem we defined for the simulation, as stags and hares are assumed to grow intrinsically, and hunters must benefit from hunting them.}
+	Generally a species with $r \leq 0$ means it must depend on predating other species to survive, while a species with $r \geq 0$ means its population growth could be indefinite, and must be the target for predation or competition, or its population is unbounded.
+	Therefore there exists some $j$th species that either predates it, equivalently, $a_{ij} > 0$ and $a_{ji} < 0$ to control the growth of the $i$th species and the $j$th species must benefit from predation, or competes with it for resources, equivalently, $a_{ij} > 0$ and $a_{ji} > 0$, which means none of them benefits from the growth of each other.\footnote{This could be further discussed when we deal with the ecosystem we defined for the simulation, as stags and hares are assumed to grow intrinsically, and hunters must benefit from hunting them.}
 	The matrix $A$ is hence introduced to represent the interaction between species.
 	\begin{equation}
 		A =

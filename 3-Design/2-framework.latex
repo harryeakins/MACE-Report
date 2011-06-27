@@ -424,17 +424,16 @@ This functionality also allows for static analysis of the number of unique names
 that will be genenrated, and optimisation to ensure this number is as large as
 possible to avoid possible conflicts and confusion.
 
-Simulation validation was performed to be deriving test cases that had symbolically
-provable steady states.
-These are packaged with the source code in the simulations.validation package,
-which includes a variety of these type of simulations.
-The most basic of these was simulating a world with a single agent such that it
+Simulation validation was performed by deriving test cases that had symbolically
+provable steady states, and comparing simulated output to the expected result.
+A varierty of these are packaged with the source code in the simulations.validation package,
+the most basic of which simulates a world with a single agent such that it
 was impossible for them to acquire enough food to survive.
-Unfortunately, even a simulation this basic is still validating large amounts of
-code, include the ability to hunt and receive food, the mechanisms for food
+Unfortunately, this very simple simulation is validating large amounts of
+code, including the ability to hunt and receive food, the mechanisms for food
 consumption, and death of an agent.
-However, the number of rounds that should pass before the agent dies is
-deterministic an calculable, so the event of a working test can be easily detected.
+Fortunately, the number of rounds that should pass before the agent dies is
+deterministic and calculable, so the event of a working test can be easily detected.
 
 Other validation simulations are included, looking at more complex tests, such
 as the ability of agents to create groups, steady state analysis of a low odd
@@ -445,7 +444,7 @@ survive\footnote{
   the last two agents dying due to food reserves running out at the same time.
   Regardless, for a steady state to arise, the agents have to be cooperative
 }, and some basic tests of the in built agent strategies.
-arise, the agents have to be cooperative, and some basic tests of the in built
+arise, the agents have to be cooperative, and some basic tests of the in-built
 agent strategies.
 
 These simulations are discussed in more detail in section \ref{validation}

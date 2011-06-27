@@ -1,34 +1,28 @@
 \section{Politics and Community}
-In a politics simulation, our main goal is to investigate how internal and external 
-politics emerge from a group of initially unrelated agents. 
-Instead of imposing political systems and behaviours to the agents, we allowed 
-them to decide for their own future and thus letting different behaviours to emerge. 
-We now discuss the details in which this emergence can occur.
+In a politics simulation, the main goal is to investigate how internal and external 
+politics emerge from a collection of initially unrelated agents. 
+Instead of imposing political systems and behaviours onto the agents, 
+they must decide their own future, allowing different behaviours to emerge. 
+In this section, we will discuss augmentations we made to the basic agents,
+how these allow us to explore a political world and behaviour - both implemented and emergent.
 
 \subsection{Description of the Agent}
-Throughout the politics, we use three characteristics to give the best approximation 
-of the personality of the agent (loyalty, happiness and trust). 
-We had also allowed each agent to adopt a strategy that describes how it will want to 
-behave and survive with other agents; primarily a description of their cooperation. 
-Alongside the four attributes, each agent is assigned two variables of beliefs of which 
-are used to help reflect what the agent will expect from others and from its endeavours 
-(economical and social). 
-The two beliefs help connect an agent to others (form a group) if such a connection 
-would ever exist.
+We utilise three characteristics to give an approximation of the personality to agents: loyalty, happiness, and trust. 
+Each agent also has a hunting strategy, which are discussed in \ref{strategies}. 
+Alongside these four attributes, agents are assigned political and economic beliefs, which 
+reflect what the agent expects from others and from its endeavours.
+These two beliefs provide agents with a ``common interest", and therefore assist in the formation of groups.
 
-The breakdown of how to describe an agent follows and will be used significantly in the 
-politics to follow:
+These attributes can be defined in more detail as:
 
 \begin{itemize}
-\item Loyalty $\rightarrow$ a group characteristic defining the level of an agents 
-dependence to the group
-\item Happiness $\rightarrow$ a characteristic used by all agents where it is used 
-to motivate them move in and out of a group
-\item Trust $\rightarrow$ an agent may become loyal to a group, however, that comes 
-from a solid trust with one or more agents
-\item Strategy Type $\rightarrow$ would the agent cooperate or not when hunting for food
-\item Economic Belief $\rightarrow$ the level of sharing food that an agent believes in
-\item Social Belief $\rightarrow$ the level of freedom from authority that an agent believes in
+\item Loyalty $\rightarrow$ How used an agent is to being in a particular group
+\item Happiness $\rightarrow$ How content an agent is with its current state of affairs (particularly how much food it has)
+\item Trust $\rightarrow$ Each agent has a trust value for each other agent, indicating how likely the agent is to follow
+the advice of another.
+\item Strategy Type $\rightarrow$ What strategy the agent prefers to follow during hunting
+\item Economic Belief $\rightarrow$ The level of sharing food that an agent believes in
+\item Social Belief $\rightarrow$ The level of authority that an agent believes in
 \end{itemize}
 
 \subsection{Structure of the Agent Game}

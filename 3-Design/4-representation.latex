@@ -74,7 +74,7 @@ For transitions involving non-SVG elements and to implement drag and drop featur
 
 Data is fetched using an AJAX request to a PHP script on the server. The PHP then queries the database and returns the appropriate data arrays or an error. For the Politics graph the data is sampled every 10% of the total number of rounds, requiring quite an advanced SQL query.
 
-\begin{verbatim}
+\begin{verbatim}{\scriptsize
 SELECT DISTINCT g_data.round, g_data.groupid, g_data.pop, g_data.socialPosition, g_data.economicPosition,
 
 (SELECT round FROM g_data WHERE simid = $simid ORDER BY round DESC LIMIT 0,1)/10 AS skip
@@ -87,6 +87,7 @@ AND g_data.groupid = groups.groupid
 AND NOT( g_data.economicPosition = -1)
 HAVING (MOD( g_data.round, round(skip) ) =0 OR (g_data.round = skip*10))
 ORDER BY g_data.round ASC , g_data.groupid
+}
 \end{verbatim}
 
 \subsubsection{Population vs. Round graphs}

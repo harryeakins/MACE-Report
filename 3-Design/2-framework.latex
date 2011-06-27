@@ -330,9 +330,14 @@ EnvironmentConnection, and executes the appropriate turn function.
 Exact specifications of what it done in each game in each turn can be found
 in the documentation for the TurnType enum.
 
-Both the input handlers and callbacks WORDS WORD WORDS WORDS
+Both the input handlers and callbacks convert the data into actions, which
+are sent back to the Environment, allowing the games to be played.
+Most Actions are directly converted to a partner Input that is sent to
+another participant:
+an Agent sending a ApplyToGroup action will cause a JoinRequest Input to be
+sent to the group it applied to.
 
-TODO: Talk about the types of Inputs and Actions relevant to a Agent's interests.
+The flow of inputs and actions are shown in figure \ref{uml_security}.
 
 The returned information is then converted by the AbstractAgent to actions,
 which are sent to the Environment, allowing the agent to play the games.

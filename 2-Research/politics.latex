@@ -26,36 +26,34 @@ the advice of another.
 \end{itemize}
 
 \subsection{Structure of the Agent Game}
-The following paragraph is just a brief overview of the game structure. 
-Details about the structure are given further on. 
-The game we refer to here is to go hunting and get lots of food:
+Below is an outline of the basic "Agent Game": 
+that is, to hunt and obtain food.
 
 \begin{itemize}
 \item Initially we start with a pool of free agents.
-\item The game is played in pairs. 
-A free agent that can't find a pair remains inactive, i.e. doesn't go hunting and loses food.
-\item Each agent has a type and hunts according to the strategy defined by its type. 
-\item An agent can engage into two actions
+\item Agents pair up in order to hunt. 
+An agent that cannot find a pair remains inactive for that round, i.e. doesn't go hunting and loses food.
+\item Each agent has a strategy and hunts accordingly. 
+\item After hunting agent can engage in one of two actions:
 
 \begin{itemize}
-\item Either stays as a free agent and plays the game with another free agent (or if there is no pair then stays inactive and loses food). 
-\item Or form a coalition with another agent (or group) if there is some sort of benefit for both parties. Details of this formation discussed later.
+\item Stay a free agent and play the game with another free agent (if possible). 
+\item Form a coalition (or Group) with another agent if there is some sort of benefit for both parties. Details of this formation discussed later.
 \end{itemize}
 
-\item In each group a panel of leaders emerge in dependence of social belief of the group 
-(only one leader in a dictatorship, to, everyone in the group deciding for what is best). 
+\item In each group a panel of leaders emerge, depending on the trust network within the group. 
 
-\item As the game goes on two kinds of games are played. 
+\item As the simulation goes on, two further games are played:
 
 \begin{enumerate}
 \item The game played by the follower agents inside the group: 
-The hunters inside the group form pairs and play the game. 
+The hunters inside the group form pairs and hunt. 
 The food hunted is intercepted by the group and distributed back to the followers according to the economic 
 belief of the group. 
 
 \item The game played between leaders: 
 Once a panel of leaders has been formed the group is able to play the stag hunt game with other groups. 
-As in real situations, group actions and result are much more significant that individual ones therefore, 
+As in real situations, group actions and result are much more significant that individual ones: therefore 
 the result from the hunting game between the groups is much larger and is proportional to the size of the group.
 \end{enumerate}
 \begin{itemize}
@@ -66,31 +64,28 @@ This is roughly what happens in reality where each person tries to gather food t
 also countries fight or collaborate with other foreign countries.
 \end{itemize}
 
-\item After the game (hunting) is over the food gathered is distributed, agent's attributes are 
+\item After the hunting is completed and the gathered food has been distributed, agents' attributes are 
 updated. 
-If an agent is a follower (part of a group) it can decide to leave the group if it wishes.
-\item Before repeating the procedure agents in the group are allowed to vote for a proposal 
-that is made in the group. This proposal has to do with the movement of the group along the 
-economical axes which sets the distribution of the food.
-\item Also agents rate their leader according to its actions and all agents have their attributes 
-updated.
-\item We go back to the beginning and start a new game iteration.
+If an agent is part of a group it decides whether to leave or not.
+\item Agents in a group are allowed propose and vote on movements of the group
+along the economic axis.
+\item Agents rate their leader(s) according to its actions and all agents have their attributes 
+updated again.
+\item We then go back to the beginning and start a new game iteration.
 \end{itemize}
 
 \subsection{Structure of the Group Game}
-As we mentioned earlier, agents play the stag hunt game and also form groups. 
-In addition, groups play the stag - hunt game just like the agents but they are not 
-able to form collisions with other groups. 
-In order for the groups to play with each other, agents should form a panel in the groups of 
-trustworthy individuals and then choose an external strategy to play with the other groups. 
+As mentioned earlier, groups can play the Stag Hunt game just like agents. 
+In order for groups to play with each other, agents must form a panel within the groups of 
+trustworthy individuals and then choose an external strategy to use against the other groups. 
 Because of the similarity of code and for reason of simplicity, every time a group is formed, a 
-``special'' agent is formed which acts like an agent among other special agents and therefore 
-plays the game as before. 
+``special'' agent is created which acts like an agent among other special agents and can therefore 
+play the game as normal. 
 In order to avoid special agents (groups) playing game with the free agents, these ``special'' agents 
-are placed on creation in a “special” group where only special-type of agents can enter.
+are placed on creation in a “special” group where only special-type of agents exist.
 
-In order to distinguish which Group is represented by which “special” agent we used the Groups $\rightarrow$ 
-id to be equal to the Agent $\rightarrow$ name.
+In order to distinguish which Group is represented by which “special” agent, the Groups $\rightarrow$ 
+id is equal to the Agent $\rightarrow$ name.
 
 The result of the hunting between these special-agents is sent back to the tax-reserve of the group 
 and then distributed back to the agents according to the economic position of the group. 
@@ -99,8 +94,10 @@ external strategy and play the game with groups of entirely different beliefs.
 
 
 \subsection{Politically Oriented Agents and Groups of Agents}
-This section proposes a method for dynamically deciding how a group of agents handle their 
-economies and social aspects. The political compass is shown below:
+The political compass shows economic and social beliefs graphically, 
+and is used to better describe an agents ideals.
+Each agent and group possesses two values plottable on the compass,
+which can change over time.
 
 \begin{figure}[ht]
 \centering
@@ -108,32 +105,16 @@ economies and social aspects. The political compass is shown below:
 \caption{The Social Graph}
 \end{figure}
 
-This is a 2D plane. The x-axis (Left/Right) determines how the group handle their economic 
-affairs. 
-The y-axis (Authoritarian/Libertarian) determines how rules and laws are enforced.
+The x-axis (Economic axis) determines how the group handle their economic 
+affairs:
+a group that is towards the left side of the x-axis will tend towards distributing resources 
+evenly throughout the group,
+whereas a group towards the right side is less likely to evenly distribute resources 
+and individual agents will tend keep most of what they earn.
 
-A group that is towards the left side of the x-axis will tend towards distributing resources 
-evenly throughout the group. 
-A group that is towards the right side of the x-axis is less likely to evenly distribute resources 
-and individual agents will likely keep most of the resources they earn.
-
-A group towards the authoritarian half of the y-axis will have rules set by leader(s) that are 
-heavily enforced. Orders set by the leader(s) of a group towards the libertarian half of the 
-y-axis can be seen more as guidelines opposed to commandments.
-
-What we employ is that each agent has two attributes assigned with random values. 
-These attributes are used to determine the position of the agent’s beliefs on the political 
-compass.
- 
-
-\centerline{\textbf{Agent Attributes: economic\_belief (x-axis), social\_belief (y-axis)}}
- 
-
-Each group will also have these two attributes and this comes from how agents decide to form groups among themselves.
- 
-
-\centerline{\textbf{Group Attributes: group\_economic\_belief (x-axis), group\_social\_belief (y-axis)}}
- 
+The y-axis (Social Axis) determines the nature of leadership:
+a group towards the authoritarian half of the y-axis will tend to have fewer leaders, who hold sway over the group,
+whereas a group towards the libertarian half of the graph will take more opinions into account, and require greater consensus to act. 
 
 \subsection{Forming a Coalition}
 In real life individual agents can interact with other agents and decide if they can form a coalition. 

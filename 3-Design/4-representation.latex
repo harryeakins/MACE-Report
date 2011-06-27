@@ -65,7 +65,7 @@ All graphs were implemented using javascript and a library known as \emph{d3.js}
 This library uses javascript and SVG elements to create charts with smooth transitions and interactions, 
 both of which are important for a well designed user interface. 
 For transitions involving non-SVG elements and to implement drag and drop feature, the \emph{jQuery UI} 
-\footnote{\url{http://jqueryui.com/} library was also used.
+\footnote{\url{http://jqueryui.com/}} library was also used.
 
 \subsubsection{The Politics Graph}
 The Politics Graph was the first to be implemented. 

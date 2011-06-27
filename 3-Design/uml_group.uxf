@@ -167,9 +167,9 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>670</x>
+      <x>660</x>
       <y>600</y>
-      <w>130</w>
+      <w>140</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>/PlayerDataModel/</panel_attributes>
@@ -178,7 +178,7 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>890</x>
+      <x>880</x>
       <y>530</y>
       <w>50</w>
       <h>90</h>
@@ -191,18 +191,18 @@ _- previousAmountHunted : Map&lt;String, Double&gt;_
     <coordinates>
       <x>770</x>
       <y>590</y>
-      <w>100</w>
+      <w>90</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>80;30;30;30</additional_attributes>
+    <additional_attributes>70;30;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>850</x>
+      <x>840</x>
       <y>600</y>
-      <w>130</w>
+      <w>140</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>/APlayerDataModel/</panel_attributes>

@@ -52,6 +52,9 @@ number things which are specified when creating the agent.
 This allows each agent to respond differently to stimuli, making the simulation
 very open and free-flowing, with huge numbers of potential combinations.
 
+\subsection{Specific Agent Behaviour}
+\emph{More detailed agent heuristics to be added and explained once finalised (with results section).}
+
 \section{Emergent Behaviour}
 
 Over time, those agents better at predicting what to hunt should gain the

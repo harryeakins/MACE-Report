@@ -31,7 +31,7 @@ from a solid trust with one or more agents
 \item Social Belief $\rightarrow$ the level of freedom from authority that an agent believes in
 \end{itemize}
 
-\subsection{Basic Structure of the Game}
+\subsection{Structure of the Agent Game}
 The following paragraph is just a brief overview of the game structure. 
 Details about the structure are given further on. 
 The game we refer to here is to go hunting and get lots of food:
@@ -82,6 +82,27 @@ economical axes which sets the distribution of the food.
 updated.
 \item We go back to the beginning and start a new game iteration.
 \end{itemize}
+
+\subsection{Structure of the Group Game}
+As we mentioned earlier, agents play the stag hunt game and also form groups. 
+In addition, groups play the stag - hunt game just like the agents but they are not 
+able to form collisions with other groups. 
+In order for the groups to play with each other, agents should form a panel in the groups of 
+trustworthy individuals and then choose an external strategy to play with the other groups. 
+Because of the similarity of code and for reason of simplicity, every time a group is formed, a 
+``special'' agent is formed which acts like an agent among other special agents and therefore 
+plays the game as before. 
+In order to avoid special agents (groups) playing game with the free agents, these ``special'' agents 
+are placed on creation in a “special” group where only special-type of agents can enter.
+
+In order to distinguish which Group is represented by which “special” agent we used the Groups $\rightarrow$ 
+id to be equal to the Agent $\rightarrow$ name.
+
+The result of the hunting between these special-agents is sent back to the tax-reserve of the group 
+and then distributed back to the agents according to the economic position of the group. 
+With these extra amounts of food we wanted to enforce the agents of the group to choose the correct 
+external strategy and play the game with groups of entirely different beliefs.
+
 
 \subsection{Politically Oriented Agents and Groups of Agents}
 This section proposes a method for dynamically deciding how a group of agents handle their 
@@ -271,6 +292,26 @@ We want to know whether giving money (food will be thought as money) to another 
 \end{itemize}
 
 \subsection{Economics and Loans}
+
+As political groups are forming, we want to apply what has emerged into an assessment of group interaction. 
+Apart from hunting with others, a group will be able to request and loan money amongst each other. 
+Firstly we impose random grouping of agents and abstracted away any political ideals involved, such as the 
+grouping decisions based on political beliefs, updating individual and group political beliefs and the decision to 
+leave a group. 
+For the moment, we get rid of the politics and allow the groups to form randomly and then have these groups hunt 
+with each other as well as loaning money to each other. 
+From this point we can interpret the most basic behaviour of interaction, via requesting and giving loans.
+
+Afterwards, once the intended behaviour and foundations of loans is set in place, we simply bring back the political 
+ideas with social and economic beliefs and agents leaving because of dissatisfaction and allow these political groups 
+to interact with loaning money privileges. 
+From this we can determine successful political groups that have provided their members (or citizens if we were to 
+think of these groups as countries) with decent amount of return after interacting with other countries.
+
+So our aim is to allow political groups interaction with each other so that they can help the economy of one group or 
+request financial needs from another.
+
+
 \subsubsection{Should we give a Loan?}
 To answer the question above, we abstracted away any concrete sense of politics and concentrated 
 on the interaction of groups and to let them decide if they need help from prosperous groups or if 
@@ -392,7 +433,7 @@ From these graphs you can see which attributes played important role for a group
 and increase its population or disappear.
 
 \item:Group Agent info:
-The plugin displays all the “special” agents which represent the groups along with their attributes 
+The plugin displays all the ``special' agents which represent the groups along with their attributes 
 held by the simulation and also attributes derived from the agents in the particular group. 
 These are: name, strategy, group, if it is alive or not, its food amount, economic and social belief, 
 loyalty, happiness and the last hunted food. 

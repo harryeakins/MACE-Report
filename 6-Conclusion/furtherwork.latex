@@ -1,24 +1,24 @@
 \section{Further Work}
 \subsection{Thorough Testing and Validation}
 In order for a technology to be used in published research, it must be tested and
-validated to ensure that the results are really caused by properties of your
+validated to ensure that the results are caused by properties of your
 proposed system, and not by a bug. 
 This is also true for tools used to make big, important decisions.
 If our software was to show that the best plan of action involved increasing 
-taxes for the rich, for example, it would be quickly dismissed (and quite rightly
-so) since you can't trust something without being sure there are no bugs.
+taxes for the rich, for example, it would be quickly dismissed, since you 
+can't trust something without being absolutely sure there are no bugs.
 There are several ways in which such quality assurance can be implemented, from 
 low-level unit-testing with JUnit, to high-level testing of simple simulation
 cases.
 
 \subsubsection{JUnit}
-By using JUnit we could ensure that each of our functions and classes function
+By using JUnit we could ensure that each of our functions and classes behave
 as intended. One problem we encountered was that PreSAGE was not designed with
 test-driven development in mind, and is therefore difficult to use with JUnit.
-This is perhaps too much to ask from PreSAGE, which is designed to be used
-as more of a prototyping solution, rather than a the basis of a finished
+This is perhaps too much to ask from PreSAGE, which is intended to be used
+as more of a prototyping solution, rather than the basis of a finished
 product\cite{presage1}. Using something such as JADE or AgentBuilder might 
-be a better idea, or even creating a bespoke implementation of this multi-agent
+be a better solution, or even creating a bespoke implementation of this multi-agent
 system.
 
 \subsection{Varying Environment}
@@ -33,9 +33,9 @@ will still require loans later on.
 Introducing the idea of famine, disease, aging or injury would make our simulations 
 more dynamic, matching more closely the nondeterministic nature of the world we aim to model. 
 This could be done by changing how successful hunting is for a certain group. A famine could
-mean that hunting results in less food resulting from hunting. Disease could be modelled by
-having agents disabled for a few cycles. Disease spreads through a group, so some sort of 
-spreading could be implemented.
+mean that hunting results in less food. Disease could be modelled by
+having agents disabled for a few cycles. Disease also spreads through a group, so some sort of 
+algorithm could be implemented to simulate this behaviour.
 
 \subsection{More Comparison with Ethnographic Studies}
 There are many studies in the field of social and cultural anthropology looking at the 

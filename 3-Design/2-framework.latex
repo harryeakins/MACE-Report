@@ -183,7 +183,7 @@ some housekeeping in corner cases.
 The main functionality of the data model, for example, it to keep track of all the
 active objects - be it Agents, Groups, Foods - a task that is already done by the
 Simulation class.
-The repelciation????????? here, however, is for time efficiency:
+The replication here, however, is for time efficiency:
 as the Simulation does not know to differentiate between agents and groups, each
 look up would take longer\footnote{
   Especially for returning the lists, where returning a strong unmodifiable reference

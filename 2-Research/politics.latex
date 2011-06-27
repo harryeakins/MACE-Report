@@ -278,22 +278,20 @@ with each other as well as loaning money to each other.
 From this point we can interpret the most basic behaviour of interaction, via requesting and giving loans.
 
 Afterwards, once the intended behaviour and foundations of loans is set in place, we simply bring back the political 
-ideas with social and economic beliefs and agents leaving because of dissatisfaction and allow these political groups 
+ideas with social and economic beliefs, and agents leaving because of dissatisfaction and allow these political groups 
 to interact with loaning money privileges. 
-From this we can determine successful political groups that have provided their members (or citizens if we were to 
-think of these groups as countries) with decent amount of return after interacting with other countries.
+From this we can determine successful political groups that have provided their members (or citizens if we were to compare these groups to countries) with a decent amount of return after interacting with other countries.
 
-So our aim is to allow political groups interaction with each other so that they can help the economy of one group or 
-request financial needs from another.
+Our aim is to allow political groups to interact with each other, so that they can help the economy of one group or request financial needs from another.
 
 
 \subsubsection{Should we give a Loan?}
 To answer the question above, we abstracted away any concrete sense of politics and concentrated 
-on the interaction of groups and to let them decide if they need help from prosperous groups or if 
-they should provide help to the needy groups. 
-What is kept from the political world are the way agents in a group decide on a strategy to hunt food 
-and to distribute food, updating the agents trust and happiness after a hunt and choosing a group is 
-now random because this assessment concentrates on group interaction (note that it can be easily 
+on the interaction of groups; letting them decide if they need help from those more prosperous or if 
+they should provide help to those in need. 
+What is kept from the political world is the way agents in a group decide on a strategy to hunt 
+and distribute food, updating the agents trust and happiness after a hunt and choosing a group is 
+now random, because this assessment concentrates on group interaction (note that it can be easily 
 done to force agents to group heuristically). 
 
 From the group perspective, there is many additions along with removal of ideas used in the very 
@@ -306,69 +304,60 @@ hunting game between groups). That leaves the additions for which groups interac
 loans.
 
 \subsubsection{Making Payments}
-To help out the idea of the loaning/charity system, we introduced the idea groups making payments 
+To help out the idea of the loaning/charity system, we introduced the implementation of groups making payments 
 to primarily lose ‘money’. 
-There are a few constant to be known first. 
-There is the group’s reserve, it is the amount of food that the group has ownership of and is 
-accumulated from taxing the citizens of the group, we treat the food the group has (the reserve) and 
-the food that the agents have as their possession of money. 
-There is the price to play constant that simply informs the group how much is needed to play the
- hunting game with each other. 
-There is also the achievement constant, its sole purpose provides the motivation for a group to 
-move forward in its life, it is the amount of food/money a group wants to attain for any arbitrary 
-purpose a country would have (going to space, getting a piece of research, world domination, etc.). 
-And, lastly, the greediness constant (assigned randomly to each group) basically informs us how 
-greedy a group is for money.
+With this came some new variables to apply:
+\begin{itemize}
+\item{The Group’s Reserve: is the amount of food that the group has ownership of and has 
+accumulated from taxing the citizens of the group. Note that the amount of food an individual agent posseses
+is not part of this variable.}
+\item{The Price to Play: simply informs the group how much is needed to play the
+ hunting game with each other.}
+\item{The Achievement Constant: has the sole purpose of providing the motivation for a group to 
+move forward in its life. It is the amount of food/money a group wants to attain for any arbitrary 
+purpose a country would have (going to space, getting a piece of research, world domination, etc.).} 
+\item{The Greediness Constant: informs us how greedy a group is for money. This is assigned randomly to each group.}
+\end{itemize}
 
 When making payments, a group firstly checks if it has a decent amount of money to play the 
-hunting game with other groups; if everything is ok then the required amount of deduction is made 
+hunting game with other groups; if everything is ok, the required amount of deduction is made 
 from the group’s reserve, otherwise the group does not play and sits this turn out. 
 The next payment is to public service. 
 The groups who are greedy the most will have high probability to spend money from the reserve into 
 an arbitrary definition of public service (schools, roads, statues, etc.). 
-They would pay just enough as to not strive too much away from attaining achievement and to 
+They pay just enough to not strive too far away from attaining achievement and to 
 satisfy the happiness of the citizens; groups with a low greediness factor can still pay for public 
 service but are less likely to do so. 
-The last and most important payment to be made is to repay any loans a group has with the 
+The last, and most important, payment made is to repay any loans a group has with the 
 interest decided by the loaner. This is where a group clears its debts.
 
 \subsubsection{Taxing for the Reserve}
-After the internal game is played (where agents in a group hunt with each other to get food), the 
+After the internal game is played (where agents in a group hunt with each other to obtain food), the 
 shared food that is needed to be distributed throughout the group members is intercepted and 
-taxed for the benefit of the group. 
-But, before taxing, the group firstly retrieves any money (food) that a person in need has paid back 
-with interest. 
-After this is accounted for in the reserve, the shared pool is taxed to add on top of whatever is left 
-of the reserve; the rest of the shared pool is then fed back for distribution amongst the members 
-of the group.
+taxed. 
+However, before taxing the group retrieves any food that it is owed by another group. 
+The agents within the group are then taxed, and this pool is distributed amongs the agents to ensure 
+they have enough food for the following round. The excess forms the group's reserve.
 
-The way the shared pool is taxed is by checking if the group is in desperate need of money then 
-they tax high, this is done by looking at how far away the group is from attaining achievement.
- Otherwise, if things are going well for the group, the taxing is done in the same way but includes 
+The agents are taxed based on the current state of the group. If the group is in desperate need of money,  
+they impose a high tax rate, calculated by looking at how far away the group is from attaining achievement.
+ Otherwise, if things are going well for the group, the taxing applied in the origional way but factors in 
 how happy the members are. 
-If unhappy then don’t tax too much, if happy then tax but don’t take advantage of your members.
+If unhappy, the group doesn't tax too much, otherwise the tax is set at a rate that is reasonable (not exploitative).
 
 \subsubsection{Interacting for the Loan}
-At the start of each turn a group checks its financial status and requests for help if needed; 
-this decision is done by checking the reserve at its current state and looking for a decreasing trend 
+At the start of each turn a group checks its financial status and requests for help if needed. 
+This decision is done by checking the reserve at its current state and looking for a decreasing trend 
 in its history.
-If the group is in need, it first checks to see if it still requires a loan (a group may be in trouble for 
-many turns as nobody replies to its pleas, however the group in trouble might be able to bounce 
-back on its own) and if it does, checks to see if any group has given it a loan for the amount of 
-money that it needs (which, in this world, maximises to the price needed to play at least two 
-hunting games with other groups). 
-If no one has, the group goes on with its day trying to survive, but, if someone has then the reserve 
-is updated with the amount it needed and the group stores a record in its history notifying that it 
-has to pay this certain group back eventually.
-The group may not be in need and for this case the group looks for other desperate groups that 
-are looking for money. 
-Assessing each group in order from the neediest, if that needy group has not already accepted a 
-loan and this group has the money to help the needy then the loan is given with the amount that 
-the needy requires along with knowledge of the interest rate. 
-The interest rate is computed by the sum of how greedy the group that is loaning (this is given a 
-low weighting because even if this is charity the loaner still retains its greedy nature) and how far 
-away the needy group is from attaining achievement, which is never above the price to play the 
-game and because of that, the interest rate stays within possible values below 20\% 
+If a group is in need, it sequentially asks all other groups for a loan until it recieves an amount sufficient
+enough to get it out of trouble. It records this transaction history and will attempt to repay the loan 
+in future, when it has sufficient funds.
+In the even the group is not in need, it looks for other desperate groups that are looking for money. 
+Assessing each group in order of how much they need, providing the group under inspection has no 
+existing loan to repay, and there are sufficient funds to help them, a loan is offered. 
+The interest rate is computed by the sum of how greedy the loaning group is and how far 
+away the needy group is from attaining achievement. This is never above the price to play the 
+game and because of that, the interest rate stays below 20\% .
 
 %TODO: May be entered in the framework discussion
 \subsection{Helper Plugins}

@@ -26,36 +26,34 @@ the advice of another.
 \end{itemize}
 
 \subsection{Structure of the Agent Game}
-The following paragraph is just a brief overview of the game structure. 
-Details about the structure are given further on. 
-The game we refer to here is to go hunting and get lots of food:
+Below is an outline of the basic "Agent Game": 
+that is, to hunt and obtain food.
 
 \begin{itemize}
 \item Initially we start with a pool of free agents.
-\item The game is played in pairs. 
-A free agent that can't find a pair remains inactive, i.e. doesn't go hunting and loses food.
-\item Each agent has a type and hunts according to the strategy defined by its type. 
-\item An agent can engage into two actions
+\item Agents pair up in order to hunt. 
+An agent that cannot find a pair remains inactive for that round, i.e. doesn't go hunting and loses food.
+\item Each agent has a strategy and hunts accordingly. 
+\item After hunting agent can engage in one of two actions:
 
 \begin{itemize}
-\item Either stays as a free agent and plays the game with another free agent (or if there is no pair then stays inactive and loses food). 
-\item Or form a coalition with another agent (or group) if there is some sort of benefit for both parties. Details of this formation discussed later.
+\item Stay a free agent and play the game with another free agent (if possible). 
+\item Form a coalition (or Group) with another agent if there is some sort of benefit for both parties. Details of this formation discussed later.
 \end{itemize}
 
-\item In each group a panel of leaders emerge in dependence of social belief of the group 
-(only one leader in a dictatorship, to, everyone in the group deciding for what is best). 
+\item In each group a panel of leaders emerge, depending on the trust network within the group. 
 
-\item As the game goes on two kinds of games are played. 
+\item As the simulation goes on, two further games are played:
 
 \begin{enumerate}
 \item The game played by the follower agents inside the group: 
-The hunters inside the group form pairs and play the game. 
+The hunters inside the group form pairs and hunt. 
 The food hunted is intercepted by the group and distributed back to the followers according to the economic 
 belief of the group. 
 
 \item The game played between leaders: 
 Once a panel of leaders has been formed the group is able to play the stag hunt game with other groups. 
-As in real situations, group actions and result are much more significant that individual ones therefore, 
+As in real situations, group actions and result are much more significant that individual ones: therefore 
 the result from the hunting game between the groups is much larger and is proportional to the size of the group.
 \end{enumerate}
 \begin{itemize}
@@ -66,15 +64,14 @@ This is roughly what happens in reality where each person tries to gather food t
 also countries fight or collaborate with other foreign countries.
 \end{itemize}
 
-\item After the game (hunting) is over the food gathered is distributed, agent's attributes are 
+\item After the hunting is completed and the gathered food has been distributed, agents' attributes are 
 updated. 
-If an agent is a follower (part of a group) it can decide to leave the group if it wishes.
-\item Before repeating the procedure agents in the group are allowed to vote for a proposal 
-that is made in the group. This proposal has to do with the movement of the group along the 
-economical axes which sets the distribution of the food.
-\item Also agents rate their leader according to its actions and all agents have their attributes 
-updated.
-\item We go back to the beginning and start a new game iteration.
+If an agent is part of a group it decides whether to leave or not.
+\item Agents in a group are allowed propose and vote on movements of the group
+along the economic axis.
+\item Agents rate their leader(s) according to its actions and all agents have their attributes 
+updated again.
+\item We then go back to the beginning and start a new game iteration.
 \end{itemize}
 
 \subsection{Structure of the Group Game}

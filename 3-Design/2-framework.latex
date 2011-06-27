@@ -358,7 +358,6 @@ within the Framework security layer.
 
 \subsection{Groups}
 
-% TODO: Replace this with the right diagram
 \begin{figure}[p]
   \label{uml_group}
   \pgraphic{uml_group}

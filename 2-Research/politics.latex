@@ -101,20 +101,29 @@ which can change over time.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth]{figures/socialGraph}
-\caption{The Social Graph}
+\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
+\caption{The Political Compass,  with the location of well known political ideals}
 \end{figure}
 
-The x-axis (Economic axis) determines how the group handle their economic 
-affairs:
-a group that is towards the left side of the x-axis will tend towards distributing resources 
-evenly throughout the group,
-whereas a group towards the right side is less likely to evenly distribute resources 
-and individual agents will tend keep most of what they earn.
+%Old political compass:
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.4\linewidth]{figures/socialGraph}
+%\caption{The Social Compass}
+%\end{figure}
 
-The y-axis (Social Axis) determines the nature of leadership:
-a group towards the authoritarian half of the y-axis will tend to have fewer leaders, who hold sway over the group,
-whereas a group towards the libertarian half of the graph will take more opinions into account, and require greater consensus to act. 
+The x-axis (Economic axis) determines how the group handle their economic affairs, in terms of tax rates. 
+The far left has a tax rate of 100\% - all food is taken by the group and redistributed evenly. 
+The far right has a tax rate of 0\% - no food is taxed, and each agent gets only what it can hunt\footnote {
+	Another (and arguably more sensible) way to look at it,
+	is on a 0\% to 100\% scale of how much food you keep after hunting. 
+}.
+Other points upon the axis have some proportional combination of tax and personal gain.
+
+The y-axis (Social Axis) determines the nature of leadership.
+A totally authoritarian group has one leader who holds total power over all group members.
+At the extreme Libertarian end, all group members have equal influence and thus any decisions made must be unanimous.
+As before, groups in between will have some proportional number of leaders.
 
 \subsection{Forming a Coalition}
 In real life individual agents can interact with other agents and decide if they can form a coalition. 
@@ -124,74 +133,25 @@ of forming or joining a coalition.
 The first one is the mutual trust between the two parties and the second one is the similarity of their socio-economic beliefs.
 
 \subsubsection{Trust}
-Each present agent will hold a trust value (in the form of a percentage, in fact all attributes 
-discussed here are used as percentages) for each and every other agent. 
-Now, in the beginning, since no one has met anyone else or interacted with them, trust values 
-are initialised to null. We use this to show that Agent X has never met Agent Y.
+Each agent holds a trust value for each and every other agent. 
+These values are initialized to null, meaning that the two agents have never interacted.
 
-To kick things off, random pairs of agents occur to play a beneficial game of hunting. 
+To kick things off, agents are paired randomly in order to play a beneficial game of hunting. 
 It has to be beneficial because the food that is returned to them must meet their demands. 
 Their demands come from the percentage of their economic belief; this belief tells us how much 
-food an agent expects to receive. If it got what it wanted then trust for the other agent starts to grow.
-
-We not only update trust after a hunt, but, also after voting for any proposal; but, that only occurs 
-within groups because we need a proposer to propose a proposal and a proposer is a group idea in
- which other agents trust one another so that they can communicate with one another so that they 
-can better their situation as a group.
-
-\subsubsection{Socio-Economical}
-We made use of the political compass shown below:
-
-From `Right' to `Left' we discuss the economic affairs that are believed by an agent; should food 
-be distributed evenly across the group or should an agent keep the food it gets?
-From `Authoritarian' to `Libertarian' we discuss the social affairs that are believed by an agent; 
-should an agent be free and act under no command or should it give/follow strict orders?
-So, there are two attributes to be assigned to each agent which describe their position in the 
-political compass:
-
-\subsection{Economic $ \in ( 0 \% - 100 \% )$}
-
-If believing in the very `Right', 100\%, the agent believes in keeping the resources they earn 
-for themselves. 
-If believing in the very `Left', 0\%, the agent believes in distributing resources evenly, sharing,
- throughout a potential group.
-
-\subsection{Social $ \in  ( 0 \% - 100 \% ) $}
-
-If believing in the very `Authoritarian', 0\%, the agent believes heavily in giving orders and 
-enforcing punishment for neglecting those orders. 
-If believing in the very `Libertarian', 100\%, the agent believes in being free from any orders 
-or enforcement.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
-\end{figure}
-
-The above diagram shows an estimate of how the political groups of today are spread out on 
-the political compass. 
-We can use the above and the agent's economic and social beliefs to describe their political view.
-Finding the distribution of our agents grouping among themselves can be useful in evaluation; 
-would it always be the case an agent who is initially democratic become communist given a particular
-personality (happiness, trust etc.)?
+food an agent expects to receive. 
+If it got what it wanted then trust for the other agent starts will increase.
 
 \subsubsection{To Group or Not to Group}
-Initially, when trying to form coalitions (groups of agents), it is essential for two agents to have 
+Initially, when trying to form coalitions, it is essential for the founding agents to have 
 a certain degree of trust. 
 After hunting amongst each other, the agents gain trust for each other regardless of their socio-economic beliefs. 
 When deciding whether to create a group or not, belief is considered less significant than trust. 
-It is only when a group is formed that an agent from the ‘outside’ would require similar beliefs to 
+It is only once a group is formed that an agent from the ‘outside’ would require similar beliefs to 
 the group as a whole in order to join.
 For a group responding to an agent's request to join, trust matters but is not as important as having similar
 political beliefs.
-
-%TODO: IMAGE GOES HERE
-
-The way we compute similar beliefs is through the vector distance on the political compass. 
-The closer they are, the better to group with.
-
-When trying to form a possible group, both parties must be in agreement; both agents must 
-agree to form groups or both an agent and a group must agree to form a larger group.
+Similarity of beliefs is calculated by the vector distance serperation on the political compass
 
 \subsection{How to get a Leader}
 \subsubsection{A Leader in General}
@@ -200,71 +160,56 @@ Leadership is an emerging norm in a group and the types and number of leaders is
 current attributes of the group. 
 For the analysis of leadership we only consider the y-axis of the political compass.
 
-In order to proceed with the analysis of leadership we first need to define the notion of the panel 
-of leaders.  
-The panel is the set of agents that are entitled to make decisions for the group. 
-The panel size is determined by the social belief of the group. 
-Groups that tend towards the authoritarian side of the axis will have smaller panels. 
-A group on the top of the axis is essentially a dictatorship and the panel consists of a single agent, 
-the dictator. Groups that are at the bottom of the axis will have larger panels. 
-The members of the panel are the agents that are trusted more by any other agent in the group.
+In order to proceed with the analysis of leadership we first need to define the notion of a `panel 
+of leaders'. 
+This panel is the set of agents that are entitled to make decisions for the group as they are the most trusted, 
+and its size is determined by the social belief of the group, with more authoritarian groups having relatively small panels.
 
 \subsubsection{How Do Leaders Emerge}
-A leader is an agent who is trusted by all the other agents in a group. 
+A leader is an agent who is trusted by most of the other agents in a group. 
 An agent gains the trust of its fellow agents by cooperating with them in the stag hunt game or by 
-being able to make accurate predictions for them. 
-When an agent which is about to go hunting asks another agent for advice on the strategy to be followed. 
-An advisor able to make a correct prediction, i.e. helping the asker to increase its profit, gains 
-the trust of that agent. 
-Therefore, over time some agents will become more trusted than others and thus eligible to join 
-the panel. 
+giving out good advice.
+Just before hunting, agents can ask others for advice (i exchange for a small food cost).
+If this advice is followed and the hunt successful, the hunter's trust of the advice giver increases.
+Therefore, over time some agents will become more trusted than others by being more skilled at hunting and 
+will thus become eligible to join the panel. 
 
 \subsubsection{Decision Making}
-As was mentioned above, two kinds of games are played. 
-The first game is the one between the leaders of different groups and the other one is the game 
+As was mentioned above, two kinds of games are played:
+The first is the one between the leaders of different groups and the second is the game 
 played by the members of the group. 
-The game between the leaders model international conflicts and the game within the group, models 
-the people's effort for social and individual welfare within the group. 
-The panel is responsible for deciding the strategies for these two games. 
+The game between the leaders model international conflicts and the game within the group models 
+the people striving towards social and individual welfare. 
+The panel of leaders is responsible for deciding the strategies for these two games. 
 The decision for the internal game is implicitly made since the members of the panel advise their
 followers to follow the optimal strategy by predicting their opponents' strategy. 
-Being able to make accurate predictions is what led certain agent to be in the panel in the first place. 
 
 The decision for the external game is more complex and must take into account the followers' 
 opinions (preferred strategies based on their types). 
 The weighting of the followers' opinions varies depending on the position of the group on the 
 political compass. 
-Groups at the authoritarian side of the compass give a small if no weighting to their followers' 
-opinion. 
-On the other side, libertarian groups seek for high support from their followers before deciding 
-the group's strategy. 
-In order to enable the panel to make decisions we introduced the notion of the quotum. 
-The quotum is the minimum number of supporters a proposal requires to be accepted. 
-The higher the quotum, the harder is to get a proposal accepted. 
-Therefore, authoritarian groups have smaller quotum while libertarian groups are essentially unable 
-to make any decision since the quotum is too high.
+Groups at the authoritarian side of the compass give less weighting to their followers' 
+opinion than those on the libertarian side. 
+In order to enable the panel to make decisions we introduced the notion of the quorum: the minimum number of supporters a proposal requires to be accepted. 
+The higher the quorum is, the more difficult it is to get a proposal accepted. 
+As a result, authoritarian groups have smaller quorum while libertarian groups are often essentially unable 
+to make any decision since the quorum is too high.
 
 \subsubsection{Maintaining the Power}
 When an agent becomes eligible to join the panel its trust value is checked against a threshold. 
-If the agent's trust is above the threshold it can become a member of the panel. 
-In each round we reassess each member's trust to see if it can still be a member of the panel. 
+If the agent's trust exceeds the threshold it becomes a member of the panel. 
+In each round we reassess each member's trust to see if that may remain a member of the panel. 
 Therefore, the threshold acts as an incentive for the leaders to make good decisions. 
-A bad decision is punished by the followers by decreasing the trust value for all the members of 
+A bad decision is punished by the followers decreasing the trust value for all the members of 
 the panel. 
-This threshold is calculated based on the social belief of the group. 
-Authoritarian groups have lower threshold and libertarian ones higher. 
-Therefore, an authoritarian panel has to worry less when making a decision than a libertarian panel.
+This threshold is calculated based on the social belief of the group: authoritarian groups have lower threshold and libertarian ones higher. 
+As a result, an authoritarian panel has to worry less when making a decision than a libertarian panel.
 
 \subsection{Where to go from here}
 Once we have a stable group or during the formation of the groups, we want to use what has 
 emerged and bring things into perspective, via extending the political world described above. 
-The point we moved on to analyse is:
-
-\begin{itemize}
-\item Whether or not charities and loans should be given between groups (which we are treating 
-as countries). 
-We want to know whether giving money (food will be thought as money) to another can exist.
-\end{itemize}
+To this end, we decided to examine whether or not charities and loans should be given between groups:
+to explore how lending food to groups in need affects the system and balance of groups.
 
 \subsection{Economics and Loans}
 

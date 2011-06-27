@@ -102,14 +102,14 @@ which can change over time.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/detailed_social_graph}
-\caption{The Political Compass}
+\caption{The Political Compass,  with the location of well known political ideals}
 \end{figure}
 
 %Old political compass:
 %\begin{figure}[ht]
 %\centering
 %\includegraphics[width=0.4\linewidth]{figures/socialGraph}
-%\caption{The Social Compass, with the location of well known political ideals}
+%\caption{The Social Compass}
 %\end{figure}
 
 The x-axis (Economic axis) determines how the group handle their economic affairs, in terms of tax rates. 

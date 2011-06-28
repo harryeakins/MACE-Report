@@ -156,7 +156,7 @@ It is here where a group that loaned money to another group actually receives it
 
 The tax is preformed and the reserve is updated and tax of the internal hunting game amongst the group members themselves is carried out with the addition of what is given from the leaders playing the external hunting game.
 
-\subsection{Attempting to Interact with other Groups
+\subsection{Attempting to Interact with other Groups}
 This method allows a group to interact with other groups. If it is in need, it can check if any of its loan requests has been accepted. If the group is not in trouble it can check if there is any group which needs help. If it has enough money it can give them money (food from the reserve).
 
 If a group is in need, it checks if it has managed to recover their economic status since their call for help. This group may have already been helped out by another group and you no longer need any more loans. If however you are still in need, then the group checks if its request for a loan has been granted, if so, it then stores the receipt it gets in a list of ‘loans taken’ histories to use with repayments later. If no group has responded then unfortunately the group stays in need for another round.

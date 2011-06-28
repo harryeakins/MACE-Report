@@ -1,13 +1,5 @@
 \lstset{
     language=Java,
-    basicstyle=\mdseries\footnotesize,
-    keywordstyle=\color{BlueViolet}\bfseries,
-    identifierstyle=\color{black},
-    commentstyle=\color{OliveGreen},
-    morecomment=[s][\color{OliveGreen}]{/**}{*/},
-    stringstyle=\color{RedOrange},
-    showstringspaces=false,
-    tabsize=2
 }
 
 \renewcommand{\baselinestretch}{0.9}

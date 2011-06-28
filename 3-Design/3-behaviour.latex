@@ -52,8 +52,140 @@ number things which are specified when creating the agent.
 This allows each agent to respond differently to stimuli, making the simulation
 very open and free-flowing, with huge numbers of potential combinations.
 
-\subsection{Specific Agent Behaviour}
-\emph{More detailed agent heuristics to be added and explained once finalised (with results section).}
+\subsection{Agent Behaviour}
+
+Agents contain a number of methods and hueristics to implement and assist in making decisions.
+These functions are heavily affected by an agent's beliefs, and act like the "brain" of the agent - 
+allowing it to weigh up its current environment and come to a logical conclusion on what to do.
+The methods that we have used are outlined, and then described in detail, below.
+
+\begin{itemize}
+\item Choosing a Group to join
+	\begin{itemize}
+	\item Is the agent satisfied with its current group?
+	\item How the agent searches for and decides to join existing groups
+	\item Whether an agent wants to attempt to create a new group
+	\end{itemize}
+\item Choosing what to hunt
+	\begin{itemize}
+	\item Giving advice
+	\item Seeking advice
+	\end{itemize}
+\item Choosing group movement
+	\begin{itemize}
+	\item Making proposals
+	\item Voting on proposals
+	\end{itemize}
+\item Modifications to Trust, Loyalty, Happiness and personal Beliefs
+	\begin{itemize}
+	\item After Hunting
+	\item After Voting
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Satisfaction}
+An agent's satisfaction is derived from its current socio-economic position
+(in turn affected by Happiness, Loyalty and Trust) in relation to the group's position.
+Should the vector distance between the two cross a certain threshold, the agent will leave the group.
+In addition, if an agent's satisfaction level drops by more than 20\% 
+(an arbitrary value) in a single turn, it will exit the group regardless of proximity of beliefs
+
+Upon leaving the group, the agent checks how many are left in that group -
+if only one hunter remains, he must leave the group, since groups of one agent cannot exist 
+(because hunting happens in pairs), 
+and if the group is emtpy, it is terminated and removed from the environment.
+
+\subsubsection{Choosing a Group}
+We start by filtering out agents that are not free to group as they are already part of a group. 
+If these agents are satisfied then nothing happens to them in this turn: they simply remain in the group.
+However, if the agent is not satisifed, it leaves the group and becomes a free agent.
+
+Free agents, on the other hand, look for groups to join.
+Firstly, the agent deals with all outstanding group invitations, then 
+- if it has not yet joined a group - it will request invitations to groups
+with social and economic beliefs similar to its own.
+More specifically, it searches through all groups with at least two members 
+(to prevent joining in an unstable group in the process of formation) 
+and finds out how much it trusts that group's members, 
+as well as computing the vector distance seperation bewteen the groups and its own socio-economic beliefs.
+These two numbers are then summed to create a hueristic output, with a 30-70 weighting split, 
+to emphasize the importance of similar ideals within groups.
+If this heuristic outcome is greater than 40\%, 
+then the agent considers itself suited to the group and makes an application to join.
+
+If the agent is still not a memeber of a group, it will attempt to find another agent to create a group with.
+
+\subsubsection{Forming a Group}
+The decision of who to attempt to form a group with is made in the same manner as joining a group:
+the agent compares trust and political ideals with the target. This time, however, the weightings are reversed 
+(70-30) and the threshold is only 30\%. 
+This represents the importance of personal trust during foundation,
+and the lower threshold is to encourage the formation of groups - especaially toward the begninning of the simulation,
+where there are few groups.
+Upon finding a suitable candidate, an invitation is immediately sent and responded to.
+Upon receiving an invitation, an agent performs its own suitability check on the sender,
+and if it crosses the 30\% threshold, it accepts the invitation.
+Once an invitation is accepted, a new group is immediately formed, consiststing of the two founding agents.
+
+\subsubsection{Choosing What to Hunt}
+Before submitting a decision, an agent in a group asks others in the group for advice about which strategy animal to hunt.
+If an agent is not part of a group, or others cannot or do not advise, the agent simply uses its own strategy.
+Here, we recall that the four possible hunting strategies are always cooperate, always defect, tit-fof-tat and random.
+
+Who to ask is determined by an agent's partner's history. 
+Specifically, an agent asks the player who hunted with their partner last what to do 
+- essentially attmepting optimising its strategy against a specific opponent.
+Once asked to provide advice, the agent checks the trust value with the partner of the requesting agent.
+If the trust value is high, the partner was cooperative, and hunting for stag is the correct strategy;
+similarly, a low trust value indicates an uncooperative player, and the asker should play it safe and hunt for rabbit.
+If the trust value does not deviate sufficiently from the default, the advisor does not have sufficient information to offer advice, 
+and responds as such.
+
+\subsubsection{Proposals and Voting}
+After hunting each round, agents in groups have the opportunity to influence the group's economic position.
+Each agent proposes a movement of the group's economic ideal towards the agent's own belief 
+- attempting to make the group match his own idealology.
+Each agent then votes on all proposals, supoprting those that reflect its own desired movement, 
+and rejecting those that do not. 
+Each proposal requires a simple majority of 50\% to be passed, 
+with the final movement of the group being an average of all passed proposals.
+
+\subsubsection{Updating Attribute Values: After Hunting}
+An agent's economic ideal can be used to show how much food an agent expects from each hunt.
+Therefore, an agent's happiness increases after a hunt if it receieves a larger proportion of
+the food hunted in the team than it expected. 
+If it receives exactly what it expected, happiness does not change.
+Loyalty is upadated immediately afterwards, and the change is directly proportional to
+both the change in happiness this turn and the distance from the group's economic position.
+
+The result of the hunt also affects trust values: 
+if an agent attemped to hunt stag and its partner cooperated, trust increases; 
+if the partner defected, it decreases.
+If an agent attmpted to hunt rabbit, cooperation is not required,
+and so trust of its partner is not changed.
+Trust for the advisor is also updated - 
+it is increased if the advice it gave was sound, 
+otherwise it is decreased.
+
+\subsubsection{Updating Attribute Values: After Voting}
+After propostions have been proposed, voted on and enacted, agent values are upadted.
+Happiness is increased if the group moved towards its own beliefs, 
+proportional to how close the group is to its own desire.
+Similarly, Happiness is proportionately decreased if the group moved away.
+
+As before, Loyalty is then updated directly proportionately to the change in Happiness
+and distance of the group's economic ideals from the agent's own.
+
+Then, each agent's trust value for each other agent increases if the second agent made a proposal 
+that matches the first's desires. 
+Trust is decreased if the proposal was contrary to the first's desires.
+
+Finally, an agents socio-economic belief is updated. 
+If the agent's happiness and loyalty have increased, then the agent will move his belief
+towards that of the group. 
+If the agent has become less happy and loyal, then he will move away from the group's beliefs.
+In the corner case that an agent's beliefs exactly match the group's, but it is dissatisfied and wishes to move away,
+it moves in a random direction.
 
 \subsection{Group Behaviour}
 Focusing on the groups, we can see many functions present that are used to implement its various actions. Heuristics determine how the group performs these based on the economic and social beliefs of it's agents, as well as a number of their attributes. These functions essentially contribute to the social interaction amongst the groups that exist, what the interactions:

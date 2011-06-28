@@ -55,6 +55,115 @@ very open and free-flowing, with huge numbers of potential combinations.
 \subsection{Specific Agent Behaviour}
 \emph{More detailed agent heuristics to be added and explained once finalised (with results section).}
 
+\subsection{Group Behaviour}
+Focusing on the groups, we can see many functions present that are used to implement its various actions. Heuristics determine how the group performs these based on the economic and social beliefs of it's agents, as well as a number of their attributes. These functions essentially contribute to the social interaction amongst the groups that exist, what the interactions:
+
+\begin{itemize}
+\item Responding to a Join Request
+\item Updating the Panel of Leaders
+\item Decision for a Group Strategy to use in the external hunting game
+\item Making Payments
+\item Taxing what is earned from the external hunting game
+\item Attempting to interact with other groups
+\end{itemize}
+
+\subsubsection{Responding to a Join Request}
+After an agent chooses a group it wants to join, the group has to make its 
+decision on whether it wants to accept the agent.
+
+If the group is empty, then the agent had just created the group, so, the agent 
+is accepted as it is the founder of the group. 
+If the group has only one member then the agent in question has been invited 
+to the group (only agents involved with newly created groups get invitations), 
+so the invitee is accepted. 
+If, what is identified as, a special agent is requesting to join a group then it is accepted.
+
+A special agent is a representation of the any groups that exist. 
+They do not interact with individual agents apart from other special agents which 
+represent other newly created groups. 
+There is only one special group and it is formed right after the very first group of 
+the simulation is created.
+
+If none of the above conditions apply then we have a fully formed group and a 
+normal active agent trying to join this group. 
+The way the group goes about deciding on a response is similar to how agents 
+choose a group. 
+An average trust value is computed between all the members of the group and the 
+agent in question. 
+With regards to social and economic beliefs on the political compass, 
+a vector distance is computed between the group and the agent. 
+Knowing that these two factions are within the range of 0 and 1, a heuristic result is created from their sum with weightings assigned to both of them. 
+Here, the weightings are given 40\% to trust and 60\% to the vector distance. 
+If the final sum is greater than 50\% (our pass mark for a group’s decision is 0.5, 
+so that a group tends to bring in more people) the agent is accepted into the group 
+and the average economic belief of the group is updated, otherwise the group rejects the agent.
+
+\subsubsection{Updating the Panel of Leaders}
+The panel represents the elite few in the group that have the responsibility to lead the group, 
+representing the rest of the members in the external hunting game between groups. 
+We first find the size of the panel. 
+The size of the panel is the proportion of the total population that is allowed to lead, 
+based on the social belief of the group. 
+A very libertarian group would have every member in the panel, whilst an authoritarian setup
+would only have one member in power. 
+We then get the average trust that exists between members of the group, sort the list of 
+averages in decreasing order, and then populate the panel list with the most trusted agents 
+in the group. 
+These agents become the leader.
+
+Any agent may be a candidate to become a panel member but its trust value must be larger 
+than the threshold to belong to the panel. 
+The threshold is the social position; if the group is highly libertarian then anyone with a 
+trust value above zero can become a leader. 
+In authoritarian groups, panel formations are rare since a relatively high trust value must be achieved. 
+This threshold also acts as a warning for current panel members. 
+If their trust falls below this threshold due to bad decisions they will be ousted in the next 
+round.
+
+\subsubsection{Decision for a Group Strategy}
+We first ensure the group has a panel of leaders, as they are necessary to make any decisions and participate
+in the hunt between groups. 
+If there is a panel, we get a list of how many followers prefer each of the four strategy types 
+(AC, AD, R and TFT) with the most preferred strategy at the head of the list.
+We do the same for the preferred strategies among the panel members.
+
+We then calculate what is called the quotum - the number of supporters needed for a proposal to pass. 
+In this case the proposal is the strategy of the group and is a function of the social belief of the group. 
+Starting with the most preferred strategy of the panel (the strategy that the leader/leaders wish to follow), 
+if this proposal is supported by a high enough number of followers (dictated by the quotum), 
+the group has come to an agreement to choose this strategy as the result of the decision. 
+Otherwise, we try the next best strategy. 
+The lower the quotum the less easy it is to get your proposal accepted, this is the case of dictatorship 
+where if the agents don’t agree with the single leader then the group doesn’t get to interact with other groups.
+
+\subsubsection{Making Payments}
+To allow the for the giving and recieving of loans, we allow our groups to make payments on arbitrary 
+situations, but prioritise the repayment of existing debts. 
+We first check if the group is financially in trouble in terms of loan repayments or low food. 
+If this is the case, they need to request for a loan, otherwise they are free to provide a loan to another group. 
+It first pays the price to hunt with other groups (an arbitrary choice of 100, keeping in mind that this fee is 
+taken out of the reserve of the group). 
+To avoid bankruptcy, it does not pay the fee if there is a risk of reaching an empty reserve. 
+We then check the group’s assigned greediness value (ranged between 0 and 1) with a random number. 
+It is very likely that greedy groups (groups with a greediness value closer to 1) will pay for what we call 
+public service (again, an arbitrary choice of what outgoing payments are funding). 
+The final payment is to any loans that a group is required to pay off. 
+The group retrieves the interest rate and the amount owed back and must be able to pay back the whole sum 
+in one turn to pay off the loan.
+
+\subsection{Taxing what is earned}
+It is here where a group that loaned money to another group actually receives its money if any group paid back any loans. The reserve of the group is updated with any loans paid back. We then calculate what is called the goal ratio, which is how far away the group’s reserve is from attaining achievement (an arbitrary goal that the group has in mind, the amount of food/money needed to get to space or attain world domination etc.). The tax on the reserve to give to the reserve and the rest to the members is computed by, firstly, if the group is in trouble (require loans) then by how far away it is from attaining achievement and, secondly, if the group is not in financial trouble then it’s computed by how far the group is from attaining achievement (which should be small since they are not in trouble) scaled down by the average happiness of the members of the group.
+
+The tax is preformed and the reserve is updated and tax of the internal hunting game amongst the group members themselves is carried out with the addition of what is given from the leaders playing the external hunting game.
+
+\subsection{Attempting to Interact with other Groups
+This method allows a group to interact with other groups. If it is in need, it can check if any of its loan requests has been accepted. If the group is not in trouble it can check if there is any group which needs help. If it has enough money it can give them money (food from the reserve).
+
+If a group is in need, it checks if it has managed to recover their economic status since their call for help. This group may have already been helped out by another group and you no longer need any more loans. If however you are still in need, then the group checks if its request for a loan has been granted, if so, it then stores the receipt it gets in a list of ‘loans taken’ histories to use with repayments later. If no group has responded then unfortunately the group stays in need for another round.
+
+If this group is not in need then it may want to help a group in need. Looking through the list of groups in need, if the needy group has not already ben helped out and if the wealthy group can pay the amount needed and if the wealthy group is not too greedy to keep its money, then an interest rate is calculated and comprised of how greedy the wealthy group is and how much trouble the needy group is in. The loaner group forms a receipt of how much it is given (how much it has to repay) along with the interest rate computed. The receipt is stored away in a shared structure where the needy group can receive as soon as it can.
+
+
 \section{Emergent Behaviour}
 
 Over time, those agents better at predicting what to hunt should gain the

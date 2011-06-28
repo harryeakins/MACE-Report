@@ -55,7 +55,7 @@ very open and free-flowing, with huge numbers of potential combinations.
 \subsection{Agent Behaviour}
 
 Agents contain a number of methods and hueristics to implement and assist in making decisions.
-These functions are heavily affected by an agent's beliefs, and act like the "brain" of the agent - 
+These functions are heavily affected by an agent's beliefs, and act like the ``brain" of the agent - 
 allowing it to weigh up its current environment and come to a logical conclusion on what to do.
 The methods that we have used are outlined, and then described in detail, below.
 

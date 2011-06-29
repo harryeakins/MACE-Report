@@ -130,9 +130,13 @@ population, but a number survive through to the end of the simulation.
   \centering
   \caption{Group Locations in Simulation 2312. Percentages in run-times}
   \subfloat[10\%]{\label{2312-10}\includegraphics[width=0.15\textwidth]{figures/2312-10}}
+  \quad
   \subfloat[30\%]{\label{2312-30}\includegraphics[width=0.15\textwidth]{figures/2312-30}}
+  \quad
   \subfloat[50\%]{\label{2312-50}\includegraphics[width=0.15\textwidth]{figures/2312-50}}
+  \quad
   \subfloat[70\%]{\label{2312-70}\includegraphics[width=0.15\textwidth]{figures/2312-70}}
+  \quad
   \subfloat[100\%]{\label{2312-100}\includegraphics[width=0.15\textwidth]{figures/2312-100}}
 \end{figure}
 

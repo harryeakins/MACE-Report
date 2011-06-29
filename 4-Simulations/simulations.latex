@@ -19,11 +19,7 @@
 
 %ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
 
-\subsection{Simulation A}
-\begin{itemize}
-\item{How was it initialised?}
-\item{What behaviour did we draw?}
-\end{itemize}
+\input{4-Simulations/A-CLIPolitics.latex}
 
 \subsection{Simulation B}
 \begin{itemize}

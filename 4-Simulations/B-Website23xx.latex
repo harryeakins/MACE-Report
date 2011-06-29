@@ -14,6 +14,29 @@ ecfdc8\footnote{
 \url{https://github.com/javajawa/ISEGameOfLife/commit/ecfdc89c80128fb165b6444258a5256d786c2f8a}
 }.
 
+\subsubsection{General notes on the agent distribution}
+
+The continued use fo all four straegies shows up as a major 
+
+\subsubsection{Loaning and Greediness}
+
+Greedier groups tend to borrow more, less greedy more generous.
+Benefit to greddy groups who don't need to pay back?
+TODO: Expand this section
+%TODO: Expans this section
+
+\subsubsection{Group Behaviour}
+
+All of the simulations led to the formation of groups.
+This could be taken to indicate that the framework has an unfair bias towards
+grouping, but similar patterns are also seen in life.
+We form groups as family, tribes, communities, and civilisations in order to
+aid our survivial.
+
+The groups that were formed varied in size from just two agents all the way 
+into the twenties - a significant portion of the initial eighty agents.
+The overall the 
+
 A variety of different intersting points can be taken from the different
 simulations. The first Simualtion that we shall analysis is 2312.
 

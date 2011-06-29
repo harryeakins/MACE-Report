@@ -7,10 +7,10 @@ of the agents, loans, or other games between the groups.
 Due to the lack of unit testing as a control mechanism, which will be 
 discussed later, repeated runs of thes simualtions highlighted most of the
 bugs in the code. These became apparent in strange correleations and
-homogenity in the results which you would not expect with the wide range of
+homogenity in the results which one would not expect given the wide range of
 initial consitions.
 Most of these issues were later shown to either be major programming errors
-or biases, rather than emergent behaviours.
+or inadvertant biases, rather than emergent behaviours.
 
 \subsubsection{Parameters and Execution}
 
@@ -20,18 +20,18 @@ Each one simulates 200 basic agents, 50 of each of the four core agent
 strategies.
 They are each allocated 20 food, and set to cosume 2 per turn - the same amount
 as supplied by a rabbit in the simulation.
-Stags, on the other hand, are set to supply 10 food, creating A 250\% bonus
+Stags, on the other hand, are set to supply 10 food, giving a 250\% bonus
 for co-operation.
 
 The social and economic beliefs are the first thing to be set by the random
-seed - a Random class is created on the simulations random seed, which is
+seed - a Random class is created on the simulation's random seed, which is
 used to generate the pseudo-random position of all the agents.
-The same random seed is ued to create the Random number generators of the
+The same random seed is then used to create the Random number generators of the
 Participants in the simulation.
 This random generator affects all of the pseudo-random actions that the
-Participants model as probabilistic choices, such that the actions of the
-Participants, as well as their initial conditions, are not exactly the same
-for each of the simulations.
+Participants model as probabilistic choices. 
+This ensure that the actions of the Participants, as well as their initial conditions, 
+are not identical in each simulation.
 
 The simulations were run using build 11f76d\footnote{
 \url{https://github.com/javajawa/ISEGameOfLife/commit/11f76d47fb27d479519d906b7b6ff97307530115}
@@ -41,7 +41,7 @@ network, powered by Condor\footnote{
 }.
 A total of 250 simualtions were scheduled, with some hitting database timeout
 errors due the over-parallelisation caused by the availability of Condor
-hosts, leaving 218 simulations, consisting of 833 rounds (5000 cycles) each.
+hosts, resulting in 218 completed simulations, consisting of 833 rounds (5000 cycles) each.
 
 \subsubsection{Analysis}
 
@@ -51,14 +51,14 @@ the student union\footnote{
   (\url{icsf.org.uk}) database server.
   Used with kind permission.
 }.
-They were intended to be analysised using the website interfaces, but some
-local priliminary analysis should that the build still had a significant
+They were intended to be analyised using the website interfaces, but some
+local preliminary analysis showed that the build still had a significant
 number of bugs, whether in the simulation or the database interfaces.
 Figure \ref{cli_survive} shows the average population and number of ungrouped
 agents as the simulations progressed.
 The shown error bars are the 99.9999999\% confidence interval half widths,
-showing that the varation between the results was almost negliable.
-Furthurmore, all the simulations terminated after 833 rounds with no existant
+showing that the varation between the results was negliable.
+Furthurmore, all the simulations terminated after 833 rounds with no existent
 groups.
 
 \begin{figure}
@@ -70,14 +70,14 @@ groups.
 Analysis of this particular issue showed that the values for group size in the
 database were either 1 or 0.
 This was something of a suprise, as the implementation is designed to make sure
-that when groups are formed by an agent, they invite at least one ungrouped
-agent, and that invitations are always accepted.
-A further attempt was made to attempt to see if this data was in fact accurate
+that a group can only be formed if the founder's invitation to another agent is
+accepted, meaning each group should always contain at least two members.
+A further attempt was made to see if this data was, in fact, accurate
 by performing analysis of the total number of agents that should have been active
 according to the times of agent's actions, and the number of agents in groups
 and in the (assumeedly correct) free agent group.
 
-This analysis fell through due to the computationally complexity of the queries
+Sadly, this analysis fell through due to the computational complexity of the queries
 and the limited amount of server time available for this project on the 
 database.
 

@@ -22,7 +22,7 @@
 
 % subsubsection Implementation of the Genetic Agents (end)
 \subsubsection{Simulation Details} % (fold)
-\label{subs:simulation_details}
+\label{subs:ga_simulation_details}
 
 	Each simulation is populated with 8 different political agents and one genetic agent.
 	A political agent is created with randomised attributes, such as the agent type, social belief and economic belief.
@@ -34,5 +34,13 @@
 	The reproduction process crosses over an unbiased randomly chosen pair of entities, then repopulates the gene pool with the crossed product with a chance of mutation.
 
 % subsubsection Simulation Details (end)
+\subsubsection{Results} % (fold)
+\label{subs:ga_results}
+
+	The evolution was allowed to run for around 80 iterations in two comparing scenarios.
+	The difference between the two scenarios is that one of them is evolving a genetic agent with a choose food neural network, while the other one is only using political agent's standard strategy.
+	However in both cases, they are to evolve genetic agents with degrees of freedom in social belief, economic belief and agent type.\footnote{But note that the agent type is not with a useful meaning for the genetic agent, since it has its own choose food strategy.}
+
+% subsubsection Results (end)
 
 % vim: set fdm=marker fmr=(fold),(end) nolist:

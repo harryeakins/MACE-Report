@@ -23,7 +23,7 @@ as supplied by a rabbit in the simulation.
 Stags, on the other hand, are set to supply 10 food, creating A 250\% bonus
 for co-operation.
 
-The social and economic beliefs are the first thign to be set by the random
+The social and economic beliefs are the first thing to be set by the random
 seed - a Random class is created on the simulations random seed, which is
 used to generate the pseudo-random position of all the agents.
 The same random seed is ued to create the Random number generators of the
@@ -53,12 +53,12 @@ the student union\footnote{
 }.
 They were intended to be analysised using the website interfaces, but some
 local priliminary analysis should that the build still had a significant
-nubmer of bugs, whether in the simulation or the database interfaces.
+number of bugs, whether in the simulation or the database interfaces.
 Figure \ref{cli_survive} shows the average population and number of ungrouped
 agents as the simulations progressed.
 The shown error bars are the 99.9999999\% confidence interval half widths,
 showing that the varation between the results was almost negliable.
-Furthurmore, all the simualtions terminated after 833 rounds with no existant
+Furthurmore, all the simulations terminated after 833 rounds with no existant
 groups.
 
 \begin{figure}

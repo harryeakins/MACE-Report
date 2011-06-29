@@ -36,3 +36,12 @@
   \label{DeathSim}
   \lstinputlisting{7-Appendices/code/DeathSim.java}
 \end{program}
+
+\begin{program}
+  \caption{
+    CLIPolitics Simulation
+  }
+  \label{CLIPolitics}
+  \lstinputlisting{7-Appendices/code/CLIPolitics.java}
+\end{program}
+

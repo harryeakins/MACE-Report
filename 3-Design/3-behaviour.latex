@@ -284,17 +284,34 @@ The group retrieves the interest rate and the amount owed back and must be able 
 in one turn to pay off the loan.
 
 \subsection{Taxing what is earned}
-It is here where a group that loaned money to another group actually receives its money if any group paid back any loans. The reserve of the group is updated with any loans paid back. We then calculate what is called the goal ratio, which is how far away the group’s reserve is from attaining achievement (an arbitrary goal that the group has in mind, the amount of food/money needed to get to space or attain world domination etc.). The tax on the reserve to give to the reserve and the rest to the members is computed by, firstly, if the group is in trouble (require loans) then by how far away it is from attaining achievement and, secondly, if the group is not in financial trouble then it’s computed by how far the group is from attaining achievement (which should be small since they are not in trouble) scaled down by the average happiness of the members of the group.
+At this stage, any group that is able to retrieve funds from groups in debt to them and able to pay this debt off, does so. 
+The reserve of the group is updated with any loans paid back. 
+We then calculate the goal ratio, which is how far away the group’s reserve is from attaining achievement 
+(an arbitrary goal that the group has in mind, the amount of food needed to get to space or attain world domination etc.).
+Once the reserve has been accumulated and the group is aware of how much food it has for the proceeding rounds, it taxes 
+the group based on it's status. 
+If the group is in need, it simply taxes based on how far away it is from attaining achievement. 
+Otherwise, it takes into account the relative happiness of the group and taxes enough to maintain a high level, whilst still 
+obtaining an adequate amount. If this is the case, happiness is the main prerogative. 
 
-The tax is preformed and the reserve is updated and tax of the internal hunting game amongst the group members themselves is carried out with the addition of what is given from the leaders playing the external hunting game.
+The tax is preformed and the reserve is updated and tax of the internal hunting game amongst the group members is carried out, 
+with the addition of what is recieved from the leaders playing the external hunting game.
 
 \subsection{Attempting to Interact with other Groups}
-This method allows a group to interact with other groups. If it is in need, it can check if any of its loan requests has been accepted. If the group is not in trouble it can check if there is any group which needs help. If it has enough money it can give them money (food from the reserve).
+This method allows a group to interact with other groups. 
+If it is in need, it can check if any of its loan requests have been accepted. 
+If the group is not in trouble it can check if there is any group which needs help. 
+If it has enough money it can provide with food from its own reserve.
 
-If a group is in need, it checks if it has managed to recover their economic status since their call for help. This group may have already been helped out by another group and you no longer need any more loans. If however you are still in need, then the group checks if its request for a loan has been granted, if so, it then stores the receipt it gets in a list of ‘loans taken’ histories to use with repayments later. If no group has responded then unfortunately the group stays in need for another round.
+When a group is in need it checks to see if it has managed to recover its economic status since its call for help. 
+This group may have already been helped out by another group and you no longer need any more loans. 
+If however you are still in need the group checks if its request for a loan has been granted. 
+If so, it then stores the receipt it gets in a list of `loans taken’ histories to use with repayments later. 
+If no group has responded then unfortunately the group stays in need for another round.
 
-If this group is not in need then it may want to help a group in need. Looking through the list of groups in need, if the needy group has not already ben helped out and if the wealthy group can pay the amount needed and if the wealthy group is not too greedy to keep its money, then an interest rate is calculated and comprised of how greedy the wealthy group is and how much trouble the needy group is in. The loaner group forms a receipt of how much it is given (how much it has to repay) along with the interest rate computed. The receipt is stored away in a shared structure where the needy group can receive as soon as it can.
-
+When a group is not in need, it may want to help another group. 
+If the needy group has not already ben helped out and if the wealthy group can pay the amount needed when 
+factoring in its own greediness, an interest rate is calculated and the loan is given.
 
 \section{Emergent Behaviour}
 

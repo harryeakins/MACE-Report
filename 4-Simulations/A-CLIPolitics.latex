@@ -1,7 +1,54 @@
 \subsection{Randomised Politics}
 
-THIS SECTINO WILL BE ABOUT CLIPOLITCS ON CONDOR
+The main simulation base that we examined revolved around the formation of
+groups in the stag hunt games, without some of the more complicated features
+of the agents, loans, or other games between the groups.
+
+Due to the lack of unit testing as a control mechanism, which will be 
+discussed later, repeated runs of thes simualtions highlighted most of the
+bugs in the code. These became apparent in strange correleations and
+homogenity in the results which you would not expect with the wide range of
+initial consitions.
+Most of these issues were later shown to either be major programming errors
+or biases, rather than emergent behaviours.
+
 \subsubsection{Parameters and Execution}
 
+These simulations, of which the code can be seen in excerpt \ref{CLIPolitics}
+on page \pageref{CLIPolitics}, are homogenous except for the random seed.
+Each one simulates 200 basic agents, 50 of each of the four core agent
+strategies.
+They are each allocated 20 food, and set to cosume 2 per turn - the same amount
+as supplied by a rabbit in the simulation.
+Stags, on the other hand, are set to supply 10 food, creating A 250\% bonus
+for co-operation.
+
+The social and economic beliefs are the first thign to be set by the random
+seed - a Random class is created on the simulations random seed, which is
+used to generate the pseudo-random position of all the agents.
+The same random seed is ued to create the Random number generators of the
+Participants in the simulation.
+This random generator affects all of the pseudo-random actions that the
+Participants model as probabilistic choices, such that the actions of the
+Participants, as well as their initial conditions, are not exactly the same
+for each of the simulations.
+
+The simulations were run using build 11f76d\footnote{
+\url{https://github.com/javajawa/ISEGameOfLife/commit/11f76d47fb27d479519d906b7b6ff97307530115}
+}, and were run on the Department of Computing's high throughput computing
+network, powered by Condor\footnote{
+  with thanks to CSG, including David McBride
+}.
+A total of 250 simualtions were scheduled, with some hitting database timeout
+errors due the over-parallelisation caused by the avaialblility of Condor
+hosts, leaving 218 simulations, consisting of 833 rounds (5000 cycles) each.
+
 \subsubsection{Analysis}
+
+The results of the runs on build 11f76d were uploaded to a database hosted in
+the student union\footnote{
+  The server was `Corvette', Imperial College Science Fiction Society's 
+  (\url{icsf.org.uk}) databae server.
+  Used with kind permission.
+}
 

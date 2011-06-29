@@ -17,11 +17,21 @@
 		\label{fig:ga_choose_food}
 	\end{figure}
 
-	The choices agents can made are always to hunt either stag or hare.
+	The choices agents can make are always to hunt either stag or hare.
 	The agent's network then base its inputs on what choice his opponent made in the last turn, what mixed strategy over the history did the opponent use---that is the probability of hunting stags, and many other attributes as illustrated in the above figure.
 
 % subsubsection Implementation of the Genetic Agents (end)
-\subsubsection{Simulation Details}
+\subsubsection{Simulation Details} % (fold)
 \label{subs:simulation_details}
+
+	Each simulation is populated with 8 different political agents and one genetic agent.
+	A political agent is created with randomised attributes, such as the agent type, social belief and economic belief.
+	And a genetic agent is created with not only these above attributes, but also with an above-mentioned neural network to make choose food strategies.
+
+	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is a run of the simulation.
+	One iteration evaluates the fitness values of all 20 simulations in the population.
+	After evaluation, 40\% of the population with the best fitness values are selected as elites, allowing them to reproduce new simulations to again fill the population for the next iteration.
+
+% subsubsection Simulation Details (end)
 
 % vim: set fdm=marker fmr=(fold),(end) nolist:

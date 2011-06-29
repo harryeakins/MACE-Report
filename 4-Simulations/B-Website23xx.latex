@@ -1,4 +1,17 @@
 \subsection{Distributed Politics Simulations}
 
-WORDS!
+A number of simulations were run, for a variety of different builds, using
+the PoliticxExtended simulation, listed in extract \ref{pol-ext} on page
+\pageref{pol-ext}.
+
+After the failures of the Condor-driven simulations, we fell back analysing
+these data sets, which are non-determisnitcally geenrated, but are avialable
+to view at \url{isegol.com/result.html}.
+Any specific simulations are referred to by their id number, displayed in
+the left hand sid scroll bar as part of the graph.
+The simulations we consider here are primarily built and run using build
+ecfdc8\footnote{
+\url{https://github.com/javajawa/ISEGameOfLife/commit/ecfdc89c80128fb165b6444258a5256d786c2f8a}
+}.
+
 

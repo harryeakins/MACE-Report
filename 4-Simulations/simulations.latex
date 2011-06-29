@@ -2,20 +2,7 @@
 
 \input{4-Simulations/1-Validation.latex}
 
-\section{Simulation Design}
-
-\begin{itemize}
-\item{Which setups do we wish to run?},
-\item{What emergent behaviour are we planning to explore from this?}
-\end{itemize}
-
-%ASSIGNED TO: Olly, Valdas, Aadil
-
 \section{Simulations}
-
-\begin{itemize}
-\item{What simulations did we run?}
-\end{itemize}
 
 \input{4-Simulations/A-CLIPolitics.latex}
 \input{4-Simulations/B-Website23xx.latex}

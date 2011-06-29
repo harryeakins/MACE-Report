@@ -16,12 +16,37 @@ ecfdc8\footnote{
 
 \subsubsection{General notes on the agent distribution}
 
-The continued use fo all four straegies shows up as a major 
+- Sill using 4 Strategies
+ - LEads to many deaths
+  - AD/R/TFT tend to betrayal in many cases
+  - Predictors only good for AC and AD
+   - Predictors not always followed
+ - No situations of all deaths
+ - Level builds (20 of each) - leaves about 25/30 - high varience
+ - 'Nicer' builds (much bigger foods) - leaves abotu 70
+ - Main AC builds - leaves 70 - 75
+  - Discuss likely cuases
+   - Level = 2313, 2315, 2317, 2319 
+   - Nicer = 2330 onwards
+   - AC = 2310, 2312
+
+ - Then, look at average gorup numbers / size in the thre types
+  - USe given sim ids
+  - Maybe include a stock chart or something
+
+  - Maybe compare two of the different classes
+   - Level vs AC would be costracting
+   - Level va Nice would be comparing
 
 \subsubsection{Loaning and Greediness}
 
 Greedier groups tend to borrow more, less greedy more generous.
 Benefit to greddy groups who don't need to pay back?
+Greed leads to more greed?
+
+- This point was made by Aadil who can see the loans data
+- Hopefully, this will become apparent when the website works
+
 TODO: Expand this section
 %TODO: Expans this section
 

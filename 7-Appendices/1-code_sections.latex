@@ -45,3 +45,11 @@
   \lstinputlisting{7-Appendices/code/CLIPolitics.java}
 \end{program}
 
+\begin{program}
+  \caption{
+	Extended Politics Simulation
+  }
+  \label{pol-ext}
+  \lstinputlisting{7-Appendices/code/PoliticsExtended.java}
+\end{program}
+

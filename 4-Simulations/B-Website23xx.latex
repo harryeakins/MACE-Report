@@ -16,27 +16,75 @@ ecfdc8\footnote{
 
 \subsubsection{General notes on the agent distribution}
 
-- Sill using 4 Strategies
- - LEads to many deaths
-  - AD/R/TFT tend to betrayal in many cases
-  - Predictors only good for AC and AD
-   - Predictors not always followed
- - No situations of all deaths
- - Level builds (20 of each) - leaves about 25/30 - high varience
- - 'Nicer' builds (much bigger foods) - leaves abotu 70
- - Main AC builds - leaves 70 - 75
-  - Discuss likely cuases
-   - Level = 2313, 2315, 2317, 2319 
-   - Nicer = 2330 onwards
-   - AC = 2310, 2312
+In general, we found that simulations tended to have a high death rate,
+with the population stabilising at approximately one quater of the original.
+WE believe this is because of the relative prevalence of defecting strategies:
+through the Always Defect Strategy, the Random Strategy defecting half the time,
+and the Tit-For-Tat reacting to increased defectors by defecting. 
+In this case, Always Cooperating agents (as well as badly paired
+Tit-For-Tat and unlucky Random agents) tended to die, whereas the defectors
+could happily survive on the sustinance of a rabbit. 
+Thus, in the simulations we ran, defecting appeared to be the dominant strategy, 
+although Always Defect was not the solely successful one.
+To this end, no single simulation had a 100% death rate, since an Always Defect
+agent should very rarely run out of food.
 
- - Then, look at average gorup numbers / size in the thre types
-  - USe given sim ids
-  - Maybe include a stock chart or something
+However, the inclusion of predictors makes the simulation more open.
+Given that an agent follows advice if it gets it, an Always Defect agent 
+can be given advice to cooperate and then get betrayed - leaving it worse off.
+In this way, Always Defect agents can die, and Always Cooperate agents can
+survive through receiving good advice and defecting where necessary.
 
-  - Maybe compare two of the different classes
-   - Level vs AC would be costracting
-   - Level va Nice would be comparing
+Although advice allows an agent to deviate from its assigned strategy, 
+and therefore alter its odds of survival, the predictor function is only
+really reliable when paired with Always Cooperate or Defect agents. 
+Tit-For-Tat and Random strategies are much more difficult to predict.
+As a result, the predictor is only really effective for half the field,
+which goes along to way to explaining our results of Always Defect being 
+largely - but not solely - dominant.
+
+When simulating, we ran three different kinds of simulation:
+the ``normal" one, which had an equal distribution of strategies, 
+which is the simulation mentioned above;
+a ``cooperative" simulation, with a higher proportion of Always Cooperate agents;
+and a ``generous" simulation where the nutrition values for both foods were higher.
+
+The ``normal" build produced a stable population of around 30, albeit with high variance\footnote{
+	Examples: simulations 2313, 2315, 2317 and 2319};
+whereas the ``generous"\footnote{
+	Examples: 2330 upwards} 
+and ``cooperative"\footnote{
+		Examples: 2310, 2312} 
+end result was a population of about 70.
+As mentioned previously, the comparatively low population of the ``normal" simulation
+is probably due to a dominance of defecting, and the death of cooperators and unlucky
+Tit-For-Tat and Randoms.
+
+However, the ``generous" simulation increases the rewards for hunting, and therefore would
+allow those that would die in a ``normal" simulation more chance to survive, as a single 
+successful hunt gives them a longer lifespan to get another hunt: their food reserves last
+longer, given them greater opportunity to get into a surviving pattern.
+The more abundant food also means that a higher value is taken as tax by the group, giving 
+it a larger reserve to distribute amongst agents, again allowing those less
+successful at hunting to survivem by living on what the group doles out.
+
+The ``cooperative" simulation has a similarly high survival rate. 
+This certainly seems to be a result of the increased likelyhood
+of Always Cooperate agents to find someone who will reliably cooperate in the hunt,
+and thus increases the odds of successfully returning food and surving.
+In addition, the increased prevalence of cooperating agents would sway
+the Tit-For-Tat agents into cooperating more often, perpetuating a cooperating cycle.
+Although there is a large degree of cooperation, the survival rate is not 100\%. 
+This is due in part to Defecting and Random agents, who can destroy the cooperating
+dynamic, and cause some Cooperating agents to die. 
+In addition, if an agent is asked advice about an agent it does not trust - 
+this lack of trust coming from contrary political views rather than inadequate predictions  -
+a Cooperating agent can be advised not to trust another Cooperative agent, 
+resulting in a loss of food. 
+Over time, this lack of trust could build up, and result in distrusted agents dying - 
+despite being superficially cooperative.
+
+%TODO: Potentially include actual graphs for visual comparison
 
 \subsubsection{Loaning and Greediness}
 

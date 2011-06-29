@@ -51,7 +51,6 @@
   \input{2-Research/research.latex}
   \input{3-Design/design.latex}
   \input{4-Simulations/simulations.latex}
-  \input{5-Results/results.latex}
   \input{6-Conclusion/conclusion.latex}
   \input{7-Appendices/appendix.latex}
 

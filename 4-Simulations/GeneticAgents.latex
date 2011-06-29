@@ -28,7 +28,8 @@
 	A political agent is created with randomised attributes, such as the agent type, social belief and economic belief.
 	And a genetic agent is created with not only these above attributes, but also with an above-mentioned neural network to make choose food strategies.
 
-	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is a run of the simulation.
+	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is 10 runs of the same simulation.
+	Each evaluation gives a fitness value, which is in turn the average happiness of the genetic agent within the simulation in 10 runs.
 	One iteration evaluates the fitness values of all 20 simulations in the population.
 	After evaluation, 40\% of the population with the best fitness values are selected as elites, allowing them to reproduce new simulations to again fill the population for the next iteration.
 	The reproduction process crosses over an unbiased randomly chosen pair of entities, then repopulates the gene pool with the crossed product with a chance of mutation.
@@ -37,7 +38,7 @@
 \subsubsection{Results} % (fold)
 \label{subs:ga_results}
 
-	The evolution was allowed to run for around 80 iterations in two comparing scenarios.
+	The evolution was allowed to run for around 70 iterations in two comparing scenarios.\footnote{That is 14000 simulations for each one.}
 	The difference between the two scenarios is that one of them is evolving a genetic agent with a choose food neural network, while the other one is only using political agent's standard strategy.
 	However in both cases, they are to evolve genetic agents with degrees of freedom in social belief, economic belief and agent type.\footnote{But note that the agent type is not with a useful meaning for the genetic agent, since it has its own choose food strategy.}
 

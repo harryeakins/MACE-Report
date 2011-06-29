@@ -40,7 +40,7 @@ network, powered by Condor\footnote{
   with thanks to CSG, including David McBride
 }.
 A total of 250 simualtions were scheduled, with some hitting database timeout
-errors due the over-parallelisation caused by the avaialblility of Condor
+errors due the over-parallelisation caused by the availability of Condor
 hosts, leaving 218 simulations, consisting of 833 rounds (5000 cycles) each.
 
 \subsubsection{Analysis}
@@ -48,7 +48,36 @@ hosts, leaving 218 simulations, consisting of 833 rounds (5000 cycles) each.
 The results of the runs on build 11f76d were uploaded to a database hosted in
 the student union\footnote{
   The server was `Corvette', Imperial College Science Fiction Society's 
-  (\url{icsf.org.uk}) databae server.
+  (\url{icsf.org.uk}) database server.
   Used with kind permission.
-}
+}.
+They were intended to be analysised using the website interfaces, but some
+local priliminary analysis should that the build still had a significant
+nubmer of bugs, whether in the simulation or the database interfaces.
+Figure \ref{cli_survive} shows the average population and number of ungrouped
+agents as the simulations progressed.
+The shown error bars are the 99.9999999\% confidence interval half widths,
+showing that the varation between the results was almost negliable.
+Furthurmore, all the simualtions terminated after 833 rounds with no existant
+groups.
+
+\begin{figure}
+  \caption{Low deviation in results; all groups dying out}
+  \label{cli_survive}
+  \includegraphics[width=1.0\textwidth]{figures/cli_survive}
+\end{figure}
+
+Analysis of this particular issue showed that the values for group size in the
+database were either 1 or 0.
+This was something of a suprise, as the implementation is designed to make sure
+that when groups are formed by an agent, they invite at least one ungrouped
+agent, and that invitations are always accepted.
+A further attempt was made to attempt to see if this data was in fact accurate
+by performing analysis of the total number of agents that should have been active
+according to the times of agent's actions, and the number of agents in groups
+and in the (assumeedly correct) free agent group.
+
+This analysis fell through due to the computationally complexity of the queries
+and the limited amount of server time available for this project on the 
+database.
 

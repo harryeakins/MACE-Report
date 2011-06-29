@@ -41,6 +41,15 @@
 	The evolution was allowed to run for around 70 iterations in two comparing scenarios.\footnote{That is 14000 simulations for each one.}
 	The difference between the two scenarios is that one of them is evolving a genetic agent with a choose food neural network, while the other one is only using political agent's standard strategy.
 	However in both cases, they are to evolve genetic agents with degrees of freedom in social belief, economic belief and agent type.\footnote{But note that the agent type is not with a useful meaning for the genetic agent, since it has its own choose food strategy.}
+	The result is shown in Figure~\ref{fig:ga_fitness_comparison}, note that the y-axis represents the average fitness for the population.
+	\begin{figure}[ht]
+		\centering
+			\includegraphics[width=0.6\linewidth]{figures/fitness_comparison}
+		\caption{Comparison of the two different scenarios}
+		\small{The purple line is the without the neural network but has the default choose food strategy.
+		The blue line have a neural network instead for decision making.}
+		\label{fig:ga_fitness_comparison}
+	\end{figure}
 
 % subsubsection Results (end)
 

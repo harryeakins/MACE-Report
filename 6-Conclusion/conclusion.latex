@@ -1,39 +1,43 @@
 \chapter{Conclusion}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non tortor et
-magna tempus luctus eget at leo. Duis non hendrerit enim. Cras imperdiet, mi sed
-sagittis euismod, mauris velit bibendum urna, in auctor sem nulla sed mi. Duis
-non dui sed elit tempus sodales at eu elit. Nam ut metus elit. Pellentesque
-habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-Mauris rutrum sapien sit amet magna aliquet tincidunt. Nullam consectetur est at
-ligula feugiat posuere. Sed lorem velit, vestibulum non lobortis at, convallis
-quis sem. Donec mollis ante ac augue aliquet ullamcorper. Maecenas mattis rutrum
-commodo. Suspendisse lobortis, mi a aliquet fermentum, ante urna blandit ipsum,
-vitae gravida nisi eros et tortor. Aliquam sit amet diam orci.
+Throughout the project, we have been attempting to simulate interesting
+and relevant models real world behaviour, in an attempt to extract long term
+steady state (or, indeed, cyclical or chaotic) situations, whiih could potentially 
+be used to validate social research, and even be used as a tool to predict the
+outcome of policy changes.
 
-Ut pellentesque, erat sit amet scelerisque vehicula, mauris neque euismod
-libero, eu mollis est urna et elit. Cras consequat nisi vel tortor pretium
-convallis eleifend arcu ullamcorper. Nunc quis nibh felis, vel sollicitudin
-neque. Cras elit sapien, fermentum ut posuere in, condimentum vel metus. Cras
-magna risus, vehicula sed egestas eu, aliquet vitae sem. Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus mus. In a mi
-neque. Sed vitae velit id nisl luctus aliquet non eget mauris. Aliquam erat
-volutpat. Quisque eu orci pretium purus cursus adipiscing eu eu leo. Cras id
-vestibulum lacus. Sed ligula eros, rutrum a tempor at, malesuada ut mi. Quisque
-dapibus ornare lectus dapibus ultrices.
+We began with a very simple and open-ended system - Agents from groups, then pairs,
+then hunt. 
+We have since added layers of complexity: more detailed agents and agent interactions 
+in terms of the Happiness, Loyalty and Turst attributes and
+mecahnisms for leadership through predictors and advice in combination with trust.
 
-Ut condimentum, leo suscipit vestibulum sodales, eros nunc fringilla ipsum, vel
-suscipit tellus ante semper lorem. Phasellus mauris lorem, pharetra ut malesuada
-vel, iaculis vel odio. Etiam porttitor lorem sed diam molestie quis placerat
-diam commodo. Quisque malesuada dignissim velit, in pretium lorem luctus eu.
-Duis in enim vel nulla pretium aliquam in id sapien. Cras mi lorem, venenatis id
-fringilla non, sodales vitae diam. Donec eleifend neque at neque porttitor ut
-adipiscing erat feugiat. Nunc sed magna vitae dui vehicula cursus non vel
-mauris. Ut vel felis quam. Fusce imperdiet vulputate lorem eu fringilla. Nam a
-risus arcu, eget vehicula metus. Donec iaculis dapibus sapien, nec lacinia nisl
-sodales quis. Vestibulum non felis mi. Donec eget vulputate eros. In hac
-habitasse platea dictumst. Mauris quis vulputate ipsum.
+We then added the political system, giving agents and groups of agents ideals which 
+they strive to emulate and share.
+These ideals manifest in terms of the tax rate an agent pays, 
+and a group's position is readily modified by the memebers of the group, 
+causing a degree of movement about the political compass, allowing us to chart 
+how political groups change over time.
+Indeed, the manner in which an agent's loyalty and happiness values change in 
+response to group movements 
+permits us to see how political ideals can influence individual's satisfaction, 
+and can cause polarization for or away from the group.
+We can imagine this as an agent become disillusioned with politics and changing its ideals.
+The concept of emergent leadership that we have shows us how groups fare on the 
+vertical politics axis,  and whether one or many leaders is the better strategy 
+for hunting and continued survival.
 
-ASSIGNED TO: NONE
+The next stage involved groups loaning food to each other. 
+Here, groups in need have a mechanism to avoud collapsing under their own
+food deficit, and can request aid. 
+These loans were initially designed to mimic the current situation in the EU, 
+where the Greek economy is requesting large loans to avoid financial ruin. 
+Although the loans we have implemented are simplistic: having a flat interest rate 
+and no time penalty for repayment, 
+they at least provide a simplistic model for international money lending.
 
-\input{6-Conclusion/furtherwork.latex}
+Parallel to the idea of a political, ``country" approach to groups and agents, 
+we investigated genetic algorithms in an attempt to simulate evolution and survial of the fittest. 
+WORDS WORDS WORDS
+
+The results of our simulations show a tendancy towards ..... ?

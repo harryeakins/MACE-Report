@@ -14,4 +14,52 @@ ecfdc8\footnote{
 \url{https://github.com/javajawa/ISEGameOfLife/commit/ecfdc89c80128fb165b6444258a5256d786c2f8a}
 }.
 
+A variety of different intersting points can be taken from the different
+simulations. The first Simualtion that we shall analysis is 2312.
+
+\subsubsection{Analysis of Simulation 2312}
+
+2312 consisted primarily of Always Cooperate agents, meaning that very few
+of the agents died whislt it was running. 
+Very early on, a large goup forms between the `Democracy' and `Communism' zones,
+which drifts slowly right over the course of simulation.
+However, on closer examination, some interesting things are happening around
+this group - there are a large number of other small groups forming at different
+points around the compass.
+Some of these groups die out rather quickly, leading to the slight declines in
+population, but a number survive through to the end of the simulation. 
+
+\begin{figure}
+  \centering
+  \caption{Group Locations in Simulation 2312. Percentages in run-times}
+  \subfloat[10\%]{\label{2312-10}\includegraphics[width=0.15\textwidth]{figures/2312-10}}
+  \subfloat[30\%]{\label{2312-30}\includegraphics[width=0.15\textwidth]{figures/2312-30}}
+  \subfloat[50\%]{\label{2312-50}\includegraphics[width=0.15\textwidth]{figures/2312-50}}
+  \subfloat[70\%]{\label{2312-70}\includegraphics[width=0.15\textwidth]{figures/2312-70}}
+  \subfloat[100\%]{\label{2312-100}\includegraphics[width=0.15\textwidth]{figures/2312-100}}
+\end{figure}
+
+These groups, made of many co-operating agents, model a world that is notably
+more ideal than our own.
+The behaviours of these groups partially represent this - the tiny community
+pairs don't move about the compass anywhere near as much as the large group.
+
+Furthermore, there are some interestnig arefacts that form around the large
+group.
+The 50\% still, shown in figure \ref{2312-50} has a new group forming
+exactly underneath the main group.
+This behaviour is also seen in the 100\% still (figure \ref{2312-100}).
+This is caused by a number of agents simultaneously leaving the group due to
+a lack of happiness, cuasing them to leave the group.
+As their beliefs are centered on the group already, they form a new splinter
+faction at almost exactly the same place.
+In much the same way as a border province breaking of from a major country,
+a number of different things may happen.
+The first of these is that the group survives and lives a happy life of its
+own; the groups formed in the 50\% frame move rapidly away from autorcracy.
+If they had not been able to maintain happiness levels, they may have been
+re-intergrated into the major group.
+The third option that is liekly to occurr in other simulations is that a
+small splinter gorup is unable to support itself due to betrayal between the
+agents.
 

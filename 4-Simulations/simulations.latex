@@ -17,15 +17,7 @@
 \item{What simulations did we run?}
 \end{itemize}
 
-%ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
-
 \input{4-Simulations/A-CLIPolitics.latex}
+\input{4-Simulations/B-Website23xx.latex}
 \input{4-Simulations/GeneticAgents.latex}
 
-\subsection{Simulation B}
-\begin{itemize}
-\item{How was it initialised?}
-\item{What behaviour did we draw?}
-\end{itemize}
-
-%ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS

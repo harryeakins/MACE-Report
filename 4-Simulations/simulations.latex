@@ -20,6 +20,7 @@
 %ASSIGNED TO: WHOEVER IS RUNNING SIMULATIONS
 
 \input{4-Simulations/A-CLIPolitics.latex}
+\input{4-Simulations/GeneticAgents.latex}
 
 \subsection{Simulation B}
 \begin{itemize}

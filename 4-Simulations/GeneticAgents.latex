@@ -1,0 +1,27 @@
+\subsection{Genetic Agents with Neural Networks}
+\label{sub:genetic_agents}
+% TODO proofread
+
+\subsubsection{Implementation of the Genetic Agents} % (fold)
+\label{subs:ga_implementation}
+
+	The genetic representation of the agent to evolve for this particular simulation consists of parameters, its social belief, economic belief, as well as a neural network to allow the agent to learn to choose food to hunt for itself.
+	The idea of having a choose food strategy given by a neural network is mainly due to neural networks' ability to be trained to perform in a much more general situation, such that agents with the best neural networks could reason intelligently with its current circumstances.
+	The neural network within the agent (Figure~\ref{fig:ga_choose_food}) is a feed forward neural network with 3 distinct layers.
+	All neurons within the network are tangent sigmoid functions, all of its parameters are within range $[-1,1]$.
+	So as the inputs to the neural network, all values have been normalised to be between -1 and 1.
+	\begin{figure}[ht]
+		\centering
+			\includegraphics[width=0.4\linewidth]{figures/ga_choose_food_net}
+		\caption{The neural network for making choose food strategies}
+		\label{fig:ga_choose_food}
+	\end{figure}
+
+	The choices agents can made are always to hunt either stag or hare.
+	The agent's network then base its inputs on what choice his opponent made in the last turn, what mixed strategy over the history did the opponent use---that is the probability of hunting stags, and many other attributes as illustrated in the above figure.
+
+% subsubsection Implementation of the Genetic Agents (end)
+\subsubsection{Simulation Details}
+\label{subs:simulation_details}
+
+% vim: set fdm=marker fmr=(fold),(end) nolist:

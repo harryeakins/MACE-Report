@@ -31,6 +31,7 @@
 	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is a run of the simulation.
 	One iteration evaluates the fitness values of all 20 simulations in the population.
 	After evaluation, 40\% of the population with the best fitness values are selected as elites, allowing them to reproduce new simulations to again fill the population for the next iteration.
+	The reproduction process crosses over an unbiased randomly chosen pair of entities, then repopulates the gene pool with the crossed product with a chance of mutation.
 
 % subsubsection Simulation Details (end)
 

@@ -44,31 +44,31 @@ which goes along to way to explaining our results of Always Defect being
 largely - but not solely - dominant.
 
 When simulating, we ran three different kinds of simulation:
-the ``normal" one, which had an equal distribution of strategies, 
+the ``normal'' one, which had an equal distribution of strategies, 
 which is the simulation mentioned above;
-a ``cooperative" simulation, with a higher proportion of Always Cooperate agents;
-and a ``generous" simulation where the nutrition values for both foods were higher.
+a ``cooperative'' simulation, with a higher proportion of Always Cooperate agents;
+and a ``generous'' simulation where the nutrition values for both foods were higher.
 
-The ``normal" build produced a stable population of around 30, albeit with high variance\footnote{
+The ``normal'' build produced a stable population of around 30, albeit with high variance\footnote{
 	Examples: simulations 2313, 2315, 2317 and 2319};
-whereas the ``generous"\footnote{
+whereas the ``generous''\footnote{
 	Examples: 2330 upwards} 
-and ``cooperative"\footnote{
+and ``cooperative''\footnote{
 		Examples: 2310, 2312} 
 end result was a population of about 70.
-As mentioned previously, the comparatively low population of the ``normal" simulation
+As mentioned previously, the comparatively low population of the ``normal'' simulation
 is probably due to a dominance of defecting, and the death of cooperators and unlucky
 Tit-For-Tat and Randoms.
 
-However, the ``generous" simulation increases the rewards for hunting, and therefore would
-allow those that would die in a ``normal" simulation more chance to survive, as a single 
+However, the ``generous'' simulation increases the rewards for hunting, and therefore would
+allow those that would die in a ``normal'' simulation more chance to survive, as a single 
 successful hunt gives them a longer lifespan to succeed in another hunt: their food reserves last
 longer, given them greater opportunity to get into a surviving pattern.
 The more abundant food also means that more is taken as tax by the group, giving 
 it a larger reserve to distribute amongst agents, again allowing those less
 successful at hunting to survive by living on what the group doles out.
 
-The ``cooperative" simulation has a similarly high survival rate. 
+The ``cooperative'' simulation has a similarly high survival rate. 
 This certainly seems to be a result of the increased likelyhood
 of Always Cooperate agents finding someone who will reliably cooperate in the hunt,
 and thus increases the odds of successfully returning food and surving.
@@ -113,7 +113,57 @@ The largest single group occurred in simulation 2318, with a size of 30.
 It went on to be the only surviving group in the simulation, containing all
 of the remaining agents.
 
-A variety of different intersting points can be taken from the different
+This highlights an underlying trend in the simualtion data: the larger groups
+tend to fare better, despite the extra strain on keeping their populaces happy
+from having disparate economic and social locations.
+Groupsa also tended to form on either the `smaller' variety (between about 2
+and 6 agents) or `larger' variety (a dozen or more).
+This is apparent in circle sizes on the politics graphs on the website.
+Both of these groups have common charaectersitics that map onto many real life
+charactersitics.
+
+Taking first of all the smaller groups, these have the tendancy to move quickly
+across the compass.
+THis is because the smaller size means that less agents need to vote on a
+proposition for it to pass (but, equally, less have to vote against for it to
+fail).
+However, the agents which formed the group are likely to have reasonably similar
+beliefs, and therfore have a well formed common goal which the quickly drive
+towards.
+
+However, in a small group, it only take a little bit of ditrust, or some
+defection that would cause it, to lead to the group either fracturing, or the
+agents in it starving to death.
+This kind of behaviour can be seen in %TODO: Think of real world
+
+In contrast, larger groups move very slwoly, but have a tendnancy to rarely
+lose members.
+In fact, above about a dozen members, the groups rarely lose members to death;
+probably due to the fact that the teams are selelcted randomly each turn, so
+low trust values get spread about the members, and overall trusts can remain
+reasonably high.
+However, the greater psread of belifs creates two new problems: large groups
+will have more porblems keeping their outlying members happy in the case of
+any kind of food shortage, often cuasing splinte factions to form.
+Also, they have much slower movement across the compass.
+Not only are more votes required to pass a proposition, but the large list of
+propositions may include many that cancel eachouther out, especially if the
+members are widely distirbuted about the group.
+
+This is many ways represente the unlying flaw in the democracy such as those
+that many countries on our continent today have: in their desire to please
+everyone or, at the very least the voters for their party, they end up not
+being able to go anywhere as minor parts of the electorate react against an
+issue.
+This is underlined by the fact that Britain has three very centerist main
+parties, and a few fringe groups that few people even consider to be ligitimate
+options in the electons. %TODO: make right wing bashing joke
+
+This excat behaviour, however, is not truly modelled - the agents do not
+percieve eachother's happiness when they make their decisions - but instead
+perhaps more accurately models the inursure of bureauracy.
+
+Some more intersting points can be taken from the specific
 simulations. The first Simualtion that we shall analysis is 2312.
 
 \subsubsection{Analysis of Simulation 2312}

@@ -29,7 +29,7 @@
 	And a genetic agent is created with not only these above attributes, but also with an above-mentioned neural network to make choose food strategies.
 
 	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is 10 runs of the same simulation.
-	Each evaluation gives a fitness value, which is in turn the average happiness of the genetic agent within the simulation in 10 runs.
+	Each evaluation gives a fitness value, which is in turn the average final happiness of the genetic agent within the simulation after 100 iterations in 10 runs.
 	One iteration evaluates the fitness values of all 20 simulations in the population.
 	After evaluation, 40\% of the population with the best fitness values are selected as elites, allowing them to reproduce new simulations to again fill the population for the next iteration.
 	The reproduction process crosses over an unbiased randomly chosen pair of entities, then repopulates the gene pool with the crossed product with a chance of mutation.
@@ -50,6 +50,10 @@
 		The blue line have a neural network instead for decision making.}
 		\label{fig:ga_fitness_comparison}
 	\end{figure}
+
+	It is remarkable that the agents with a neural network for decision making actually learned to become better decision making agents than the one we implemented in political agent.
+	The evolution eventually converges to a level where average happiness of all genetic agents within the environment could reach around 0.7 after some iterations.
+	In sharp contrast to this, the agents without neural networks, can only learn to achieve a happiness level of approximately 0.58.
 
 % subsubsection Results (end)
 

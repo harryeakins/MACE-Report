@@ -3,11 +3,11 @@ In a political simulation, the main goal is to investigate how internal and exte
 politics emerge from a collection of initially unrelated agents. 
 Instead of imposing political systems and behaviours onto the agents, 
 they must decide their own future, allowing different behaviours to emerge. 
-In this section, we will discuss augmentations we made to the basic agents,
-how these allow us to explore a political world and behaviour - both implemented and emergent.
+In this section we will discuss the augmentations that were made to the basic agents. Looking at
+how these changes allow us to explore a political world and behaviour - both implemented and emergent.
 
 \subsection{Description of the Agent}
-We utilise three characteristics to give an approximation of the personality to agents: loyalty, happiness, and trust. 
+We utilise three characteristics to give an approximation for the personality of an agent: loyalty, happiness, and trust. 
 Each agent also has a hunting strategy, which are discussed in \ref{strategies}. 
 Alongside these four attributes, agents are assigned political and economic beliefs, which 
 reflect what the agent expects from others and from its endeavours.
@@ -16,13 +16,13 @@ These two beliefs provide agents with a ``common interest", and therefore assist
 These attributes can be defined in more detail as:
 
 \begin{itemize}
-\item Loyalty $\rightarrow$ How used an agent is to being in a particular group
-\item Happiness $\rightarrow$ How content an agent is with its current state of affairs (particularly how much food it has)
+\item Loyalty $\rightarrow$ How comfortable an agent is to being in a particular group.
+\item Happiness $\rightarrow$ How content an agent is with its current state of affairs (particularly how much food it has).
 \item Trust $\rightarrow$ Each agent has a trust value for each other agent, indicating how likely the agent is to follow
 the advice of another.
-\item Strategy Type $\rightarrow$ What strategy the agent prefers to follow during hunting
-\item Economic Belief $\rightarrow$ The level of sharing food that an agent believes in
-\item Social Belief $\rightarrow$ The level of authority that an agent believes in
+\item Strategy Type $\rightarrow$ What strategy the agent prefers to follow during hunting.
+\item Economic Belief $\rightarrow$ The level of sharing food that the agent believes in.
+\item Social Belief $\rightarrow$ The level of authority that the agent believes in.
 \end{itemize}
 
 \subsection{Structure of the Agent Game}
@@ -34,7 +34,7 @@ that is, to hunt and obtain food.
 \item Agents pair up in order to hunt. 
 An agent that cannot find a pair remains inactive for that round, i.e. doesn't go hunting and loses food.
 \item Each agent has a strategy and hunts accordingly. 
-\item After hunting agent can engage in one of two actions:
+\item After hunting an agent can engage in one of two actions:
 
 \begin{itemize}
 \item Stay a free agent and play the game with another free agent (if possible). 
@@ -53,12 +53,12 @@ belief of the group.
 
 \item The game played between leaders: 
 Once a panel of leaders has been formed the group is able to play the stag hunt game with other groups. 
-As in real situations, group actions and result are much more significant that individual ones: therefore 
+As in real situations, group actions and results are much more significant that individual ones: therefore 
 the result from the hunting game between the groups is much larger and is proportional to the size of the group.
 \end{enumerate}
 \begin{itemize}
 \item Here we tried to model two aspects of real life, the followers struggle for survival in the 
-group and conflicts between groups of agents (to connect with the real world, between countries 
+group and the conflicts between groups of agents (to connect with the real world, between countries 
 of agents). 
 This is roughly what happens in reality where each person tries to gather food to survive and 
 also countries fight or collaborate with other foreign countries.
@@ -67,7 +67,7 @@ also countries fight or collaborate with other foreign countries.
 \item After the hunting is completed and the gathered food has been distributed, agents' attributes are 
 updated. 
 If an agent is part of a group it decides whether to leave or not.
-\item Agents in a group are allowed propose and vote on movements of the group
+\item Agents in a group are allowed to propose and vote on movements of the group
 along the economic axis.
 \item Agents rate their leader(s) according to its actions and all agents have their attributes 
 updated again.
@@ -128,7 +128,7 @@ As before, groups in between will have some proportional number of leaders.
 \subsection{Forming a Coalition}
 In real life individual agents can interact with other agents and decide if they can form a coalition. 
 A coalition might increase the individual’s utility due to the trust shared between its members. 
-For a political agent or group we consider two factors as important when assessing the possibility 
+For a political agent or group we consider two factors to be important when assessing the possibility 
 of forming or joining a coalition. 
 The first one is the mutual trust between the two parties and the second one is the similarity of their socio-economic beliefs.
 

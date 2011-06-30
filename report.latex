@@ -52,6 +52,7 @@
   \input{3-Design/design.latex}
   \input{4-Simulations/simulations.latex}
   \input{6-Conclusion/conclusion.latex}
+  \input{6-Conclusion/furtherwork.latex}
   \input{7-Appendices/appendix.latex}
 
   \bibliographystyle{IEEEtran}

@@ -2,6 +2,7 @@
 
 \usepackage{amsmath} % mathematics
 \usepackage{amssymb}
+\usepackage{array}
 \usepackage[british]{babel}
 \usepackage[usenames,dvips]{color}
 \usepackage[a4paper,margin=1.5cm,bottom=2.25cm]{geometry}
@@ -9,6 +10,7 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{pbox}
 \usepackage{rotating}
 \usepackage{url}
 \usepackage{wrapfig}

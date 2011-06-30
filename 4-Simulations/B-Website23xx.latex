@@ -89,15 +89,88 @@ despite being superficially cooperative.
 
 \subsubsection{Loaning and Greediness}
 
-Greedier groups tend to borrow more, less greedy more generous.
-Benefit to greddy groups who don't need to pay back?
-Greed leads to more greed?
+A large number of the simulations carried out included the extra game of 
+exchanging loans amongst groups, which gave us an interesting connection
+between how the groups interact with each other (via loans) and how greedy
+that group has been throughout the simulation.
+Generally, what we've found is that a very greedy group would show a tendency
+to ask for loans from others as well as coming out of the simulation with an
+accomplished and handsome amount for their reserve.
+Yet, those groups that were less greedy and did not care to get a large return
+of food (which, as the only resoruce in the simulation, can be thought of as
+money) would nearly always attempt to help and give a loan to any other group,
+effectively damaging themselves with a low reserve of food.
+As the less greedy groups wanted to give away their food, those that are
+greedier tried to avoid any chance of having to give out a loan.
 
-- This point was made by Aadil who can see the loans data
-- Hopefully, this will become apparent when the website works
+\begin{table}
+  \caption{Sample Group Loans data}
+  \begin{tabular}{l|m{0.15\textwidth}m{0.15\textwidth}m{0.15\textwidth}m{0.15\textwidth}m{0.15\textwidth}}
+Group \newline Name & 
+Current \newline Reserve & 
+Net Given \newline (gave loans) & 
+Net Taken \newline (received loans) & 
+Average \newline Happiness & 
+Greediness \\
+\hline
+Group \#13 & 110 & 17 & 110 & 0.291 & 0.2604 \\
+Group \#7 & 120 & 244 & 67 & 0.431 & 0.1365 \\
+Group \#5 & 100 & 311 & 20 & 0.729 & 0.1365 \\
+Group \#17 & 162 & 0 & 109 & 0.768 & 0.8378 \\
+Group \#16 & 141 & 13 & 135 & 0.563 & 0.7368 \\
+  \end{tabular}
+\end{table}
 
-TODO: Expand this section
-%TODO: Expans this section
+Exploring this effect through real data extracted from a simulation, we can
+see that Group \#17, which is quite a greedy group, successfully attained a
+large amount for their reserve and as a result the average happiness of the
+group's membership is high.
+This can be explained by greedy groups having to watch what they pay (which is
+primarily the cost to public service as paying to join the external hunting
+with other groups is compulsory) and not to pay too much as they want to keep
+their food and as the group increases its reserve, less taxing is done on the
+member's earnings and the member would get the food it was entitled to or even
+more which would obviously increase happiness.
+
+However, life doesn't have to be grim for the non-greedy groups, as can be seen
+with Group \#5 and its high average happiness.
+This group is happy for the same reasons as with Group \#17 but with Group \#5,
+it does not bother in keeping the food it has in the reserve and so when the
+time comes to pay for public service, it will gladly do so.
+Groups like Group \#5 view payments as an opportunity to share the wealth and
+to let free its money to others in need as well as and most importantly to its
+members (via less taxing).
+This could be problematic in that decisions of non-greedy groups are not being
+considered completely and a group (country) should take worry of its own
+reserve (capital), however, the interactions shown in the implementation of
+loans and in the table above give light to two characteristics of people in the
+`real' world.
+The non-greedy tend to loan their money to other groups in need and this shows
+off how generous they are in what can be seen as a decent charity (with
+interest of course, but, that's not discussed at a transaction, out of courtesy).
+The greedy tend to keep the money they earn, take up every opportunity (if in
+financial trouble) to ask for a loan and never bother to help out another group
+that is in need; it's safe to presume that this mean and stingy trait would
+exist in the `real' world with `real' money enthusiasts.
+
+Note that we haven't really made a solid connection between loans and the
+politics namely because the loans directly affect the money that gets
+distributed to the members of the group, which, in turn affects their happiness.
+The politics and the beliefs of the agent and whether the agent Always
+Cooperate or Always Defect do not carry a weight on how loans spread throughout
+many groups.
+That said, there is, however, a general point to make: before loans were
+involved with politics, a large proportion of agents died, maybe not a lot
+throughout the simulations but they died.
+Agents continued to die, but this time in greater numbers, as soon as loans
+were introduced and extended to political framework.
+The reason for this is that more taxing is done to contribute the needs of a
+greedy group and to provide food for the reserve which in turn means taking
+away more from what could be owned by the member.
+However, this would only happen if loans were taken out, even if it were just
+2 or 3 loans, the group has to tax higher to pay back the loans which limits
+the food the members would get compared to the usual case (the case where
+loans are excluded from the simulations).
 
 \subsubsection{Group Behaviour}
 

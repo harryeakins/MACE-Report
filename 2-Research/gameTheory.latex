@@ -19,7 +19,7 @@ by cooperating but doing so entails some risk.
 The risk is due to the uncertainty introduced by not knowing the opponent's intention. 
 If one of them decides to cooperate and the other one decides to defect then the former loses.
 
-The use of the stag hunt game as a model of evolution of cooperation reveals an interesting 
+The use of the stag hunt game as a model for the evolution of cooperation reveals an interesting 
 paradox. 
 All the efforts to date, that used the stag hunt game as the model of cooperation, have failed 
 to show that a non-cooperative society can evolve into a cooperative one. 
@@ -71,10 +71,10 @@ and selects either defect or cooperate at random.
 
 The problem with these strategies is that they are static with the only exception being the 
 tit-for-tat strategy. 
-These strategies do not allow any flexibility of an agent's beliefs. 
-This is what causes the paradox we explained above. 
+These strategies do not allow for any flexibility in an agent's beliefs. 
+This the cause of the paradox we explained above. 
 Therefore, we must force an agent to act socially rational and not just rationally.
-We tried to tackle this problem by introducing the notion of trust among agents. 
+We aim to tackle this problem by introducing the notion of trust among agents. 
 Depending on how an interaction between two agents ended up the agents can increase 
 or decrease their trust for another agent. 
 Therefore an agent's decision depends not only on its assigned type but also on the 

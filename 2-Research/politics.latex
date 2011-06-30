@@ -1,5 +1,5 @@
 \section{Politics and Community}
-In a politics simulation, the main goal is to investigate how internal and external 
+In a political simulation, the main goal is to investigate how internal and external 
 politics emerge from a collection of initially unrelated agents. 
 Instead of imposing political systems and behaviours onto the agents, 
 they must decide their own future, allowing different behaviours to emerge. 

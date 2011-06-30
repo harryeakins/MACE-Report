@@ -28,7 +28,7 @@ vertical politics axis,  and whether one or many leaders is the better strategy
 for hunting and continued survival.
 
 The next stage involved groups loaning food to each other. 
-Here, groups in need have a mechanism to avoud collapsing under their own
+Here, groups in need have a mechanism to avoid collapsing under their own
 food deficit, and can request aid. 
 These loans were initially designed to mimic the current situation in the EU, 
 where the Greek economy is requesting large loans to avoid financial ruin. 
@@ -36,34 +36,51 @@ Although the loans we have implemented are simplistic: having a flat interest ra
 and no time penalty for repayment, 
 they at least provide a simplistic model for international money lending.
 
-Parallel to the idea of a political, ``country" approach to groups and agents, 
-we investigated genetic algorithms in an attempt to simulate evolution and survial of the fittest. 
-WORDS WORDS WORDS
+These simulations showed interesting, if predictable, tendencies without
+the presence of any warm `fuzzy feeling' from aulturism;
+greedy groups went out of their way for food, and less greedy ones were willing
+to give it away - even at the expense of their own happiness.
 
-The results of our simulations show a tendancy towards ..... ?
+The lack of foresight in these simulations - a fixed amount beign put away for
+a rainy day, borrowing when you might not need to, and thereby accumilating
+extra interest - means that groups do not perform optimally here.
+
+Parallel to the idea of a political, ``country'' approach to groups and agents, 
+we investigated genetic algorithms in an attempt to simulate evolution and
+survial of the fittest.
+The combination of genertic algorithms and neural networks created an major
+counterpoint to the use of primarily fixed strategies.
+Even after a short number of cycles, with the agents just learning, we
+can see a marked improvement in the fitness for agents that use the
+implemented learnnig behaviour.
+This, if expanded, could eventually lead to more stable communities.
 
 \section{Evaluation}
+
+
 With a finished project, we could now become nostalgic and reflect on how we would have 
 improved our experience of working as a team. 
 
 To begin with, the most apparent and immediate problem was the size of the team. 
 None of us had worked in an environment where 13 people needed to be coordinated and 
-managed before, and as a results we were all reluctant to be a strict leader, resulting in a 
-more democratic implementation. 
+managed before and, as a result, we were all reluctant to be a strict leader, resulting in a 
+more democratic implementation.
 While this wasn't too disruptive for our setup, it did lead to problems with communication 
 and no one was holistically aware of everything going on with the project.
+Contary to the popular belief in this country, the use of an Alternative Voting system on naming
+the project was fair and effective.
 
 One tool that was incredibly helpful, given our large size, was GitHub. 
 GitHub enabled all of us to edit the Framework and the Report simultaneously and was 
-instrumental in maintaining the workflow as multiple groups approached the codebase for 
-different reasons.
+instrumental in maintaining the workflow as multiple groups approached the codebase
+from different angles.
 
-In contrast a tool that was a great hinderance was PreSage. 
+In contrast a tool that was a hinderance was PreSage. 
 While it had some useful classes to build on, allowing us to evade many of the complicated 
-issues associated with MAS construction, much of the code was poorly documented or poorly 
+issues associated with MAS construction, much of the code was poorly documented or unclearly 
 implemented. 
 As a result, our initial time plan was substantially delayed due to the volume of work that went 
-into repairing PreSage, much to the detriment of our analysis.
+into understanding and ironing out bug in PreSage, much to the detriment of our analysis.
 
 As far as the project output is concerned, one thing we found was our goal to implement loans 
 and mimic the EU financial situation was proposed far too late. 
@@ -78,3 +95,4 @@ great potential.
 Each member of ISE3M was able to shine in their respective specialty, and while some contributions 
 were particularly outstanding, everybody played their part in achieving the goals we set out for 
 Project MACE.
+

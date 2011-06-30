@@ -72,10 +72,18 @@ After the rebellion had formed, the emperor was forced to lower taxes once again
 joined back together. This is shown on the political compass below:
 
 \subsubsection{Greater Evolution}
-%TODO: Properly evoling agents
-%TODO: evoling predictors
-%TODO: Reproduction
-TODO: Properly evoling agents
-TODO: evoling predictors
-TODO: Reproduction
+
+We also could build a lot on the genetic algorithm work, by beginning to model a communtiy
+evolving over time.
+
+By recording an agents age, and assuming that most deaths (excluding starvation, which
+is dealt with already) can be modelled as a Markov process, we can begin to model
+a non-static civilisation.
+The next step in this would be the introduction of reproduction, even by modeling
+relationships or, again, treating it as a Markov generation process of a group.
+
+This would then allow agents to pass down the things they learn to their child agents,
+which might either cause great deviation between groups, or greater homogenity as
+one group, depending on what appears to be the optimal strategy.
+
 

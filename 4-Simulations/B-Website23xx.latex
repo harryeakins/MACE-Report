@@ -216,3 +216,38 @@ The third option that is liekly to occurr in other simulations is that a
 small splinter gorup is unable to support itself due to betrayal between the
 agents.
 
+\subsubsection{Analysis of Simulation 2313}
+
+Simulation 2313 has some very interesting small group activity.
+
+\begin{figure}[h]
+  \caption{Group locations in Simulation 2313}
+  \subfloat[10\%]{\label{2313-10}\includegraphics[width=0.15\textwidth]{figures/2313-10}}
+  \quad
+  \subfloat[20\%]{\label{2313-20}\includegraphics[width=0.15\textwidth]{figures/2313-20}}
+  \quad
+  \subfloat[30\%]{\label{2313-30}\includegraphics[width=0.15\textwidth]{figures/2313-30}}
+  \quad
+  \subfloat[40\%]{\label{2313-40}\includegraphics[width=0.15\textwidth]{figures/2313-40}}
+  \quad
+  \subfloat[70\%, 100\%]{\label{2313-70}\includegraphics[width=0.15\textwidth]{figures/2313-70}}
+\end{figure}
+
+Starting in the bottom right of figure \ref{2313-10}, the two organe groups 
+form, disband, and reform as the two green groups sown in roughly the same 
+location in the 20\% chart, figure \ref{2313-20}.
+These then appear to combine to form the larger green group in the same
+location in the 30\% chart (figure \ref{2313-30}).
+This then plummets into a for of anachism and quickly dies out.
+
+Meanwhile, the yellow left wing group visible at the beginning also dies out 
+very early in the simulation, along with the psuedo-conserative cyan group.
+This leaves the leaves workers pink group\footnote{
+	Which, unfornately, doesn't drift left into a communist revolution
+} and the slightly right wing blue group, whihc both struggle to survive
+due to the lack of beneficial attempts at cooperation between the agents.
+
+Notably, neither group actually fractures and, in fact, the blue group picks
+up ome stray memebers around the 70\% mark (figure \ref{2313-70}), but is well
+on the way to exntinction by the end of the simulation
+

@@ -41,3 +41,40 @@ we investigated genetic algorithms in an attempt to simulate evolution and survi
 WORDS WORDS WORDS
 
 The results of our simulations show a tendancy towards ..... ?
+
+\section{Evaluation}
+With a finished project, we could now become nostalgic and reflect on how we would have 
+improved our experience of working as a team. 
+
+To begin with, the most apparent and immediate problem was the size of the team. 
+None of us had worked in an environment where 13 people needed to be coordinated and 
+managed before, and as a results we were all reluctant to be a strict leader, resulting in a 
+more democratic implementation. 
+While this wasn't too disruptive for our setup, it did lead to problems with communication 
+and no one was holistically aware of everything going on with the project.
+
+One tool that was incredibly helpful, given our large size, was GitHub. 
+GitHub enabled all of us to edit the Framework and the Report simultaneously and was 
+instrumental in maintaining the workflow as multiple groups approached the codebase for 
+different reasons.
+
+In contrast a tool that was a great hinderance was PreSage. 
+While it had some useful classes to build on, allowing us to evade many of the complicated 
+issues associated with MAS construction, much of the code was poorly documented or poorly 
+implemented. 
+As a result, our initial time plan was substantially delayed due to the volume of work that went 
+into repairing PreSage, much to the detriment of our analysis.
+
+As far as the project output is concerned, one thing we found was our goal to implement loans 
+and mimic the EU financial situation was proposed far too late. 
+We did not have the time to explore with as much depth as any of us would have wanted and may 
+have even re-factored the scope of the project to further investigate genetic algorithms, which we 
+had made some real progress with. 
+This may have been possible if we were given better notice of deadlines, thus giving us more time 
+to plan better targets throughout the project.
+
+Given the issues stated above, we believe we produced a successful project and created a tool with 
+great potential. 
+Each member of ISE3M was able to shine in their respective specialty, and while some contributions 
+were particularly outstanding, everybody played their part in achieving the goals we set out for 
+Project MACE.

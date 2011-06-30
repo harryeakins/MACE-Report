@@ -28,8 +28,8 @@
 	A political agent is created with randomised attributes, such as the agent type, social belief and economic belief.
 	And a genetic agent is created with not only these above attributes, but also with an above-mentioned neural network to make choose food strategies.
 
-	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is 10 runs of the same simulation.
-	Each evaluation gives a fitness value, which is in turn the average final happiness of the genetic agent within the simulation after 100 iterations in 10 runs.
+	Simulations are encapsulated within the genetic algorithm iterative evolution process, where each entity to evaluate is 20 runs of the same simulation.
+	Each evaluation gives a fitness value, which is in turn the average final happiness of the genetic agent within the simulation after 100 iterations in 20 runs.
 	One iteration evaluates the fitness values of all 20 simulations in the population.
 	After evaluation, 40\% of the population with the best fitness values are selected as elites, allowing them to reproduce new simulations to again fill the population for the next iteration.
 	The reproduction process crosses over an unbiased randomly chosen pair of entities, then repopulates the gene pool with the crossed product with a chance of mutation.
@@ -38,7 +38,7 @@
 \subsubsection{Results} % (fold)
 \label{subs:ga_results}
 
-	The evolution was allowed to run for around 70 iterations in two comparing scenarios.\footnote{That is 14000 simulations for each one.}
+	The evolution was allowed to run for around 70 iterations in two comparing scenarios.\footnote{That is 28000 simulations for each one.}
 	The difference between the two scenarios is that one of them is evolving a genetic agent with a choose food neural network, while the other one is only using political agent's standard strategy.
 	However in both cases, they are to evolve genetic agents with degrees of freedom in social belief, economic belief and agent type.\footnote{But note that the agent type is not with a useful meaning for the genetic agent, since it has its own choose food strategy.}
 	The result is shown in Figure~\ref{fig:ga_fitness_comparison}, note that the y-axis represents the average fitness for the population.
@@ -54,6 +54,18 @@
 	It is remarkable that the agents with a neural network for decision making actually learned to become better decision making agents than the one we implemented in political agent.
 	The evolution eventually converges to a level where average happiness of all genetic agents within the environment could reach around 0.7 after some iterations.
 	In sharp contrast to this, the agents without neural networks, can only learn to achieve a happiness level of approximately 0.58.
+
+	\begin{figure}[ht]
+		\centering
+			\includegraphics[width=0.6\linewidth]{figures/pop_hist}
+		\caption{The deviation distribution of the population}
+		\label{fig:ga_pop_hist}
+	\end{figure}
+	In another evolution process, the characteristic of the evolved population as a whole was examined.
+	The number of entities within the population was increased, but the number of iterations run remains the same as before.
+	In Figure~\ref{fig:ga_pop_hist}, it shows the distribution of deviation of various parameters (such as weights and bias values of the neural network) around the average of the population.
+	Although some scattered entities with greater deviation from the average ones due to mutation, it can be observed that most of the population are within a small range of deviation, but not too small to forbid diversity, which is expected in a nondeterministic evolution.
+	It is also generally true that diversity is crucial for entities in the population to quickly converge to best fitness values.
 
 % subsubsection Results (end)
 

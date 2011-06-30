@@ -5,26 +5,24 @@ the game environment laid out in the specification. We could then expand this
 design to increase the degree and depth of social interaction, 
 providing a more complex system from which to draw more interesting data and concluions.	
 
-The environment would have to manage and regulate the players and
-define how they are able to interact with each other, as well as the parameters
+The environment would have to manage and regulate the players,
+define how they are able to interact with each other and define the parameters
 of the game (in this case: food, other agents and groups).
-Meanwhile, all aspects of the simulation would need to be monitored, visualised
-and analysed while the players are interacting, in order to track the progress of the game and
-to provide meaningful output.
+While the players are interacting the system needs to monitor, visualise and analyse all aspects of the simulation. This is done in order to track the progress of the game and provide a meaningful output.
 
-Players in this game could all be defined by an abstract class which houses
-all the functions necessary to interact with the environment and other agents, 
+Players within the game could all be defined by an abstract class which houses
+every function necessary to interact with the environment and other agents, 
 including all decision making algorithms.
 
 Groups themselves need to have their own behaviour specified in the framework - 
-mostly to deal with formation of, disbandment of and movement between groups.
-They act much like agents, but make decisions based on a combination of the strategies 
+this is mostly to deal with their formation, disbandment and the movement of agents between groups.
+Groups act in a similar fashion to agents, but make decisions based on a combination of the strategies 
 used by its members. 
 
-Through research, we hope to optimise the variables needed in attempt to mimic
+Through research we hope to optimise the variables needed in order to mimic
 human behaviour in our simulations; using the Multi-Agent System paradigm to
 implement our framework.
-Throughout the project we intend to investigate the behaviour that emerges from variations in
-agent strategies and interactions, and discover what exactly causes this behaviour to emerge and 
+We also intend to investigate the behaviour that emerges from variations in
+agent strategies and interactions, hopefully discovering what exactly causes this behaviour to emerge and 
 if it is consistant and stable.
 
